@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title> new document </title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:auto 0;}
+		body{padding:50px;}
+		.css3-loading{
+			width:25px;height:25px;
+			-webkit-animation: csse-loading 2s linear infinite;
+		}
+		.css3-loading>span{display:block;width:5px;height:5px;border-radius:3px;background:green;}
+		.css3-loading>span:nth-child(1){}
+		.css3-loading>span:nth-child(2){-webkit-transform: rotate(45deg) ;}
+		.css3-loading>span:nth-child(3){-webkit-transform: rotate(90deg) ;}
+		.css3-loading>span:nth-child(4){-webkit-transform: rotate(135deg) ;}
+		.css3-loading>span:nth-child(5){-webkit-transform: rotate(180deg) ;}
+		.css3-loading>span:nth-child(6){-webkit-transform: rotate(225deg) ;}
+		.css3-loading>span:nth-child(7){-webkit-transform: rotate(270deg) ;}
+		.css3-loading>span:nth-child(8){-webkit-transform: rotate(315deg) ;}
+		@-webkit-keyframes csse-loading{
+			from{
+				-webkit-transform: rotate(0deg)
+			}
+			to{
+				-webkit-transform: rotate(360deg)
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="css3-loading">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</body>
+</html>
