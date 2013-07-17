@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:auto 0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-box; }
+		.wrap div{padding:10px; }
+		.wrap2{position:relative;}
+		.aa{background:#ccc; }
+		.bb{background:green;position:absolute;top:5px;left:5px; }
+		.cc{background:purple; }
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>flex item position:absolute;, 还是相对祖先定位元素</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+		</div>
+	</div>
+	<div class="demo">
+		<div class="wrap wrap2">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+		</div>
+	</div>
+</body>
+</html>
