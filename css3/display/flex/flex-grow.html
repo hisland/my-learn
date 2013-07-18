@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-flex;}
+		.wrap div{padding:10px;}
+		.aa{background:#ccc; }
+		.bb{background:green; }
+		.cc{background:purple; }
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>flex-grow:0; 默认是0, 不分配剩余空间</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-flex-direction: column;height:200px;">
+			<div class="aa" style=""></div>
+			<div class="bb" style=""></div>
+			<div class="cc" style=""></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>flex-grow:1; 平均分配剩余空间</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-flex-direction: column;height:200px;">
+			<div class="aa" style="-webkit-flex-grow: 1;"></div>
+			<div class="bb" style="-webkit-flex-grow: 1;"></div>
+			<div class="cc" style="-webkit-flex-grow: 1;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>flex-grow:1; 平均分配剩余空间, 水平方向</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="">
+			<div class="aa" style="-webkit-flex-grow: 1;"></div>
+			<div class="bb" style="-webkit-flex-grow: 1;"></div>
+			<div class="cc" style="-webkit-flex-grow: 1;"></div>
+		</div>
+	</div>
+</body>
+</html>

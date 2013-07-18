@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-flex;background:#eee;padding-left:20px;}
+		.wrap div{height:30px;}
+		.aa{background:#ccc; }
+		.bb{background:green; }
+		.cc{background:purple; }
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>flex-shrink:1; 默认是1, 平均分担不够的空间</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-flex-direction: column;height:50px;">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>flex-shrink:1; 分担不够的空间, 水平方向</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="width:50px;padding-top:20px;">
+			<div class="aa" style="width:30px;"></div>
+			<div class="bb" style="width:30px;"></div>
+			<div class="cc" style="width:30px;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>flex-shrink:0; 不分担不够的空间</p>
+	</div>
+	<div class="demo" style="margin-bottom:50px;">
+		<div class="wrap" style="-webkit-flex-direction: column;height:50px;">
+			<div class="aa" style="-webkit-flex-shrink: 0;"></div>
+			<div class="bb" style="-webkit-flex-shrink: 0;"></div>
+			<div class="cc" style="-webkit-flex-shrink: 0;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>flex-shrink:0; 不分担不够的空间, 水平方向</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="width:50px;padding-top:20px;">
+			<div class="aa" style="-webkit-flex-shrink: 0;width:30px;"></div>
+			<div class="bb" style="-webkit-flex-shrink: 0;width:30px;"></div>
+			<div class="cc" style="-webkit-flex-shrink: 0;width:30px;"></div>
+		</div>
+	</div>
+</body>
+</html>

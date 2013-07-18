@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-flex;}
+		.wrap div{padding:10px; }
+		.aa{background:#ccc; }
+		.bb{background:green; }
+		.cc{background:purple; }
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>Flexible-boxes-related properties: margin, align-content, align-items, align-self, display, flex, flex-basis, flex-direction, flex-flow, flex-grow, flex-shrink, flex-wrap, justify-content, min-height, min-width, order</p>
+	</div>
+	<br />
+	<div class="desc">
+		<p>此为<'flex-grow'> <'flex-shrink'> <'flex-basis'> 3个值的缩写属性, 应用在flex items上</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>flex:auto;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa" style="-webkit-flex: auto;"></div>
+			<div class="bb" style="-webkit-flex: auto;"></div>
+			<div class="cc" style="-webkit-flex: auto;"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>flex:1;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa" style="-webkit-flex: 1;"></div>
+			<div class="bb" style="-webkit-flex: 1;"></div>
+			<div class="cc" style="-webkit-flex: 1;"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>-webkit-flex-direction: column;height:200px;, flex:1;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-flex-direction: column;height:200px;">
+			<div class="aa" style="-webkit-flex: 1;"></div>
+			<div class="bb" style="-webkit-flex: 1;"></div>
+			<div class="cc" style="-webkit-flex: 1;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-flex-direction: column;height:200px;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-flex-direction: column;height:200px;">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+		</div>
+	</div>
+</body>
+</html>

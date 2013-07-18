@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-flex;background:#eee;padding-left:20px;}
+		.wrap div{height:30px;}
+		.aa{background:#ccc; }
+		.bb{background:green; }
+		.cc{background:purple; }
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>flex-basis:auto; 默认是auto, item的基础main size</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa">aa</div>
+			<div class="bb">bb</div>
+			<div class="cc">cc</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>flex-basis:100px;每个item 100px宽</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa" style="-webkit-flex-basis:100px;">aa</div>
+			<div class="bb" style="-webkit-flex-basis:100px;">bb</div>
+			<div class="cc" style="-webkit-flex-basis:100px;">cc</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>flex-basis:100px;每个item 100px宽, 宽度不够,由于默认flex-shrink:1,所以自动缩小了</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="width:100px;padding-top:20px;">
+			<div class="aa" style="-webkit-flex-basis:100px;">aa</div>
+			<div class="bb" style="-webkit-flex-basis:100px;">bb</div>
+			<div class="cc" style="-webkit-flex-basis:100px;">cc</div>
+		</div>
+	</div>
+</body>
+</html>
