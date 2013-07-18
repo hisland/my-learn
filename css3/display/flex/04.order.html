@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-flex; height:100px;}
+		.wrap div{height:30px;}
+		.aa{background:#ccc;}
+		.bb{background:green;}
+		.cc{background:purple;}
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>-webkit-order 是设置<strong style="color:red;">item 出现顺序</strong>, 默认是0, 相同值按DOM顺序排</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa"><p>1</p></div>
+			<div class="bb" style="-webkit-order:2">2, -webkit-order:2</div>
+			<div class="cc">3</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-order:2, -webkit-order:1</p>
+	</div>
+	<div class="demo">
+		<div class="wrap wrap2">
+			<div class="aa" style="-webkit-order:2"><p>1, -webkit-order:2</p></div>
+			<div class="bb">2</div>
+			<div class="cc" style="-webkit-order:1"><p>3, -webkit-order:1</p></div>
+		</div>
+	</div>
+</body>
+</html>

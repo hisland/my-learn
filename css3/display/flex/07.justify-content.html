@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-flex; height:100px;}
+		.wrap div{}
+		.aa{background:#ccc;}
+		.bb{background:green;}
+		.cc{background:purple;}
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>-webkit-justify-content 设置<strong style="color:red;">item在main-axis上的对齐方式</strong>, 默认是flex-start</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa" style="height:20px;">1</div>
+			<div class="bb" style="height:50px;">2</div>
+			<div class="cc" style="height:30px;">3</div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>-webkit-justify-content:flex-end;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-justify-content:flex-end;">
+			<div class="aa" style="height:20px;">1</div>
+			<div class="bb" style="height:50px;">2</div>
+			<div class="cc" style="height:30px;">3</div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>-webkit-justify-content:center;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-justify-content:center;">
+			<div class="aa" style="height:20px;">1</div>
+			<div class="bb" style="height:50px;">2</div>
+			<div class="cc" style="height:30px;">3</div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>-webkit-justify-content:space-between;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-justify-content:space-between;">
+			<div class="aa" style="height:20px;">1</div>
+			<div class="bb" style="height:50px;">2</div>
+			<div class="cc" style="height:30px;">3</div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>-webkit-justify-content:space-around;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-justify-content:space-around;">
+			<div class="aa" style="height:20px;">1</div>
+			<div class="bb" style="height:50px;">2</div>
+			<div class="cc" style="height:30px;">3</div>
+		</div>
+	</div>
+</body>
+</html>

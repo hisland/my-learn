@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-flex; height:100px;}
+		.wrap div{}
+		.aa{background:#ccc;}
+		.bb{background:green;}
+		.cc{background:purple;}
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>-webkit-align-self 设置<strong style="color:red;">在item上</strong>, 默认是auto, 获取parent的计算align-items值</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-align-items:flex-start;">
+			<div class="aa" style="height:20px;">1</div>
+			<div class="bb" style="height:50px;-webkit-align-self:flex-end;">2, -webkit-align-self:flex-end;</div>
+			<div class="cc" style="height:30px;">3</div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>-webkit-align-items:flex-end;, 对齐cross-end</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-align-items:flex-end;">
+			<div class="aa" style="height:20px;">1</div>
+			<div class="bb" style="height:50px;-webkit-align-self:flex-start;">2, -webkit-align-self:flex-start;</div>
+			<div class="cc" style="height:30px;">3</div>
+		</div>
+	</div>
+</body>
+</html>

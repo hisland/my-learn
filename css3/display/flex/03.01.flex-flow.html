@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-flex;}
+		.wrap div{padding:10px;}
+		.aa{background:#ccc;}
+		.bb{background:green;}
+		.cc{background:purple;}
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>此为<'flex-direction'> || <'flex-wrap'>的缩写</p>
+		<p>-webkit-flex-flow, <'flex-direction'> || <'flex-wrap'></p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>-webkit-flex-wrap: wrap;, 折行</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-flex-flow: row wrap;background:red;padding-top:10px;width:300px;">
+			<div class="aa" style="width:200px;"></div>
+			<div class="bb" style="width:200px;"></div>
+			<div class="cc" style="width:200px;"></div>
+		</div>
+	</div>
+</body>
+</html>
