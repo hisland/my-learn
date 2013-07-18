@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:auto 0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-box; height:100px;}
+		.wrap2{-webkit-box-orient: vertical;height:200px;}
+		.wrap3{-webkit-box-orient: vertical;height:50px;}
+		.wrap div{padding:10px;-webkit-box-flex:1;}
+		.aa{background:#ccc; }
+		.bb{background:green; }
+		.cc{background:purple; }
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>-webkit-box-flex 是设置<strong style="color:red;">item均分剩余空间的比例,包括正和负</strong>, 默认是0</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa"><p>some text in aa</p></div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-box-orient: vertical;, 有多余空间</p>
+	</div>
+	<div class="demo">
+		<div class="wrap wrap2">
+			<div class="aa"><p>some text in aa</p></div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-box-orient: vertical;, 整体空间不够</p>
+	</div>
+	<div class="demo">
+		<div class="wrap wrap3">
+			<div class="aa"><p>some text in aa</p></div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+</body>
+</html>

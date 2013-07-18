@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:auto 0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-box; height:100px;}
+		.wrap2{-webkit-box-pack:end;}
+		.wrap3{-webkit-box-pack:center;}
+		.wrap5{-webkit-box-pack:justify;}
+		.wrap4{-webkit-box-orient: vertical;height:200px;}
+		.wrap div{padding:10px;}
+		.aa{background:#ccc; }
+		.bb{background:green; }
+		.cc{background:purple; }
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>-webkit-box-pack 是设置<strong style="color:red;">item main-axis方向</strong>对齐方式, 默认是start</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa"><p>some text in aa</p></div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-box-pack:end;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap wrap2">
+			<div class="aa"><p>some text in aa</p></div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-box-pack:center;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap wrap3">
+			<div class="aa"><p>some text in aa</p></div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-box-pack:justify;分散</p>
+	</div>
+	<div class="demo">
+		<div class="wrap wrap5">
+			<div class="aa"><p>some text in aa</p></div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-box-pack:end;-webkit-box-orient: vertical;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap wrap2 wrap4">
+			<div class="aa"><p>some text in aa</p></div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:auto 0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-box; height:100px;}
+		.wrap2{-webkit-box-align:end;}
+		.wrap3{-webkit-box-align:center;}
+		.wrap div{padding:10px;}
+		.aa{background:#ccc; }
+		.bb{background:green; }
+		.cc{background:purple; }
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p>-webkit-box-align 是设置<strong style="color:red;">item cross-axis方向</strong>对齐方式, 默认是stretch拉伸</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa"><p>some text in aa</p></div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-box-align:end;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap wrap2">
+			<div class="aa"><p>some text in aa</p></div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-box-align:center;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap wrap3">
+			<div class="aa"><p>some text in aa</p></div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+</body>
+</html>
