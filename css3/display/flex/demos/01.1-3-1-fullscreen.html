@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		html,body{height:100%;}
+
+		body{display:-webkit-flex;-webkit-flex-direction:column;}
+
+		header{background:#ccc;min-height:100px;}
+		#main{-webkit-flex:1;display:-webkit-flex;}
+			article{-webkit-flex:3 1 60%;background:green;-webkit-order:1;}
+			nav{-webkit-flex:1 6 20%;background:purple;}
+			aside{-webkit-flex:1 6 20%;background:gold;-webkit-order:2;}
+		footer{background:#ccc;min-height:100px;}
+
+		@media all and (max-width:600px){
+			#main{-webkit-flex-flow:column;}
+			article{-webkit-order:0;}
+			aside{-webkit-order:0;}
+			header, footer{min-height:50px;}
+		}
+	</style>
+</head>
+<body>
+	<header>header</header>
+	<div id="main">
+		<article>article</article>
+		<nav>nav</nav>
+		<aside>aside</aside>
+	</div>
+	<footer>footer</footer>
+</body>
+</html>
