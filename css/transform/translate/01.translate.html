@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		p{clear:left;}
+
+		.boxes{width:180px;height:180px;background:#ccc;padding:10px;float:left;margin:5px;}
+		.box{float:left;width:60px;height:60px;background:green;}
+		.box:nth-child(2){background:purple;}
+		.box:nth-child(3){background:gold;}
+		.box:nth-child(4){background:yellow;}
+		.box:nth-child(5){background:red;}
+		.box:nth-child(6){background:#999;}
+		.box:nth-child(7){background:pink;}
+		.box:nth-child(8){background:teal;}
+		.box:nth-child(9){background:aqua;}
+
+		.boxin{width:120px;height:60px;background:navy;position:relative;top:10px;left:10px;}
+	</style>
+</head>
+<body>
+
+	<p>translate控制的是盒子区域,不影响其它盒子</p>
+	<div class="boxes">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box" style="border:2px solid green;width:46px;height:46px;margin:5px;-webkit-transform:translateX(10%) translateY(10%);"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+	<div class="boxes">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box" style="-webkit-transform:translateX(-10%) translateY(-10%);"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+
+	<p>会受position, z-index的影响, 同一元素先position,后translate</p>
+	<div class="boxes">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box" style="-webkit-transform:translateX(10%) translateY(10%);"></div>
+		<div class="box" style="position:relative;"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+	<div class="boxes">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box" style="position:relative;z-index:1;top:10px;left:10px;-webkit-transform:translateX(10%) translateY(10%);"></div>
+		<div class="box" style="position:relative;"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+
+	<p>会被父元素的overflow:hidden截断,自己的overflow:hidden不会隐藏超出部分</p>
+	<div class="boxes" style="overflow:hidden;">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box" style="-webkit-transform:translateX(180%);"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+
+	<p>自己的overflow:hidden隐藏内部元素超出的部分</p>
+	<div class="boxes" style="overflow:hidden;">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box" style="-webkit-transform:translateX(-30%);overflow:hidden;">
+			<div class="boxin"></div>
+		</div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+</body>
+</html>
