@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;padding-bottom:150px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-flex;}
+		.wrap div{padding:10px;}
+		.red{color:red;}
+
+		@-webkit-keyframes aa1 {
+			20% { left: 100px; }
+		}
+		.aa1{background:#ccc;position:relative;-webkit-animation:aa1 2s linear;}
+
+		@-webkit-keyframes -aa1 {
+			20% { left: 100px; }
+		}
+		.aa2{background:#ccc;position:relative;-webkit-animation:-aa1 2s linear;}
+
+		@-webkit-keyframes --aa1 {
+			20% { left: 100px; }
+		}
+		.aa3{background:#ccc;position:relative;-webkit-animation:--aa1 2s linear;}
+
+		@-webkit-keyframes 11aa {
+			20% { left: 100px; }
+		}
+		.aa4{background:#ccc;position:relative;-webkit-animation:11aa 2s linear;}
+
+		@-webkit-keyframes _11aa {
+			20% { left: 100px; }
+		}
+		.aa5{background:#ccc;position:relative;-webkit-animation:_11aa 2s linear;}
+
+		@-webkit-keyframes -_11aa {
+			20% { left: 100px; }
+		}
+		.aa6{background:#ccc;position:relative;-webkit-animation:-_11aa 2s linear;}
+
+		@-webkit-keyframes bb1 {
+			20% { left: 100px; }
+		}
+		@-webkit-keyframes bb2 {
+			20% { top: 100px; }
+		}
+		.aa7{background:#ccc;position:relative;-webkit-animation:bb1, bb2 2s linear;}
+
+		@-webkit-keyframes cc1 {
+			20% { left: 100px; }
+		}
+		.aa8{background:#ccc;position:relative;-webkit-animation:CC1 2s linear;}
+	</style>
+</head>
+<body>
+	<p class="red">animation-name, 可用字符[A-Za-z0-9_-], --开头不行, 第一个非-字符必须是字母或_, 区分大小写</p>
+	<div class="desc">
+		<p>animation-name: aa1</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa1"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>animation-name: -aa1, 必须与keyframes指定的名字对应</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa2"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>animation-name: --aa1, 不行</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa3"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>animation-name: 11aa, 不行</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa4"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>animation-name: _11aa可以</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa5"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>animation-name: -_11aa可以</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa6"></div>
+		</div>
+	</div>
+
+	<p class="red">animation-name: name1, name2 指定多个名字</p>
+	<div class="desc">
+		<p>指定多个名字, 最后一个起作用</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="margin-bottom:100px;">
+			<div class="aa7"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>动画定义cc1, 使用CC1, 无效, 要区分大小写</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa8"></div>
+		</div>
+	</div>
+</body>
+</html>
