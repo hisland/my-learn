@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-flex;}
+		.wrap div{padding:10px;}
+
+		@-webkit-keyframes valid {
+			0% { left: 0; }
+			100% { left: 100px; }
+		}
+		@-webkit-keyframes valid1 {
+			0% { left: 0; }
+		}
+		@-webkit-keyframes valid2 {
+			100% { left: 200px; }
+		}
+		.aa{background:#ccc;-webkit-animation:valid 2s;position:relative;left:50px;}
+		.aa1{background:#ccc;-webkit-animation:valid1 2s;position:relative;left:50px;}
+		.aa2{background:#ccc;-webkit-animation:valid2 2s;position:relative;left:50px;}
+		.bb{background:green;}
+		.cc{background:purple;}
+		.red{color:red;}
+
+		@-webkit-keyframes dup1 {
+			0% { left: 0; }
+		}
+		@-webkit-keyframes dup2 {
+			0% { top: 100px; }
+		}
+		.aa3{background:#ccc;-webkit-animation:dup1 2s;-webkit-animation:dup2 2s;position:relative;left:50px;top:10px;}
+
+		@-webkit-keyframes aa4 {
+			0% { top: 0; left: 0; }
+			40% { top: 30px; }
+			60%, 80% { left: 50px; }
+			100% { top: 100px; left: 100px; }
+		}
+		.aa4{background:#ccc;-webkit-animation:aa4 2s linear;position:relative;left:50px;top:10px;}
+
+		@-webkit-keyframes aa5 {
+			50% { width:100px; }
+		}
+		.aa5{background:#ccc;-webkit-animation:aa5 2s linear;position:relative;}
+
+		@-webkit-keyframes aa6 {
+			80% { width:100px; }
+			20% { width:30px; }
+		}
+		.aa6{background:#ccc;-webkit-animation:aa6 2s linear;position:relative;}
+
+		@-webkit-keyframes aa7 {
+			20% { width:100px; left: 100px;}
+			20% { width:30px;}
+		}
+		.aa7{background:#ccc;-webkit-animation:aa7 2s linear;position:relative;}
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<pre class="red">
+Syntax:
+
+@keyframes <identifier> {
+  [ [ from | to | <percentage> ] [, from | to | <percentage> ]* block ]*
+}
+		</pre>
+		<p class="red">animation, from和to至少有1个,否则invalid</p>
+		<p>from-to, 从from到to, 然后恢复当前状态</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>只有from, 从from到当前状态</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa1"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>只有to, 从当前状态到to, 再恢复当前状态</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa2"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p class="red">只有最后一个animation设置起效,不会层叠合并</p>
+	</div>
+	<div class="demo" style="margin-bottom:100px;">
+		<div class="wrap">
+			<div class="aa3"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p class="red">关键帧值有缺失的时候采用插值, 根据time-function插入</p>
+		<p class="red">key的语法可以是 key,key{rules} 用,号分隔不同的时间段</p>
+	</div>
+	<div class="demo" style="margin-bottom:100px;">
+		<div class="wrap">
+			<div class="aa4"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p class="red">mdn说只有from,to里有的属性才动画,实测只要在frame有的都会动画,初始和结束值是当前状态值</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa5"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p class="red">关键帧的定义不需要按from-to的顺序,可以先定义80%,再定义20%</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa6"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p class="red">相同帧定义会采取最后一个,且相同帧的不同属性不会合并, 合并不合并的标准正在讨论中...</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa7"></div>
+		</div>
+	</div>
+</body>
+</html>
