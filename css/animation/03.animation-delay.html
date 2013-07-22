@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+		.red{color:red;}
+
+		.wrap{display:-webkit-flex;}
+		.wrap div{padding:10px;}
+
+		@-webkit-keyframes aa1 {
+			0% { left: 0; }
+			100% { left: 200px; }
+		}
+	</style>
+</head>
+<body>
+	<p class="red">animation-delay, 开始动画的延迟, 不会从duration中减掉</p>
+	<div class="desc">
+		<p>默认是0s, 立即开始</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s linear;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>延迟1s, 3s完成动画</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s 1s linear;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>延迟500ms, 2.5s完成动画</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s 500ms linear;"></div>
+		</div>
+	</div>
+	<p class="red">1s, 2s 多个值还是不知道什么情况</p>
+</body>
+</html>
