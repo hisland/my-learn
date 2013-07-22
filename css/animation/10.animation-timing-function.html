@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+		.red{color:red;}
+
+		.wrap{display:-webkit-flex;}
+		.wrap div{padding:10px;}
+
+		@-webkit-keyframes aa1 {
+			0% { left: 0; }
+			100% { left: 200px; }
+		}
+	</style>
+</head>
+<body>
+	<p>动画的时间曲线</p>
+	<div class="desc">
+		<p>默认是ease, 快-慢, 类似ease-in-out</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>linear, 线性匀速</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s linear;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>ease-in, 慢-快</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s ease-in;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>ease-out, 快-慢</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s ease-out;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>ease-in-out, 慢-快-慢</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s ease-in-out;"></div>
+		</div>
+	</div>
+
+	<p class="red">cubic-bezier(x1, y1, x2, y2), 4个值必须填写, 没有默认值, (X,Y)组成坐标第内的点, X值必须在[0,1]之间, Y可为负或大于1, 产生的效果是回弹
+		参见<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/timing-function#The_cubic-bezier()_class_of_timing-functions">MDN</a></p>
+	<div class="desc">
+		<p>cubic-bezier(0, 0, 1, 1), liear就是这个值</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s cubic-bezier(0, 0, 1, 1);"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>cubic-bezier(0.1, 0.7, 1.0, 0.1)</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s cubic-bezier(0.1, 0.7, 1.0, 0.1);"></div>
+		</div>
+	</div>
+
+	<p class="red">steps(number_of_steps, direction), direction指示先到达还是后到达</p>
+	<div class="desc">
+		<p>step-start === steps(1, start)</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s step-start;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>step-end === steps(1, end)</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s step-end;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>steps(2, start)</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s steps(2, start);"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>steps(2, end)</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s steps(2, end);"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>steps(5, start)</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s steps(5, start);"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>steps(5, end)</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s steps(5, end);"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>ease, step-start 多个值还是不知道什么情况</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 2s steps(5, end);"></div>
+		</div>
+	</div>
+</body>
+</html>
