@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+		.red{color:red;}
+
+		.wrap{display:-webkit-flex;}
+		.wrap div{padding:10px;}
+
+		@-webkit-keyframes aa1 {
+			0% { left: 0; }
+			100% { left: 200px; }
+		}
+	</style>
+</head>
+<body>
+	<p class="red">animation-direction, 每次的动画播放方向</p>
+	<div class="desc">
+		<p>默认 normal , from-to, from-to</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 1s 2;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>alternate , from-to, to-from, 要播放2次以上才有效果</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;-webkit-animation:aa1 1s 2 alternate;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>reverse , to-from, to-from, 要播放2次以上才有效果</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;-webkit-animation:aa1 1s 2 reverse;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>alternate-reverse , to-from, from-to, 要播放2次以上才有效果</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:200px;-webkit-animation:aa1 1s 2 alternate-reverse;"></div>
+		</div>
+	</div>
+</body>
+</html>
