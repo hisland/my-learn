@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+		.red{color:red;}
+
+		.wrap{display:-webkit-flex;}
+		.wrap div{padding:10px;}
+
+		@-webkit-keyframes aa1 {
+			20% { left: 100px; }
+		}
+		.aa1{background:#ccc;position:relative;-webkit-animation:aa1 2s linear;}
+		.aa2{background:#ccc;position:relative;-webkit-animation:aa1 4s linear;}
+		.aa3{background:#ccc;position:relative;-webkit-animation:aa1 1000ms linear;}
+		.aa4{background:#ccc;position:relative;-webkit-animation:aa1 1s, 2s linear;}
+		.aa5{background:#ccc;position:relative;-webkit-animation:aa1 2s, 1s linear;}
+	</style>
+</head>
+<body>
+	<p>animation-duration: TIME, 动画完成一次需要的时间., m或者ms</p>
+	<div class="desc">
+		<p>animation-duration: 2s</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa1"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>animation-duration: 4s</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa2"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>animation-duration: 1000ms</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa3"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p class="red">animation-duration: 1s, 2s, 多个值还不知道什么意思, 和单个值效果不一样</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa4"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p class="red">animation-duration: 2s, 1s, 多个值还不知道什么意思, 和单个值效果不一样</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa5"></div>
+		</div>
+	</div>
+</body>
+</html>
