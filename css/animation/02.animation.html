@@ -13,11 +13,15 @@
 
 		.wrap{display:-webkit-flex;}
 		.wrap div{padding:10px;}
-		.aa{background:#ccc;}
+
+		@-webkit-keyframes aa1 {
+			0% { left: 0; }
+			100% { left: 200px; }
+		}
 	</style>
 </head>
 <body>
-	<p>动画会在播放完或者animation-name删掉的时候停止</p>
+	<p class="red">动画会在播放完或者animation-name删掉的时候停止</p>
 	<div class="desc">
 		<p>animation</p>
 	</div>
