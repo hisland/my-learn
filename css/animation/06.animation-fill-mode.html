@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+		.red{color:red;}
+
+		.wrap{display:-webkit-flex;}
+		.wrap div{padding:10px;}
+
+		@-webkit-keyframes aa1 {
+			0% { left: 50px; }
+			100% { left: 200px; }
+		}
+	</style>
+</head>
+<body>
+	<p class="red">animation-fill-mode</p>
+	<div class="desc">
+		<p>默认是none, 初始left:0;, 播放完后恢复</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;-webkit-animation:aa1 1s;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>forwards, 初始left:10px;, 播放完后保持最后一帧状态</p>
+		<p class="red">受animation-direction, animation-iteration-count的影响, 其实就是停留在确定的动画播放完成所处的位置</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:10px;-webkit-animation:aa1 1s forwards;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>forwards, animation-iteration-count: 1.5, 实测是animation-iteration-count的值是向下取整</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;-webkit-animation:aa1 1s 1.5 linear alternate forwards;"></div>
+		</div>
+	</div>
+	<p class="red">backwards, 开始就跳到第一帧, 直到animation-delay完, 没有此值是animation-delay完才跳到第一帧</p>
+	<div class="desc">
+		<p>backwards, 初始left:10px;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:10px;-webkit-animation:aa1 1s 1s backwards;">backwards</div>
+		</div>
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:10px;-webkit-animation:aa1 1s 1s;">none</div>
+		</div>
+	</div>
+		<p>both: follow the rules for both forwards and backwards</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;left:10px;-webkit-animation:aa1 1s 1s both;">both</div>
+		</div>
+	</div>
+</body>
+</html>

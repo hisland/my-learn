@@ -21,13 +21,29 @@
 	</style>
 </head>
 <body>
-	<p class="red">animation-name</p>
+	<p class="red">Formal syntax: &lt;single-animation-name&gt; || &lt;time&gt; || &lt;timing-function&gt; || &lt;time&gt; || &lt;single-animation-iteration-count&gt; || &lt;single-animation-direction&gt; || &lt;single-animation-fill-mode&gt;</p>
+	<p class="red">The order is important within each animation definition: the first value that can be parsed as a &lt;time&gt; is assigned to the animation-duration, and the second one is assigned to animation-delay.也就是说time出现第1个是animation-duration, 第2个是animation-delay, 其它的顺序在不产生歧义的情况下随便排列</p>
 	<div class="desc">
 		<p>animation</p>
 	</div>
 	<div class="demo">
 		<div class="wrap">
-			<div class="aa"></div>
+			<div style="background:#ccc;position:relative;-webkit-animation:aa1 1s;">aa1 1s</div>
+		</div>
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;-webkit-animation:1s aa1;">1s aa1</div>
+		</div>
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;-webkit-animation:1s aa1 500ms;">1s aa1 500ms</div>
+		</div>
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;-webkit-animation:500ms 1s aa1;">500ms 1s aa1</div>
+		</div>
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;-webkit-animation:linear 1s aa1;">linear 1s aa1</div>
+		</div>
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;-webkit-animation:forwards 1s aa1;">forwards 1s aa1</div>
 		</div>
 	</div>
 </body>

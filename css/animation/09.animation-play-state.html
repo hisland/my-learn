@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+		.red{color:red;}
+
+		.wrap{display:-webkit-flex;}
+		.wrap div{padding:10px;}
+
+		@-webkit-keyframes aa1 {
+			0% { left: 0; }
+			100% { left: 200px; }
+		}
+	</style>
+</head>
+<body>
+	<p class="red">animation-play-state</p>
+	<div class="desc">
+		<p>默认running, 动画运行中</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;-webkit-animation:aa1 1s;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>paused, 动画暂停中</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="background:#ccc;position:relative;-webkit-animation:aa1 1s;-webkit-animation-play-state:paused;"></div>
+		</div>
+	</div>
+</body>
+</html>
