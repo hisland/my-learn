@@ -11,17 +11,94 @@
 		.demo{border:10px solid #eee;padding:10px;position:relative;}
 		.red{color:red;}
 
-		.wrap{display:-webkit-flex;}
-		.wrap div{padding:10px;}
+		.wrap{display:-webkit-flex;height:100px;}
+		.box{width:50px;height:50px;background:#ccc;}
+		.box1{width:100px;height:100px;background:red;}
 	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			function change(){
+				var elem = document.querySelectorAll('.box');
+				if (elem) {
+					[].forEach.call(elem, function(v, i){
+						if (v.isBox1) {
+							v.className = 'box';
+						}else{
+							v.className = 'box box1';
+						}
+						v.isBox1 = !v.isBox1;
+					})
+				}
+				setTimeout(change, 2500);
+			}
+			change();
+		}
+	</script>
 </head>
 <body>
+	<p class="red">transition property is a shorthand property for transition-property, transition-duration, transition-timing-function, and transition-delay.</p>
+	<p class="red">此属性会被最终拆分到具体属性上</p>
+	<p class="red">2个time有出现顺序的问题,其它随意排列</p>
 	<div class="desc">
-		<p>transition</p>
+		<p>默认值根据单个值来确定, 什么都没设置无效果</p>
 	</div>
 	<div class="demo">
 		<div class="wrap">
-			<div style="background:#ccc;position:relative;-webkit-transition:width 2s;">aa1 1s</div>
+			<div class="box"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-transition:width 1s;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="box" style="-webkit-transition:width 1s;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-transition:width, height 1s linear;, 实际是-webkit-transition:width 0 ease, height 1s linear;所以width不会有效果</p>
+		<p class="red">,号是分隔多组属性设置的, 不是多组属性的单个设置</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="box" style="-webkit-transition:width, height 1s linear;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-transition:width 1s, height 1s linear;, 实际是-webkit-transition:width 1s ease, height 1s linear;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="box" style="-webkit-transition:width 1s, height 1s linear;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p class="red">transition-property声明覆盖了transition指定的属性</p>
+		<p>-webkit-transition:height 2s linear;-webkit-transition-property:background;</p>
+	</div>
+	<div class="demo">
+		<p class="red">transition-property个数相同,覆盖,其它不变</p>
+		<p>-webkit-transition:height 2s linear;-webkit-transition-property:background;</p>
+		<div class="wrap">
+			<div class="box" style="-webkit-transition:height 2s linear;-webkit-transition-property:background;"></div>
+		</div>
+		<p>-webkit-transition:height 2s, width 3s linear;-webkit-transition-property:background, height;</p>
+		<div class="wrap">
+			<div class="box" style="-webkit-transition:height 2s, width 3s linear;-webkit-transition-property:background, height;"></div>
+		</div>
+		<p>transition-property少, transition多, 变成all, 其它取transition最后一组</p>
+		<p>-webkit-transition:height 3s, width 2s linear;-webkit-transition-property:background;</p>
+		<div class="wrap">
+			<div class="box" style="-webkit-transition:height 3s, width 2s linear;-webkit-transition-property:background;"></div>
+		</div>
+		<p>-webkit-transition:height 3s, width 2s linear, background 3s;-webkit-transition-property:background;</p>
+		<div class="wrap">
+			<div class="box" style="-webkit-transition:height 3s, width 2s linear, background 3s;-webkit-transition-property:background;"></div>
+		</div>
+		<p class="red">transition-property多, transition少, 先应用transition-property的值, 再按自己的规则应用transition设置的其它值</p>
+		<p>-webkit-transition:height 3s linear;-webkit-transition-property:width, height, background;</p>
+		<div class="wrap">
+			<div class="box" style="-webkit-transition:height 3s linear;-webkit-transition-property:width, height, background;"></div>
 		</div>
 	</div>
 </body>
