@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+		fieldset{border:1px solid #ccc;margin-bottom:10px;}
+		legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
+		section{margin:10px;position:relative;background:#f3f3f3;}
+		.red{color:red;}
+
+		.box{background:green;width:100px;height:100px;}
+	</style>
+</head>
+<body>
+	<fieldset style="margin-bottom:50px;">
+	<legend>scale(sx) or scale(sx, sy), 等同于 matrix(sx, 0, 0, sy, 0, 0)</legend>
+	<legend class="red">只有sx时, sy=sx</legend>
+	<section>
+		<div class="box" style="-webkit-transform:scale(1.2)">scale(1.2)</div>
+	</section>
+	<section>
+		<div class="box" style="-webkit-transform:scale(0.8)">scale(0.8)</div>
+	</section>
+	<section>
+		<div class="box" style="-webkit-transform:scale(0.8, 1.2)">scale(0.8, 1.2)</div>
+	</section>
+	<legend class="red">负值翻转效果</legend>
+	<section>
+		<div class="box" style="-webkit-transform:scale(-0.8)">scale(-0.8)</div>
+	</section>
+	<legend>默认中心点是正中心, 可通过transform-origin修改</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform-origin:left top;-webkit-transform:scale(0.8)">transform-origin:left top;, scale(0.8)</div>
+	</section>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform-origin:right bottom;-webkit-transform:scale(0.8)">transform-origin:right bottom;, scale(0.8)</div>
+	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>scale3d(sx, sy, sz), 无参考公式</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform:scale3d(0.8, 0.8, 0.8)">scale3d(0.8, 0.8, 0.8)</div>
+	</section>
+	<section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>scaleX(sx) is a shorthand for scale(sx, 1) or for scale3d(sx, 1, 1)</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform:scaleX(1.2)">scaleX(1.2)</div>
+	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>scaleY(sy) is a shorthand for scale(1, sy) or for scale3d(1, sy, 1)</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform:scaleY(1.2)">scaleY(1.2)</div>
+	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>scaleZ(sz) is a shorthand for scale3d(1, 1, sz)</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform:scaleZ(1.2)">scaleZ(1.2)</div>
+	</section>
+	</fieldset>
+
+</body>
+</html>

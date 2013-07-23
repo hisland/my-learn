@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+		fieldset{border:1px solid #ccc;margin-bottom:10px;}
+		legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
+		section{margin:10px;position:relative;background:#f3f3f3;}
+		.red{color:red;}
+
+		.box{background:green;width:100px;height:100px;}
+	</style>
+</head>
+<body>
+	<fieldset style="margin-bottom:50px;">
+	<legend>skew(ax) or skew(ax, ay), 等同于 matrix(1, tan(ay), tan(ax), 1, 0, 0)</legend>
+	<section>
+		<div class="box" style="-webkit-transform:skew(30deg)">skew(30deg)</div>
+	</section>
+	<section>
+		<div class="box" style="-webkit-transform:skew(30deg, 30deg)">skew(30deg, 30deg)</div>
+	</section>
+	<legend class="red">负值效果</legend>
+	<section>
+		<div class="box" style="-webkit-transform:skew(-30deg)">skew(-30deg)</div>
+	</section>
+	<section>
+		<div class="box" style="-webkit-transform:skew(-30deg, -30deg)">skew(-30deg, -30deg)</div>
+	</section>
+	<legend>默认中心点是正中心, 可通过transform-origin修改</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform-origin:left top;-webkit-transform:skew(30deg)">transform-origin:left top;, skew(30deg)</div>
+	</section>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform-origin:right bottom;-webkit-transform:skew(30deg)">transform-origin:right bottom;, skew(30deg)</div>
+	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>skewX(sx) is a shorthand for skew(sx, 1)</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform:skewX(30deg)">skewX(30deg)</div>
+	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>skewY(sy) is a shorthand for skew(1, sy)</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform:skewY(30deg)">skewY(30deg)</div>
+	</section>
+	</fieldset>
+
+</body>
+</html>
