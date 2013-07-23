@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+		fieldset{border:1px solid #ccc;margin-bottom:10px;}
+		legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
+		section{margin:10px;position:relative;background:#f3f3f3;}
+		.red{color:red;}
+
+		.box{background:green;width:200px;height:100px;}
+	</style>
+</head>
+<body>
+	<fieldset style="margin-bottom:50px;">
+	<legend>translate(tx) or translate(tx, ty), 等同于 matrix(1, 0, 0, 1, tx, ty)</legend>
+	<section>
+		<div class="box" style="-webkit-transform:translate(50px)">translate(50px)</div>
+	</section>
+	<section style="margin-bottom:70px;">
+		<div class="box" style="-webkit-transform:translate(50px, 50px)">translate(50px, 50px)</div>
+	</section>
+	<legend>实测%是相对自己的值</legend>
+	<section>
+		<div class="box" style="-webkit-transform:translate(30%)">translate(30%)</div>
+	</section>
+	<section>
+		<div class="box" style="-webkit-transform:translate(30%, 30%)">translate(30%, 30%)</div>
+	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>translateX(tx) is a shortcut for translate(tx, 0)</legend>
+	<legend>translateY(ty) is a shortcut for translate(0, ty)</legend>
+	<section>
+		<div class="box" style="-webkit-transform:translateX(50px)">translateX(50px)</div>
+	</section>
+	<section>
+		<div class="box" style="-webkit-transform:translateY(50px)">translateY(50px)</div>
+	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>translateZ(tz) is a shorthand for translate3d(0, 0, tz)</legend>
+	<section>
+		<div class="box" style="-webkit-transform:translateZ(50px)">translateZ(50px)</div>
+	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>translate3d(tx, ty, tz)</legend>
+	<section>
+		<div class="box" style="-webkit-transform:translate3d(30px)">translate3d(30px), 语法错误</div>
+	</section>
+	<section>
+		<div class="box" style="-webkit-transform:translate3d(30px, 30px)">translate3d(30px, 30px), 语法错误</div>
+	</section>
+	<section>
+		<div class="box" style="-webkit-transform:translate3d(30px, 30px, 30px)">translate3d(30px, 30px, 30px)</div>
+	</section>
+	</fieldset>
+
+</body>
+</html>

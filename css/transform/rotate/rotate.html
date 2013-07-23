@@ -6,18 +6,61 @@
 	<style type="text/css">
 		*{padding:0;margin:0;}
 		body{padding:50px;}
-		ul{display: table;}
-		li{display: table-cell;padding:10px;}
-		li{background:#ccc;}
-		li+li{background:#999;}
-		li+li+li{background:#666;}
+		fieldset{border:1px solid #ccc;margin-bottom:10px;}
+		legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
+		section{margin:10px;position:relative;background:#f3f3f3;}
+		.red{color:red;}
+
+		.box{background:green;width:100px;height:100px;}
 	</style>
 </head>
 <body>
-	<ul>
-		<li>a</li>
-		<li>b</li>
-		<li>c</li>
-	</ul>
+	<fieldset style="margin-bottom:50px;">
+	<legend>rotate(a), 等同于 matrix(cos(a), -sin(a), sin(a), cos(a), 0, 0)</legend>
+	<legend class="red">a是角度,示例: 90deg = 100grad = 0.25turn ≈ 1.5708rad, 即使是0单位也不可缺,必须写成0deg之类</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform:rotate(45deg)">rotate(45deg)</div>
+	</section>
+	<section>
+		<div class="box" style="-webkit-transform:rotate(100grad)">rotate(100grad)</div>
+	</section>
+	<legend>默认中心点是正中心, 可通过transform-origin修改</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform-origin:left top;-webkit-transform:rotate(45deg)">transform-origin:left top;, rotate(45deg)</div>
+	</section>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform-origin:right bottom;-webkit-transform:rotate(45deg)">transform-origin:right bottom;, rotate(45deg)</div>
+	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>rotate3d(x, y, z, a), 公式太复杂,参考<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function#rotate3d()">MDN</a></legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform:rotate3d(1, 1, 1, 45deg)">rotate3d(1, 1, 1, 45deg)</div>
+	</section>
+	<section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>rotateX(a) is a shorthand for rotate3d(1, 0, 0, a)</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform:rotateX(45deg)">rotateX(45deg)</div>
+	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>rotateY(a) is a shorthand for rotate3d(0, 1, 0, a)</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform:rotateY(45deg)">rotateY(45deg)</div>
+	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>rotateZ(a) is a shorthand for rotate3d(0, 0, 1, a)</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-transform:rotateZ(45deg)">rotateZ(45deg)</div>
+	</section>
+	</fieldset>
+
 </body>
 </html>
