@@ -11,17 +11,57 @@
 		.demo{border:10px solid #eee;padding:10px;position:relative;}
 		.red{color:red;}
 
-		.wrap{display:-webkit-flex;}
-		.wrap div{padding:10px;}
+		.wrap{display:-webkit-flex;height:100px;}
+		.box{width:50px;height:50px;background:#ccc;-webkit-transition-property:width, height, background;-webkit-transition-duration:3s;}
+		.box1{width:100px;height:100px;background:red;}
 	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			function change(){
+				var elem = document.querySelectorAll('.box');
+				if (elem) {
+					[].forEach.call(elem, function(v, i){
+						if (v.isBox1) {
+							v.className = 'box';
+						}else{
+							v.className = 'box box1';
+						}
+						v.isBox1 = !v.isBox1;
+					})
+				}
+				setTimeout(change, 3500);
+			}
+			change();
+		}
+	</script>
 </head>
 <body>
+	<p class="red">值要参考transition-property的个数</p>
+	<p class="red">MDN上说:少了会补充ease, 比如有4个属性,只定义了a,b2个func会补全成a,b,ease,ease, 实际chrome是采用的repeat方式,结果是a,b,a,b</p>
+	<p class="red">多了会根据个数截断, 比如有2个属性,只定义了a,b,c,d4个func会截成a,b</p>
 	<div class="desc">
-		<p>transition</p>
+		<p>示例-webkit-transition-property:width, height, background;-webkit-transition-duration:3s;</p>
+		<p>默认是ease</p>
 	</div>
 	<div class="demo">
 		<div class="wrap">
-			<div style="background:#ccc;position:relative;-webkit-transition:width 2s;">aa1 1s</div>
+			<div class="box"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>steps(4, end), linear, 实际是steps(4, end), linear, steps(4, end)</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="box" style="-webkit-transition-timing-function:steps(4, end), linear;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>linear, steps(4, end), 实际是linear, steps(4, end), linear</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="box" style="-webkit-transition-timing-function:linear, steps(4, end);"></div>
 		</div>
 	</div>
 </body>

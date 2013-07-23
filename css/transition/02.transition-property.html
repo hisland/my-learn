@@ -13,15 +13,68 @@
 
 		.wrap{display:-webkit-flex;}
 		.wrap div{padding:10px;}
+		.box{width:50px;height:50px;background:#ccc;-webkit-transition:2s;}
+		.box1{width:100px;height:100px;background:red;}
 	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			function change(){
+				var elem = document.querySelectorAll('.box');
+				if (elem) {
+					[].forEach.call(elem, function(v, i){
+						if (v.isBox1) {
+							v.className = 'box';
+						}else{
+							v.className = 'box box1';
+						}
+						v.isBox1 = !v.isBox1;
+					})
+				}
+				setTimeout(change, 2500);
+			}
+			change();
+		}
+	</script>
 </head>
 <body>
 	<div class="desc">
-		<p>transition</p>
+		<p>默认是all, 所有属性, 只要指定动画时间, 就有效果</p>
 	</div>
 	<div class="demo">
 		<div class="wrap">
-			<div style="background:#ccc;position:relative;-webkit-transition:width 2s;">aa1 1s</div>
+			<div class="box"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-transition-property:width;, 指定单个属性</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="box" style="-webkit-transition-property:width;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-transition-property:height;</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="box" style="-webkit-transition-property:height;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-transition-property:width,height;, 使用,号指定多个属性</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="box" style="-webkit-transition-property:width,height;"></div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-transition-property:all;, 使用all关键字指定全部属性</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="box" style="-webkit-transition-property:all;"></div>
 		</div>
 	</div>
 </body>
