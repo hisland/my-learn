@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+		fieldset{border:1px solid #ccc;margin-bottom:10px;}
+		legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
+		section{margin:10px;position:relative;background:#f3f3f3;}
+		.red{color:red;}
+
+		.before1{background:#ccc;}
+		.before1:before{content: "before";color:#fff;background:green;position:relative;top:-10px;}
+		.before2{background:#ccc;}
+		.before2:before{content: "before";color:#fff;background:green;position:absolute;top:20px;width:100px;height:50px;text-align:center;display: -webkit-flex;-webkit-align-items:center;-webkit-justify-content:center;}
+	</style>
+</head>
+<body>
+	<fieldset>
+	<legend>:before生成的是first-child, 称为伪对象</legend>
+	<section>
+		<p class="before1">this p has some string in it</p>
+	</section>
+	<legend>css2使用:before, css3使用::before, css3的规定是为了与:hover之类的伪类进行区分, 可以使用flex布局</legend>
+	<section>
+		<p class="before2">this p has some string in it</p>
+	</section>
+	</fieldset>
+</body>
+</html>

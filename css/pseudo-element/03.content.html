@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;counter-reset: p}
+		fieldset{border:1px solid #ccc;margin-bottom:10px;}
+		legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
+		section{margin:10px;position:relative;background:#f3f3f3;}
+		.red{color:red;}
+
+		.before1{background:#ccc;}
+		.before1:before{content: "some text";color:#fff;background:green;}
+		.before2:before{content: "中文";color:#fff;background:green;}
+		.before3:before{content: "中 文 带空格";color:#fff;background:green;}
+		.before4:before{content: attr(data-str);color:#fff;background:green;}
+		.before5:before{content: open-quote;color:#fff;background:green;}
+		.before6:before{content: close-quote;color:#fff;background:green;}
+		.before7:before{content: no-close-quote;color:#fff;background:green;}
+		.before8:before{content: no-close-quote;color:#fff;background:green;}
+		.before9:before{content: counter(p);counter-increment:p;color:#fff;background:green;}
+		.before10:before{content: "text1" open-quote "text3" counter(p);color:#fff;background:green;}
+		.before11:before{content: normal open-quote "text3" counter(p);color:#fff;background:green;}
+		.before12:before{content: none open-quote "text3" counter(p);color:#fff;background:green;}
+		.before13:before{content: normal;color:#fff;background:green;}
+		.before14:before{content: none;color:#fff;background:green;}
+		.before15:before{content: url(link_external.png);color:#000;background:#069;}
+	</style>
+</head>
+<body>
+	<fieldset>
+	<legend>The content CSS property is used with the ::before and ::after pseudo-elements to generate content in an element. Objects inserted using the content property are anonymous replaced elements</legend>
+	<section>
+		<p class="before1">this p has some string in it</p>
+		<p class="before1 before2">this p has some string in it</p>
+		<p class="before1 before3">this p has some string in it</p>
+		<p class="before1 before4" data-str="use data-str attr">use data-str attr</p>
+		<p class="before1 before5">open-quote</p>
+		<p class="before1 before6">close-quote</p>
+		<p class="before1 before7">no-open-quote, 会增加quote层级但是没有效果</p>
+		<p class="before1 before8">no-close-quote, 会增加quote层级但是没有效果</p>
+		<p class="before1 before9">counter</p>
+		<p class="before1 before9">counter</p>
+		<p class="before1 before10">多个值</p>
+		<p class="before1 before11">normal混合多个值</p>
+		<p class="before1 before12">none混合多个值</p>
+		<p class="before1 before13">normal: Computes to none for the :before and :after pseudo-elements</p>
+		<p class="before1 before14">none: 不生成伪对象</p>
+		<p class="before1 before15">url(): 外部资源,例如图片, 其它的资源不知道是什么</p>
+	</section>
+	</fieldset>
+</body>
+</html>
