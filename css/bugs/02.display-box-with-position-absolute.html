@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		html,body{height:100%;}
+
+		body{padding:10px;}
+		.wrap{display: -webkit-box;width:100px;height:100px;padding-top:5px;background:green;margin-bottom:50px;}
+		.wrap>div{width:100%;background:purple;}
+		.wrap>div>div{height:30px;background:rgba(0,0,0,.25);}
+		.wrap>div>div:hover:after{position:absolute;z-index:10;top:100%;content:attr(style);height:30px;background:rgba(0,0,0,.8);color:red;}
+		.wrap2{display: -webkit-flex;width:100px;height:100px;padding-top:5px;background:green;}
+		.wrap2>div{-webkit-flex:0 0 100%;background:purple;}
+		.wrap2>div>div{height:30px;background:rgba(0,0,0,.25);}
+		.wrap2>div>div:hover:after{position:absolute;z-index:10;top:100%;content:attr(style);height:30px;background:rgba(0,0,0,.8);color:red;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			setTimeout(function() {
+				document.getElementById('aa').style.cssText = '-webkit-transform: translateX(100%); -webkit-transition: -webkit-transform 1s;';
+				document.getElementById('bb').style.cssText = '-webkit-transform: translateX(100%); -webkit-transition: -webkit-transform 1s;';
+				document.getElementById('cc').style.cssText = '-webkit-transform: translateX(100%); -webkit-transition: -webkit-transform 1s;';
+				document.getElementById('aa2').style.cssText = '-webkit-transform: translateY(100%); -webkit-transition: -webkit-transform 1s;';
+				document.getElementById('bb2').style.cssText = '-webkit-transform: translateY(100%); -webkit-transition: -webkit-transform 1s;';
+				document.getElementById('cc2').style.cssText = '-webkit-transform: translateY(100%); -webkit-transition: -webkit-transform 1s;';
+			}, 1000);
+		}
+	</script>
+</head>
+<body>
+	<p style="margin-bottom:50px;">display:box;可能由于是老规范,未来会被删除,所以有很多bug至今没有修复</p>
+	<div class="wrap">
+		<div style="">
+			<div>this is</div>
+		</div>
+		<div style="position:relative;">
+			<div style="position:absolute;bottom:10px;left:0;right:0;">text here</div>
+		</div>
+		<div style="position:relative;">
+			<div style="position:absolute;top:10px;left:0;right:0;">text here</div>
+		</div>
+		<div style="position:relative;">
+			<div style="position:absolute;bottom:10%;left:0;right:0;">text here</div>
+		</div>
+		<div style="position:relative;">
+			<div style="position:absolute;top:10%;left:0;right:0;">text here</div>
+		</div>
+	</div>
+	<p style="margin-bottom:50px;">下面是使用的display:flex;, 没有问题</p>
+	<div class="wrap2">
+		<div style="">
+			<div>this is</div>
+		</div>
+		<div style="position:relative;">
+			<div style="position:absolute;bottom:10px;left:0;right:0;">text here</div>
+		</div>
+		<div style="position:relative;">
+			<div style="position:absolute;top:10px;left:0;right:0;">text here</div>
+		</div>
+		<div style="position:relative;">
+			<div style="position:absolute;bottom:10%;left:0;right:0;">text here</div>
+		</div>
+		<div style="position:relative;">
+			<div style="position:absolute;top:10%;left:0;right:0;">text here</div>
+		</div>
+	</div>
+</body>
+</html>
