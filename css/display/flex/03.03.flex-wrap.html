@@ -10,8 +10,8 @@
 		.desc{}
 		.demo{border:10px solid #eee;padding:10px;position:relative;}
 
-		.wrap{display:-webkit-flex;}
-		.wrap div{padding:10px;}
+		.wrap{display:-webkit-flex;width:200px;background:red;padding-top:5px;}
+		.wrap>div{width:100px;height:100px;-webkit-flex:0 0 auto;}
 		.aa{background:#ccc;}
 		.bb{background:green;}
 		.cc{background:purple;}
@@ -33,10 +33,21 @@
 		<p>-webkit-flex-wrap: wrap;, 折行</p>
 	</div>
 	<div class="demo">
-		<div class="wrap" style="-webkit-flex-wrap: wrap;background:red;padding-top:10px;width:300px;">
-			<div class="aa" style="width:200px;"></div>
-			<div class="bb" style="width:200px;"></div>
-			<div class="cc" style="width:200px;"></div>
+		<div class="wrap" style="-webkit-flex-wrap: wrap;">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p>-webkit-flex-wrap: wrap-reverse;, 反向折行</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-flex-wrap: wrap-reverse;">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
 		</div>
 	</div>
 </body>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+		.red{color:red;}
+
+		.wrap{display:-webkit-box; height:100px;width:200px;background:red;padding-top:5px;}
+		.wrap>div{width:100px;}
+		.aa{background:#ccc;}
+		.bb{background:green;}
+		.cc{background:purple;}
+	</style>
+</head>
+<body>
+	<p class="red">没有浏览器实现</p>
+	<div class="desc">
+		<p>-webkit-box-lines, 默认 single</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa">some text in aa</div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p>-webkit-box-lines:multiple;, 折行</p>
+	</div>
+	<div class="demo">
+		<div class="wrap" style="-webkit-box-lines:multiple;">
+			<div class="aa">some text in aa</div>
+			<div class="bb">some text in bb</div>
+			<div class="cc">some text in cc</div>
+		</div>
+	</div>
+</body>
+</html>
