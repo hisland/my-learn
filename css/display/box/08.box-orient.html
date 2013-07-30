@@ -11,8 +11,8 @@
 		.demo{border:10px solid #eee;padding:10px;position:relative;}
 
 		.wrap{display:-webkit-box; height:100px;}
-		.wrap2{-webkit-box-orient: vertical;}
-		.wrap div{padding:10px;}
+		.wrap2{-webkit-box-orient: vertical;height:400px;}
+		.wrap>div{padding:10px;}
 		.aa{background:#ccc;}
 		.bb{background:green;}
 		.cc{background:purple;}
@@ -36,7 +36,7 @@
 		<div class="wrap wrap2">
 			<div class="aa"><p>some text in aa</p></div>
 			<div class="bb">some text in bb</div>
-			<div class="cc">some text in cc</div>
+			<div class="cc" style="-webkit-box-flex:1;">我有 -webkit-box-flex:1;, 其它2个没有</div>
 		</div>
 	</div>
 </body>
