@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+		.red{color:red;}
+
+		.wrap{display:-webkit-box;width:400px;padding-top:5px;background:green;}
+		.wrap>div{padding:10px;white-space:nowrap;}
+		.wrap>.aa{background:#ccc;}
+		.wrap>.bb{background:gold;}
+		.wrap>.cc{background:purple;}
+
+		.wrap2{width:400px;padding-top:5px;background:green;white-space:nowrap;}
+		.wrap2>div{padding:10px;white-space:nowrap;display:inline-block;}
+		.wrap2>.aa{background:#ccc;}
+		.wrap2>.bb{background:gold;}
+		.wrap2>.cc{background:purple;}
+
+		.wrap3{width:400px;padding-top:5px;background:green;display: table;}
+		.wrap3>div{display:table-cell;padding:10px;}
+		.wrap3>.aa{background:#ccc;}
+		.wrap3>.bb{background:gold;}
+		.wrap3>.cc{background:purple;}
+
+		.wrap4{width:400px;padding-top:5px;background:green;display: -webkit-flex;}
+		.wrap4>div{padding:10px;-webkit-flex:1 0 auto;}
+		.wrap4>.aa{background:#ccc;}
+		.wrap4>.bb{background:gold;}
+		.wrap4>.cc{background:purple;}
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<p class="red">box要么等量拉伸与收缩,要么都不, 实际应用不合理</p>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa">许多文字许多文字</div>
+			<div class="bb">许多文字许多文字</div>
+			<div class="cc">许多文字许多文字</div>
+		</div>
+	</div>
+	<div class="demo">
+		<p class="red">本来应该自适应却被收缩了</p>
+		<div class="wrap">
+			<div class="aa" style="-webkit-box-flex:1;">许多文字许多文字</div>
+			<div class="bb" style="-webkit-box-flex:1;">许多文字许多文字</div>
+			<div class="cc" style="-webkit-box-flex:1;">许多文字许多文字</div>
+		</div>
+	</div>
+	<div class="demo">
+		<p class="red">不设置又不会自动拉伸</p>
+		<div class="wrap">
+			<div class="aa">少量文字</div>
+			<div class="bb">少量文字</div>
+			<div class="cc">少量文字</div>
+		</div>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa" style="-webkit-box-flex:1;">少量文字</div>
+			<div class="bb" style="-webkit-box-flex:1;">少量文字</div>
+			<div class="cc" style="-webkit-box-flex:1;">少量文字</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p class="red">使用display:inline-block, 空间有多余又不会自动分配</p>
+	</div>
+	<div class="demo">
+		<div class="wrap2">
+			<div class="aa">许多文字许多文字</div>
+			<div class="bb">许多文字许多文字</div>
+			<div class="cc">许多文字许多文字</div>
+		</div>
+	</div>
+	<div class="demo">
+		<div class="wrap2">
+			<div class="aa">少量文字</div>
+			<div class="bb">少量文字</div>
+			<div class="cc">少量文字</div>
+		</div>
+	</div>
+	<div class="desc">
+		<p class="red">使用display:table, 比较完美的横向排版</p>
+	</div>
+	<div class="demo">
+		<div class="wrap3">
+			<div class="aa">许多文字许多文字</div>
+			<div class="bb">许多文字许多文字</div>
+			<div class="cc">许多文字许多文字</div>
+			<div class="bb">许多文字许多文字</div>
+		</div>
+	</div>
+	<div class="demo">
+		<p class="red">white-space:nowrap;, 可以让它横向自动生长</p>
+		<div class="wrap3">
+			<div class="aa" style="white-space:nowrap;">许多文字许多文字</div>
+			<div class="bb" style="white-space:nowrap;">许多文字许多文字</div>
+			<div class="cc" style="white-space:nowrap;">许多文字许多文字</div>
+			<div class="bb" style="white-space:nowrap;">许多文字许多文字</div>
+		</div>
+	</div>
+	<div class="demo">
+		<div class="wrap3">
+			<div class="aa">少量文字</div>
+			<div class="bb">少量文字</div>
+			<div class="cc">少量文字</div>
+			<div class="bb">少量文字</div>
+		</div>
+	</div>
+
+	<div class="desc">
+		<p class="red">使用display:flex, 比较完美</p>
+	</div>
+	<div class="demo">
+		<div class="wrap4">
+			<div class="aa">许多文字许多文字</div>
+			<div class="bb">许多文字许多文字</div>
+			<div class="cc">许多文字许多文字</div>
+			<div class="bb">许多文字许多文字</div>
+		</div>
+	</div>
+	<div class="demo">
+		<p class="red">white-space:nowrap;, 加不加都一样</p>
+		<div class="wrap4">
+			<div class="aa" style="white-space:nowrap;">许多文字许多文字</div>
+			<div class="bb" style="white-space:nowrap;">许多文字许多文字</div>
+			<div class="cc" style="white-space:nowrap;">许多文字许多文字</div>
+			<div class="bb" style="white-space:nowrap;">许多文字许多文字</div>
+		</div>
+	</div>
+	<div class="demo">
+		<div class="wrap4">
+			<div class="aa">少量文字</div>
+			<div class="bb">少量文字</div>
+			<div class="cc">少量文字</div>
+			<div class="bb">少量文字</div>
+		</div>
+	</div>
+</body>
+</html>
