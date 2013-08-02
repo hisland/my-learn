@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.desc{}
+		.demo{border:10px solid #eee;padding:10px;position:relative;}
+
+		.wrap{display:-webkit-flex;-webkit-flex-direction:column;width:200px;height:200px;background:#ccc;}
+		.aa{background:purple;}
+	</style>
+</head>
+<body>
+	<div class="demo">
+		<div class="wrap">
+			<div class="aa" style="-webkit-flex:1;">
+				<div style="height:100%;background:green;">我的height:100%;没用</div>
+			</div>
+		</div>
+	</div>
+	<div class="demo">
+		<div class="wrap">
+			<div style="height:50px;"></div>
+			<div class="aa" style="-webkit-flex:1;height:100%;padding:10px;">
+				<div style="height:100%;background:green;padding:10px;">parent设置height:100%;, 我的height:100%;是用的parent.parent的</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
