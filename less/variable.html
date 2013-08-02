@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+		.red{color:red;}
+		.box{overflow:hidden;line-height:1em;}
+		.box>div{display:block;width:44%;float:left;margin-right:2%;padding:0 2%; white-space: pre;background:#ccc;}
+		.box>div:nth-child(1){position:relative;}
+	</style>
+</head>
+<body>
+<p class="red">变量定义name模式 /^(@[\w-]+)\s*:/</p>
+<p class="red">变量使用name模式 /^@@?[\w-]+/</p>
+<p class="red">;号不可缺, 要么遇到;号,要么遇到}</p>
+<div class="box">
+	<div>
+		@var1: #eee;
+		div{
+			color:@var1;
+		}
+	</div>
+	<div>
+	</div>
+</div>
+<p class="red">数字-_开头都行</p>
+<div class="box">
+	<div>
+		@11var : #eee;
+		div{
+			color:@11var;
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">可以2级代换,最多2级</p>
+<div class="box">
+	<div>
+		@var1: 'aa';
+		@aa: 'bb';
+		@cc: 2;
+		div{
+			color:@@var1;
+			color2:@cc+2; //使用变量末尾没有空格
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">3级不行</p>
+<div class="box">
+	<div>
+		@var1: 'aa';
+		@aa: 'bb';
+		@bb: 'cc';
+		div{
+			color:@@@var1;
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">变量值可以是任意</p>
+<div class="box">
+	<div>
+		@var1: cc;
+		div{
+			color:@var1;
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">关键字会转换成对应的值</p>
+<div class="box">
+	<div>
+		@var1: red;
+		div{
+			color:@var1;
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">变量作用域与重复定义与js一致</p>
+<div class="box">
+	<div>
+		@var: 0;
+		.class1 {
+			@var: 1;
+			.class {
+				@var: 2;
+				three: @var;
+				@var: 3;
+			}
+			one: @var;
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">lazy loaded</p>
+<div class="box">
+	<div>
+lazy-eval {
+	width: @var;
+}
+
+@var: @a;
+@a: 9%;
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">lazy loaded scope</p>
+<div class="box">
+	<div>
+.lazy-eval-scope {
+	width: @var;
+	@a: 9%;
+}
+
+@var: @a;
+@a: 100%;
+	</div>
+	<div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	var require = {
+		baseUrl: '../assets/js/',
+		deps: ['config'],
+		callback: function() {
+			require(['jquery', 'less'], function($, less){
+				var parser = new(less.Parser);
+				$('.box').each(function(v, i, o){
+					try {
+						var a = $(this).find('div:eq(0)');
+						parser.parse(a.text(), function(e, tree){
+							a.next().text('\n' + tree.toCSS() + '\n');
+						});
+						a.next().andSelf().height(Math.max(a.height(), a.next().height()));
+					} catch (e) {
+						console.log(e);
+					}
+				});
+			});
+		}
+	}
+</script>
+<script type="text/javascript" src="../assets/js/vendor/requirejs/require.js"></script>
+</body>
+</html>

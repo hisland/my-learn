@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+		.red{color:red;}
+		.box{overflow:hidden;line-height:1em;}
+		.box>div{display:block;width:44%;float:left;margin-right:2%;padding:0 2%; white-space: pre;background:#ccc;}
+		.box>div:nth-child(1){position:relative;}
+	</style>
+</head>
+<body>
+
+<p class="red">直接复用, 无参mixin</p>
+<div class="box">
+	<div>
+		#bordered {
+			border-top: dotted 1px black;
+		}
+		.x {
+			prop: val;
+		}
+		a {
+			#bordered;
+			.x;
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">带参mixin判定规则: /^([#.](?:[\w-]|\\(?:[A-Fa-f0-9]{1,6} ?|[^A-Fa-f0-9]))+)\s*\(/</p>
+<p class="red">规则显示必须以 #或者.开头, 定义不会出现在结果中</p>
+<p class="red">命名示例</p>
+<div class="box">
+	<div>
+		.a(){
+			a: b;
+		}
+		#a(){
+			b: b;
+		}
+		user{
+			.a;
+			#a();
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">参数, 默认值</p>
+<div class="box">
+	<div>
+		.a(@v){
+			a: @v;
+		}
+		#a(@b:1){
+			b: @b;
+		}
+		user{
+			.a(33);
+			#a;
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">参数分隔, ,号和;号, 建议使用;号, 值中便可使用,号, 定义和调用一样</p>
+<p class="red">参数个数必须匹配,有默认值除外</p>
+<div class="box">
+	<div>
+		.a(@a; @b){
+			a: @a;
+			b: @b;
+		}
+		#a(@c, @d){
+			c: @c;
+			d: @d;
+		}
+		user{
+			.a(1,2;3,4);
+			#a(1,2;3,4);
+		}
+		user2{
+			.a(1,2);
+			#a(3,4);
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">重载</p>
+<div class="box">
+	<div>
+		.a(@a){
+			a: @a;
+		}
+		.a(@c, @d){
+			c: @c;
+			d: @d;
+		}
+		user{
+			.a(1);
+			.a(3,4);
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">调用的时候,所有符合的都会被调用</p>
+<p class="red">@arguments, 注意参数写出去的时候参数间是空格</p>
+<div class="box">
+	<div>
+		.a(@c){
+			c: @arguments;
+		}
+		.a(@c; @b:x; @c:2){
+			d: @arguments;
+		}
+		user{
+			.a(1); //twice
+			.a(a, b);
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">动态参数, 参数名后跟..., 可以有空格</p>
+<div class="box">
+	<div>
+		.mixin (...) {        // matches 0-N arguments
+		.mixin () {           // matches exactly 0 arguments
+		.mixin (@a: 1) {      // matches 0-1 arguments
+		.mixin (@a: 1; ...) { // matches 0-N arguments
+		.mixin (@a; ...) {    // matches 1-N arguments
+	</div>
+	<div>
+	</div>
+</div>
+<div class="box">
+	<div>
+		.a(...){
+			a: @arguments;
+		}
+		.b(@a: 1){
+			b: @arguments;
+		}
+		.c(@a: 1, ...){
+			c: @arguments;
+		}
+		.d(@a, @rest...){
+			d: @arguments;
+			e: @rest;
+		}
+		use{
+			.a(1,2,3,4);
+			.b();
+			.c(a,b,c,d);
+			.d(z,x,c,v);
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">!important</p>
+<div class="box">
+	<div>
+		.a(@c){
+			c: @arguments;
+		}
+		user{
+			.a(1)!important;
+			.a(2) !important; //有空格
+			.a(a);
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">Pattern-matching</p>
+<div class="box">
+	<div>
+		.a (a; @color) {
+			color: a;
+		}
+		.a (b; @color) {
+			color: b;
+		}
+		.a (@_; @color) {
+			display: block;
+		}
+		@switch: a;
+
+		.class {
+			.a(@switch; #888);
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">Guards, 参考 media query 的条件设置, 语法比较多, 查看lesscss.org官网</p>
+<div class="box">
+	<div>
+		.mixin (@a) when (lightness(@a) >= 50%) {
+		  background-color: black;
+		}
+		.mixin (@a) when (lightness(@a) < 50%) {
+		  background-color: white;
+		}
+		.mixin (@a) {
+		  color: @a;
+		}
+		.class1 { .mixin(#ddd) }
+		.class2 { .mixin(#555) }
+	</div>
+	<div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var require = {
+		baseUrl: '../assets/js/',
+		deps: ['config'],
+		callback: function() {
+			require(['jquery', 'less'], function($, less){
+				var parser = new(less.Parser);
+				$('.box').each(function(v, i, o){
+					try {
+						var a = $(this).find('div:eq(0)');
+						parser.parse(a.text(), function(e, tree){
+							a.next().text('\n' + tree.toCSS() + '\n');
+						});
+						a.next().andSelf().height(Math.max(a.height(), a.next().height()));
+					} catch (e) {
+						console.log(e);
+					}
+				});
+			});
+		}
+	}
+</script>
+<script type="text/javascript" src="../assets/js/vendor/requirejs/require.js"></script>
+</body>
+</html>

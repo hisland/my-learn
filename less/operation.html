@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+		.red{color:red;}
+		.box{overflow:hidden;line-height:1em;}
+		.box>div{display:block;width:44%;float:left;margin-right:2%;padding:0 2%; white-space: pre;background:#ccc;}
+		.box>div:nth-child(1){position:relative;}
+	</style>
+</head>
+<body>
+<p class="red">支持运算, 运算符空格忽略</p>
+<div class="box">
+	<div>
+		god {
+			cc1: (3 + 2); // + 
+			cc2: (3+2);
+			cc3: (3 - 2); // - 
+			cc4: (3-2);
+			cc5: (3 * 2); // * 
+			cc6: (3*2);
+			cc7: (4 / 2); // / 
+			cc8: (4/2);
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">单位</p>
+<div class="box">
+	<div>
+		@base: 5;
+		god {
+			cc1: (3px + 5);
+			cc2: (3em + 5);
+			cc4: (3em + 5px);
+			cc6: (#000 + 1);
+			cc7: (@base + 1);
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+<p class="red">优先级</p>
+<div class="box">
+	<div>
+		@base: 5;
+		god {
+			cc1: ((@base + 5) * 3px);
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	var require = {
+		baseUrl: '../assets/js/',
+		deps: ['config'],
+		callback: function() {
+			require(['jquery', 'less'], function($, less){
+				var parser = new(less.Parser);
+				$('.box').each(function(v, i, o){
+					try {
+						var a = $(this).find('div:eq(0)');
+						parser.parse(a.text(), function(e, tree){
+							a.next().text('\n' + tree.toCSS() + '\n');
+						});
+						a.next().andSelf().height(Math.max(a.height(), a.next().height()));
+					} catch (e) {
+						console.log(e);
+					}
+				});
+			});
+		}
+	}
+</script>
+<script type="text/javascript" src="../assets/js/vendor/requirejs/require.js"></script>
+</body>
+</html>

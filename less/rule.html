@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+		.red{color:red;}
+		.box{overflow:hidden;line-height:1em;}
+		.box>div{display:block;width:44%;float:left;margin-right:2%;padding:0 2%; white-space: pre;background:#ccc;}
+		.box>div:nth-child(1){position:relative;}
+	</style>
+</head>
+<body>
+<p class="red">selector不限定在css定义范围内, 非标签名也行</p>
+<div class="box">
+	<div>
+		god {
+			cc: a;
+		}
+	</div>
+	<div>
+	</div>
+</div>
+<p class="red">selector甚至可以是变量,需要{}包围起来</p>
+<div class="box">
+	<div>
+		@var: kk;
+		god_@{var} {
+			cc: @var;
+		}
+	</div>
+	<div>
+	</div>
+</div>
+<p class="red">rule嵌套</p>
+<div class="box">
+	<div>
+		@var: kk;
+		god_@{var} {
+			cc: @var;
+			xx {
+				some: @var;
+			}
+
+
+			&kk{/* &标示自己,无空格 */
+				some: @var;
+			}
+
+
+			& aa{/* &标示自己,有空格 */
+				some: @var;
+
+
+				& bb{/* & 实际是父selector */
+					some: @var;
+				}
+			}
+		}
+	</div>
+	<div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	var require = {
+		baseUrl: '../assets/js/',
+		deps: ['config'],
+		callback: function() {
+			require(['jquery', 'less'], function($, less){
+				var parser = new(less.Parser);
+				$('.box').each(function(v, i, o){
+					try {
+						var a = $(this).find('div:eq(0)');
+						parser.parse(a.text(), function(e, tree){
+							a.next().text('\n' + tree.toCSS() + '\n');
+						});
+						a.next().andSelf().height(Math.max(a.height(), a.next().height()));
+					} catch (e) {
+						console.log(e);
+					}
+				});
+			});
+		}
+	}
+</script>
+<script type="text/javascript" src="../assets/js/vendor/requirejs/require.js"></script>
+</body>
+</html>
