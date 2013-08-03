@@ -71,9 +71,9 @@
 		deps: ['config'],
 		callback: function() {
 			require(['jquery', 'less'], function($, less){
-				var parser = new(less.Parser);
 				$('.box').each(function(v, i, o){
 					try {
+						var parser = new(less.Parser);
 						var a = $(this).find('div:eq(0)');
 						parser.parse(a.text(), function(e, tree){
 							a.next().text('\n' + tree.toCSS() + '\n');

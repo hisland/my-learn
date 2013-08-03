@@ -37,6 +37,18 @@
 	<div>
 	</div>
 </div>
+<p class="red">重复定义,后者覆盖前者</p>
+<div class="box">
+	<div>
+		@11var : #eee;
+		@11var : 333;
+		div{
+			color:@11var;
+		}
+	</div>
+	<div>
+	</div>
+</div>
 
 <p class="red">可以2级代换,最多2级</p>
 <div class="box">
@@ -145,9 +157,9 @@ lazy-eval {
 		deps: ['config'],
 		callback: function() {
 			require(['jquery', 'less'], function($, less){
-				var parser = new(less.Parser);
 				$('.box').each(function(v, i, o){
 					try {
+						var parser = new(less.Parser);
 						var a = $(this).find('div:eq(0)');
 						parser.parse(a.text(), function(e, tree){
 							a.next().text('\n' + tree.toCSS() + '\n');

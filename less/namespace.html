@@ -13,52 +13,33 @@
 	</style>
 </head>
 <body>
-<p class="red">支持运算, 运算符空格忽略</p>
+<p class="red">嵌套rule可以当作命名空间使用,必须一层一层输入,不能跨, 中间可有></p>
 <div class="box">
 	<div>
-		god {
-			cc1: (3 + 2); // + 
-			cc2: (3+2);
-			cc3: (3 - 2); // - 
-			cc4: (3-2);
-			cc5: (3 * 2); // * 
-			cc6: (3*2);
-			cc7: (4 / 2); // / 
-			cc8: (4/2);
+		#ns {
+			.a {
+				a: a;
+				.c {
+					c: c;
+				}
+			}
+			.b() {
+				b: b;
+			}
+			.d(@v) {
+				d: d @v;
+			}
+		}
+		use {
+			#ns > .b; //function
+			#ns > .d(3); //function with parameter
+			#ns .a .c; // sub sub
+			// #ns  .c; wrong
 		}
 	</div>
 	<div>
 	</div>
 </div>
-
-<p class="red">单位</p>
-<div class="box">
-	<div>
-		@base: 5;
-		god {
-			cc1: (3px + 5);
-			cc2: (3em + 5);
-			cc4: (3em + 5px);
-			cc6: (#000 + 1);
-			cc7: (@base + 1);
-		}
-	</div>
-	<div>
-	</div>
-</div>
-
-<p class="red">优先级</p>
-<div class="box">
-	<div>
-		@base: 5;
-		god {
-			cc1: ((@base + 5) * 3px);
-		}
-	</div>
-	<div>
-	</div>
-</div>
-
 
 <script type="text/javascript">
 	var require = {
