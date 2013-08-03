@@ -115,7 +115,19 @@
 </div>
 
 <p class="red">调用的时候,所有符合的都会被调用</p>
-<p class="red">@arguments, 注意参数写出去的时候参数间是空格</p>
+<p class="red">未指定是0个参数,arguments不可用,要用得使用...</p>
+<div class="box">
+	<div>
+		.x(){
+			x: @arguments; //错误, 无输出
+		}
+		user{
+			.x(1);
+		}
+	</div>
+	<div>
+	</div>
+</div>
 <div class="box">
 	<div>
 		.a(@c){
