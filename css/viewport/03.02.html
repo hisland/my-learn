@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		html{width:160px;}
+		.box{background:#ccc;margin-bottom:10px;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			setInterval(calc, 300);
+		};
+		var arr = [];
+		function calc() {
+			arr = [];
+			push('devicePixelRatio', window.devicePixelRatio);
+			push('screen.width', screen.width);
+			push('screen.height', screen.height);
+			push('window.innerWidth', window.innerWidth);
+			push('window.innerHeight', window.innerHeight);
+			push('screen.width/window.innerWidth', screen.width/window.innerWidth);
+			push('screen.availWidth', screen.availWidth);
+			push('screen.availHeight', screen.availHeight);
+			push('document.documentElement.clientWidth', document.documentElement.clientWidth);
+			push('document.documentElement.clientHeight', document.documentElement.clientHeight);
+			push('document.body.clientWidth', document.body.clientWidth);
+			push('document.body.clientHeight', document.body.clientHeight);
+			document.getElementById('aa').innerHTML = arr.join('');
+		}
+		function push(a, b){
+			arr.push(a, ' : ', b, '<br />');
+		}
+	</script>
+</head>
+<body>
+	<div class="box">指定 html{width:160px;}, 并设置 "viewport" content="width=device-width"</div>
+	<div class="box">android浏览器和chrome一样</div>
+	<div class="box" id="aa"></div>
+</body>
+</html>

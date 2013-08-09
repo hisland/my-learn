@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>all-ok</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		.box{background:#ccc;margin-bottom:10px;}
+		.box:nth-child(1){width:200%;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			setInterval(calc, 300);
+		};
+		var arr = [];
+		function calc() {
+			arr = [];
+			push('devicePixelRatio', window.devicePixelRatio);
+			push('screen.width', screen.width);
+			push('screen.height', screen.height);
+			push('window.innerWidth', window.innerWidth);
+			push('window.innerHeight', window.innerHeight);
+			push('screen.width/window.innerWidth', screen.width/window.innerWidth);
+			push('screen.availWidth', screen.availWidth);
+			push('screen.availHeight', screen.availHeight);
+			push('document.documentElement.clientWidth', document.documentElement.clientWidth);
+			push('document.documentElement.clientHeight', document.documentElement.clientHeight);
+			push('document.body.clientWidth', document.body.clientWidth);
+			push('document.body.clientHeight', document.body.clientHeight);
+			document.getElementById('aa').innerHTML = arr.join('');
+		}
+		function push(a, b){
+			arr.push(a, ' : ', b, '<br />');
+		}
+	</script>
+</head>
+<body>
+	<div class="box">内容是viewport 2倍</div>
+	<div class="box">android浏览器能滚动, 也可以缩放到.5</div>
+	<div class="box">chrome只能滚动,不能缩放</div>
+	<div class="box" id="aa"></div>
+</body>
+</html>
