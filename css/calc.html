@@ -11,14 +11,19 @@
 		section{margin:10px;position:relative;background:#f3f3f3;}
 		.red{color:red;}
 
-		span:before{content: open-quote;color:red;}
+		.box{width:300px;height:200px;background:#ccc;}
+		.in{background:green;}
 	</style>
 </head>
 <body>
 	<fieldset>
-	<legend>calc属性可以使用相对值,动态计算,类似以前的css expression</legend>
-	<section>
-	</section>
+		<legend>calc属性可以使用相对值,动态计算,类似以前的css expression</legend>
+		<legend>操作符之间要有空格,如calc(100% - 1em)不能写成calc(100%-1em)</legend>
+		<section>
+			<div class="box">
+				<div class="in" style="width:calc(100% - 1em);height:calc(100% - 1em);">text</div>
+			</div>
+		</section>
 	</fieldset>
 </body>
 </html>

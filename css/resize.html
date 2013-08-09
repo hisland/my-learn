@@ -11,13 +11,27 @@
 		section{margin:10px;position:relative;background:#f3f3f3;}
 		.red{color:red;}
 
-		span:before{content: open-quote;color:red;}
+		textarea{width:150px;height:100px;}
 	</style>
 </head>
 <body>
 	<fieldset>
 	<legend>resize控制textarea等可控制大小的区域的控制柄</legend>
 	<section>
+		<textarea>默认是both</textarea>
+	</section>
+	<section>
+		<textarea style="resize:vertical">只能垂直</textarea>
+	</section>
+	<section>
+		<textarea style="resize:horizontal">只能横向</textarea>
+	</section>
+	<section>
+		<textarea style="resize:both">都可以</textarea>
+	</section>
+	</section>
+	<section>
+		<textarea style="resize:none">不可以</textarea>
 	</section>
 	</fieldset>
 </body>
