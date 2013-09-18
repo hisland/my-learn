@@ -8,19 +8,22 @@
 		*{padding:0;margin:0;}
 		html,body{height:100%;}
 
-		body{display:-webkit-box;-webkit-transition:-webkit-transform 1s;}
-		.a{-webkit-transform: translate(-100%, 0px);}
+		body{display:-webkit-box;-webkit-transform: translate(0%, 0);-webkit-transition:-webkit-transform 1s;}
+		.a{-webkit-transform: translate(-100%, 0);}
 		div{-webkit-box-flex:0;width:100%;}
 	</style>
 	<script type="text/javascript">
 		window.onload = function(){
-			document.body.className = 'a';
+			//在老一点的webkit上, 这里需要延迟才会有效果
+			setTimeout(function() {
+				document.body.className = 'a';
+			}, 10);
 		}
 	</script>
 </head>
 <body>
 	<div style="background:green"></div>
-	<div style="background:purple"></div>
+	<div style="background:purple">老版本webkit动画的100%使用的是scrollWidth, 不是offsetWidth</div>
 	<div style="background:gold"></div>
 	<div style="background:pink"></div>
 </body>
