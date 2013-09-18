@@ -8,9 +8,15 @@
 		*{padding:0;margin:0;}
 		html,body{height:100%;}
 
-		body{display:-webkit-box;}
+		body{display:-webkit-box;-webkit-transition:-webkit-transform 1s;}
+		.a{-webkit-transform: translate(-100%, 0px);}
 		div{-webkit-box-flex:0;width:100%;}
 	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			document.body.className = 'a';
+		}
+	</script>
 </head>
 <body>
 	<div style="background:green"></div>
