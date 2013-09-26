@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>insert-script-tag-use-innerHTML-not-work-and-solution</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<script type="text/javascript">
+		window.onload = function(){
+      var s = document.createElement('script');
+      document.body.appendChild(s);
+      s.innerHTML = 'console.log(2, 33);' // 在script中写内容会被执行
+      s.innerHTML = 'console.log(2, 44);' // 多次写入不会执行
+
+      var s = document.createElement('script');
+      s.innerHTML = 'console.log(2, 55);' 
+      document.body.appendChild(s); // 放到DOM的时候才执行
+
+      var s = document.createElement('script');
+      s.innerHTML = 'console.log(2, 66);'  //不放到DOM中不执行
+
+			// console.log(1, document.documentElement.innerHTML);
+			// document.body.innerHTML = '<script type="text/javascript"> console.log(2, 33); </scr' + 'ipt>'; //innerHTML script不会执行
+			// console.log(3, document.documentElement.innerHTML);
+
+			// console.log(1, document.documentElement.innerHTML);
+			// document.write('<script type="text/javascript"> console.log(2, 33); </scr' + 'ipt>') //write因为从新写文档,所以执行了
+			// console.log(3, document.documentElement.innerHTML);
+		}
+	</script>
+</head>
+<body>
+script不能以innerHTML或者其它形式放入DOM中执行, 只能产生标签一次性放入内容放到DOM中才会执行
+</body>
+</html>
