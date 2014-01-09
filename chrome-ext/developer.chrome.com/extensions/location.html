@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chrome.location - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<p class="warning">
+  This API is experimental. It is only available to Chrome users on the
+  <a href="http://www.chromium.org/getting-involved/dev-channel">dev channel</a>.
+</p>
+<h1>chrome.location</h1>
+<div id="toc">
+  <ol>
+    <li >
+      <a href="location.html#overview"
+         data-list-item
+         >Overview</a>
+    </li>
+    <li class="separator">
+      <a href="location.html#methods"
+         data-list-item
+         >Methods</a>
+      <ol>
+        <li >
+          <a href="location.html#method-watchLocation"
+             data-list-item
+             >watchLocation        </a>
+        </li>
+        <li >
+          <a href="location.html#method-clearWatch"
+             data-list-item
+             >clearWatch        </a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="location.html#events"
+         data-list-item
+         >Events</a>
+      <ol>
+        <li >
+          <a href="location.html#event-onLocationUpdate"
+             data-list-item
+             >onLocationUpdate</a>
+        </li>
+        <li >
+          <a href="location.html#event-onLocationError"
+             data-list-item
+             >onLocationError</a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<table class="intro" id="intro">
+  <tr>
+    <td class="title">Description:</td>
+    <td>
+         Use the <code>chrome.location</code> API to retrieve the geographic location
+         of the host machine. This API is a version of the <a
+         href="http://dev.w3.org/geo/api/spec-source.html">HTML Geolocation API</a>
+         that is compatible with event pages.
+                <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Availability:</td>
+    <td>
+        <a href="http://www.chromium.org/getting-involved/dev-channel">Dev</a> channel only.
+        <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Permissions:</td>
+    <td>
+        <span class="code">
+        "location"
+                </span>
+        <br>
+    </td>
+  </tr>
+</table>
+<section>
+<h2 id="overview">Overview</h2>
+<p>
+  To start retrieving location information, you need to create a location watch
+  by calling <a href="location.html#method-watchLocation">watchLocation</a>, passing in
+  the location watch details via the <code>requestInfo</code> parameter:
+</p>
+
+<pre>chrome.location.watchLocation(name, requestInfo);</pre>
+<p>
+  You also need to add a listener
+  for the <a href="location.html#event-onLocationUpdate">onLocationUpdate</a> event.
+  Chrome will fire this event after you create your location watch, and
+  it will keep firing the event every time the geographic
+  location of the host machine changes, until you call <a href="location.html#method-clearWatch">clearWatch</a>.
+</p>
+<p>
+  Here's sample code
+  to listen for location updates:
+</p>
+<pre>
+  chrome.location.onLocationUpdate.addListener(function(position) {
+    console.log(JSON.stringify(position));
+  });
+</pre>
+</section>
+<section>
+<h2 id="api-reference-header" title="">chrome.location reference</h2>
+<div class="api_reference">
+    <h2 id="methods">Methods</h2>
+      <div>
+        <h3
+            id="method-watchLocation"
+            >watchLocation
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.location.watchLocation</span>(<span>string name</span>, <span>object requestInfo</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Starts a location watching request. If there is another location watching request with the same name (or no name if none is specified), it will be cancelled and replaced by this request.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-watchLocation-name"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-watchLocation-name" title="">
+                      name
+                      <span class="property">
+                        (
+                          string
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Optional name to identify this request. Defaults to the empty string.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-watchLocation-requestInfo"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-watchLocation-requestInfo" title="">
+                      requestInfo
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Optional parameters for this request.
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-requestInfo-minDistanceInMeters"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-requestInfo-minDistanceInMeters" title="">
+                            minDistanceInMeters
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                double
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Minimum distance between location updates, in meters. Defaults to 0 - any change in location will be reported.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-requestInfo-minTimeInMilliseconds"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-requestInfo-minTimeInMilliseconds" title="">
+                            minTimeInMilliseconds
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                double
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Minimum time interval between location updates, in milliseconds. Defaults to 0 - system-defined frequency of updates will be used.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-requestInfo-maximumAge"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-requestInfo-maximumAge" title="">
+                            maximumAge
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Maximum age of a cached location, in milliseconds, that Chrome can pass to the first onLocationUpdate event for this location watch request. If this value <= 0, Chrome will always attempt to acquire a new location. Defaults to 0.
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+          </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-clearWatch"
+            >clearWatch
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.location.clearWatch</span>(<span>string name</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Ends a location watching request.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-clearWatch-name"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-clearWatch-name" title="">
+                      name
+                      <span class="property">
+                        (
+                          string
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Optional name to identify the request to remove. Defaults to the empty string.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+        </div>
+      </div>
+    <h2 id="events">Events</h2>
+      <div>
+        <h3 id="event-onLocationUpdate">onLocationUpdate</h3>
+        <div class="description">
+      <p>
+            Fired when a location change is detected.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.location.onLocationUpdate.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onLocationUpdate-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onLocationUpdate-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object location) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onLocationUpdate-location"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onLocationUpdate-location" title="">
+                              location
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            An object containing matching events and new location.
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-location-name"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-location-name" title="">
+                                    name
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Location watch request name.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-location-coords"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-location-coords" title="">
+                                    coords
+                                    <span class="property">
+                                      (
+                                        object
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Coordinates and their accuracy.
+                                </dd>
+                              </dl>
+                              <dd>
+                                <h4 title="">Properties</h4>
+                                <dl>
+                                  <div>
+                                    <a name="property-coords-latitude"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-coords-latitude" title="">
+                                          latitude
+                                          <span class="property">
+                                            (
+                                              double
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                        The geographic latitude specified in degrees.
+                                      </dd>
+                                    </dl>
+                                  </div><div>
+                                    <a name="property-coords-longitude"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-coords-longitude" title="">
+                                          longitude
+                                          <span class="property">
+                                            (
+                                              double
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                        The geographic longitude specified in degrees.
+                                      </dd>
+                                    </dl>
+                                  </div><div>
+                                    <a name="property-coords-altitude"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-coords-altitude" title="">
+                                          altitude
+                                          <span class="property">
+                                            (
+                                              <span class="optional">optional</span>
+                                              double
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                        The height of the position, specified in meters above the [WGS84] ellipsoid, or null if Chrome cannot provide altitude information.
+                                      </dd>
+                                    </dl>
+                                  </div><div>
+                                    <a name="property-coords-accuracy"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-coords-accuracy" title="">
+                                          accuracy
+                                          <span class="property">
+                                            (
+                                              double
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                        The accuracy of the latitude and longitude coordinates, in meters. This represents the radius of a circle around the given location.
+                                      </dd>
+                                    </dl>
+                                  </div><div>
+                                    <a name="property-coords-altitudeAccuracy"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-coords-altitudeAccuracy" title="">
+                                          altitudeAccuracy
+                                          <span class="property">
+                                            (
+                                              <span class="optional">optional</span>
+                                              double
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                        The accuracy in meters of the 'altitude' attribute if it's not null, otherwise, null.
+                                      </dd>
+                                    </dl>
+                                  </div><div>
+                                    <a name="property-coords-heading"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-coords-heading" title="">
+                                          heading
+                                          <span class="property">
+                                            (
+                                              <span class="optional">optional</span>
+                                              double
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                        The direction of travel of the hosting device and is specified in degrees, where 0 <= heading < 360, counting clockwise relative to the true north. If the Chrome cannot provide heading information, the value of this attribute is null. If the hosting device is stationary (i.e. the value of the speed attribute is 0), then the value of the heading attribute is NaN.
+                                      </dd>
+                                    </dl>
+                                  </div><div>
+                                    <a name="property-coords-speed"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-coords-speed" title="">
+                                          speed
+                                          <span class="property">
+                                            (
+                                              <span class="optional">optional</span>
+                                              double
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                        The magnitude of the horizontal component of the hosting device's current velocity and is specified in meters per second. If the Chrome cannot provide speed information, the value of this attribute is null.
+                                      </dd>
+                                    </dl>
+                                  </div>
+                                </dl>
+                              </dd>
+                            </div><div>
+                              <a name="property-location-timestamp"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-location-timestamp" title="">
+                                    timestamp
+                                    <span class="property">
+                                      (
+                                        double
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The time when the Location object was acquired in milliseconds since the start of the Unix Epoch.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onLocationError">onLocationError</h3>
+        <div class="description">
+      <p>
+            Fired when detecting location in not possible.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.location.onLocationError.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onLocationError-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onLocationError-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(string error) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onLocationError-error"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onLocationError-error" title="">
+                              error
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Human-readable error description.
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+</div>
+</section>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

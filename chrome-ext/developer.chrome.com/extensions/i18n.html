@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chrome.i18n - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3 toggled"></div>
+              </a>
+            <ul toggleable
+                class="level3 ">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a  class="level4 selected">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<h1>chrome.i18n</h1>
+<div id="toc">
+  <ol>
+    <li >
+      <a href="i18n.html#l10"
+         data-list-item
+         >How to support multiple languages</a>
+    </li>
+    <li >
+      <a href="i18n.html#overview-predefined"
+         data-list-item
+         >Predefined messages</a>
+    </li>
+    <li >
+      <a href="i18n.html#overview-locales"
+         data-list-item
+         >Locales</a>
+      <ol>
+        <li >
+          <a href="i18n.html#locales-supported"
+             data-list-item
+             >Supported locales</a>
+        </li>
+        <li >
+          <a href="i18n.html#locales-usage"
+             data-list-item
+             >Searching for messages</a>
+        </li>
+        <li >
+          <a href="i18n.html#locales-testing"
+             data-list-item
+             >How to set your browser's locale</a>
+          <ol>
+            <li >
+              <a href="i18n.html#testing-win"
+                 data-list-item
+                 >Windows</a>
+            </li>
+            <li >
+              <a href="i18n.html#testing-mac"
+                 data-list-item
+                 >Mac OS X</a>
+            </li>
+            <li >
+              <a href="i18n.html#testing-linux"
+                 data-list-item
+                 >Linux</a>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="i18n.html#overview-examples"
+         data-list-item
+         >Examples</a>
+      <ol>
+        <li >
+          <a href="i18n.html#examples-getMessage"
+             data-list-item
+             >Examples: getMessage</a>
+        </li>
+        <li >
+          <a href="i18n.html#example-accept-languages"
+             data-list-item
+             >Example: getAcceptLanguages</a>
+        </li>
+      </ol>
+    </li>
+    <li class="separator">
+      <a href="i18n.html#methods"
+         data-list-item
+         >Methods</a>
+      <ol>
+        <li >
+          <a href="i18n.html#method-getAcceptLanguages"
+             data-list-item
+             >getAcceptLanguages        </a>
+        </li>
+        <li >
+          <a href="i18n.html#method-getMessage"
+             data-list-item
+             >getMessage        </a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<table class="intro" id="intro">
+  <tr>
+    <td class="title">Description:</td>
+    <td>
+        Use the <code>chrome.i18n</code> infrastructure to implement internationalization across your whole app or extension.
+                <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Availability:</td>
+    <td>
+        Stable since Chrome 5.
+        <br>
+    </td>
+  </tr>
+</table>
+<section>
+<!--
+[NOTEs for editors:
+ * Try to be consistent about string vs. message (it's probably not yet).
+-->
+
+<p>
+You need to put all of its user-visible strings into a file
+named <a href="i18n-messages.html"><code>messages.json</code></a>.
+Each time you add a new locale,
+you add a messages file
+under a directory
+named <code>_locales/<em>localeCode</em></code>,
+where <em>localeCode</em> is a code such as
+<code>en</code> for English.
+</p>
+
+<p>
+Here's the file hierarchy
+for an internationalized extension that supports
+English (<code>en</code>),
+Spanish (<code>es</code>), and
+Korean (<code>ko</code>):
+</p>
+
+<img src="../static/images/i18n-hierarchy.gif"
+ alt='In the extension directory: manifest.json, *.html, *.js, _locales directory. In the _locales directory: en, es, and ko directories, each with a messages.json file.'
+ width="385" height="77" />
+
+
+<h2 id="l10">How to support multiple languages</h2>
+
+<p>
+Say you have an extension
+with the files shown in the following figure:
+</p>
+
+<img src="../static/images/i18n-before.gif"
+ alt='A manifest.json file and a file with JavaScript. The .json file has "name": "Hello World". The JavaScript file has title = "Hello World";'
+ width="323" height="148">
+
+<p>
+To internationalize this extension,
+you name each user-visible string
+and put it into a messages file.
+The extension's manifest,
+CSS files,
+and JavaScript code
+use each string's name to get its localized version.
+</p>
+
+<p>
+Here's what the extension looks like when it's internationalized
+(note that it still has only English strings):
+</p>
+
+<img src="../static/images/i18n-after-1.gif"
+ alt='In the manifest.json file, "Hello World" has been changed to "__MSG_extName__", and a new "default_locale" item has the value "en". In the JavaScript file, "Hello World" has been changed to chrome.i18n.getMessage("extName"). A new file named _locales/en/messages.json defines "extName".'
+ width="782" height="228">
+
+<p class="note">
+<b>Important:</b>
+If an extension has a <code>_locales</code> directory,
+the <a href="manifest.html">manifest</a>
+<b>must</b> define "default_locale".
+</p>
+
+<p>
+Some notes about internationalizing:
+</p>
+
+<ul>
+  <li><p>
+    You can use any of the <a href="i18n.html#overview-locales">supported locales</a>.
+    If you use an unsupported locale,
+    Google Chrome ignores it.
+  </p></li>
+
+  <li>
+    In <code>manifest.json</code>
+    and CSS files,
+    refer to a string named <em>messagename</em> like this:
+    <pre>__MSG_<em>messagename</em>__</pre>
+  </li>
+
+  <li>
+    In your extension or app's JavaScript code,
+    refer to a string named <em>messagename</em>
+    like this:
+    <pre>chrome.i18n.getMessage("<em>messagename</em>")</pre>
+
+  <li> <p>
+    In each call to <code>getMessage()</code>,
+    you can supply up to 9 strings
+    to be included in the message.
+    See <a href="i18n.html#examples-getMessage">Examples: getMessage</a>
+    for details.
+    </p>
+  </li>
+
+  <li><p>
+    Some messages, such as <code>@@bidi_dir</code> and <code>@@ui_locale</code>,
+    are provided by the internationalization system.
+    See the <a href="i18n.html#overview-predefined">Predefined messages</a> section
+    for a full list of predefined message names.
+    </p>
+  </li>
+
+  <li>
+    In <code>messages.json</code>,
+    each user-visible string has a name, a "message" item,
+    and an optional "description" item.
+    The name is a key
+    such as "extName" or "search_string"
+    that identifies the string.
+    The "message" specifies
+    the value of the string in this locale.
+    The optional "description"
+    provides help to translators,
+    who might not be able to see how the string is used in your extension.
+    For example:
+<pre data-filename="messages.json">
+{
+  "search_string": {
+    "message": "hello%20world",
+    "description": "The string we search for. Put %20 between words that go together."
+  },
+  ...
+}</pre>
+
+<p>
+For more information, see
+<a href="i18n-messages.html">Formats: Locale-Specific Messages</a>.
+</p>
+  </li>
+</ul>
+
+<p>
+Once an extension or app is internationalized,
+translating it is simple.
+You copy <code>messages.json</code>,
+translate it,
+and put the copy into a new directory under <code>_locales</code>.
+For example, to support Spanish,
+just put a translated copy of <code>messages.json</code>
+under <code>_locales/es</code>.
+The following figure shows the previous extension
+with a new Spanish translation.
+</p>
+
+<img src="../static/images/i18n-after-2.gif"
+ alt='This looks the same as the previous figure, but with a new file at _locales/es/messages.json that contains a Spanish translation of the messages.'
+ width="782" height="358">
+
+
+<h2 id="overview-predefined">Predefined messages</h2>
+
+<p>
+The internationalization system provides a few predefined
+messages to help you localize.
+These include <code>@@ui_locale</code>,
+so you can detect the current UI locale,
+and a few <code>@@bidi_...</code> messages
+that let you detect the text direction.
+The latter messages have similar names to constants in the
+<a href="http://code.google.com/apis/gadgets/docs/i18n.html#BIDI">
+gadgets BIDI (bi-directional) API</a>.
+</p>
+
+<p>
+The special message <code>@@extension_id</code>
+can be used in the CSS and JavaScript files,
+whether or not the extension or app is localized.
+This message doesn't work in manifest files.
+</p>
+
+<p>
+The following table describes each predefined message.
+</p>
+
+<table>
+<tr>
+  <th>Message name</th> <th>Description</th>
+</tr>
+<tr>
+  <td> <code>@@extension_id</code> </td>
+  <td>The extension or app ID;
+    you might use this string to construct URLs
+    for resources inside the extension.
+    Even unlocalized extensions can use this message.
+    <br>
+    <b>Note:</b> You can't use this message in a manifest file.
+    </td>
+</tr>
+<tr>
+  <td> <code>@@ui_locale</code> </td>
+  <td>The current locale;
+    you might use this string to construct locale-specific URLs. </td>
+</tr>
+<tr>
+  <td> <code>@@bidi_dir</code> </td>
+  <td> The text direction for the current locale,
+       either "ltr" for left-to-right languages such as English
+       or "rtl" for right-to-left languages such as Japanese. </td>
+</tr>
+<tr>
+  <td> <code>@@bidi_reversed_dir</code> </td>
+  <td> If the <code>@@bidi_dir</code> is "ltr", then this is "rtl";
+       otherwise, it's "ltr". </td>
+</tr>
+<tr>
+  <td> <code>@@bidi_start_edge</code> </td>
+  <td> If the <code>@@bidi_dir</code> is "ltr", then this is "left";
+       otherwise, it's "right". </td>
+</tr>
+<tr>
+  <td> <code>@@bidi_end_edge</code> </td>
+  <td> If the <code>@@bidi_dir</code> is "ltr", then this is "right";
+       otherwise, it's "left". </td>
+</tr>
+</table>
+
+<p>
+Here's an example of using <code>@@extension_id</code> in a CSS file
+to construct a URL:
+</p>
+
+<pre>
+body {
+  <b>background-image:url('chrome-extension://__MSG_@@extension_id__/background.png');</b>
+}
+</pre>
+
+<p>
+If the extension ID is abcdefghijklmnopqrstuvwxyzabcdef,
+then the bold line in the previous code snippet becomes:
+</p>
+
+<pre>
+background-image:url('chrome-extension://abcdefghijklmnopqrstuvwxyzabcdef/background.png');
+</pre>
+
+<p>
+Here's an example of using <code>@@bidi_*</code> messages in a CSS file:
+</p>
+
+<pre>
+body {
+  <b>direction: __MSG_@@bidi_dir__;</b>
+}
+
+div#header {
+  margin-bottom: 1.05em;
+  overflow: hidden;
+  padding-bottom: 1.5em;
+  <b>padding-__MSG_@@bidi_start_edge__: 0;</b>
+  <b>padding-__MSG_@@bidi_end_edge__: 1.5em;</b>
+  position: relative;
+}
+</pre>
+
+<p>
+For left-to-right languages such as English,
+the bold lines become:
+</p>
+
+<pre>
+dir: ltr;
+padding-left: 0;
+padding-right: 1.5em;
+</pre>
+
+
+<h2 id="overview-locales">Locales</h2>
+
+<p>
+You can choose from many locales,
+including some (such as <code>en</code>)
+that let a single translation support multiple variations of a language
+(such as <code>en_GB</code> and <code>en_US</code>).
+</p>
+
+
+<h3 id="locales-supported">Supported locales</h3>
+
+<p>
+You can use any of the
+<a href="http://code.google.com/chrome/webstore/docs/i18n.html#localeTable">locales that the Chrome Web Store supports</a>.
+</p>
+
+
+<h3 id="locales-usage">Searching for messages</h3>
+
+<p>
+You don't have to define every string for every supported locale.
+As long as the default locale's <code>messages.json</code> file
+has a value for every string,
+your extension or app will run no matter how sparse a translation is.
+Here's how the extension system searches for a message:
+</p>
+
+<ol>
+  <li>
+     Search the messages file (if any)
+     for the user's preferred locale.
+     For example, when Google Chrome's locale is set to
+     British English (<code>en_GB</code>),
+     the system first looks for the message in
+     <code>_locales/en_GB/messages.json</code>.
+     If that file exists and the message is there,
+     the system looks no further.
+  </li>
+  <li>
+     If the user's preferred locale has a region
+     (that is, the locale has an underscore: _),
+     search the locale without that region.
+     For example, if the <code>en_GB</code> messages file
+     doesn't exist or doesn't contain the message,
+     the system looks in the <code>en</code> messages file.
+     If that file exists and the message is there,
+     the system looks no further.
+  </li>
+  <li>
+     Search the messages file for the default locale.
+     For example, if the extension's "default_locale" is set to "es",
+     and neither <code>_locales/en_GB/messages.json</code>
+     nor <code>_locales/en/messages.json</code> contains the message,
+     the extension uses the message from
+     <code>_locales/es/messages.json</code>.
+  </li>
+</ol>
+
+<p>
+In the following figure,
+the message named "colores" is in all three locales
+that the extension supports,
+but "extName" is in only two of the locales.
+Wherever a user running Google Chrome in US English sees the label "Colors",
+a user of British English sees "Colours".
+Both US English and British English users
+see the extension name "Hello World".
+Because the default language is Spanish,
+users running Google Chrome in any non-English language
+see the label "Colores" and the extension name "Hola mundo".
+</p>
+
+<img src="../static/images/i18n-strings.gif"
+ alt='Four files: manifest.json and three messages.json files (for es, en, and en_GB).  The es and en files show entries for messages named "extName" and "colores"; the en_GB file has just one entry (for "colores").'
+ width="493" height="488" />
+
+<h3 id="locales-testing">How to set your browser's locale</h3>
+
+<p>
+To test translations, you might want to set your browser's locale.
+This section tells you how to set the locale in
+<a href="i18n.html#testing-win">Windows</a>,
+<a href="i18n.html#testing-mac">Mac OS X</a>, and
+<a href="i18n.html#testing-linux">Linux</a>.
+</p>
+
+<h4 id="testing-win">Windows</h4>
+
+<p>
+You can change the locale using either
+a locale-specific shortcut
+or the Google Chrome UI.
+The shortcut approach is quicker, once you've set it up,
+and it lets you use several languages at once.
+</p>
+
+<h5 id="win-shortcut">Using a locale-specific shortcut</h5>
+
+<p>
+To create and use a shortcut that launches Google Chrome
+with a particular locale:
+</p>
+
+<ol>
+  <li>
+    Make a copy of the Google Chrome shortcut
+    that's already on your desktop.
+  </li>
+  <li>
+    Rename the new shortcut to match the new locale.
+  </li>
+  <li>
+    Change the shortcut's properties
+    so that the Target field specifies the
+    <code>--lang</code> and
+    <code>--user-data-dir</code> flags.
+    The target should look something like this:
+
+<pre><em>path_to_chrome.exe</em> --lang=<em>locale</em> --user-data-dir=c:\<em>locale_profile_dir</em></pre>
+  </li>
+
+  <li>
+    Launch Google Chrome by double-clicking the shortcut.
+  </li>
+</ol>
+
+<p>
+For example, to create a shortcut
+that launches Google Chrome in Spanish (<code>es</code>),
+you might create a shortcut named <code>chrome-es</code>
+that has the following target:
+</p>
+
+<pre><em>path_to_chrome.exe</em> --lang=es --user-data-dir=c:\chrome-profile-es</pre>
+
+<p>
+You can create as many shortcuts as you like,
+making it easy to test in multiple languages.
+For example:
+</p>
+
+<pre><em>path_to_chrome.exe</em> --lang=en --user-data-dir=c:\chrome-profile-en
+<em>path_to_chrome.exe</em> --lang=en_GB --user-data-dir=c:\chrome-profile-en_GB
+<em>path_to_chrome.exe</em> --lang=ko --user-data-dir=c:\chrome-profile-ko</pre>
+
+<p class="note">
+<b>Note:</b>
+Specifying <code>--user-data-dir</code> is optional but handy.
+Having one data directory per locale
+lets you run the browser
+in several languages at the same time.
+A disadvantage is that because the locales' data isn't shared,
+you have to install your extension multiple times &mdash; once per locale,
+which can be challenging when you don't speak the language.
+For more information, see
+<a href="http://www.chromium.org/developers/creating-and-using-profiles">Creating and Using Profiles</a>.
+</p>
+
+
+<h5 id="win-ui">Using the UI</h5>
+
+<p>
+Here's how to change the locale using the UI on Google Chrome for Windows:
+</p>
+
+<ol>
+  <li> Wrench icon > <b>Options</b> </li>
+  <li> Choose the <b>Under the Hood</b> tab </li>
+  <li> Scroll down to <b>Web Content</b> </li>
+  <li> Click <b>Change font and language settings</b> </li>
+  <li> Choose the <b>Languages</b> tab </li>
+  <li> Use the drop down to set the <b>Google Chrome language</b> </li>
+  <li> Restart Chrome </li>
+</ol>
+
+
+<h4 id="testing-mac">Mac OS X</h4>
+
+<p>
+To change the locale on Mac,
+you use the system preferences.
+</p>
+
+<ol>
+  <li> From the Apple menu, choose <b>System Preferences</b> </li>
+  <li> Under the <b>Personal</b> section, choose <b>International</b> </li>
+  <li> Choose your language and location </li>
+  <li> Restart Chrome </li>
+</ol>
+
+
+<h4 id="testing-linux">Linux</h4>
+
+<p>
+To change the locale on Linux,
+first quit Google Chrome.
+Then, all in one line,
+set the LANGUAGE environment variable
+and launch Google Chrome.
+For example:
+</p>
+
+<pre>
+LANGUAGE=es ./chrome
+</pre>
+
+
+<h2 id="overview-examples">Examples</h2>
+
+<p>
+You can find simple examples of internationalization in the
+<a href="http://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/extensions/docs/examples/api/i18n/">examples/api/i18n</a>
+directory.
+For a complete example, see
+<a href="http://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/extensions/docs/examples/extensions/news/">examples/extensions/news</a>.
+For other examples and for help in viewing the source code, see
+<a href="samples.html">Samples</a>.
+</p>
+
+
+<h3 id="examples-getMessage">Examples: getMessage</h3>
+
+<!--
+[PENDING: improve this section. it should probably start with a
+one-variable example that includes the messages.json code.]
+-->
+
+<p>
+The following code gets a localized message from the browser
+and displays it as a string.
+It replaces two placeholders within the message with the strings
+"string1" and "string2".
+</p>
+
+<pre>
+function getMessage() {
+  var message = chrome.i18n.getMessage("click_here", ["string1", "string2"]);
+  document.getElementById("languageSpan").innerHTML = message;
+}
+</pre>
+
+<p>
+Here's how you'd supply and use a single string:
+</p>
+
+<pre>
+<em>// In JavaScript code</em>
+status.innerText = chrome.i18n.getMessage("error", errorDetails);
+</pre>
+<pre data-filename="messages.json">
+"error": {
+  "message": "Error: $details$",
+  "description": "Generic error template. Expects error parameter to be passed in.",
+  "placeholders": {
+    "details": {
+      "content": "$1",
+      "example": "Failed to fetch RSS feed."
+    }
+  }
+}
+</pre>
+
+<p>
+For more information about placeholders, see the
+<a href="i18n-messages.html">Locale-Specific Messages</a> page.
+For details on calling <code>getMessage()</code>, see the
+<a href="i18n.html#method-getMessage">API reference</a>.
+</p>
+
+<h3 id="example-accept-languages">Example: getAcceptLanguages</h3>
+<p>
+The following code gets accept-languages from the browser and displays them as a
+string by separating each accept-language with ','.
+</p>
+
+<pre>
+function getAcceptLanguages() {
+  chrome.i18n.getAcceptLanguages(function(languageList) {
+    var languages = languageList.join(",");
+    document.getElementById("languageSpan").innerHTML = languages;
+  })
+}
+</pre>
+
+<p>
+For details on calling <code>getAcceptLanguages()</code>, see the
+<a href="i18n.html#method-getAcceptLanguages">API reference</a>.
+</p>
+</section>
+<section>
+<h2 id="api-reference-header" title="">chrome.i18n reference</h2>
+<div class="api_reference">
+    <h2 id="methods">Methods</h2>
+      <div>
+        <h3
+            id="method-getAcceptLanguages"
+            >getAcceptLanguages
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.i18n.getAcceptLanguages</span>(<span>function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Gets the accept-languages of the browser. This is different from the locale used by the browser; to get the locale, use <code>window.navigator.language</code>.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-getAcceptLanguages-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getAcceptLanguages-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  The <em>callback</em> parameter should specify a function
+                  that looks like this:
+            </p>
+            <pre>function(array of string languages) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-languages"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-languages" title="">
+                        languages
+                        <span class="property">
+                          (
+                            array of string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Array of the accept languages of the browser, such as en-US,en,zh-CN
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-getMessage"
+            >getMessage
+        </h3>
+        <div class="summary">
+        <div class="line">
+        <span>string chrome.i18n.getMessage</span>(<span>string messageName</span>, <span class="optional">any substitutions</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Gets the localized string for the specified message. If the message is missing, this method returns an empty string (''). If the format of the <code>getMessage()</code> call is wrong &mdash; for example, <em>messageName</em> is not a string or the <em>substitutions</em> array has more than 9 elements &mdash; this method returns <code>undefined</code>.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-getMessage-messageName"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getMessage-messageName" title="">
+                      messageName
+                      <span class="property">
+                        (
+                          string
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The name of the message, as specified in the <a href='i18n-messages.html'><code>messages.json</code></a> file.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-getMessage-substitutions"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getMessage-substitutions" title="">
+                      substitutions
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          any
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Up to 9 substitution strings, if the message requires any.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+        </div>
+      </div>
+</div>
+</section>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

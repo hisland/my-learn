@@ -1,0 +1,3502 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chrome.downloads - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<h1>chrome.downloads</h1>
+<div id="toc">
+  <ol>
+    <li >
+      <a href="downloads.html#manifest"
+         data-list-item
+         >Manifest</a>
+    </li>
+    <li >
+      <a href="downloads.html#examples"
+         data-list-item
+         >Examples</a>
+    </li>
+    <li class="separator">
+      <a href="downloads.html#types"
+         data-list-item
+         >Types</a>
+      <ol>
+        <li >
+          <a href="downloads.html#type-FilenameConflictAction"
+             data-list-item
+             >FilenameConflictAction</a>
+        </li>
+        <li >
+          <a href="downloads.html#type-InterruptReason"
+             data-list-item
+             >InterruptReason</a>
+        </li>
+        <li >
+          <a href="downloads.html#type-DangerType"
+             data-list-item
+             >DangerType</a>
+        </li>
+        <li >
+          <a href="downloads.html#type-State"
+             data-list-item
+             >State</a>
+        </li>
+        <li >
+          <a href="downloads.html#type-DownloadItem"
+             data-list-item
+             >DownloadItem</a>
+        </li>
+        <li >
+          <a href="downloads.html#type-StringDelta"
+             data-list-item
+             >StringDelta</a>
+        </li>
+        <li >
+          <a href="downloads.html#type-LongDelta"
+             data-list-item
+             >LongDelta</a>
+        </li>
+        <li >
+          <a href="downloads.html#type-BooleanDelta"
+             data-list-item
+             >BooleanDelta</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="downloads.html#methods"
+         data-list-item
+         >Methods</a>
+      <ol>
+        <li >
+          <a href="downloads.html#method-download"
+             data-list-item
+             >download        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-search"
+             data-list-item
+             >search        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-pause"
+             data-list-item
+             >pause        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-resume"
+             data-list-item
+             >resume        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-cancel"
+             data-list-item
+             >cancel        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-getFileIcon"
+             data-list-item
+             >getFileIcon        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-open"
+             data-list-item
+             >open        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-show"
+             data-list-item
+             >show        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-showDefaultFolder"
+             data-list-item
+             >showDefaultFolder        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-erase"
+             data-list-item
+             >erase        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-removeFile"
+             data-list-item
+             >removeFile        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-acceptDanger"
+             data-list-item
+             >acceptDanger        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-drag"
+             data-list-item
+             >drag        </a>
+        </li>
+        <li >
+          <a href="downloads.html#method-setShelfEnabled"
+             data-list-item
+             >setShelfEnabled        </a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="downloads.html#events"
+         data-list-item
+         >Events</a>
+      <ol>
+        <li >
+          <a href="downloads.html#event-onCreated"
+             data-list-item
+             >onCreated</a>
+        </li>
+        <li >
+          <a href="downloads.html#event-onErased"
+             data-list-item
+             >onErased</a>
+        </li>
+        <li >
+          <a href="downloads.html#event-onChanged"
+             data-list-item
+             >onChanged</a>
+        </li>
+        <li >
+          <a href="downloads.html#event-onDeterminingFilename"
+             data-list-item
+             >onDeterminingFilename</a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<table class="intro" id="intro">
+  <tr>
+    <td class="title">Description:</td>
+    <td>
+         Use the <code>chrome.downloads</code> API to programmatically initiate,
+         monitor, manipulate, and search for downloads.
+                <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Availability:</td>
+    <td>
+        Stable since Chrome 31.
+        <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Permissions:</td>
+    <td>
+        <span class="code">
+        "downloads"
+                </span>
+        <br>
+    </td>
+  </tr>
+</table>
+<section>
+<h2 id='manifest'>Manifest</h2>
+
+<p> You must declare the <code>"downloads"</code> permission in the <a
+href='manifest.html'>extension manifest</a> to use this API.</p>
+
+<pre data-filename="manifest.json">
+{
+  "name": "My extension",
+  ...
+  <b>"permissions": [
+    "downloads"
+  ]</b>,
+  ...
+}
+</pre>
+
+<h2 id='examples'>Examples</h2>
+
+<p>You can find simple examples of using the <code>chrome.downloads</code> API in the <a
+href='http://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/extensions/docs/examples/api/downloads/'>examples/api/downloads</a>
+directory. For other examples and for help in viewing the source code, see <a
+href='samples.html'>Samples</a>.</p>
+</section>
+<section>
+<h2 id="api-reference-header" title="">chrome.downloads reference</h2>
+<div class="api_reference">
+    <h2 id="types">Types</h2>
+      <div>
+        <h3 id="type-FilenameConflictAction">FilenameConflictAction</h3>
+        <div>
+          <dd>enum of
+            <code>"uniquify"</code>, 
+            <code>"overwrite"</code>, 
+            or <code>"prompt"</code>
+          </dd>
+          <dd><dl><dt>uniquify</dt>     <dd>To avoid duplication, the <code>filename</code> is changed to     include a counter before the filename extension.</dd>     <dt>overwrite</dt>     <dd>The existing file will be overwritten with the new file.</dd>     <dt>prompt</dt>     <dd>The user will be prompted with a file chooser dialog.</dd> </dl></dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-InterruptReason">InterruptReason</h3>
+        <div>
+          <dd>enum of
+            <code>"FILE_FAILED"</code>, 
+            <code>"FILE_ACCESS_DENIED"</code>, 
+            <code>"FILE_NO_SPACE"</code>, 
+            <code>"FILE_NAME_TOO_LONG"</code>, 
+            <code>"FILE_TOO_LARGE"</code>, 
+            <code>"FILE_VIRUS_INFECTED"</code>, 
+            <code>"FILE_TRANSIENT_ERROR"</code>, 
+            <code>"FILE_BLOCKED"</code>, 
+            <code>"FILE_SECURITY_CHECK_FAILED"</code>, 
+            <code>"FILE_TOO_SHORT"</code>, 
+            <code>"NETWORK_FAILED"</code>, 
+            <code>"NETWORK_TIMEOUT"</code>, 
+            <code>"NETWORK_DISCONNECTED"</code>, 
+            <code>"NETWORK_SERVER_DOWN"</code>, 
+            <code>"SERVER_FAILED"</code>, 
+            <code>"SERVER_NO_RANGE"</code>, 
+            <code>"SERVER_PRECONDITION"</code>, 
+            <code>"SERVER_BAD_CONTENT"</code>, 
+            <code>"USER_CANCELED"</code>, 
+            <code>"USER_SHUTDOWN"</code>, 
+            or <code>"CRASH"</code>
+          </dd>
+          <dd></dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-DangerType">DangerType</h3>
+        <div>
+          <dd>enum of
+            <code>"file"</code>, 
+            <code>"url"</code>, 
+            <code>"content"</code>, 
+            <code>"uncommon"</code>, 
+            <code>"host"</code>, 
+            <code>"unwanted"</code>, 
+            <code>"safe"</code>, 
+            or <code>"accepted"</code>
+          </dd>
+          <dd><dl><dt>file</dt>     <dd>The download's filename is suspicious.</dd>     <dt>url</dt>     <dd>The download's URL is known to be malicious.</dd>     <dt>content</dt>     <dd>The downloaded file is known to be malicious.</dd>     <dt>uncommon</dt>     <dd>The download's URL is not commonly downloaded and could be     dangerous.</dd>     <dt>host</dt>     <dd>The download came from a host known to distribute malicious     binaries and is likely dangerous.</dd>     <dt>unwanted</dt>     <dd>The download is potentially unwanted or unsafe. E.g. it could make     changes to browser or computer settings.</dd>     <dt>safe</dt>     <dd>The download presents no known danger to the user's computer.</dd>     <dt>accepted</dt>     <dd>The user has accepted the dangerous download.</dd> </dl></dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-State">State</h3>
+        <div>
+          <dd>enum of
+            <code>"in_progress"</code>, 
+            <code>"interrupted"</code>, 
+            or <code>"complete"</code>
+          </dd>
+          <dd><dl><dt>in_progress</dt>     <dd>The download is currently receiving data from the server.</dd>     <dt>interrupted</dt>     <dd>An error broke the connection with the file host.</dd>     <dt>complete</dt>     <dd>The download completed successfully.</dd> </dl></dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-DownloadItem">DownloadItem</h3>
+        <div>
+            <h3 id="DownloadItem-properties" class="capitalize" title="">
+              properties of <a href="downloads.html#type-DownloadItem">DownloadItem</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-DownloadItem-id"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-id" title="">
+                        id
+                        <span class="property">
+                          (
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      An identifier that is persistent across browser sessions.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-url"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-url" title="">
+                        url
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Absolute URL.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-referrer"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-referrer" title="">
+                        referrer
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Absolute URL.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-filename"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-filename" title="">
+                        filename
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Absolute local path.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-incognito"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-incognito" title="">
+                        incognito
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      False if this download is recorded in the history, true if it is not recorded.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-danger"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-danger" title="">
+                        danger
+                        <span class="property">
+                          (
+                            <a href="downloads.html#type-DangerType">DangerType</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Indication of whether this download is thought to be safe or known to be suspicious.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-mime"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-mime" title="">
+                        mime
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The file's MIME type.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-startTime"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-startTime" title="">
+                        startTime
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The time when the download began in ISO 8601 format. May be passed directly to the Date constructor: <code>chrome.downloads.search({}, function(items){items.forEach(function(item){console.log(new Date(item.startTime))})})</code>
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-endTime"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-endTime" title="">
+                        endTime
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The time when the download ended in ISO 8601 format. May be passed directly to the Date constructor: <code>chrome.downloads.search({}, function(items){items.forEach(function(item){if (item.endTime) console.log(new Date(item.endTime))})})</code>
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-estimatedEndTime"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-estimatedEndTime" title="">
+                        estimatedEndTime
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Estimated time when the download will complete in ISO 8601 format. May be passed directly to the Date constructor: <code>chrome.downloads.search({}, function(items){items.forEach(function(item){if (item.estimatedEndTime) console.log(new Date(item.estimatedEndTime))})})</code>
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-state"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-state" title="">
+                        state
+                        <span class="property">
+                          (
+                            <a href="downloads.html#type-State">State</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Indicates whether the download is progressing, interrupted, or complete.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-paused"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-paused" title="">
+                        paused
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      True if the download has stopped reading data from the host, but kept the connection open.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-canResume"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-canResume" title="">
+                        canResume
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      True if the download is in progress and paused, or else if it is interrupted and can be resumed starting from where it was interrupted.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-error"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-error" title="">
+                        error
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            <a href="downloads.html#type-InterruptReason">InterruptReason</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Why the download was interrupted. Several kinds of HTTP errors may be grouped under one of the errors beginning with <code>SERVER_</code>. Errors relating to the network begin with <code>NETWORK_</code>, errors relating to the process of writing the file to the file system begin with <code>FILE_</code>, and interruptions initiated by the user begin with <code>USER_</code>.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-bytesReceived"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-bytesReceived" title="">
+                        bytesReceived
+                        <span class="property">
+                          (
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Number of bytes received so far from the host, without considering file compression.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-totalBytes"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-totalBytes" title="">
+                        totalBytes
+                        <span class="property">
+                          (
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Number of bytes in the whole file, without considering file compression, or -1 if unknown.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-fileSize"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-fileSize" title="">
+                        fileSize
+                        <span class="property">
+                          (
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Number of bytes in the whole file post-decompression, or -1 if unknown.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-exists"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-exists" title="">
+                        exists
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Whether the downloaded file still exists. This information may be out of date because Chrome does not automatically watch for file removal. Call <a href="downloads.html#method-search">search</a>() in order to trigger the check for file existence. When the existence check completes, if the file has been deleted, then an <a href="downloads.html#event-onChanged">onChanged</a> event will fire. Note that <a href="downloads.html#method-search">search</a>() does not wait for the existence check to finish before returning, so results from <a href="downloads.html#method-search">search</a>() may not accurately reflect the file system. Also, <a href="downloads.html#method-search">search</a>() may be called as often as necessary, but will not check for file existence any more frequently than once every 10 seconds.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-byExtensionId"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-byExtensionId" title="">
+                        byExtensionId
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The identifier for the extension that initiated this download if this download was initiated by an extension. Does not change once it is set.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DownloadItem-byExtensionName"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DownloadItem-byExtensionName" title="">
+                        byExtensionName
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The localized name of the extension that initiated this download if this download was initiated by an extension. May change if the extension changes its name or if the user changes their locale.
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-StringDelta">StringDelta</h3>
+        <div>
+            <h3 id="StringDelta-properties" class="capitalize" title="">
+              properties of <a href="downloads.html#type-StringDelta">StringDelta</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-StringDelta-previous"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-StringDelta-previous" title="">
+                        previous
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-StringDelta-current"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-StringDelta-current" title="">
+                        current
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-LongDelta">LongDelta</h3>
+        <div>
+            <h3 id="LongDelta-properties" class="capitalize" title="">
+              properties of <a href="downloads.html#type-LongDelta">LongDelta</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-LongDelta-previous"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-LongDelta-previous" title="">
+                        previous
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-LongDelta-current"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-LongDelta-current" title="">
+                        current
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-BooleanDelta">BooleanDelta</h3>
+        <div>
+            <h3 id="BooleanDelta-properties" class="capitalize" title="">
+              properties of <a href="downloads.html#type-BooleanDelta">BooleanDelta</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-BooleanDelta-previous"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-BooleanDelta-previous" title="">
+                        previous
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-BooleanDelta-current"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-BooleanDelta-current" title="">
+                        current
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+    <h2 id="methods">Methods</h2>
+      <div>
+        <h3
+            id="method-download"
+            >download
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.download</span>(<span>object options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Download a URL. If the URL uses the HTTP[S] protocol, then the request will include all cookies currently set for its hostname. If both <code>filename</code> and <code>saveAs</code> are specified, then the Save As dialog will be displayed, pre-populated with the specified <code>filename</code>. If the download started successfully, <code>callback</code> will be called with the new <a href="downloads.html#type-DownloadItem">DownloadItem</a>'s <code>downloadId</code>. If there was an error starting the download, then <code>callback</code> will be called with <code>downloadId=undefined</code> and <a href="runtime.html#property-lastError">runtime.lastError</a> will contain a descriptive string. The error strings are not guaranteed to remain backwards compatible between releases. Extensions must not parse it.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-download-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-download-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    What to download and how.
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-options-url"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-options-url" title="">
+                            url
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The URL to download.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-options-filename"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-options-filename" title="">
+                            filename
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          A file path relative to the Downloads directory to contain the downloaded file, possibly containing subdirectories. Absolute paths, empty paths, and paths containing back-references ".." will cause an error. <a href="downloads.html#event-onDeterminingFilename">onDeterminingFilename</a> allows suggesting a filename after the file's MIME type and a tentative filename have been determined.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-options-conflictAction"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-options-conflictAction" title="">
+                            conflictAction
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                <a href="downloads.html#type-FilenameConflictAction">FilenameConflictAction</a>
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The action to take if <code>filename</code> already exists.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-options-saveAs"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-options-saveAs" title="">
+                            saveAs
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                boolean
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Use a file-chooser to allow the user to select a filename regardless of whether <code>filename</code> is set or already exists.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-options-method"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-options-method" title="">
+                            method
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                enum of <code>"GET"</code>, or <code>"POST"</code>
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The HTTP method to use if the URL uses the HTTP[S] protocol.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-options-headers"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-options-headers" title="">
+                            headers
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                array of object
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Extra HTTP headers to send with the request if the URL uses the HTTP[s] protocol. Each header is represented as a dictionary containing the keys <code>name</code> and either <code>value</code> or <code>binaryValue</code>, restricted to those allowed by XMLHttpRequest.
+                          <h4 title="">Properties of each object</h4>
+                          <dl>
+                            <div>
+                              <div>
+                                  <dd>
+                                    <dl>
+                                      <div>
+                                        <a name="property-headersType-name"></a>
+                                        <dl>
+                                          <dt>
+                                            <h4 id="property-headersType-name" title="">
+                                              name
+                                              <span class="property">
+                                                (
+                                                  string
+                                                )
+                                              </span>
+                                            </h4>
+                                          </dt>
+                                          <dd>
+                                            Name of the HTTP header.
+                                          </dd>
+                                        </dl>
+                                      </div><div>
+                                        <a name="property-headersType-value"></a>
+                                        <dl>
+                                          <dt>
+                                            <h4 id="property-headersType-value" title="">
+                                              value
+                                              <span class="property">
+                                                (
+                                                  string
+                                                )
+                                              </span>
+                                            </h4>
+                                          </dt>
+                                          <dd>
+                                            Value of the HTTP header.
+                                          </dd>
+                                        </dl>
+                                      </div>
+                                    </dl>
+                                  </dd>
+                              </div>
+                            </div>
+                          </dl>
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-options-body"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-options-body" title="">
+                            body
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Post body.
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-download-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-download-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called with the id of the new <a href="downloads.html#type-DownloadItem">DownloadItem</a>.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(integer downloadId) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-downloadId"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-downloadId" title="">
+                        downloadId
+                        <span class="property">
+                          (
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-search"
+            >search
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.search</span>(<span>object query</span>, <span>function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Find <a href="downloads.html#type-DownloadItem">DownloadItem</a>. Set <code>query</code> to the empty object to get all <a href="downloads.html#type-DownloadItem">DownloadItem</a>. To get a specific <a href="downloads.html#type-DownloadItem">DownloadItem</a>, set only the <code>id</code> field. To page through a large number of items, set <code>orderBy: ['-startTime']</code>, set <code>limit</code> to the number of items per page, and set <code>startedAfter</code> to the <code>startTime</code> of the last item from the last page.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-search-query"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-search-query" title="">
+                      query
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-query-query"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-query" title="">
+                            query
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                array of string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          This array of search terms limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> whose <code>filename</code> or <code>url</code> contain all of the search terms that do not begin with a dash '-' and none of the search terms that do begin with a dash.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-startedBefore"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-startedBefore" title="">
+                            startedBefore
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> that started before the given ms since the epoch.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-startedAfter"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-startedAfter" title="">
+                            startedAfter
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> that started after the given ms since the epoch.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-endedBefore"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-endedBefore" title="">
+                            endedBefore
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> that ended before the given ms since the epoch.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-endedAfter"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-endedAfter" title="">
+                            endedAfter
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> that ended after the given ms since the epoch.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-totalBytesGreater"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-totalBytesGreater" title="">
+                            totalBytesGreater
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> whose <code>totalBytes</code> is greater than the given integer.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-totalBytesLess"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-totalBytesLess" title="">
+                            totalBytesLess
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> whose <code>totalBytes</code> is less than the given integer.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-filenameRegex"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-filenameRegex" title="">
+                            filenameRegex
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> whose <code>filename</code> matches the given regular expression.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-urlRegex"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-urlRegex" title="">
+                            urlRegex
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> whose <code>url</code> matches the given regular expression.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-limit"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-limit" title="">
+                            limit
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The maximum number of matching <a href="downloads.html#type-DownloadItem">DownloadItem</a> returned. Defaults to 1000. Set to 0 in order to return all matching <a href="downloads.html#type-DownloadItem">DownloadItem</a>. See <a href="downloads.html#method-search">search</a> for how to page through results.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-orderBy"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-orderBy" title="">
+                            orderBy
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                array of string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Set elements of this array to <a href="downloads.html#type-DownloadItem">DownloadItem</a> properties in order to sort search results. For example, setting <code>orderBy=['startTime']</code> sorts the <a href="downloads.html#type-DownloadItem">DownloadItem</a> by their start time in ascending order. To specify descending order, prefix with a hyphen: '-startTime'.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-id"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-id" title="">
+                            id
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The <code>id</code> of the <a href="downloads.html#type-DownloadItem">DownloadItem</a> to query.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-url"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-url" title="">
+                            url
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Absolute URL.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-filename"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-filename" title="">
+                            filename
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Absolute local path.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-danger"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-danger" title="">
+                            danger
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                <a href="downloads.html#type-DangerType">DangerType</a>
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Indication of whether this download is thought to be safe or known to be suspicious.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-mime"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-mime" title="">
+                            mime
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The file's MIME type.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-startTime"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-startTime" title="">
+                            startTime
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The time when the download began in ISO 8601 format.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-endTime"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-endTime" title="">
+                            endTime
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The time when the download ended in ISO 8601 format.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-state"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-state" title="">
+                            state
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                <a href="downloads.html#type-State">State</a>
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Indicates whether the download is progressing, interrupted, or complete.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-paused"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-paused" title="">
+                            paused
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                boolean
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          True if the download has stopped reading data from the host, but kept the connection open.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-error"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-error" title="">
+                            error
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                <a href="downloads.html#type-InterruptReason">InterruptReason</a>
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Why a download was interrupted.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-bytesReceived"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-bytesReceived" title="">
+                            bytesReceived
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Number of bytes received so far from the host, without considering file compression.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-totalBytes"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-totalBytes" title="">
+                            totalBytes
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Number of bytes in the whole file, without considering file compression, or -1 if unknown.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-fileSize"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-fileSize" title="">
+                            fileSize
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Number of bytes in the whole file post-decompression, or -1 if unknown.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-exists"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-exists" title="">
+                            exists
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                boolean
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Whether the downloaded file exists;
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-search-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-search-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  The <em>callback</em> parameter should specify a function
+                  that looks like this:
+            </p>
+            <pre>function(array of <a href="downloads.html#type-DownloadItem">DownloadItem</a> results) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-results"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-results" title="">
+                        results
+                        <span class="property">
+                          (
+                            array of <a href="downloads.html#type-DownloadItem">DownloadItem</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-pause"
+            >pause
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.pause</span>(<span>integer downloadId</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Pause the download. If the request was successful the download is in a paused state. Otherwise <a href="runtime.html#property-lastError">runtime.lastError</a> contains an error message. The request will fail if the download is not active.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-pause-downloadId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-pause-downloadId" title="">
+                      downloadId
+                      <span class="property">
+                        (
+                          integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The id of the download to pause.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-pause-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-pause-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the pause request is completed.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-resume"
+            >resume
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.resume</span>(<span>integer downloadId</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Resume a paused download. If the request was successful the download is in progress and unpaused. Otherwise <a href="runtime.html#property-lastError">runtime.lastError</a> contains an error message. The request will fail if the download is not active.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-resume-downloadId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-resume-downloadId" title="">
+                      downloadId
+                      <span class="property">
+                        (
+                          integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The id of the download to resume.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-resume-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-resume-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the resume request is completed.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-cancel"
+            >cancel
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.cancel</span>(<span>integer downloadId</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Cancel a download. When <code>callback</code> is run, the download is cancelled, completed, interrupted or doesn't exist anymore.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-cancel-downloadId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-cancel-downloadId" title="">
+                      downloadId
+                      <span class="property">
+                        (
+                          integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The id of the download to cancel.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-cancel-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-cancel-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the cancel request is completed.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-getFileIcon"
+            >getFileIcon
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.getFileIcon</span>(<span>integer downloadId</span>, <span class="optional">object options</span>, <span>function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Retrieve an icon for the specified download. For new downloads, file icons are available after the <a href="downloads.html#event-onCreated">onCreated</a> event has been received. The image returned by this function while a download is in progress may be different from the image returned after the download is complete. Icon retrieval is done by querying the underlying operating system or toolkit depending on the platform. The icon that is returned will therefore depend on a number of factors including state of the download, platform, registered file types and visual theme. If a file icon cannot be determined, <a href="runtime.html#property-lastError">runtime.lastError</a> will contain an error message.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-getFileIcon-downloadId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getFileIcon-downloadId" title="">
+                      downloadId
+                      <span class="property">
+                        (
+                          integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The identifier for the download.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-getFileIcon-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getFileIcon-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-options-size"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-options-size" title="">
+                            size
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The size of the icon.  The returned icon will be square with dimensions size * size pixels.  The default size for the icon is 32x32 pixels.
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-getFileIcon-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getFileIcon-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    A URL to an image that represents the download.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  The <em>callback</em> parameter should specify a function
+                  that looks like this:
+            </p>
+            <pre>function(string iconURL) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-iconURL"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-iconURL" title="">
+                        iconURL
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-open"
+            >open
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.open</span>(<span>integer downloadId</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Open the downloaded file now if the <a href="downloads.html#type-DownloadItem">DownloadItem</a> is complete; otherwise returns an error through <a href="runtime.html#property-lastError">runtime.lastError</a>. Requires the <code>"downloads.open"</code> permission in addition to the <code>"downloads"</code> permission. An <a href="downloads.html#event-onChanged">onChanged</a> event will fire when the item is opened for the first time.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-open-downloadId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-open-downloadId" title="">
+                      downloadId
+                      <span class="property">
+                        (
+                          integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The identifier for the downloaded file.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-show"
+            >show
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.show</span>(<span>integer downloadId</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Show the downloaded file in its folder in a file manager.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-show-downloadId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-show-downloadId" title="">
+                      downloadId
+                      <span class="property">
+                        (
+                          integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The identifier for the downloaded file.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-showDefaultFolder"
+            >showDefaultFolder
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.showDefaultFolder</span>()
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Show the default Downloads folder in a file manager.
+          </p>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-erase"
+            >erase
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.erase</span>(<span>object query</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Erase matching <a href="downloads.html#type-DownloadItem">DownloadItem</a> from history without deleting the downloaded file. An <a href="downloads.html#event-onErased">onErased</a> event will fire for each <a href="downloads.html#type-DownloadItem">DownloadItem</a> that matches <code>query</code>, then <code>callback</code> will be called.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-erase-query"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-erase-query" title="">
+                      query
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-query-query"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-query" title="">
+                            query
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                array of string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          This array of search terms limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> whose <code>filename</code> or <code>url</code> contain all of the search terms that do not begin with a dash '-' and none of the search terms that do begin with a dash.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-startedBefore"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-startedBefore" title="">
+                            startedBefore
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> that started before the given ms since the epoch.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-startedAfter"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-startedAfter" title="">
+                            startedAfter
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> that started after the given ms since the epoch.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-endedBefore"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-endedBefore" title="">
+                            endedBefore
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> that ended before the given ms since the epoch.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-endedAfter"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-endedAfter" title="">
+                            endedAfter
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> that ended after the given ms since the epoch.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-totalBytesGreater"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-totalBytesGreater" title="">
+                            totalBytesGreater
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> whose <code>totalBytes</code> is greater than the given integer.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-totalBytesLess"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-totalBytesLess" title="">
+                            totalBytesLess
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> whose <code>totalBytes</code> is less than the given integer.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-filenameRegex"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-filenameRegex" title="">
+                            filenameRegex
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> whose <code>filename</code> matches the given regular expression.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-urlRegex"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-urlRegex" title="">
+                            urlRegex
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Limits results to <a href="downloads.html#type-DownloadItem">DownloadItem</a> whose <code>url</code> matches the given regular expression.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-limit"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-limit" title="">
+                            limit
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The maximum number of matching <a href="downloads.html#type-DownloadItem">DownloadItem</a> returned. Defaults to 1000. Set to 0 in order to return all matching <a href="downloads.html#type-DownloadItem">DownloadItem</a>. See <a href="downloads.html#method-search">search</a> for how to page through results.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-orderBy"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-orderBy" title="">
+                            orderBy
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                array of string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Set elements of this array to <a href="downloads.html#type-DownloadItem">DownloadItem</a> properties in order to sort search results. For example, setting <code>orderBy=['startTime']</code> sorts the <a href="downloads.html#type-DownloadItem">DownloadItem</a> by their start time in ascending order. To specify descending order, prefix with a hyphen: '-startTime'.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-id"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-id" title="">
+                            id
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The <code>id</code> of the <a href="downloads.html#type-DownloadItem">DownloadItem</a> to query.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-url"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-url" title="">
+                            url
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Absolute URL.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-filename"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-filename" title="">
+                            filename
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Absolute local path.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-danger"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-danger" title="">
+                            danger
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                <a href="downloads.html#type-DangerType">DangerType</a>
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Indication of whether this download is thought to be safe or known to be suspicious.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-mime"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-mime" title="">
+                            mime
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The file's MIME type.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-startTime"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-startTime" title="">
+                            startTime
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The time when the download began in ISO 8601 format.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-endTime"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-endTime" title="">
+                            endTime
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The time when the download ended in ISO 8601 format.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-state"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-state" title="">
+                            state
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                <a href="downloads.html#type-State">State</a>
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Indicates whether the download is progressing, interrupted, or complete.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-paused"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-paused" title="">
+                            paused
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                boolean
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          True if the download has stopped reading data from the host, but kept the connection open.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-error"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-error" title="">
+                            error
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                <a href="downloads.html#type-InterruptReason">InterruptReason</a>
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Why a download was interrupted.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-bytesReceived"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-bytesReceived" title="">
+                            bytesReceived
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Number of bytes received so far from the host, without considering file compression.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-totalBytes"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-totalBytes" title="">
+                            totalBytes
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Number of bytes in the whole file, without considering file compression, or -1 if unknown.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-fileSize"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-fileSize" title="">
+                            fileSize
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Number of bytes in the whole file post-decompression, or -1 if unknown.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-query-exists"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-query-exists" title="">
+                            exists
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                boolean
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Whether the downloaded file exists;
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-erase-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-erase-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(array of integer erasedIds) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-erasedIds"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-erasedIds" title="">
+                        erasedIds
+                        <span class="property">
+                          (
+                            array of integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removeFile"
+            >removeFile
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.removeFile</span>(<span>integer downloadId</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Remove the downloaded file if it exists and the <a href="downloads.html#type-DownloadItem">DownloadItem</a> is complete; otherwise return an error through <a href="runtime.html#property-lastError">runtime.lastError</a>.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removeFile-downloadId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeFile-downloadId" title="">
+                      downloadId
+                      <span class="property">
+                        (
+                          integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removeFile-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeFile-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-acceptDanger"
+            >acceptDanger
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.acceptDanger</span>(<span>integer downloadId</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Prompt the user to accept a dangerous download. Does not automatically accept dangerous downloads. If the download is accepted, then an <a href="downloads.html#event-onChanged">onChanged</a> event will fire, otherwise nothing will happen.  When all the data is fetched into a temporary file and either the download is not dangerous or the danger has been accepted, then the temporary file is renamed to the target filename, the |state| changes to 'complete', and <a href="downloads.html#event-onChanged">onChanged</a> fires.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-acceptDanger-downloadId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-acceptDanger-downloadId" title="">
+                      downloadId
+                      <span class="property">
+                        (
+                          integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The identifier for the <a href="downloads.html#type-DownloadItem">DownloadItem</a>.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-acceptDanger-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-acceptDanger-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the danger prompt dialog closes.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-drag"
+            >drag
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.drag</span>(<span>integer downloadId</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Initiate dragging the downloaded file to another application. Call in a javascript <code>ondragstart</code> handler.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-drag-downloadId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-drag-downloadId" title="">
+                      downloadId
+                      <span class="property">
+                        (
+                          integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-setShelfEnabled"
+            >setShelfEnabled
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.downloads.setShelfEnabled</span>(<span>boolean enabled</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Enable or disable the gray shelf at the bottom of every window associated with the current browser profile. The shelf will be disabled as long as at least one extension has disabled it. Enabling the shelf while at least one other extension has disabled it will return an error through <a href="runtime.html#property-lastError">runtime.lastError</a>. Requires the <code>"downloads.shelf"</code> permission in addition to the <code>"downloads"</code> permission.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-setShelfEnabled-enabled"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setShelfEnabled-enabled" title="">
+                      enabled
+                      <span class="property">
+                        (
+                          boolean
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+        </div>
+      </div>
+    <h2 id="events">Events</h2>
+      <div>
+        <h3 id="event-onCreated">onCreated</h3>
+        <div class="description">
+      <p>
+            This event fires with the <a href="downloads.html#type-DownloadItem">DownloadItem</a> object when a download begins.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.downloads.onCreated.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onCreated-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onCreated-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(<a href="downloads.html#type-DownloadItem">DownloadItem</a> downloadItem) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onCreated-downloadItem"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onCreated-downloadItem" title="">
+                              downloadItem
+                              <span class="property">
+                                (
+                                  <a href="downloads.html#type-DownloadItem">DownloadItem</a>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onErased">onErased</h3>
+        <div class="description">
+      <p>
+            Fires with the <code>downloadId</code> when a download is erased from history.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.downloads.onErased.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onErased-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onErased-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(integer downloadId) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onErased-downloadId"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onErased-downloadId" title="">
+                              downloadId
+                              <span class="property">
+                                (
+                                  integer
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            The <code>id</code> of the <a href="downloads.html#type-DownloadItem">DownloadItem</a> that was erased.
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onChanged">onChanged</h3>
+        <div class="description">
+      <p>
+            When any of a <a href="downloads.html#type-DownloadItem">DownloadItem</a>'s properties except <code>bytesReceived</code> and <code>estimatedEndTime</code> changes, this event fires with the <code>downloadId</code> and an object containing the properties that changed.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.downloads.onChanged.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onChanged-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onChanged-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object downloadDelta) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onChanged-downloadDelta"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onChanged-downloadDelta" title="">
+                              downloadDelta
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-downloadDelta-id"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-id" title="">
+                                    id
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The <code>id</code> of the <a href="downloads.html#type-DownloadItem">DownloadItem</a> that changed.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-url"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-url" title="">
+                                    url
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-StringDelta">StringDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>url</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-filename"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-filename" title="">
+                                    filename
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-StringDelta">StringDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>filename</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-danger"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-danger" title="">
+                                    danger
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-StringDelta">StringDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>danger</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-mime"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-mime" title="">
+                                    mime
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-StringDelta">StringDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>mime</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-startTime"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-startTime" title="">
+                                    startTime
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-StringDelta">StringDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>startTime</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-endTime"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-endTime" title="">
+                                    endTime
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-StringDelta">StringDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>endTime</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-state"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-state" title="">
+                                    state
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-StringDelta">StringDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>state</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-canResume"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-canResume" title="">
+                                    canResume
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-BooleanDelta">BooleanDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>canResume</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-paused"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-paused" title="">
+                                    paused
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-BooleanDelta">BooleanDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>paused</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-error"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-error" title="">
+                                    error
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-StringDelta">StringDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>error</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-totalBytes"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-totalBytes" title="">
+                                    totalBytes
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-LongDelta">LongDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>totalBytes</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-fileSize"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-fileSize" title="">
+                                    fileSize
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-LongDelta">LongDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>fileSize</code>, if any.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-downloadDelta-exists"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-downloadDelta-exists" title="">
+                                    exists
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="downloads.html#type-BooleanDelta">BooleanDelta</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The change in <code>exists</code>, if any.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onDeterminingFilename">onDeterminingFilename</h3>
+        <div class="description">
+      <p>
+            During the filename determination process, extensions will be given the opportunity to override the target <a href="downloads.html#property-DownloadItem-filename">DownloadItem.filename</a>. Each extension may not register more than one listener for this event. Each listener must call <code>suggest</code> exactly once, either synchronously or asynchronously. If the listener calls <code>suggest</code> asynchronously, then it must return <code>true</code>. If the listener neither calls <code>suggest</code> synchronously nor returns <code>true</code>, then <code>suggest</code> will be called automatically. The <a href="downloads.html#type-DownloadItem">DownloadItem</a> will not complete until all listeners have called <code>suggest</code>. Listeners may call <code>suggest</code> without any arguments in order to allow the download to use <code>downloadItem.filename</code> for its filename, or pass a <code>suggestion</code> object to <code>suggest</code> in order to override the target filename. If more than one extension overrides the filename, then the last extension installed whose listener passes a <code>suggestion</code> object to <code>suggest</code> wins. In order to avoid confusion regarding which extension will win, users should not install extensions that may conflict. If the download is initiated by <a href="downloads.html#method-download">download</a> and the target filename is known before the MIME type and tentative filename have been determined, pass <code>filename</code> to <a href="downloads.html#method-download">download</a> instead.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.downloads.onDeterminingFilename.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onDeterminingFilename-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onDeterminingFilename-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(<a href="downloads.html#type-DownloadItem">DownloadItem</a> downloadItem, function suggest) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onDeterminingFilename-downloadItem"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onDeterminingFilename-downloadItem" title="">
+                              downloadItem
+                              <span class="property">
+                                (
+                                  <a href="downloads.html#type-DownloadItem">DownloadItem</a>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                      </div>
+                      <div>
+                        <a name="property-onDeterminingFilename-suggest"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onDeterminingFilename-suggest" title="">
+                              suggest
+                              <span class="property">
+                                (
+                                  function
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+</div>
+</section>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

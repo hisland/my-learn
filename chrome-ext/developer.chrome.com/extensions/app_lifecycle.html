@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chrome App Lifecycle - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="http://developer.chrome.com/apps/" title="Google Chrome Apps">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            apps &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="http://developer.chrome.com/apps/samples.html"
+               title="Sample Apps (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-apps"
+               title="Google Chrome Apps developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-app/info"
+               title="[google-chrome-app] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <span class="level2">Discover</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="http://developer.chrome.com/apps/about_apps.html" class="level3 ">What Are Chrome Apps?</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Develop</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="http://developer.chrome.com/apps/first_app.html" class="level3 ">Create Your First App</a>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Tutorials</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                <a class="button level4">
+                  <span class="level4">Learn with a Codelab</span>
+                  <div class="toggleIndicator level4"></div>
+                </a>
+              <ul toggleable
+                  class="level4 hidden">
+              <li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_codelab.html" class="level5 ">About this Codelab</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_codelab1_setup.html" class="level5 ">1 - Set Up Development Environment</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_codelab2_basic.html" class="level5 ">2 - Create Basic App</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_codelab3_mvc.html" class="level5 ">3 - Create MVC</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_codelab5_data.html" class="level5 ">4 - Save and Fetch Data</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_codelab6_lifecycle.html" class="level5 ">5 - Manage App Lifecycle</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_codelab7_useridentification.html" class="level5 ">6 - Access User's Data</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_codelab8_webresources.html" class="level5 ">7 - Access Web Resources</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_codelab_10_publishing.html" class="level5 ">8 - Publish App</a>
+              </li>
+              </ul>
+            </li><li class="level4">
+                <a class="button level4">
+                  <span class="level4">MVC Architecture &amp; Frameworks</span>
+                  <div class="toggleIndicator level4"></div>
+                </a>
+              <ul toggleable
+                  class="level4 hidden">
+              <li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_frameworks.html" class="level5 ">About MVC Architecture</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/angular_framework.html" class="level5 ">Build Apps with AngularJS</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/sencha_framework.html" class="level5 ">Build Apps with Sencha Ext JS</a>
+              </li>
+              </ul>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Chrome App Concepts</span>
+                <div class="toggleIndicator level3 toggled"></div>
+              </a>
+            <ul toggleable
+                class="level3 ">
+            <li class="level4">
+                <a class="button level4">
+                  <span class="level4">The Fundamentals</span>
+                  <div class="toggleIndicator level4 toggled"></div>
+                </a>
+              <ul toggleable
+                  class="level4 ">
+              <li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_architecture.html" class="level5 ">App Architecture</a>
+              </li><li class="level5">
+                    <a  class="level5 selected">App Lifecycle</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/offline_apps.html" class="level5 ">Offline First</a>
+              </li><li class="level5">
+                    <a href="app_external.html" class="level5 ">External Content</a>
+              </li>
+              </ul>
+            </li><li class="level4">
+                <a class="button level4">
+                  <span class="level4">Security</span>
+                  <div class="toggleIndicator level4"></div>
+                </a>
+              <ul toggleable
+                  class="level4 hidden">
+              <li class="level5">
+                    <a href="http://developer.chrome.com/apps/contentSecurityPolicy.html" class="level5 ">Content Security Policy</a>
+              </li>
+              </ul>
+            </li><li class="level4">
+                <a class="button level4">
+                  <span class="level4">Cloud-Enable Your App</span>
+                  <div class="toggleIndicator level4"></div>
+                </a>
+              <ul toggleable
+                  class="level4 hidden">
+              <li class="level5">
+                  <a class="button level5">
+                    <span class="level5">Cloud Messaging</span>
+                    <div class="toggleIndicator level5"></div>
+                  </a>
+                <ul toggleable
+                    class="level5 hidden">
+                <li class="level6">
+                      <a href="http://developer.chrome.com/apps/cloudMessaging.html" class="level6 ">About Cloud Messaging</a>
+                </li><li class="level6">
+                      <a href="http://developer.chrome.com/apps/pushMessaging.html" class="level6 ">Client Reference</a>
+                </li><li class="level6">
+                      <a href="http://developer.chrome.com/apps/gcm_server.html" class="level6 ">Service Reference</a>
+                </li><li class="level6">
+                      <a href="http://developer.chrome.com/apps/gcm_tos.html" class="level6 ">Terms of Service</a>
+                </li>
+                </ul>
+              </li><li class="level5">
+                  <a class="button level5">
+                    <span class="level5">Cloud Storage</span>
+                    <div class="toggleIndicator level5"></div>
+                  </a>
+                <ul toggleable
+                    class="level5 hidden">
+                <li class="level6">
+                      <a href="http://developer.chrome.com/apps/storage.html" class="level6 ">chrome.storage</a>
+                </li>
+                </ul>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_identity.html" class="level5 ">User Authentication</a>
+              </li>
+              </ul>
+            </li><li class="level4">
+                <a class="button level4">
+                  <span class="level4">Store and Retrieve Data</span>
+                  <div class="toggleIndicator level4"></div>
+                </a>
+              <ul toggleable
+                  class="level4 hidden">
+              <li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_storage.html" class="level5 ">Storage APIs</a>
+              </li>
+              </ul>
+            </li><li class="level4">
+                <a class="button level4">
+                  <span class="level4">Use Low-Level System Services</span>
+                  <div class="toggleIndicator level4"></div>
+                </a>
+              <ul toggleable
+                  class="level4 hidden">
+              <li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_usb.html" class="level5 ">USB</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_serial.html" class="level5 ">Serial</a>
+              </li><li class="level5">
+                    <a href="http://developer.chrome.com/apps/app_network.html" class="level5 ">Network Communications</a>
+              </li>
+              </ul>
+            </li><li class="level4">
+                <a class="button level4">
+                  <span class="level4">Interact with the Host Platform</span>
+                  <div class="toggleIndicator level4"></div>
+                </a>
+              <ul toggleable
+                  class="level4 hidden">
+              <li class="level5">
+                    <a href="http://developer.chrome.com/apps/desktop_notifications.html" class="level5 ">Rich Notifications</a>
+              </li>
+              </ul>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Distribute</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="publish_app.html" class="level3 ">Publish Your App</a>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Monetize Your App</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="http://developer.chrome.com/apps/google_wallet.html" class="level4 ">Google Wallet for Digital Goods</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="http://developer.chrome.com/apps/analytics.html" class="level3 ">Analytics</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="http://developer.chrome.com/apps/api_index.html" class="level3 ">Chrome Platform APIs</a>
+          </li><li class="level3">
+                <a href="http://developer.chrome.com/apps/tags/webview.html" class="level3 ">Webview Tag</a>
+          </li><li class="level3">
+                <a href="http://developer.chrome.com/apps/api_other.html" class="level3 ">Web APIs</a>
+          </li><li class="level3">
+                <a href="http://developer.chrome.com/apps/manifest.html" class="level3 ">Manifest File Format</a>
+          </li><li class="level3">
+                <a href="http://developer.chrome.com/apps/app_deprecated.html" class="level3 ">Disabled Web Features</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Samples</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="http://developer.chrome.com/apps/samples.html" class="level3 ">Sample Apps</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Help</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="http://developer.chrome.com/apps/faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="https://groups.google.com/a/chromium.org/forum/#!forum/chromium-apps" class="level3 ">Google Groups</a>
+          </li><li class="level3">
+                <a href="http://stackoverflow.com/questions/tagged/google-chrome-app" class="level3 ">Stack Overflow</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<div id="toc">
+  <ol>
+    <li >
+      <a href="app_lifecycle.html#lifecycle"
+         data-list-item
+         >How the lifecycle works</a>
+    </li>
+    <li >
+      <a href="app_lifecycle.html#eventpage"
+         data-list-item
+         >Create event page and windows</a>
+      <ol>
+        <li >
+          <a href="app_lifecycle.html#create_event_page"
+             data-list-item
+             >Create event page</a>
+        </li>
+        <li >
+          <a href="app_lifecycle.html#create_windows"
+             data-list-item
+             >Create windows</a>
+        </li>
+        <li >
+          <a href="app_lifecycle.html#launch_data"
+             data-list-item
+             >Including Launch Data</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="app_lifecycle.html#runtime"
+         data-list-item
+         >Listening for app runtime events</a>
+      <ol>
+        <li >
+          <a href="app_lifecycle.html#local_settings"
+             data-list-item
+             >Storing local settings</a>
+        </li>
+        <li >
+          <a href="app_lifecycle.html#preventing_loss"
+             data-list-item
+             >Preventing data loss</a>
+        </li>
+        <li >
+          <a href="app_lifecycle.html#clean-up"
+             data-list-item
+             >Clean-up before app closes</a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<meta name="doc-family" content="apps">
+<h1>Chrome App Lifecycle</h1>
+
+
+<p>
+The app runtime and event page are responsible
+for managing the app lifecycle.
+The app runtime manages app installation,
+controls the event page,
+and can shutdown the app at anytime.
+The event page listens out for events from the app runtime
+and manages what gets launched and how.
+</p>
+
+<h2 id="lifecycle">How the lifecycle works</h2>
+
+<p>
+The app runtime loads the event page
+from a user's desktop and
+the <code>onLaunch()</code> event is fired.
+This event tells the event page what windows
+to launch and their dimensions.
+The lifecycle diagram here isn't the nicest to look at,
+but it's practical (and we will make it nicer soon).
+</p>
+
+<img src="http://developer.chrome.com/static/images/applifecycle.png"
+     width="444"
+     height="329"
+     alt="how app lifecycle works">
+
+<p>
+When the event page has no executing JavaScript,
+no pending callbacks, and no open windows,
+the runtime unloads the event page and closes the app.
+Before unloading the event page,
+the <code>onSuspend()</code> event is fired.
+This gives the event page opportunity
+to do simple clean-up tasks
+before the app is closed.
+</p>
+
+<h2 id="eventpage">Create event page and windows</h2>
+
+<p>
+All apps must have an event page.
+This page contains the top-level logic of the application
+with none of its own UI and is responsible
+for creating the windows for all other app pages.
+</p>
+
+<h3 id="create_event_page">Create event page</h3>
+
+<p>
+To create the event page,
+include the "background" field in the app manifest
+and include the <code>background.js</code> in the scripts array.
+Any library scripts used by the event page need to be added
+to the "background" field first:
+</p>
+
+<pre data-filename="manifest.json">
+"background": {
+  "scripts": [
+    "foo.js",
+    "background.js"
+  ]
+}
+</pre>
+
+<p>
+Your event page must include the <code>onLaunched()</code> function.
+This function is called
+when your application is launched in any way:
+</p>
+
+<pre data-filename="background.js">
+chrome.app.runtime.onLaunched.addListener(function() { 
+  // Tell your app what to launch and how.
+});
+</pre>
+
+<h3 id="create_windows">Create windows</h3>
+
+<p>
+An event page may create one or more windows at its discretion.
+By default, these windows are created with a script connection
+to the event page and are directly scriptable by the event page.
+</p>
+
+<p>
+Windows have an optional frame with title bar and size controls. They are
+not associated with any Chrome browser windows.
+</p>
+
+<p>Here's a sample window created from <code>background.js</code>:</p>
+
+<pre data-filename="background.js">
+chrome.app.runtime.onLaunched.addListener(function() {
+  chrome.app.window.create('main.html', {
+    bounds: {
+      width: 800,
+      height: 600,
+      left: 100,
+      top: 100
+    },
+    minWidth: 800,
+    minHeight: 600
+  });
+});
+</pre>
+
+<h3 id="launch_data">Including Launch Data</h3>
+
+<p>
+Depending on how your app is launched,
+you may need to handle launch data
+in your event page.
+By default, there is no launch data
+when the app is started by the app launcher.
+For apps that have file handlers,
+you need to handle the
+<code>launchData.items</code> parameter to allow
+them to be launched with files.
+</p>
+
+<h2 id="runtime">Listening for app runtime events</h2>
+
+<p>
+The app runtime controls the app installs, updates, and uninstalls.
+You don't need to do anything to set up the app runtime,
+but your event page can listen out for the <code>onInstalled()</code> event
+to store local settings and the
+<code>onSuspend()</code> event to do simple clean-up tasks
+before the event page is unloaded.
+</p>
+
+<h3 id="local_settings">Storing local settings</h3>
+
+<p>
+<code>chrome.runtime.onInstalled()</code>
+is called when your app has first been installed,
+or when it has been updated.
+Any time this function is called,
+the <code>onInstalled</code> event is fired.
+The event page can listen for this event and use the
+<a href="http://developer.chrome.com/apps/storage.html">Storage API</a>
+to store and update local settings
+(see also <a href="http://developer.chrome.com/apps/app_storage.html#options">Storage options</a>).
+</p>
+
+<pre data-filename="background.js">
+chrome.runtime.onInstalled.addListener(function() { 
+  chrome.storage.local.set(object items, function callback);
+});
+</pre>
+
+<h3 id="preventing_loss">Preventing data loss</h3>
+
+<p>
+Users can uninstall your app at any time.
+When uninstalled,
+no executing code or private data is left behind.
+This can lead to data loss
+since the users may be uninstalling an app
+that has locally edited, unsynchronized data.
+You should stash data to prevent data loss.
+</p>
+
+<p>
+At a minimum,
+you should store user settings
+so that if users reinstall your app,
+their information is still available for reuse.
+Using the Storage API
+(<a href="http://developer.chrome.com/apps/storage.html#property-sync">storage.sync</a>),
+user data can be automatically synced
+with Chrome sync.
+</p>
+
+<h3 id="clean-up">Clean-up before app closes</h3>
+
+<p>
+The app runtime sends the <code>onSuspend()</code>
+event to the event page before unloading it.
+Your event page can listen out for this event and
+do clean-up tasks before the app closes.
+</p>
+
+<p>
+Once this event is fired,
+the app runtime starts the process of closing the app:
+all events stop firing and
+JavaScript execution is halted.
+Any asynchronous operations started
+while handling this event are not guaranteed to complete.
+Keep the clean-up tasks synchronous and simple.
+</p>
+
+<pre data-filename="background.js">
+chrome.runtime.onSuspend.addListener(function() { 
+  // Do some simple clean-up tasks.
+});
+</pre>
+
+<p class="backtotop"><a href="app_lifecycle.html#top">Back to top</a></p>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

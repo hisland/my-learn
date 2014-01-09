@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chrome.cookies - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3 toggled"></div>
+              </a>
+            <ul toggleable
+                class="level3 ">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a  class="level4 selected">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<h1>chrome.cookies</h1>
+<div id="toc">
+  <ol>
+    <li >
+      <a href="cookies.html#manifest"
+         data-list-item
+         >Manifest</a>
+    </li>
+    <li >
+      <a href="cookies.html#examples"
+         data-list-item
+         > Examples </a>
+    </li>
+    <li class="separator">
+      <a href="cookies.html#types"
+         data-list-item
+         >Types</a>
+      <ol>
+        <li >
+          <a href="cookies.html#type-Cookie"
+             data-list-item
+             >Cookie</a>
+        </li>
+        <li >
+          <a href="cookies.html#type-CookieStore"
+             data-list-item
+             >CookieStore</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="cookies.html#methods"
+         data-list-item
+         >Methods</a>
+      <ol>
+        <li >
+          <a href="cookies.html#method-get"
+             data-list-item
+             >get        </a>
+        </li>
+        <li >
+          <a href="cookies.html#method-getAll"
+             data-list-item
+             >getAll        </a>
+        </li>
+        <li >
+          <a href="cookies.html#method-set"
+             data-list-item
+             >set        </a>
+        </li>
+        <li >
+          <a href="cookies.html#method-remove"
+             data-list-item
+             >remove        </a>
+        </li>
+        <li >
+          <a href="cookies.html#method-getAllCookieStores"
+             data-list-item
+             >getAllCookieStores        </a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="cookies.html#events"
+         data-list-item
+         >Events</a>
+      <ol>
+        <li >
+          <a href="cookies.html#event-onChanged"
+             data-list-item
+             >onChanged</a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<table class="intro" id="intro">
+  <tr>
+    <td class="title">Description:</td>
+    <td>
+        Use the <code>chrome.cookies</code> API to query and modify cookies, and to be notified when they change.
+                <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Availability:</td>
+    <td>
+        Stable since Chrome 6.
+        <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Permissions:</td>
+    <td>
+        <span class="code">
+        "cookies"
+                </span>
+        <br>
+        <a href="declare_permissions.html#host-permissions">
+        host permissions
+                </a>
+        <br>
+    </td>
+  </tr>
+</table>
+<section>
+<h2 id="manifest">Manifest</h2>
+
+<p>To use the cookies API,
+you must declare the "cookies" permission in your manifest,
+along with <a href="declare_permissions.html">host permissions</a>
+for any hosts whose cookies
+you want to access.
+For example:</p>
+
+<pre data-filename="manifest.json">
+{
+  "name": "My extension",
+  ...
+  <b>"permissions": [
+    "cookies",
+    "*://*.google.com"
+  ]</b>,
+  ...
+}
+</pre>
+
+<h2 id="examples"> Examples </h2>
+
+<p>
+You can find a simple example
+of using the cookies API in the
+<a href="http://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/extensions/docs/examples/api/cookies/">examples/api/cookies</a>
+directory.
+For other examples
+and for help in viewing the source code,
+see <a href="samples.html">Samples</a>.
+</p>
+</section>
+<section>
+<h2 id="api-reference-header" title="">chrome.cookies reference</h2>
+<div class="api_reference">
+    <h2 id="types">Types</h2>
+      <div>
+        <h3 id="type-Cookie">Cookie</h3>
+        <div>
+          <dd>Represents information about an HTTP cookie.</dd>
+            <h3 id="Cookie-properties" class="capitalize" title="">
+              properties of <a href="cookies.html#type-Cookie">Cookie</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-Cookie-name"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cookie-name" title="">
+                        name
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The name of the cookie.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Cookie-value"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cookie-value" title="">
+                        value
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The value of the cookie.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Cookie-domain"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cookie-domain" title="">
+                        domain
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The domain of the cookie (e.g. "www.google.com", "example.com").
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Cookie-hostOnly"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cookie-hostOnly" title="">
+                        hostOnly
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      True if the cookie is a host-only cookie (i.e. a request's host must exactly match the domain of the cookie).
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Cookie-path"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cookie-path" title="">
+                        path
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The path of the cookie.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Cookie-secure"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cookie-secure" title="">
+                        secure
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      True if the cookie is marked as Secure (i.e. its scope is limited to secure channels, typically HTTPS).
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Cookie-httpOnly"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cookie-httpOnly" title="">
+                        httpOnly
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      True if the cookie is marked as HttpOnly (i.e. the cookie is inaccessible to client-side scripts).
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Cookie-session"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cookie-session" title="">
+                        session
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      True if the cookie is a session cookie, as opposed to a persistent cookie with an expiration date.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Cookie-expirationDate"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cookie-expirationDate" title="">
+                        expirationDate
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            double
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Cookie-storeId"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cookie-storeId" title="">
+                        storeId
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The ID of the cookie store containing this cookie, as provided in getAllCookieStores().
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-CookieStore">CookieStore</h3>
+        <div>
+          <dd>Represents a cookie store in the browser. An incognito mode window, for instance, uses a separate cookie store from a non-incognito window.</dd>
+            <h3 id="CookieStore-properties" class="capitalize" title="">
+              properties of <a href="cookies.html#type-CookieStore">CookieStore</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-CookieStore-id"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-CookieStore-id" title="">
+                        id
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The unique identifier for the cookie store.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-CookieStore-tabIds"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-CookieStore-tabIds" title="">
+                        tabIds
+                        <span class="property">
+                          (
+                            array of integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Identifiers of all the browser tabs that share this cookie store.
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+    <h2 id="methods">Methods</h2>
+      <div>
+        <h3
+            id="method-get"
+            >get
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.cookies.get</span>(<span>object details</span>, <span>function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Retrieves information about a single cookie. If more than one cookie of the same name exists for the given URL, the one with the longest path will be returned. For cookies with the same path length, the cookie with the earliest creation time will be returned.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-get-details"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-get-details" title="">
+                      details
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Details to identify the cookie being retrieved.
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-details-url"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-url" title="">
+                            url
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The URL with which the cookie to retrieve is associated. This argument may be a full URL, in which case any data following the URL path (e.g. the query string) is simply ignored. If host permissions for this URL are not specified in the manifest file, the API call will fail.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-name"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-name" title="">
+                            name
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The name of the cookie to retrieve.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-storeId"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-storeId" title="">
+                            storeId
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The ID of the cookie store in which to look for the cookie. By default, the current execution context's cookie store will be used.
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-get-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-get-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  The <em>callback</em> parameter should specify a function
+                  that looks like this:
+            </p>
+            <pre>function(<a href="cookies.html#type-Cookie">Cookie</a> cookie) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-cookie"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-cookie" title="">
+                        cookie
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            <a href="cookies.html#type-Cookie">Cookie</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Contains details about the cookie. This parameter is null if no such cookie was found.
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-getAll"
+            >getAll
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.cookies.getAll</span>(<span>object details</span>, <span>function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Retrieves all cookies from a single cookie store that match the given information.  The cookies returned will be sorted, with those with the longest path first.  If multiple cookies have the same path length, those with the earliest creation time will be first.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-getAll-details"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getAll-details" title="">
+                      details
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Information to filter the cookies being retrieved.
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-details-url"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-url" title="">
+                            url
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Restricts the retrieved cookies to those that would match the given URL.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-name"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-name" title="">
+                            name
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Filters the cookies by name.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-domain"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-domain" title="">
+                            domain
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Restricts the retrieved cookies to those whose domains match or are subdomains of this one.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-path"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-path" title="">
+                            path
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Restricts the retrieved cookies to those whose path exactly matches this string.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-secure"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-secure" title="">
+                            secure
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                boolean
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Filters the cookies by their Secure property.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-session"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-session" title="">
+                            session
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                boolean
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Filters out session vs. persistent cookies.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-storeId"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-storeId" title="">
+                            storeId
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The cookie store to retrieve cookies from. If omitted, the current execution context's cookie store will be used.
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-getAll-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getAll-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  The <em>callback</em> parameter should specify a function
+                  that looks like this:
+            </p>
+            <pre>function(array of <a href="cookies.html#type-Cookie">Cookie</a> cookies) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-cookies"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-cookies" title="">
+                        cookies
+                        <span class="property">
+                          (
+                            array of <a href="cookies.html#type-Cookie">Cookie</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      All the existing, unexpired cookies that match the given cookie info.
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-set"
+            >set
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.cookies.set</span>(<span>object details</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Sets a cookie with the given cookie data; may overwrite equivalent cookies if they exist.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-set-details"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-set-details" title="">
+                      details
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Details about the cookie being set.
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-details-url"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-url" title="">
+                            url
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The request-URI to associate with the setting of the cookie. This value can affect the default domain and path values of the created cookie. If host permissions for this URL are not specified in the manifest file, the API call will fail.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-name"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-name" title="">
+                            name
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The name of the cookie. Empty by default if omitted.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-value"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-value" title="">
+                            value
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The value of the cookie. Empty by default if omitted.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-domain"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-domain" title="">
+                            domain
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The domain of the cookie. If omitted, the cookie becomes a host-only cookie.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-path"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-path" title="">
+                            path
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The path of the cookie. Defaults to the path portion of the url parameter.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-secure"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-secure" title="">
+                            secure
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                boolean
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Whether the cookie should be marked as Secure. Defaults to false.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-httpOnly"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-httpOnly" title="">
+                            httpOnly
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                boolean
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Whether the cookie should be marked as HttpOnly. Defaults to false.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-expirationDate"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-expirationDate" title="">
+                            expirationDate
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                double
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted, the cookie becomes a session cookie.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-storeId"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-storeId" title="">
+                            storeId
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The ID of the cookie store in which to set the cookie. By default, the cookie is set in the current execution context's cookie store.
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-set-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-set-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(<a href="cookies.html#type-Cookie">Cookie</a> cookie) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-cookie"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-cookie" title="">
+                        cookie
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            <a href="cookies.html#type-Cookie">Cookie</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Contains details about the cookie that's been set.  If setting failed for any reason, this will be "null", and "chrome.runtime.lastError" will be set.
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-remove"
+            >remove
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.cookies.remove</span>(<span>object details</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Deletes a cookie by name.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-remove-details"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-remove-details" title="">
+                      details
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Information to identify the cookie to remove.
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-details-url"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-url" title="">
+                            url
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The URL associated with the cookie. If host permissions for this URL are not specified in the manifest file, the API call will fail.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-name"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-name" title="">
+                            name
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The name of the cookie to remove.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-details-storeId"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-details-storeId" title="">
+                            storeId
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The ID of the cookie store to look in for the cookie. If unspecified, the cookie is looked for by default in the current execution context's cookie store.
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-remove-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-remove-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(object details) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-details"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-details" title="">
+                        details
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            object
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Contains details about the cookie that's been removed.  If removal failed for any reason, this will be "null", and "chrome.runtime.lastError" will be set.
+                    </dd>
+                  </dl>
+                  <dd>
+                    <h4 title="">Properties</h4>
+                    <dl>
+                      <div>
+                        <a name="property-details-url"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-details-url" title="">
+                              url
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            The URL associated with the cookie that's been removed.
+                          </dd>
+                        </dl>
+                      </div><div>
+                        <a name="property-details-name"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-details-name" title="">
+                              name
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            The name of the cookie that's been removed.
+                          </dd>
+                        </dl>
+                      </div><div>
+                        <a name="property-details-storeId"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-details-storeId" title="">
+                              storeId
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            The ID of the cookie store from which the cookie was removed.
+                          </dd>
+                        </dl>
+                      </div>
+                    </dl>
+                  </dd>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-getAllCookieStores"
+            >getAllCookieStores
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.cookies.getAllCookieStores</span>(<span>function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Lists all existing cookie stores.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-getAllCookieStores-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getAllCookieStores-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  The <em>callback</em> parameter should specify a function
+                  that looks like this:
+            </p>
+            <pre>function(array of <a href="cookies.html#type-CookieStore">CookieStore</a> cookieStores) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-cookieStores"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-cookieStores" title="">
+                        cookieStores
+                        <span class="property">
+                          (
+                            array of <a href="cookies.html#type-CookieStore">CookieStore</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      All the existing cookie stores.
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+    <h2 id="events">Events</h2>
+      <div>
+        <h3 id="event-onChanged">onChanged</h3>
+        <div class="description">
+      <p>
+            Fired when a cookie is set or removed. As a special case, note that updating a cookie's properties is implemented as a two step process: the cookie to be updated is first removed entirely, generating a notification with "cause" of "overwrite" .  Afterwards, a new cookie is written with the updated values, generating a second notification with "cause" "explicit".
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.cookies.onChanged.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onChanged-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onChanged-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object changeInfo) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onChanged-changeInfo"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onChanged-changeInfo" title="">
+                              changeInfo
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-changeInfo-removed"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-changeInfo-removed" title="">
+                                    removed
+                                    <span class="property">
+                                      (
+                                        boolean
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  True if a cookie was removed.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-changeInfo-cookie"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-changeInfo-cookie" title="">
+                                    cookie
+                                    <span class="property">
+                                      (
+                                        <a href="cookies.html#type-Cookie">Cookie</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Information about the cookie that was set or removed.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-changeInfo-cause"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-changeInfo-cause" title="">
+                                    cause
+                                    <span class="property">
+                                      (
+                                        enum of <code>"evicted"</code>, <code>"expired"</code>, <code>"explicit"</code>, <code>"expired_overwrite"</code>, or <code>"overwrite"</code>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The underlying reason behind the cookie's change. If a cookie was inserted, or removed via an explicit call to "chrome.cookies.remove", "cause" will be "explicit". If a cookie was automatically removed due to expiry, "cause" will be "expired". If a cookie was removed due to being overwritten with an already-expired expiration date, "cause" will be set to "expired_overwrite".  If a cookie was automatically removed due to garbage collection, "cause" will be "evicted".  If a cookie was automatically removed due to a "set" call that overwrote it, "cause" will be "overwrite". Plan your response accordingly.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+</div>
+</section>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chrome.devtools.panels - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<h1>chrome.devtools.panels</h1>
+<div id="toc">
+  <ol>
+    <li >
+      <a href="devtools.panels.html#overview"
+         data-list-item
+         >Overview</a>
+    </li>
+    <li >
+      <a href="devtools.panels.html#overview-examples"
+         data-list-item
+         >Examples</a>
+    </li>
+    <li class="separator">
+      <a href="devtools.panels.html#types"
+         data-list-item
+         >Types</a>
+      <ol>
+        <li >
+          <a href="devtools.panels.html#type-ElementsPanel"
+             data-list-item
+             >ElementsPanel</a>
+          <ol>
+            <li >
+              <a href="devtools.panels.html#method-ElementsPanel-createSidebarPane"
+                 data-list-item
+                 >createSidebarPane                  </a>
+            </li>
+          </ol>
+        </li>
+        <li >
+          <a href="devtools.panels.html#event-ElementsPanel-onSelectionChanged"
+             data-list-item
+             >onSelectionChanged</a>
+        </li>
+        <li >
+          <a href="devtools.panels.html#type-ExtensionPanel"
+             data-list-item
+             >ExtensionPanel</a>
+          <ol>
+            <li >
+              <a href="devtools.panels.html#method-ExtensionPanel-createStatusBarButton"
+                 data-list-item
+                 >createStatusBarButton                  </a>
+            </li>
+          </ol>
+        </li>
+        <li >
+          <a href="devtools.panels.html#event-ExtensionPanel-onSearch"
+             data-list-item
+             >onSearch</a>
+        </li>
+        <li >
+          <a href="devtools.panels.html#event-ExtensionPanel-onShown"
+             data-list-item
+             >onShown</a>
+        </li>
+        <li >
+          <a href="devtools.panels.html#event-ExtensionPanel-onHidden"
+             data-list-item
+             >onHidden</a>
+        </li>
+        <li >
+          <a href="devtools.panels.html#type-ExtensionSidebarPane"
+             data-list-item
+             >ExtensionSidebarPane</a>
+          <ol>
+            <li >
+              <a href="devtools.panels.html#method-ExtensionSidebarPane-setHeight"
+                 data-list-item
+                 >setHeight                  </a>
+            </li>
+            <li >
+              <a href="devtools.panels.html#method-ExtensionSidebarPane-setExpression"
+                 data-list-item
+                 >setExpression                  </a>
+            </li>
+            <li >
+              <a href="devtools.panels.html#method-ExtensionSidebarPane-setObject"
+                 data-list-item
+                 >setObject                  </a>
+            </li>
+            <li >
+              <a href="devtools.panels.html#method-ExtensionSidebarPane-setPage"
+                 data-list-item
+                 >setPage                  </a>
+            </li>
+          </ol>
+        </li>
+        <li >
+          <a href="devtools.panels.html#event-ExtensionSidebarPane-onShown"
+             data-list-item
+             >onShown</a>
+        </li>
+        <li >
+          <a href="devtools.panels.html#event-ExtensionSidebarPane-onHidden"
+             data-list-item
+             >onHidden</a>
+        </li>
+        <li >
+          <a href="devtools.panels.html#type-Button"
+             data-list-item
+             >Button</a>
+          <ol>
+            <li >
+              <a href="devtools.panels.html#method-Button-update"
+                 data-list-item
+                 >update                  </a>
+            </li>
+          </ol>
+        </li>
+        <li >
+          <a href="devtools.panels.html#event-Button-onClicked"
+             data-list-item
+             >onClicked</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="devtools.panels.html#properties"
+         data-list-item
+         >Properties</a>
+      <ol>
+        <li >
+          <a href="devtools.panels.html#property-elements"
+             data-list-item
+             >elements</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="devtools.panels.html#methods"
+         data-list-item
+         >Methods</a>
+      <ol>
+        <li >
+          <a href="devtools.panels.html#method-create"
+             data-list-item
+             >create        </a>
+        </li>
+        <li >
+          <a href="devtools.panels.html#method-setOpenResourceHandler"
+             data-list-item
+             >setOpenResourceHandler        </a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<table class="intro" id="intro">
+  <tr>
+    <td class="title">Description:</td>
+    <td>
+        Use the <code>chrome.devtools.panels</code> API to integrate your extension into Developer Tools window UI: create your own panels, access existing panels, and add sidebars.
+                <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Availability:</td>
+    <td>
+        Stable since Chrome 18.
+        <br>
+    </td>
+  </tr>
+</table>
+<section>
+<p>
+See <a href="devtools.html">DevTools APIs summary</a> for
+general introduction to using Developer Tools APIs.
+</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>
+Each extension panel and sidebar is displayed as a separate HTML page. All
+extension pages displayed in the Developer Tools window have access to all
+modules in <code>chrome.devtools</code> API, as well as to
+<a href="extension.html">chrome.extension</a> API. Other extension APIs are not
+available to the pages within Developer Tools window, but you may invoke them
+by sending a request to the background page of your extension, similarly to how
+it's done in the <a href="overview.html#contentScripts">content scripts</a>.
+</p><p>
+You can use the <code><a href="devtools.panels.html#method-setOpenResourceHandler">devtools.panels.setOpenResourceHandler</a>
+</code> method to install a
+callback function that handles user requests to open a resource (typically,
+a click on a resource link in the Developer Tools window). At most one of the
+installed handlers gets called; users can specify (using the Developer Tools
+Settings dialog) either the default behavior or an extension to handle resource
+open requests. If an extension calls <code>setOpenResourceHandler()</code>
+multiple times, only the last handler is retained.
+</p>
+<h2 id="overview-examples">Examples</h2>
+<p>The following code adds a panel contained in <code>Panel.html</code>,
+represented by <code>FontPicker.png</code> on the Developer Tools toolbar
+and labeled as <em>Font Picker</em>:</p>
+
+<pre>
+chrome.devtools.panels.create("Font Picker",
+                              "FontPicker.png",
+                              "Panel.html"
+                              function(panel) { ... });
+</pre>
+<p>The following code adds a sidebar pane contained in
+<code>Sidebar.html</code> and titled <em>Font Properties</em> to the Elements
+panel, then sets its height to <code>8ex</code>:
+<pre>
+chrome.devtools.panels.elements.createSidebarPane("Font Properties",
+    function(sidebar) {
+      sidebar.setPage("Sidebar.html");
+      sidebar.setHeight("8ex");
+    });
+</pre>
+<p>
+This screenshot demonstrates the effect the above examples would have on
+Developer Tools window:
+
+<img src="../static/images/devtools-panels.png"
+     style="margin-left: 20px"
+     width="686" height="289"
+     alt="Extension icon panel on DevTools toolbar" />
+</p>
+
+<p>
+You can find examples that use this API in
+<a href="samples.html#chrome-query">Samples</a>.
+</p>
+</section>
+<section>
+<h2 id="api-reference-header" title="">chrome.devtools.panels reference</h2>
+<div class="api_reference">
+    <h2 id="types">Types</h2>
+      <div>
+        <h3 id="type-ElementsPanel">ElementsPanel</h3>
+        <div>
+          <dd>Represents the Elements panel.</dd>
+            <h3 id="ElementsPanel-methods" class="capitalize" title="">
+              methods of <a href="devtools.panels.html#type-ElementsPanel">ElementsPanel</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <h4
+                      id="method-ElementsPanel-createSidebarPane"
+                      >createSidebarPane
+                  </h4>
+                  <div class="summary">
+                  <div class="line">
+                  <span>ElementsPanel.createSidebarPane</span>(<span>string title</span>, <span class="optional">function callback</span>)
+                  </div>
+                  </div>
+                  <div class="description">
+                    <p>
+                      Creates a pane within panel's sidebar.
+                    </p>
+                    <h4 title="">Parameters</h4>
+                    <dl>
+                        <div>
+                          <a name="property-createSidebarPane-title"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-createSidebarPane-title" title="">
+                                title
+                                <span class="property">
+                                  (
+                                    string
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              Text that is displayed in sidebar caption.
+                            </dd>
+                          </dl>
+                        </div>
+                        <div>
+                          <a name="property-createSidebarPane-callback"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-createSidebarPane-callback" title="">
+                                callback
+                                <span class="property">
+                                  (
+                                    <span class="optional">optional</span>
+                                    function
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              A callback invoked when the sidebar is created.
+                            </dd>
+                          </dl>
+                        </div>
+                    </dl>
+                      <p>
+                            If you specify the <em>callback</em> parameter, it should
+                            specify a function that looks like this:
+                      </p>
+                      <pre>function(<a href="devtools.panels.html#type-ExtensionSidebarPane">ExtensionSidebarPane</a> result) <span class="subdued">{...}</span>;</pre>
+                      <dl>
+                          <div>
+                            <a name="property-callback-result"></a>
+                            <dl>
+                              <dt>
+                                <h4 id="property-callback-result" title="">
+                                  result
+                                  <span class="property">
+                                    (
+                                      <a href="devtools.panels.html#type-ExtensionSidebarPane">ExtensionSidebarPane</a>
+                                    )
+                                  </span>
+                                </h4>
+                              </dt>
+                              <dd>
+                                An ExtensionSidebarPane object for created sidebar pane.
+                              </dd>
+                            </dl>
+                          </div>
+                      </dl>
+                  </div>
+                </div>
+              </dl>
+            </dd>
+            <h3 id="ElementsPanel-events" class="capitalize" title="">
+              events of <a href="devtools.panels.html#type-ElementsPanel">ElementsPanel</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <h3 id="event-ElementsPanel-onSelectionChanged">onSelectionChanged</h3>
+                  <div class="description">
+                <p>
+                      Fired when an object is selected in the panel.
+                    </p>      <div>
+                        <h4
+                            title="">addListener
+                        </h4>
+                        <div class="summary">
+                        <div class="line">
+                        <span>onSelectionChanged.addListener</span>(<span>function callback</span>)
+                        </div>
+                        </div>
+                        <div class="description">
+                          <h4 title="">Parameters</h4>
+                          <dl>
+                              <div>
+                                <a name="property-onSelectionChanged-callback"></a>
+                                <dl>
+                                  <dt>
+                                    <h4 id="property-onSelectionChanged-callback" title="">
+                                      callback
+                                      <span class="property">
+                                        (
+                                          function
+                                        )
+                                      </span>
+                                    </h4>
+                                  </dt>
+                                  <dd>
+                                  </dd>
+                                </dl>
+                              </div>
+                          </dl>
+                            <p>
+                                  The <em>callback</em> parameter should specify a function
+                                  that looks like this:
+                            </p>
+                            <pre>function() <span class="subdued">{...}</span>;</pre>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-ExtensionPanel">ExtensionPanel</h3>
+        <div>
+          <dd>Represents a panel created by extension.</dd>
+            <h3 id="ExtensionPanel-methods" class="capitalize" title="">
+              methods of <a href="devtools.panels.html#type-ExtensionPanel">ExtensionPanel</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <h4
+                      id="method-ExtensionPanel-createStatusBarButton"
+                      >createStatusBarButton
+                  </h4>
+                  <div class="summary">
+                  <div class="line">
+                  <span><a href="devtools.panels.html#type-Button">Button</a> ExtensionPanel.createStatusBarButton</span>(<span>string iconPath</span>, <span>string tooltipText</span>, <span>boolean disabled</span>)
+                  </div>
+                  </div>
+                  <div class="description">
+                    <p>
+                      Appends a button to the status bar of the panel.
+                    </p>
+                    <h4 title="">Parameters</h4>
+                    <dl>
+                        <div>
+                          <a name="property-createStatusBarButton-iconPath"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-createStatusBarButton-iconPath" title="">
+                                iconPath
+                                <span class="property">
+                                  (
+                                    string
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              Path to the icon of the button. The file should contain a 64x24-pixel image composed of two 32x24 icons. The left icon is used when the button is inactive; the right icon is displayed when the button is pressed.
+                            </dd>
+                          </dl>
+                        </div>
+                        <div>
+                          <a name="property-createStatusBarButton-tooltipText"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-createStatusBarButton-tooltipText" title="">
+                                tooltipText
+                                <span class="property">
+                                  (
+                                    string
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              Text shown as a tooltip when user hovers the mouse over the button.
+                            </dd>
+                          </dl>
+                        </div>
+                        <div>
+                          <a name="property-createStatusBarButton-disabled"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-createStatusBarButton-disabled" title="">
+                                disabled
+                                <span class="property">
+                                  (
+                                    boolean
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              Whether the button is disabled.
+                            </dd>
+                          </dl>
+                        </div>
+                    </dl>
+                  </div>
+                </div>
+              </dl>
+            </dd>
+            <h3 id="ExtensionPanel-events" class="capitalize" title="">
+              events of <a href="devtools.panels.html#type-ExtensionPanel">ExtensionPanel</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <h3 id="event-ExtensionPanel-onSearch">onSearch</h3>
+                  <div class="description">
+                <p>
+                      Fired upon a search action (start of a new search, search result navigation, or search being canceled).
+                    </p>      <div>
+                        <h4
+                            title="">addListener
+                        </h4>
+                        <div class="summary">
+                        <div class="line">
+                        <span>onSearch.addListener</span>(<span>function callback</span>)
+                        </div>
+                        </div>
+                        <div class="description">
+                          <h4 title="">Parameters</h4>
+                          <dl>
+                              <div>
+                                <a name="property-onSearch-callback"></a>
+                                <dl>
+                                  <dt>
+                                    <h4 id="property-onSearch-callback" title="">
+                                      callback
+                                      <span class="property">
+                                        (
+                                          function
+                                        )
+                                      </span>
+                                    </h4>
+                                  </dt>
+                                  <dd>
+                                  </dd>
+                                </dl>
+                              </div>
+                          </dl>
+                            <p>
+                                  The <em>callback</em> parameter should specify a function
+                                  that looks like this:
+                            </p>
+                            <pre>function(string action, string queryString) <span class="subdued">{...}</span>;</pre>
+                            <dl>
+                                <div>
+                                  <a name="property-onSearch-action"></a>
+                                  <dl>
+                                    <dt>
+                                      <h4 id="property-onSearch-action" title="">
+                                        action
+                                        <span class="property">
+                                          (
+                                            string
+                                          )
+                                        </span>
+                                      </h4>
+                                    </dt>
+                                    <dd>
+                                      Type of search action being performed.
+                                    </dd>
+                                  </dl>
+                                </div>
+                                <div>
+                                  <a name="property-onSearch-queryString"></a>
+                                  <dl>
+                                    <dt>
+                                      <h4 id="property-onSearch-queryString" title="">
+                                        queryString
+                                        <span class="property">
+                                          (
+                                            <span class="optional">optional</span>
+                                            string
+                                          )
+                                        </span>
+                                      </h4>
+                                    </dt>
+                                    <dd>
+                                      Query string (only for 'performSearch').
+                                    </dd>
+                                  </dl>
+                                </div>
+                            </dl>
+                        </div>
+                      </div>
+                  </div>
+                </div><div>
+                  <h3 id="event-ExtensionPanel-onShown">onShown</h3>
+                  <div class="description">
+                <p>
+                      Fired when the user switches to the panel.
+                    </p>      <div>
+                        <h4
+                            title="">addListener
+                        </h4>
+                        <div class="summary">
+                        <div class="line">
+                        <span>onShown.addListener</span>(<span>function callback</span>)
+                        </div>
+                        </div>
+                        <div class="description">
+                          <h4 title="">Parameters</h4>
+                          <dl>
+                              <div>
+                                <a name="property-onShown-callback"></a>
+                                <dl>
+                                  <dt>
+                                    <h4 id="property-onShown-callback" title="">
+                                      callback
+                                      <span class="property">
+                                        (
+                                          function
+                                        )
+                                      </span>
+                                    </h4>
+                                  </dt>
+                                  <dd>
+                                  </dd>
+                                </dl>
+                              </div>
+                          </dl>
+                            <p>
+                                  The <em>callback</em> parameter should specify a function
+                                  that looks like this:
+                            </p>
+                            <pre>function(<a href="windows.html#type-Window">windows.Window</a> window) <span class="subdued">{...}</span>;</pre>
+                            <dl>
+                                <div>
+                                  <a name="property-onShown-window"></a>
+                                  <dl>
+                                    <dt>
+                                      <h4 id="property-onShown-window" title="">
+                                        window
+                                        <span class="property">
+                                          (
+                                            <a href="windows.html#type-Window">windows.Window</a>
+                                          )
+                                        </span>
+                                      </h4>
+                                    </dt>
+                                    <dd>
+                                      The <code>window</code> object of panel's page.
+                                    </dd>
+                                  </dl>
+                                </div>
+                            </dl>
+                        </div>
+                      </div>
+                  </div>
+                </div><div>
+                  <h3 id="event-ExtensionPanel-onHidden">onHidden</h3>
+                  <div class="description">
+                <p>
+                      Fired when the user switches away from the panel.
+                    </p>      <div>
+                        <h4
+                            title="">addListener
+                        </h4>
+                        <div class="summary">
+                        <div class="line">
+                        <span>onHidden.addListener</span>(<span>function callback</span>)
+                        </div>
+                        </div>
+                        <div class="description">
+                          <h4 title="">Parameters</h4>
+                          <dl>
+                              <div>
+                                <a name="property-onHidden-callback"></a>
+                                <dl>
+                                  <dt>
+                                    <h4 id="property-onHidden-callback" title="">
+                                      callback
+                                      <span class="property">
+                                        (
+                                          function
+                                        )
+                                      </span>
+                                    </h4>
+                                  </dt>
+                                  <dd>
+                                  </dd>
+                                </dl>
+                              </div>
+                          </dl>
+                            <p>
+                                  The <em>callback</em> parameter should specify a function
+                                  that looks like this:
+                            </p>
+                            <pre>function() <span class="subdued">{...}</span>;</pre>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-ExtensionSidebarPane">ExtensionSidebarPane</h3>
+        <div>
+          <dd>A sidebar created by the extension.</dd>
+            <h3 id="ExtensionSidebarPane-methods" class="capitalize" title="">
+              methods of <a href="devtools.panels.html#type-ExtensionSidebarPane">ExtensionSidebarPane</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <h4
+                      id="method-ExtensionSidebarPane-setHeight"
+                      >setHeight
+                  </h4>
+                  <div class="summary">
+                  <div class="line">
+                  <span>ExtensionSidebarPane.setHeight</span>(<span>string height</span>)
+                  </div>
+                  </div>
+                  <div class="description">
+                    <p>
+                      Sets the height of the sidebar.
+                    </p>
+                    <h4 title="">Parameters</h4>
+                    <dl>
+                        <div>
+                          <a name="property-setHeight-height"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-setHeight-height" title="">
+                                height
+                                <span class="property">
+                                  (
+                                    string
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              A CSS-like size specification, such as <code>'100px'</code> or <code>'12ex'</code>.
+                            </dd>
+                          </dl>
+                        </div>
+                    </dl>
+                  </div>
+                </div><div>
+                  <h4
+                      id="method-ExtensionSidebarPane-setExpression"
+                      >setExpression
+                  </h4>
+                  <div class="summary">
+                  <div class="line">
+                  <span>ExtensionSidebarPane.setExpression</span>(<span>string expression</span>, <span class="optional">string rootTitle</span>, <span class="optional">function callback</span>)
+                  </div>
+                  </div>
+                  <div class="description">
+                    <p>
+                      Sets an expression that is evaluated within the inspected page. The result is displayed in the sidebar pane.
+                    </p>
+                    <h4 title="">Parameters</h4>
+                    <dl>
+                        <div>
+                          <a name="property-setExpression-expression"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-setExpression-expression" title="">
+                                expression
+                                <span class="property">
+                                  (
+                                    string
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              An expression to be evaluated in context of the inspected page. JavaScript objects and DOM nodes are displayed in an expandable tree similar to the console/watch.
+                            </dd>
+                          </dl>
+                        </div>
+                        <div>
+                          <a name="property-setExpression-rootTitle"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-setExpression-rootTitle" title="">
+                                rootTitle
+                                <span class="property">
+                                  (
+                                    <span class="optional">optional</span>
+                                    string
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              An optional title for the root of the expression tree.
+                            </dd>
+                          </dl>
+                        </div>
+                        <div>
+                          <a name="property-setExpression-callback"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-setExpression-callback" title="">
+                                callback
+                                <span class="property">
+                                  (
+                                    <span class="optional">optional</span>
+                                    function
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              A callback invoked after the sidebar pane is updated with the expression evaluation results.
+                            </dd>
+                          </dl>
+                        </div>
+                    </dl>
+                      <p>
+                            If you specify the <em>callback</em> parameter, it should
+                            specify a function that looks like this:
+                      </p>
+                      <pre>function() <span class="subdued">{...}</span>;</pre>
+                  </div>
+                </div><div>
+                  <h4
+                      id="method-ExtensionSidebarPane-setObject"
+                      >setObject
+                  </h4>
+                  <div class="summary">
+                  <div class="line">
+                  <span>ExtensionSidebarPane.setObject</span>(<span>string jsonObject</span>, <span class="optional">string rootTitle</span>, <span class="optional">function callback</span>)
+                  </div>
+                  </div>
+                  <div class="description">
+                    <p>
+                      Sets a JSON-compliant object to be displayed in the sidebar pane.
+                    </p>
+                    <h4 title="">Parameters</h4>
+                    <dl>
+                        <div>
+                          <a name="property-setObject-jsonObject"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-setObject-jsonObject" title="">
+                                jsonObject
+                                <span class="property">
+                                  (
+                                    string
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              An object to be displayed in context of the inspected page. Evaluated in the context of the caller (API client).
+                            </dd>
+                          </dl>
+                        </div>
+                        <div>
+                          <a name="property-setObject-rootTitle"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-setObject-rootTitle" title="">
+                                rootTitle
+                                <span class="property">
+                                  (
+                                    <span class="optional">optional</span>
+                                    string
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              An optional title for the root of the expression tree.
+                            </dd>
+                          </dl>
+                        </div>
+                        <div>
+                          <a name="property-setObject-callback"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-setObject-callback" title="">
+                                callback
+                                <span class="property">
+                                  (
+                                    <span class="optional">optional</span>
+                                    function
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              A callback invoked after the sidebar is updated with the object.
+                            </dd>
+                          </dl>
+                        </div>
+                    </dl>
+                      <p>
+                            If you specify the <em>callback</em> parameter, it should
+                            specify a function that looks like this:
+                      </p>
+                      <pre>function() <span class="subdued">{...}</span>;</pre>
+                  </div>
+                </div><div>
+                  <h4
+                      id="method-ExtensionSidebarPane-setPage"
+                      >setPage
+                  </h4>
+                  <div class="summary">
+                  <div class="line">
+                  <span>ExtensionSidebarPane.setPage</span>(<span>string path</span>)
+                  </div>
+                  </div>
+                  <div class="description">
+                    <p>
+                      Sets an HTML page to be displayed in the sidebar pane.
+                    </p>
+                    <h4 title="">Parameters</h4>
+                    <dl>
+                        <div>
+                          <a name="property-setPage-path"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-setPage-path" title="">
+                                path
+                                <span class="property">
+                                  (
+                                    string
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              Relative path of an extension page to display within the sidebar.
+                            </dd>
+                          </dl>
+                        </div>
+                    </dl>
+                  </div>
+                </div>
+              </dl>
+            </dd>
+            <h3 id="ExtensionSidebarPane-events" class="capitalize" title="">
+              events of <a href="devtools.panels.html#type-ExtensionSidebarPane">ExtensionSidebarPane</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <h3 id="event-ExtensionSidebarPane-onShown">onShown</h3>
+                  <div class="description">
+                <p>
+                      Fired when the sidebar pane becomes visible as a result of user switching to the panel that hosts it.
+                    </p>      <div>
+                        <h4
+                            title="">addListener
+                        </h4>
+                        <div class="summary">
+                        <div class="line">
+                        <span>onShown.addListener</span>(<span>function callback</span>)
+                        </div>
+                        </div>
+                        <div class="description">
+                          <h4 title="">Parameters</h4>
+                          <dl>
+                              <div>
+                                <a name="property-onShown-callback"></a>
+                                <dl>
+                                  <dt>
+                                    <h4 id="property-onShown-callback" title="">
+                                      callback
+                                      <span class="property">
+                                        (
+                                          function
+                                        )
+                                      </span>
+                                    </h4>
+                                  </dt>
+                                  <dd>
+                                  </dd>
+                                </dl>
+                              </div>
+                          </dl>
+                            <p>
+                                  The <em>callback</em> parameter should specify a function
+                                  that looks like this:
+                            </p>
+                            <pre>function(<a href="windows.html#type-Window">windows.Window</a> window) <span class="subdued">{...}</span>;</pre>
+                            <dl>
+                                <div>
+                                  <a name="property-onShown-window"></a>
+                                  <dl>
+                                    <dt>
+                                      <h4 id="property-onShown-window" title="">
+                                        window
+                                        <span class="property">
+                                          (
+                                            <span class="optional">optional</span>
+                                            <a href="windows.html#type-Window">windows.Window</a>
+                                          )
+                                        </span>
+                                      </h4>
+                                    </dt>
+                                    <dd>
+                                      The <code>window</code> object of the sidebar page, if one was set with the <code>setPage()</code> method.
+                                    </dd>
+                                  </dl>
+                                </div>
+                            </dl>
+                        </div>
+                      </div>
+                  </div>
+                </div><div>
+                  <h3 id="event-ExtensionSidebarPane-onHidden">onHidden</h3>
+                  <div class="description">
+                <p>
+                      Fired when the sidebar pane becomes hidden as a result of the user switching away from the panel that hosts the sidebar pane.
+                    </p>      <div>
+                        <h4
+                            title="">addListener
+                        </h4>
+                        <div class="summary">
+                        <div class="line">
+                        <span>onHidden.addListener</span>(<span>function callback</span>)
+                        </div>
+                        </div>
+                        <div class="description">
+                          <h4 title="">Parameters</h4>
+                          <dl>
+                              <div>
+                                <a name="property-onHidden-callback"></a>
+                                <dl>
+                                  <dt>
+                                    <h4 id="property-onHidden-callback" title="">
+                                      callback
+                                      <span class="property">
+                                        (
+                                          function
+                                        )
+                                      </span>
+                                    </h4>
+                                  </dt>
+                                  <dd>
+                                  </dd>
+                                </dl>
+                              </div>
+                          </dl>
+                            <p>
+                                  The <em>callback</em> parameter should specify a function
+                                  that looks like this:
+                            </p>
+                            <pre>function() <span class="subdued">{...}</span>;</pre>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-Button">Button</h3>
+        <div>
+          <dd>A button created by the extension.</dd>
+            <h3 id="Button-methods" class="capitalize" title="">
+              methods of <a href="devtools.panels.html#type-Button">Button</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <h4
+                      id="method-Button-update"
+                      >update
+                  </h4>
+                  <div class="summary">
+                  <div class="line">
+                  <span>Button.update</span>(<span class="optional">string iconPath</span>, <span class="optional">string tooltipText</span>, <span class="optional">boolean disabled</span>)
+                  </div>
+                  </div>
+                  <div class="description">
+                    <p>
+                      Updates the attributes of the button. If some of the arguments are omitted or <code>null</code>, the corresponding attributes are not updated.
+                    </p>
+                    <h4 title="">Parameters</h4>
+                    <dl>
+                        <div>
+                          <a name="property-update-iconPath"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-update-iconPath" title="">
+                                iconPath
+                                <span class="property">
+                                  (
+                                    <span class="optional">optional</span>
+                                    string
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              Path to the new icon of the button.
+                            </dd>
+                          </dl>
+                        </div>
+                        <div>
+                          <a name="property-update-tooltipText"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-update-tooltipText" title="">
+                                tooltipText
+                                <span class="property">
+                                  (
+                                    <span class="optional">optional</span>
+                                    string
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              Text shown as a tooltip when user hovers the mouse over the button.
+                            </dd>
+                          </dl>
+                        </div>
+                        <div>
+                          <a name="property-update-disabled"></a>
+                          <dl>
+                            <dt>
+                              <h4 id="property-update-disabled" title="">
+                                disabled
+                                <span class="property">
+                                  (
+                                    <span class="optional">optional</span>
+                                    boolean
+                                  )
+                                </span>
+                              </h4>
+                            </dt>
+                            <dd>
+                              Whether the button is disabled.
+                            </dd>
+                          </dl>
+                        </div>
+                    </dl>
+                  </div>
+                </div>
+              </dl>
+            </dd>
+            <h3 id="Button-events" class="capitalize" title="">
+              events of <a href="devtools.panels.html#type-Button">Button</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <h3 id="event-Button-onClicked">onClicked</h3>
+                  <div class="description">
+                <p>
+                      Fired when the button is clicked.
+                    </p>      <div>
+                        <h4
+                            title="">addListener
+                        </h4>
+                        <div class="summary">
+                        <div class="line">
+                        <span>onClicked.addListener</span>(<span>function callback</span>)
+                        </div>
+                        </div>
+                        <div class="description">
+                          <h4 title="">Parameters</h4>
+                          <dl>
+                              <div>
+                                <a name="property-onClicked-callback"></a>
+                                <dl>
+                                  <dt>
+                                    <h4 id="property-onClicked-callback" title="">
+                                      callback
+                                      <span class="property">
+                                        (
+                                          function
+                                        )
+                                      </span>
+                                    </h4>
+                                  </dt>
+                                  <dd>
+                                  </dd>
+                                </dl>
+                              </div>
+                          </dl>
+                            <p>
+                                  The <em>callback</em> parameter should specify a function
+                                  that looks like this:
+                            </p>
+                            <pre>function() <span class="subdued">{...}</span>;</pre>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+    <h2 id="properties">Properties</h2>
+      <div>
+        <h3 id="property-elements">elements</h3>
+        <div class="summary">
+          <div class="line">chrome.devtools.panels.elements</div>
+        </div>
+        <div>
+          <dt><span class="property">elements</span> <span class="type_name">  (  <a href="devtools.panels.html#type-ElementsPanel">ElementsPanel</a>  )</span></dt>
+      <dd>
+            Elements panel.
+          </dd>  </div>
+      </div>
+    <h2 id="methods">Methods</h2>
+      <div>
+        <h3
+            id="method-create"
+            >create
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.devtools.panels.create</span>(<span>string title</span>, <span>string iconPath</span>, <span>string pagePath</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Creates an extension panel.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-create-title"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-create-title" title="">
+                      title
+                      <span class="property">
+                        (
+                          string
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Title that is displayed next to the extension icon in the Developer Tools toolbar.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-create-iconPath"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-create-iconPath" title="">
+                      iconPath
+                      <span class="property">
+                        (
+                          string
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Path of the panel's icon relative to the extension directory.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-create-pagePath"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-create-pagePath" title="">
+                      pagePath
+                      <span class="property">
+                        (
+                          string
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Path of the panel's HTML page relative to the extension directory.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-create-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-create-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    A function that is called when the panel is created.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(<a href="devtools.panels.html#type-ExtensionPanel">ExtensionPanel</a> panel) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-panel"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-panel" title="">
+                        panel
+                        <span class="property">
+                          (
+                            <a href="devtools.panels.html#type-ExtensionPanel">ExtensionPanel</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      An ExtensionPanel object representing the created panel.
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-setOpenResourceHandler"
+            >setOpenResourceHandler
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.devtools.panels.setOpenResourceHandler</span>(<span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Specifies the function to be called when the user clicks a resource link in the Developer Tools window. To unset the handler, either call the method with no parameters or pass null as the parameter.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-setOpenResourceHandler-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setOpenResourceHandler-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    A function that is called when the user clicks on a valid resource link in Developer Tools window. Note that if the user clicks an invalid URL or an XHR, this function is not called.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(<a href="devtools.inspectedWindow.html#type-Resource">devtools.inspectedWindow.Resource</a> resource) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-resource"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-resource" title="">
+                        resource
+                        <span class="property">
+                          (
+                            <a href="devtools.inspectedWindow.html#type-Resource">devtools.inspectedWindow.Resource</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      A <a href="devtools.inspectedWindow.html#type-Resource">devtools.inspectedWindow.Resource</a> object for the resource that was clicked.
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+</div>
+</section>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

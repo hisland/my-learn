@@ -1,0 +1,3251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chrome.input.ime - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<h1>chrome.input.ime</h1>
+<div id="toc">
+  <ol>
+    <li >
+      <a href="input.ime.html#manifest"
+         data-list-item
+         >Manifest</a>
+    </li>
+    <li >
+      <a href="input.ime.html#overview-examples"
+         data-list-item
+         >Examples</a>
+    </li>
+    <li class="separator">
+      <a href="input.ime.html#types"
+         data-list-item
+         >Types</a>
+      <ol>
+        <li >
+          <a href="input.ime.html#type-KeyboardEvent"
+             data-list-item
+             >KeyboardEvent</a>
+        </li>
+        <li >
+          <a href="input.ime.html#type-InputContext"
+             data-list-item
+             >InputContext</a>
+        </li>
+        <li >
+          <a href="input.ime.html#type-MenuItem"
+             data-list-item
+             >MenuItem</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="input.ime.html#methods"
+         data-list-item
+         >Methods</a>
+      <ol>
+        <li >
+          <a href="input.ime.html#method-setComposition"
+             data-list-item
+             >setComposition        </a>
+        </li>
+        <li >
+          <a href="input.ime.html#method-clearComposition"
+             data-list-item
+             >clearComposition        </a>
+        </li>
+        <li >
+          <a href="input.ime.html#method-commitText"
+             data-list-item
+             >commitText        </a>
+        </li>
+        <li >
+          <a href="input.ime.html#method-sendKeyEvents"
+             data-list-item
+             >sendKeyEvents        </a>
+        </li>
+        <li >
+          <a href="input.ime.html#method-hideInputView"
+             data-list-item
+             >hideInputView        </a>
+        </li>
+        <li >
+          <a href="input.ime.html#method-setCandidateWindowProperties"
+             data-list-item
+             >setCandidateWindowProperties        </a>
+        </li>
+        <li >
+          <a href="input.ime.html#method-setCandidates"
+             data-list-item
+             >setCandidates        </a>
+        </li>
+        <li >
+          <a href="input.ime.html#method-setCursorPosition"
+             data-list-item
+             >setCursorPosition        </a>
+        </li>
+        <li >
+          <a href="input.ime.html#method-setMenuItems"
+             data-list-item
+             >setMenuItems        </a>
+        </li>
+        <li >
+          <a href="input.ime.html#method-updateMenuItems"
+             data-list-item
+             >updateMenuItems        </a>
+        </li>
+        <li >
+          <a href="input.ime.html#method-deleteSurroundingText"
+             data-list-item
+             >deleteSurroundingText        </a>
+        </li>
+        <li >
+          <a href="input.ime.html#method-keyEventHandled"
+             data-list-item
+             >keyEventHandled        </a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="input.ime.html#events"
+         data-list-item
+         >Events</a>
+      <ol>
+        <li >
+          <a href="input.ime.html#event-onActivate"
+             data-list-item
+             >onActivate</a>
+        </li>
+        <li >
+          <a href="input.ime.html#event-onDeactivated"
+             data-list-item
+             >onDeactivated</a>
+        </li>
+        <li >
+          <a href="input.ime.html#event-onFocus"
+             data-list-item
+             >onFocus</a>
+        </li>
+        <li >
+          <a href="input.ime.html#event-onBlur"
+             data-list-item
+             >onBlur</a>
+        </li>
+        <li >
+          <a href="input.ime.html#event-onInputContextUpdate"
+             data-list-item
+             >onInputContextUpdate</a>
+        </li>
+        <li >
+          <a href="input.ime.html#event-onKeyEvent"
+             data-list-item
+             >onKeyEvent</a>
+        </li>
+        <li >
+          <a href="input.ime.html#event-onCandidateClicked"
+             data-list-item
+             >onCandidateClicked</a>
+        </li>
+        <li >
+          <a href="input.ime.html#event-onMenuItemActivated"
+             data-list-item
+             >onMenuItemActivated</a>
+        </li>
+        <li >
+          <a href="input.ime.html#event-onSurroundingTextChanged"
+             data-list-item
+             >onSurroundingTextChanged</a>
+        </li>
+        <li >
+          <a href="input.ime.html#event-onReset"
+             data-list-item
+             >onReset</a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<table class="intro" id="intro">
+  <tr>
+    <td class="title">Description:</td>
+    <td>
+        Use the <code>chrome.input.ime</code> API to implement a custom IME for Chrome OS. This allows your extension to handle keystrokes, set the composition, and manage the candidate window.
+                <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Availability:</td>
+    <td>
+        Stable since Chrome 21.
+        <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Permissions:</td>
+    <td>
+        <span class="code">
+        "input"
+                </span>
+        <br>
+    </td>
+  </tr>
+</table>
+<section>
+<h2 id="manifest">Manifest</h2>
+<p>You must declare the "input" permission
+in the <a href="manifest.html">extension manifest</a>
+to use the input.ime API.
+For example:</p>
+<pre data-filename="manifest.json">
+{
+  "name": "My extension",
+  ...
+  <b>"permissions": [
+    "input"
+  ]</b>,
+  ...
+}</pre>
+
+<h2 id="overview-examples">Examples</h2>
+
+<p>
+The following code creates an IME that converts typed letters to upper case.
+</p>
+
+<pre>
+var context_id = -1;
+
+chrome.input.ime.onFocus.addListener(function(context) {
+  context_id = context.contextID;
+});
+
+chrome.input.ime.onKeyEvent.addListener(
+  function(engineID, keyData) {
+    if (keyData.type == "keydown" && keyData.key.match(/^[a-z]$/)) {
+      chrome.input.ime.commitText({"contextID": context_id,
+                                   "text": keyData.key.toUpperCase()});
+      return true;
+    } else {
+      return false;
+    }
+  });
+</pre>
+
+<p>
+For an example of using this API, see the
+<a
+  href="http://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/extensions/docs/examples/api/input.ime/basic/">basic input.ime sample</a>.
+For other examples and for help in viewing the source code, see
+<a href="samples.html">Samples</a>.
+</p>
+</section>
+<section>
+<h2 id="api-reference-header" title="">chrome.input.ime reference</h2>
+<div class="api_reference">
+    <h2 id="types">Types</h2>
+      <div>
+        <h3 id="type-KeyboardEvent">KeyboardEvent</h3>
+        <div>
+          <dd>See http://www.w3.org/TR/DOM-Level-3-Events/#events-KeyboardEvent</dd>
+            <h3 id="KeyboardEvent-properties" class="capitalize" title="">
+              properties of <a href="input.ime.html#type-KeyboardEvent">KeyboardEvent</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-KeyboardEvent-type"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-KeyboardEvent-type" title="">
+                        type
+                        <span class="property">
+                          (
+                            enum of <code>"keyup"</code>, or <code>"keydown"</code>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      One of keyup or keydown.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-KeyboardEvent-requestId"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-KeyboardEvent-requestId" title="">
+                        requestId
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The ID of the request.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-KeyboardEvent-key"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-KeyboardEvent-key" title="">
+                        key
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Value of the key being pressed
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-KeyboardEvent-code"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-KeyboardEvent-code" title="">
+                        code
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Value of the physical key being pressed. The value is not affected by current keyboard layout or modifier state.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-KeyboardEvent-altKey"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-KeyboardEvent-altKey" title="">
+                        altKey
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Whether or not the ALT key is pressed.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-KeyboardEvent-ctrlKey"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-KeyboardEvent-ctrlKey" title="">
+                        ctrlKey
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Whether or not the CTRL key is pressed.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-KeyboardEvent-shiftKey"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-KeyboardEvent-shiftKey" title="">
+                        shiftKey
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Whether or not the SHIFT key is pressed.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-KeyboardEvent-capsLock"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-KeyboardEvent-capsLock" title="">
+                        capsLock
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Whether or not the CAPS_LOCK is enabled.
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-InputContext">InputContext</h3>
+        <div>
+          <dd>Describes an input Context</dd>
+            <h3 id="InputContext-properties" class="capitalize" title="">
+              properties of <a href="input.ime.html#type-InputContext">InputContext</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-InputContext-contextID"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-InputContext-contextID" title="">
+                        contextID
+                        <span class="property">
+                          (
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      This is used to specify targets of text field operations.  This ID becomes invalid as soon as onBlur is called.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-InputContext-type"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-InputContext-type" title="">
+                        type
+                        <span class="property">
+                          (
+                            enum of <code>"text"</code>, <code>"search"</code>, <code>"tel"</code>, <code>"url"</code>, <code>"email"</code>, or <code>"number"</code>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Type of value this text field edits, (Text, Number, URL, etc)
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-MenuItem">MenuItem</h3>
+        <div>
+          <dd>A menu item used by an input method to interact with the user from the language menu.</dd>
+            <h3 id="MenuItem-properties" class="capitalize" title="">
+              properties of <a href="input.ime.html#type-MenuItem">MenuItem</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-MenuItem-id"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-MenuItem-id" title="">
+                        id
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      String that will be passed to callbacks referencing this MenuItem.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-MenuItem-label"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-MenuItem-label" title="">
+                        label
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Text displayed in the menu for this item.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-MenuItem-style"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-MenuItem-style" title="">
+                        style
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            enum of <code>"check"</code>, <code>"radio"</code>, or <code>"separator"</code>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Enum representing if this item is: check, radio, or a separator.  Radio buttons between separators are considered grouped.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-MenuItem-visible"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-MenuItem-visible" title="">
+                        visible
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Indicates this item is visible.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-MenuItem-checked"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-MenuItem-checked" title="">
+                        checked
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Indicates this item should be drawn with a check.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-MenuItem-enabled"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-MenuItem-enabled" title="">
+                        enabled
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Indicates this item is enabled.
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+    <h2 id="methods">Methods</h2>
+      <div>
+        <h3
+            id="method-setComposition"
+            >setComposition
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.setComposition</span>(<span>object parameters</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Set the current composition. If this extension does not own the active IME, this fails.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-setComposition-parameters"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setComposition-parameters" title="">
+                      parameters
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-parameters-contextID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-contextID" title="">
+                            contextID
+                            <span class="property">
+                              (
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the context where the composition text will be set
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-text"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-text" title="">
+                            text
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Text to set
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-selectionStart"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-selectionStart" title="">
+                            selectionStart
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Position in the text that the selection starts at.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-selectionEnd"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-selectionEnd" title="">
+                            selectionEnd
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Position in the text that the selection ends at.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-cursor"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-cursor" title="">
+                            cursor
+                            <span class="property">
+                              (
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Position in the text of the cursor.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-segments"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-segments" title="">
+                            segments
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                array of object
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          List of segments and their associated types.
+                          <h4 title="">Properties of each object</h4>
+                          <dl>
+                            <div>
+                              <div>
+                                  <dd>
+                                    <dl>
+                                      <div>
+                                        <a name="property-segmentsType-start"></a>
+                                        <dl>
+                                          <dt>
+                                            <h4 id="property-segmentsType-start" title="">
+                                              start
+                                              <span class="property">
+                                                (
+                                                  integer
+                                                )
+                                              </span>
+                                            </h4>
+                                          </dt>
+                                          <dd>
+                                            Index of the character to start this segment at
+                                          </dd>
+                                        </dl>
+                                      </div><div>
+                                        <a name="property-segmentsType-end"></a>
+                                        <dl>
+                                          <dt>
+                                            <h4 id="property-segmentsType-end" title="">
+                                              end
+                                              <span class="property">
+                                                (
+                                                  integer
+                                                )
+                                              </span>
+                                            </h4>
+                                          </dt>
+                                          <dd>
+                                            Index of the character to end this segment after.
+                                          </dd>
+                                        </dl>
+                                      </div><div>
+                                        <a name="property-segmentsType-style"></a>
+                                        <dl>
+                                          <dt>
+                                            <h4 id="property-segmentsType-style" title="">
+                                              style
+                                              <span class="property">
+                                                (
+                                                  enum of <code>"underline"</code>, or <code>"doubleUnderline"</code>
+                                                )
+                                              </span>
+                                            </h4>
+                                          </dt>
+                                          <dd>
+                                            How to render this segment
+                                          </dd>
+                                        </dl>
+                                      </div>
+                                    </dl>
+                                  </dd>
+                              </div>
+                            </div>
+                          </dl>
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-setComposition-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setComposition-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the operation completes with a boolean indicating if the text was accepted or not. On failure, chrome.runtime.lastError is set.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(boolean success) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-success"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-success" title="">
+                        success
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-clearComposition"
+            >clearComposition
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.clearComposition</span>(<span>object parameters</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clear the current composition. If this extension does not own the active IME, this fails.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-clearComposition-parameters"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-clearComposition-parameters" title="">
+                      parameters
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-parameters-contextID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-contextID" title="">
+                            contextID
+                            <span class="property">
+                              (
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the context where the composition will be cleared
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-clearComposition-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-clearComposition-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the operation completes with a boolean indicating if the text was accepted or not. On failure, chrome.runtime.lastError is set.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(boolean success) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-success"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-success" title="">
+                        success
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-commitText"
+            >commitText
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.commitText</span>(<span>object parameters</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Commits the provided text to the current input.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-commitText-parameters"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-commitText-parameters" title="">
+                      parameters
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-parameters-contextID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-contextID" title="">
+                            contextID
+                            <span class="property">
+                              (
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the context where the text will be committed
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-text"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-text" title="">
+                            text
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The text to commit
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-commitText-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-commitText-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the operation completes with a boolean indicating if the text was accepted or not. On failure, chrome.runtime.lastError is set.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(boolean success) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-success"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-success" title="">
+                        success
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-sendKeyEvents"
+            >sendKeyEvents
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.sendKeyEvents</span>(<span>object parameters</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Sends the key events.  This function is expected to be used by virtual keyboards.  When key(s) on a virtual keyboard is pressed by a user, this function is used to propagate that event to the system.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-sendKeyEvents-parameters"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-sendKeyEvents-parameters" title="">
+                      parameters
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-parameters-contextID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-contextID" title="">
+                            contextID
+                            <span class="property">
+                              (
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the context where the key events will be sent
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-keyData"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-keyData" title="">
+                            keyData
+                            <span class="property">
+                              (
+                                array of <a href="input.ime.html#type-KeyboardEvent">KeyboardEvent</a>
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Data on the key event.
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-sendKeyEvents-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-sendKeyEvents-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the operation completes.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-hideInputView"
+            >hideInputView
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.hideInputView</span>()
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Hides the input view window, which is popped up automatically by system. If the input view window is already hidden, this function will do nothing.
+          </p>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-setCandidateWindowProperties"
+            >setCandidateWindowProperties
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.setCandidateWindowProperties</span>(<span>object parameters</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Sets the properties of the candidate window. This fails if the extension doesn't own the active IME
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-setCandidateWindowProperties-parameters"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setCandidateWindowProperties-parameters" title="">
+                      parameters
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-parameters-engineID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-engineID" title="">
+                            engineID
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the engine to set properties on.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-properties"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-properties" title="">
+                            properties
+                            <span class="property">
+                              (
+                                object
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                      <dd>
+                        <h4 title="">Properties</h4>
+                        <dl>
+                          <div>
+                            <a name="property-properties-visible"></a>
+                            <dl>
+                              <dt>
+                                <h4 id="property-properties-visible" title="">
+                                  visible
+                                  <span class="property">
+                                    (
+                                      <span class="optional">optional</span>
+                                      boolean
+                                    )
+                                  </span>
+                                </h4>
+                              </dt>
+                              <dd>
+                                True to show the Candidate window, false to hide it.
+                              </dd>
+                            </dl>
+                          </div><div>
+                            <a name="property-properties-cursorVisible"></a>
+                            <dl>
+                              <dt>
+                                <h4 id="property-properties-cursorVisible" title="">
+                                  cursorVisible
+                                  <span class="property">
+                                    (
+                                      <span class="optional">optional</span>
+                                      boolean
+                                    )
+                                  </span>
+                                </h4>
+                              </dt>
+                              <dd>
+                                True to show the cursor, false to hide it.
+                              </dd>
+                            </dl>
+                          </div><div>
+                            <a name="property-properties-vertical"></a>
+                            <dl>
+                              <dt>
+                                <h4 id="property-properties-vertical" title="">
+                                  vertical
+                                  <span class="property">
+                                    (
+                                      <span class="optional">optional</span>
+                                      boolean
+                                    )
+                                  </span>
+                                </h4>
+                              </dt>
+                              <dd>
+                                True if the candidate window should be rendered vertical, false to make it horizontal.
+                              </dd>
+                            </dl>
+                          </div><div>
+                            <a name="property-properties-pageSize"></a>
+                            <dl>
+                              <dt>
+                                <h4 id="property-properties-pageSize" title="">
+                                  pageSize
+                                  <span class="property">
+                                    (
+                                      <span class="optional">optional</span>
+                                      integer
+                                    )
+                                  </span>
+                                </h4>
+                              </dt>
+                              <dd>
+                                The number of candidates to display per page.
+                              </dd>
+                            </dl>
+                          </div><div>
+                            <a name="property-properties-auxiliaryText"></a>
+                            <dl>
+                              <dt>
+                                <h4 id="property-properties-auxiliaryText" title="">
+                                  auxiliaryText
+                                  <span class="property">
+                                    (
+                                      <span class="optional">optional</span>
+                                      string
+                                    )
+                                  </span>
+                                </h4>
+                              </dt>
+                              <dd>
+                                Text that is shown at the bottom of the candidate window.
+                              </dd>
+                            </dl>
+                          </div><div>
+                            <a name="property-properties-auxiliaryTextVisible"></a>
+                            <dl>
+                              <dt>
+                                <h4 id="property-properties-auxiliaryTextVisible" title="">
+                                  auxiliaryTextVisible
+                                  <span class="property">
+                                    (
+                                      <span class="optional">optional</span>
+                                      boolean
+                                    )
+                                  </span>
+                                </h4>
+                              </dt>
+                              <dd>
+                                True to display the auxiliary text, false to hide it.
+                              </dd>
+                            </dl>
+                          </div><div>
+                            <a name="property-properties-windowPosition"></a>
+                            <dl>
+                              <dt>
+                                <h4 id="property-properties-windowPosition" title="">
+                                  windowPosition
+                                  <span class="property">
+                                    (
+                                      <span class="optional">optional</span>
+                                      enum of <code>"cursor"</code>, or <code>"composition"</code>
+                                    )
+                                  </span>
+                                </h4>
+                              </dt>
+                              <dd>
+                                Where to display the candidate window. If set to 'cursor', the window follows the cursor. If set to 'composition', the window is locked to the beginning of the composition.
+                              </dd>
+                            </dl>
+                          </div>
+                        </dl>
+                      </dd>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-setCandidateWindowProperties-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setCandidateWindowProperties-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the operation completes.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(boolean success) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-success"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-success" title="">
+                        success
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-setCandidates"
+            >setCandidates
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.setCandidates</span>(<span>object parameters</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Sets the current candidate list. This fails if this extension doesn't own the active IME
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-setCandidates-parameters"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setCandidates-parameters" title="">
+                      parameters
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-parameters-contextID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-contextID" title="">
+                            contextID
+                            <span class="property">
+                              (
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the context that owns the candidate window.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-candidates"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-candidates" title="">
+                            candidates
+                            <span class="property">
+                              (
+                                array of object
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          List of candidates to show in the candidate window
+                          <h4 title="">Properties of each object</h4>
+                          <dl>
+                            <div>
+                              <div>
+                                  <dd>
+                                    <dl>
+                                      <div>
+                                        <a name="property-candidatesType-candidate"></a>
+                                        <dl>
+                                          <dt>
+                                            <h4 id="property-candidatesType-candidate" title="">
+                                              candidate
+                                              <span class="property">
+                                                (
+                                                  string
+                                                )
+                                              </span>
+                                            </h4>
+                                          </dt>
+                                          <dd>
+                                            The candidate
+                                          </dd>
+                                        </dl>
+                                      </div><div>
+                                        <a name="property-candidatesType-id"></a>
+                                        <dl>
+                                          <dt>
+                                            <h4 id="property-candidatesType-id" title="">
+                                              id
+                                              <span class="property">
+                                                (
+                                                  integer
+                                                )
+                                              </span>
+                                            </h4>
+                                          </dt>
+                                          <dd>
+                                            The candidate's id
+                                          </dd>
+                                        </dl>
+                                      </div><div>
+                                        <a name="property-candidatesType-parentId"></a>
+                                        <dl>
+                                          <dt>
+                                            <h4 id="property-candidatesType-parentId" title="">
+                                              parentId
+                                              <span class="property">
+                                                (
+                                                  <span class="optional">optional</span>
+                                                  integer
+                                                )
+                                              </span>
+                                            </h4>
+                                          </dt>
+                                          <dd>
+                                            The id to add these candidates under
+                                          </dd>
+                                        </dl>
+                                      </div><div>
+                                        <a name="property-candidatesType-label"></a>
+                                        <dl>
+                                          <dt>
+                                            <h4 id="property-candidatesType-label" title="">
+                                              label
+                                              <span class="property">
+                                                (
+                                                  <span class="optional">optional</span>
+                                                  string
+                                                )
+                                              </span>
+                                            </h4>
+                                          </dt>
+                                          <dd>
+                                            Short string displayed to next to the candidate, often the shortcut key or index
+                                          </dd>
+                                        </dl>
+                                      </div><div>
+                                        <a name="property-candidatesType-annotation"></a>
+                                        <dl>
+                                          <dt>
+                                            <h4 id="property-candidatesType-annotation" title="">
+                                              annotation
+                                              <span class="property">
+                                                (
+                                                  <span class="optional">optional</span>
+                                                  string
+                                                )
+                                              </span>
+                                            </h4>
+                                          </dt>
+                                          <dd>
+                                            Additional text describing the candidate
+                                          </dd>
+                                        </dl>
+                                      </div><div>
+                                        <a name="property-candidatesType-usage"></a>
+                                        <dl>
+                                          <dt>
+                                            <h4 id="property-candidatesType-usage" title="">
+                                              usage
+                                              <span class="property">
+                                                (
+                                                  <span class="optional">optional</span>
+                                                  object
+                                                )
+                                              </span>
+                                            </h4>
+                                          </dt>
+                                          <dd>
+                                            The usage or detail description of word.
+                                          </dd>
+                                        </dl>
+                                        <dd>
+                                          <h4 title="">Properties</h4>
+                                          <dl>
+                                            <div>
+                                              <a name="property-usage-title"></a>
+                                              <dl>
+                                                <dt>
+                                                  <h4 id="property-usage-title" title="">
+                                                    title
+                                                    <span class="property">
+                                                      (
+                                                        string
+                                                      )
+                                                    </span>
+                                                  </h4>
+                                                </dt>
+                                                <dd>
+                                                  The title string of details description.
+                                                </dd>
+                                              </dl>
+                                            </div><div>
+                                              <a name="property-usage-body"></a>
+                                              <dl>
+                                                <dt>
+                                                  <h4 id="property-usage-body" title="">
+                                                    body
+                                                    <span class="property">
+                                                      (
+                                                        string
+                                                      )
+                                                    </span>
+                                                  </h4>
+                                                </dt>
+                                                <dd>
+                                                  The body string of detail description.
+                                                </dd>
+                                              </dl>
+                                            </div>
+                                          </dl>
+                                        </dd>
+                                      </div>
+                                    </dl>
+                                  </dd>
+                              </div>
+                            </div>
+                          </dl>
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-setCandidates-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setCandidates-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the operation completes.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(boolean success) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-success"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-success" title="">
+                        success
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-setCursorPosition"
+            >setCursorPosition
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.setCursorPosition</span>(<span>object parameters</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Set the position of the cursor in the candidate window. This is a no-op if this extension does not own the active IME.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-setCursorPosition-parameters"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setCursorPosition-parameters" title="">
+                      parameters
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-parameters-contextID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-contextID" title="">
+                            contextID
+                            <span class="property">
+                              (
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the context that owns the candidate window.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-candidateID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-candidateID" title="">
+                            candidateID
+                            <span class="property">
+                              (
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the candidate to select.
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-setCursorPosition-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setCursorPosition-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the operation completes
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(boolean success) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-success"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-success" title="">
+                        success
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-setMenuItems"
+            >setMenuItems
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.setMenuItems</span>(<span>object parameters</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Adds the provided menu items to the language menu when this IME is active.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-setMenuItems-parameters"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setMenuItems-parameters" title="">
+                      parameters
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-parameters-engineID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-engineID" title="">
+                            engineID
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the engine to use
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-items"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-items" title="">
+                            items
+                            <span class="property">
+                              (
+                                array of <a href="input.ime.html#type-MenuItem">MenuItem</a>
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          MenuItems to add. They will be added in the order they exist in the array.
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-setMenuItems-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-setMenuItems-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-updateMenuItems"
+            >updateMenuItems
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.updateMenuItems</span>(<span>object parameters</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Updates the state of the MenuItems specified
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-updateMenuItems-parameters"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-updateMenuItems-parameters" title="">
+                      parameters
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-parameters-engineID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-engineID" title="">
+                            engineID
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the engine to use
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-items"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-items" title="">
+                            items
+                            <span class="property">
+                              (
+                                array of <a href="input.ime.html#type-MenuItem">MenuItem</a>
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Array of MenuItems to update
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-updateMenuItems-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-updateMenuItems-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the operation completes
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-deleteSurroundingText"
+            >deleteSurroundingText
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.deleteSurroundingText</span>(<span>object parameters</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Deletes the text around the caret.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-deleteSurroundingText-parameters"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-deleteSurroundingText-parameters" title="">
+                      parameters
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-parameters-engineID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-engineID" title="">
+                            engineID
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the engine receiving the event.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-contextID"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-contextID" title="">
+                            contextID
+                            <span class="property">
+                              (
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          ID of the context where the surrounding text will be deleted.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-offset"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-offset" title="">
+                            offset
+                            <span class="property">
+                              (
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The offset from the caret position where deletion will start. This value can be negative.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-parameters-length"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-parameters-length" title="">
+                            length
+                            <span class="property">
+                              (
+                                integer
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          The number of characters to be deleted
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-deleteSurroundingText-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-deleteSurroundingText-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the operation completes.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-keyEventHandled"
+            >keyEventHandled
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.input.ime.keyEventHandled</span>(<span>string requestId</span>, <span>boolean response</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Indicates that the key event received by onKeyEvent is handled.  This should only be called if the onKeyEvent listener is asynchronous.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-keyEventHandled-requestId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-keyEventHandled-requestId" title="">
+                      requestId
+                      <span class="property">
+                        (
+                          string
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Request id of the event that was handled.  This should come from keyEvent.requestId
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-keyEventHandled-response"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-keyEventHandled-response" title="">
+                      response
+                      <span class="property">
+                        (
+                          boolean
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    True if the keystroke was handled, false if not
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+        </div>
+      </div>
+    <h2 id="events">Events</h2>
+      <div>
+        <h3 id="event-onActivate">onActivate</h3>
+        <div class="description">
+      <p>
+            This event is sent when an IME is activated. It signals that the IME will be receiving onKeyPress events.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.input.ime.onActivate.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onActivate-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onActivate-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(string engineID) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onActivate-engineID"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onActivate-engineID" title="">
+                              engineID
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            ID of the engine receiving the event
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onDeactivated">onDeactivated</h3>
+        <div class="description">
+      <p>
+            This event is sent when an IME is deactivated. It signals that the IME will no longer be receiving onKeyPress events.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.input.ime.onDeactivated.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onDeactivated-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onDeactivated-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(string engineID) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onDeactivated-engineID"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onDeactivated-engineID" title="">
+                              engineID
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            ID of the engine receiving the event
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onFocus">onFocus</h3>
+        <div class="description">
+      <p>
+            This event is sent when focus enters a text box. It is sent to all extensions that are listening to this event, and enabled by the user.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.input.ime.onFocus.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onFocus-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onFocus-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(<a href="input.ime.html#type-InputContext">InputContext</a> context) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onFocus-context"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onFocus-context" title="">
+                              context
+                              <span class="property">
+                                (
+                                  <a href="input.ime.html#type-InputContext">InputContext</a>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Describes the text field that has acquired focus.
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onBlur">onBlur</h3>
+        <div class="description">
+      <p>
+            This event is sent when focus leaves a text box. It is sent to all extensions that are listening to this event, and enabled by the user.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.input.ime.onBlur.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onBlur-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onBlur-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(integer contextID) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onBlur-contextID"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onBlur-contextID" title="">
+                              contextID
+                              <span class="property">
+                                (
+                                  integer
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            The ID of the text field that has lost focus. The ID is invalid after this call
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onInputContextUpdate">onInputContextUpdate</h3>
+        <div class="description">
+      <p>
+            This event is sent when the properties of the current InputContext change, such as the the type. It is sent to all extensions that are listening to this event, and enabled by the user.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.input.ime.onInputContextUpdate.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onInputContextUpdate-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onInputContextUpdate-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(<a href="input.ime.html#type-InputContext">InputContext</a> context) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onInputContextUpdate-context"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onInputContextUpdate-context" title="">
+                              context
+                              <span class="property">
+                                (
+                                  <a href="input.ime.html#type-InputContext">InputContext</a>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            An InputContext object describing the text field that has changed.
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onKeyEvent">onKeyEvent</h3>
+        <div class="description">
+      <p>
+            This event is sent if this extension owns the active IME.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.input.ime.onKeyEvent.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onKeyEvent-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onKeyEvent-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(string engineID, <a href="input.ime.html#type-KeyboardEvent">KeyboardEvent</a> keyData) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onKeyEvent-engineID"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onKeyEvent-engineID" title="">
+                              engineID
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            ID of the engine receiving the event
+                          </dd>
+                        </dl>
+                      </div>
+                      <div>
+                        <a name="property-onKeyEvent-keyData"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onKeyEvent-keyData" title="">
+                              keyData
+                              <span class="property">
+                                (
+                                  <a href="input.ime.html#type-KeyboardEvent">KeyboardEvent</a>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Data on the key event
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onCandidateClicked">onCandidateClicked</h3>
+        <div class="description">
+      <p>
+            This event is sent if this extension owns the active IME.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.input.ime.onCandidateClicked.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onCandidateClicked-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onCandidateClicked-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(string engineID, integer candidateID, enum of <code>"left"</code>, <code>"middle"</code>, or <code>"right"</code> button) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onCandidateClicked-engineID"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onCandidateClicked-engineID" title="">
+                              engineID
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            ID of the engine receiving the event
+                          </dd>
+                        </dl>
+                      </div>
+                      <div>
+                        <a name="property-onCandidateClicked-candidateID"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onCandidateClicked-candidateID" title="">
+                              candidateID
+                              <span class="property">
+                                (
+                                  integer
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            ID of the candidate that was clicked.
+                          </dd>
+                        </dl>
+                      </div>
+                      <div>
+                        <a name="property-onCandidateClicked-button"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onCandidateClicked-button" title="">
+                              button
+                              <span class="property">
+                                (
+                                  enum of <code>"left"</code>, <code>"middle"</code>, or <code>"right"</code>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Which mouse buttons was clicked.
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onMenuItemActivated">onMenuItemActivated</h3>
+        <div class="description">
+      <p>
+            Called when the user selects a menu item
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.input.ime.onMenuItemActivated.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onMenuItemActivated-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onMenuItemActivated-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(string engineID, string name) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onMenuItemActivated-engineID"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onMenuItemActivated-engineID" title="">
+                              engineID
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            ID of the engine receiving the event
+                          </dd>
+                        </dl>
+                      </div>
+                      <div>
+                        <a name="property-onMenuItemActivated-name"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onMenuItemActivated-name" title="">
+                              name
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Name of the MenuItem which was activated
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onSurroundingTextChanged">onSurroundingTextChanged</h3>
+        <div class="description">
+      <p>
+            Called when the editable string around caret is changed or when the caret position is moved. The text length is limited to 100 characters for each back and forth direction.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.input.ime.onSurroundingTextChanged.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onSurroundingTextChanged-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onSurroundingTextChanged-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(string engineID, object surroundingInfo) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onSurroundingTextChanged-engineID"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onSurroundingTextChanged-engineID" title="">
+                              engineID
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            ID of the engine receiving the event
+                          </dd>
+                        </dl>
+                      </div>
+                      <div>
+                        <a name="property-onSurroundingTextChanged-surroundingInfo"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onSurroundingTextChanged-surroundingInfo" title="">
+                              surroundingInfo
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            The surrounding information.
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-surroundingInfo-text"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-surroundingInfo-text" title="">
+                                    text
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The text around cursor.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-surroundingInfo-focus"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-surroundingInfo-focus" title="">
+                                    focus
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ending position of the selection. This value indicates caret position if there is no selection.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-surroundingInfo-anchor"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-surroundingInfo-anchor" title="">
+                                    anchor
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The beginning position of the selection. This value indicates caret position if is no selection.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onReset">onReset</h3>
+        <div class="description">
+      <p>
+            This event is sent when chrome terminates ongoing text input session.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.input.ime.onReset.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onReset-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onReset-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(string engineID) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onReset-engineID"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onReset-engineID" title="">
+                              engineID
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            ID of the engine receiving the event
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+</div>
+</section>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chrome.browsingData - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<h1>chrome.browsingData</h1>
+<div id="toc">
+  <ol>
+    <li >
+      <a href="browsingData.html#manifest"
+         data-list-item
+         >Manifest</a>
+    </li>
+    <li >
+      <a href="browsingData.html#usage"
+         data-list-item
+         >Usage</a>
+    </li>
+    <li >
+      <a href="browsingData.html#origin_types"
+         data-list-item
+         >Origin Types</a>
+    </li>
+    <li >
+      <a href="browsingData.html#samples"
+         data-list-item
+         >Examples</a>
+    </li>
+    <li class="separator">
+      <a href="browsingData.html#types"
+         data-list-item
+         >Types</a>
+      <ol>
+        <li >
+          <a href="browsingData.html#type-RemovalOptions"
+             data-list-item
+             >RemovalOptions</a>
+        </li>
+        <li >
+          <a href="browsingData.html#type-DataTypeSet"
+             data-list-item
+             >DataTypeSet</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="browsingData.html#methods"
+         data-list-item
+         >Methods</a>
+      <ol>
+        <li >
+          <a href="browsingData.html#method-settings"
+             data-list-item
+             >settings        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-remove"
+             data-list-item
+             >remove        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removeAppcache"
+             data-list-item
+             >removeAppcache        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removeCache"
+             data-list-item
+             >removeCache        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removeCookies"
+             data-list-item
+             >removeCookies        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removeDownloads"
+             data-list-item
+             >removeDownloads        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removeFileSystems"
+             data-list-item
+             >removeFileSystems        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removeFormData"
+             data-list-item
+             >removeFormData        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removeHistory"
+             data-list-item
+             >removeHistory        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removeIndexedDB"
+             data-list-item
+             >removeIndexedDB        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removeLocalStorage"
+             data-list-item
+             >removeLocalStorage        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removePluginData"
+             data-list-item
+             >removePluginData        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removePasswords"
+             data-list-item
+             >removePasswords        </a>
+        </li>
+        <li >
+          <a href="browsingData.html#method-removeWebSQL"
+             data-list-item
+             >removeWebSQL        </a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<table class="intro" id="intro">
+  <tr>
+    <td class="title">Description:</td>
+    <td>
+        Use the <code>chrome.browsingData</code> API to remove browsing data from a user's local profile.
+                <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Availability:</td>
+    <td>
+        Stable since Chrome 19.
+        <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Permissions:</td>
+    <td>
+        <span class="code">
+        "browsingData"
+                </span>
+        <br>
+    </td>
+  </tr>
+</table>
+<section>
+<h2 id="manifest">Manifest</h2>
+
+<p>
+  You must declare the "browsingData" permission in the
+  <a href="manifest.html">extension manifest</a> to use this API.
+</p>
+
+<pre data-filename="manifest.json">
+{
+  "name": "My extension",
+  ...
+  <b>"permissions": [
+    "browsingData",
+  ]</b>,
+  ...
+}
+</pre>
+
+<h2 id="usage">Usage</h2>
+
+<p>
+  The simplest use-case for this API is a a time-based mechanism for clearing a
+  user's browsing data. Your code should provide a timestamp which indicates the
+  historical date after which the user's browsing data should be removed. This
+  timestamp is formatted as the number of milliseconds since the Unix epoch
+  (which can be retrieved from a JavaScript <code>Date</code> object via the
+  <code>getTime</code> method).
+</p>
+
+<p>
+  For example, to clear all of a user's browsing data from the last week, you
+  might write code as follows:
+</p>
+
+<pre>var callback = function () {
+  // Do something clever here once data has been removed.
+};
+
+var millisecondsPerWeek = 1000 * 60 * 60 * 24 * 7;
+var oneWeekAgo = (new Date()).getTime() - millisecondsPerWeek;
+chrome.browsingData.remove({
+  "since": oneWeekAgo
+}, {
+  "appcache": true,
+  "cache": true,
+  "cookies": true,
+  "downloads": true,
+  "fileSystems": true,
+  "formData": true,
+  "history": true,
+  "indexedDB": true,
+  "localStorage": true,
+  "pluginData": true,
+  "passwords": true,
+  "webSQL": true
+}, callback);</pre>
+
+<p>
+  The <code>chrome.browsingData.remove</code> method allows you to remove
+  various types of browsing data with a single call, and will be much faster
+  than calling multiple more specific methods. If, however, you only want to
+  clear one specific type of browsing data (cookies, for example), the more
+  granular methods offer a readable alternative to a call filled with JSON.
+</p>
+
+<pre>var callback = function () {
+  // Do something clever here once data has been removed.
+};
+
+var millisecondsPerWeek = 1000 * 60 * 60 * 24 * 7;
+var oneWeekAgo = (new Date()).getTime() - millisecondsPerWeek;
+chrome.browsingData.removeCookies({
+  "since": oneWeekAgo
+}, callback);</pre>
+
+<p class="caution">
+  <strong>Important</strong>: Removing browsing data involves a good deal of
+  heavy lifting in the background, and can take <em>tens of seconds</em> to
+  complete, depending on a user's profile. You should use the callback mechanism
+  to keep your users up to date on the removal's status.
+</p>
+
+<h2 id="origin_types">Origin Types</h2>
+
+<p>
+  Adding an <code>originTypes</code> property to the API's options object allows
+  you to specify which types of origins ought to be effected. Currently, origins
+  are divided into three categories:
+</p>
+<ul>
+  <li>
+    <code>unprotectedWeb</code> covers the general case of websites that users
+    visit without taking any special action. If you don't specify an
+    <code>originTypes</code>, the API defaults to removing data from unprotected
+    web origins.
+  </li>
+  <li>
+    <code>protectedWeb</code> covers those web origins that have been installed
+    as hosted applications. Installing <a href="https://chrome.google.com/webstore/detail/aknpkdffaafgjchaibgeefbgmgeghloj">
+    Angry Birds</a>, for example, protects the origin
+    <code>http://chrome.angrybirds.com</code>, and removes it from the
+    <code>unprotectedWeb</code> category. Please do be careful when triggering
+    deletion of data for these origins: make sure your users know what they're
+    getting, as this will irrevocably remove their game data. No one wants to
+    knock tiny pig houses over more often than necessary.
+  </li>
+  <li>
+    <code>extension</code> covers origins under the
+    <code>chrome-extensions:</code> scheme. Removing extension data is, again,
+    something you should be very careful about.
+  </li>
+</ul>
+<p>
+  We could adjust the previous example to remove only data from protected
+  websites as follows:
+</p>
+<pre>var callback = function () {
+  // Do something clever here once data has been removed.
+};
+
+var millisecondsPerWeek = 1000 * 60 * 60 * 24 * 7;
+var oneWeekAgo = (new Date()).getTime() - millisecondsPerWeek;
+chrome.browsingData.remove({
+  "since": oneWeekAgo,
+  <b>"originTypes": {
+    "protectedWeb": true
+  }</b>
+}, {
+  "appcache": true,
+  "cache": true,
+  "cookies": true,
+  "downloads": true,
+  "fileSystems": true,
+  "formData": true,
+  "history": true,
+  "indexedDB": true,
+  "localStorage": true,
+  "serverBoundCertificates": true,
+  "pluginData": true,
+  "passwords": true,
+  "webSQL": true
+}, callback);</pre>
+
+<p class="caution">
+  <strong>Seriously</strong>: Be careful with <code>protectedWeb</code> and
+  <code>extension</code>. These are destructive operations that your users
+  will write angry email about if they're not well-informed about what to
+  expect when your extension removes data on their behalf.
+</p>
+
+<h2 id="samples">Examples</h2>
+<p>
+  Samples for the <code>browsingData</code> API are available
+  <a href="samples.html#browsingData">on the samples page</a>.
+</p>
+</section>
+<section>
+<h2 id="api-reference-header" title="">chrome.browsingData reference</h2>
+<div class="api_reference">
+    <h2 id="types">Types</h2>
+      <div>
+        <h3 id="type-RemovalOptions">RemovalOptions</h3>
+        <div>
+          <dd>Options that determine exactly what data will be removed.</dd>
+            <h3 id="RemovalOptions-properties" class="capitalize" title="">
+              properties of <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-RemovalOptions-since"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-RemovalOptions-since" title="">
+                        since
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            double
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Remove data accumulated on or after this date, represented in milliseconds since the epoch (accessible via the <code>getTime</code> method of the JavaScript <code>Date</code> object). If absent, defaults to 0 (which would remove all browsing data).
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-RemovalOptions-originTypes"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-RemovalOptions-originTypes" title="">
+                        originTypes
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            object
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      An object whose properties specify which origin types ought to be cleared. If this object isn't specified, it defaults to clearing only "unprotected" origins. Please ensure that you <em>really</em> want to remove application data before adding 'protectedWeb' or 'extensions'.
+                    </dd>
+                  </dl>
+                  <dd>
+                    <h4 title="">Properties</h4>
+                    <dl>
+                      <div>
+                        <a name="property-originTypes-unprotectedWeb"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-originTypes-unprotectedWeb" title="">
+                              unprotectedWeb
+                              <span class="property">
+                                (
+                                  <span class="optional">optional</span>
+                                  boolean
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Normal websites.
+                          </dd>
+                        </dl>
+                      </div><div>
+                        <a name="property-originTypes-protectedWeb"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-originTypes-protectedWeb" title="">
+                              protectedWeb
+                              <span class="property">
+                                (
+                                  <span class="optional">optional</span>
+                                  boolean
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Websites that have been installed as hosted applications (be careful!).
+                          </dd>
+                        </dl>
+                      </div><div>
+                        <a name="property-originTypes-extension"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-originTypes-extension" title="">
+                              extension
+                              <span class="property">
+                                (
+                                  <span class="optional">optional</span>
+                                  boolean
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Extensions and packaged applications a user has installed (be _really_ careful!).
+                          </dd>
+                        </dl>
+                      </div>
+                    </dl>
+                  </dd>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-DataTypeSet">DataTypeSet</h3>
+        <div>
+          <dd>A set of data types. Missing data types are interpreted as <code>false</code>.</dd>
+            <h3 id="DataTypeSet-properties" class="capitalize" title="">
+              properties of <a href="browsingData.html#type-DataTypeSet">DataTypeSet</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-DataTypeSet-appcache"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-appcache" title="">
+                        appcache
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Websites' appcaches.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-cache"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-cache" title="">
+                        cache
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The browser's cache. Note: when removing data, this clears the <em>entire</em> cache: it is not limited to the range you specify.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-cookies"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-cookies" title="">
+                        cookies
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The browser's cookies.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-downloads"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-downloads" title="">
+                        downloads
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The browser's download list.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-fileSystems"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-fileSystems" title="">
+                        fileSystems
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Websites' file systems.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-formData"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-formData" title="">
+                        formData
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The browser's stored form data.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-history"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-history" title="">
+                        history
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The browser's history.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-indexedDB"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-indexedDB" title="">
+                        indexedDB
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Websites' IndexedDB data.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-localStorage"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-localStorage" title="">
+                        localStorage
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Websites' local storage data.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-serverBoundCertificates"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-serverBoundCertificates" title="">
+                        serverBoundCertificates
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Server-bound certificates.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-pluginData"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-pluginData" title="">
+                        pluginData
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Plugins' data.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-passwords"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-passwords" title="">
+                        passwords
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Stored passwords.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-DataTypeSet-webSQL"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-DataTypeSet-webSQL" title="">
+                        webSQL
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Websites' WebSQL data.
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+    <h2 id="methods">Methods</h2>
+      <div>
+        <h3
+            id="method-settings"
+            >settings
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.settings</span>(<span>function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Reports which types of data are currently selected in the 'Clear browsing data' settings UI.  Note: some of the data types included in this API are not available in the settings UI, and some UI settings control more than one data type listed here.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-settings-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-settings-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  The <em>callback</em> parameter should specify a function
+                  that looks like this:
+            </p>
+            <pre>function(object result) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-result"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-result" title="">
+                        result
+                        <span class="property">
+                          (
+                            object
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                  <dd>
+                    <h4 title="">Properties</h4>
+                    <dl>
+                      <div>
+                        <a name="property-result-options"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-result-options" title="">
+                              options
+                              <span class="property">
+                                (
+                                  <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                      </div><div>
+                        <a name="property-result-dataToRemove"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-result-dataToRemove" title="">
+                              dataToRemove
+                              <span class="property">
+                                (
+                                  <a href="browsingData.html#type-DataTypeSet">DataTypeSet</a>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            All of the types will be present in the result, with values of <code>true</code> if they are both selected to be removed and permitted to be removed, otherwise <code>false</code>.
+                          </dd>
+                        </dl>
+                      </div><div>
+                        <a name="property-result-dataRemovalPermitted"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-result-dataRemovalPermitted" title="">
+                              dataRemovalPermitted
+                              <span class="property">
+                                (
+                                  <a href="browsingData.html#type-DataTypeSet">DataTypeSet</a>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            All of the types will be present in the result, with values of <code>true</code> if they are permitted to be removed (e.g., by enterprise policy) and <code>false</code> if not.
+                          </dd>
+                        </dl>
+                      </div>
+                    </dl>
+                  </dd>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-remove"
+            >remove
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.remove</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span><a href="browsingData.html#type-DataTypeSet">DataTypeSet</a> dataToRemove</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears various types of browsing data stored in a user's profile.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-remove-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-remove-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-remove-dataToRemove"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-remove-dataToRemove" title="">
+                      dataToRemove
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-DataTypeSet">DataTypeSet</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The set of data types to remove.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-remove-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-remove-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when deletion has completed.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removeAppcache"
+            >removeAppcache
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removeAppcache</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears websites' appcache data.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removeAppcache-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeAppcache-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removeAppcache-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeAppcache-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when websites' appcache data has been cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removeCache"
+            >removeCache
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removeCache</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears the browser's cache.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removeCache-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeCache-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removeCache-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeCache-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the browser's cache has been cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removeCookies"
+            >removeCookies
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removeCookies</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears the browser's cookies and server-bound certificates modified within a particular timeframe.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removeCookies-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeCookies-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removeCookies-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeCookies-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the browser's cookies and server-bound certificates have been cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removeDownloads"
+            >removeDownloads
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removeDownloads</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears the browser's list of downloaded files (<em>not</em> the downloaded files themselves).
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removeDownloads-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeDownloads-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removeDownloads-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeDownloads-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the browser's list of downloaded files has been cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removeFileSystems"
+            >removeFileSystems
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removeFileSystems</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears websites' file system data.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removeFileSystems-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeFileSystems-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removeFileSystems-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeFileSystems-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when websites' file systems have been cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removeFormData"
+            >removeFormData
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removeFormData</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears the browser's stored form data (autofill).
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removeFormData-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeFormData-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removeFormData-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeFormData-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the browser's form data has been cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removeHistory"
+            >removeHistory
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removeHistory</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears the browser's history.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removeHistory-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeHistory-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removeHistory-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeHistory-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the browser's history has cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removeIndexedDB"
+            >removeIndexedDB
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removeIndexedDB</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears websites' IndexedDB data.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removeIndexedDB-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeIndexedDB-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removeIndexedDB-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeIndexedDB-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when websites' IndexedDB data has been cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removeLocalStorage"
+            >removeLocalStorage
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removeLocalStorage</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears websites' local storage data.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removeLocalStorage-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeLocalStorage-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removeLocalStorage-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeLocalStorage-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when websites' local storage has been cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removePluginData"
+            >removePluginData
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removePluginData</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears plugins' data.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removePluginData-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removePluginData-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removePluginData-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removePluginData-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when plugins' data has been cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removePasswords"
+            >removePasswords
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removePasswords</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears the browser's stored passwords.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removePasswords-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removePasswords-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removePasswords-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removePasswords-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the browser's passwords have been cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-removeWebSQL"
+            >removeWebSQL
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.browsingData.removeWebSQL</span>(<span><a href="browsingData.html#type-RemovalOptions">RemovalOptions</a> options</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Clears websites' WebSQL data.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-removeWebSQL-options"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeWebSQL-options" title="">
+                      options
+                      <span class="property">
+                        (
+                          <a href="browsingData.html#type-RemovalOptions">RemovalOptions</a>
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-removeWebSQL-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-removeWebSQL-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when websites' WebSQL databases have been cleared.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+</div>
+</section>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

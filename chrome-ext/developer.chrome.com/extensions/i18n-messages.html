@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formats: Locale-Specific Messages - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<div id="toc">
+  <ol>
+    <li >
+      <a href="i18n-messages.html#overview"
+         data-list-item
+         > Field summary </a>
+    </li>
+    <li >
+      <a href="i18n-messages.html#example"
+         data-list-item
+         > Example </a>
+    </li>
+    <li >
+      <a href="i18n-messages.html#field_details"
+         data-list-item
+         >Field details</a>
+      <ol>
+        <li >
+          <a href="i18n-messages.html#name"
+             data-list-item
+             >name</a>
+        </li>
+        <li >
+          <a href="i18n-messages.html#message"
+             data-list-item
+             >message</a>
+        </li>
+        <li >
+          <a href="i18n-messages.html#description"
+             data-list-item
+             >description</a>
+        </li>
+        <li >
+          <a href="i18n-messages.html#placeholders"
+             data-list-item
+             >placeholders</a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<h1>Formats: Locale-Specific Messages</h1>
+
+
+<p>
+Each internationalized extension or app has at least one
+file named <code>messages.json</code>
+that provides locale-specific strings.
+This page describes the format of <code>messages.json</code> files.
+For information on how to internationalize and localize,
+see the <a href="i18n.html">Internationalization</a> page.
+</p>
+
+<h2 id="overview"> Field summary </h2>
+
+<p>
+The following code shows the supported fields for
+<code>messages.json</code>.
+Only the "<em>name</em>" and "message" fields are required.
+</p>
+
+<pre data-filename="manifest.json">
+{
+  "<a href="i18n-messages.html#name"><em>name</em></a>": {
+    "<a href="i18n-messages.html#message">message</a>": "<em>Message text, with optional placeholders.</em>",
+    "<a href="i18n-messages.html#description">description</a>": "<em>Translator-aimed description of the message.</em>",
+    "<a href="i18n-messages.html#placeholders">placeholders</a>": {
+      "<em>placeholder_name</em>": {
+        "content": "<em>A string to be placed within the message.</em>",
+        "example": "<em>Translator-aimed example of the placeholder string.</em>"
+      },
+      ...
+    }
+  },
+  ...
+}
+</pre>
+
+<h2 id="example"> Example </h2>
+
+<p>
+Here's a <code>messages.json</code> file
+that defines three messages
+named "prompt_for_name", "hello", and "bye":
+</p>
+
+<pre data-filename="messages.json">
+{
+  "prompt_for_name": {
+    "message": "What's your name?",
+    "description": "Ask for the user's name"
+  },
+  "hello": {
+    "message": "Hello, $USER$",
+    "description": "Greet the user",
+    "placeholders": {
+      "user": {
+        "content": "$1",
+        "example": "Cira"
+      }
+    }
+  },
+  "bye": {
+    "message": "Goodbye, $USER$. Come back to $OUR_SITE$ soon!",
+    "description": "Say goodbye to the user",
+    "placeholders": {
+      "our_site": {
+        "content": "Example.com",
+      },
+      "user": {
+        "content": "$1",
+        "example": "Cira"
+      }
+    }
+  }
+}
+</pre>
+
+
+<h2 id="field_details">Field details</h2>
+
+<p>
+This section describes each field
+that can appear in a <code>messages.json</code> file.
+For details on how the messages file is used &mdash;
+for example, what happens when a locale doesn't define
+all the messages &mdash;
+see <a href="i18n.html">Internationalization</a>.
+</p>
+
+
+<h3 id="name">name</h3>
+
+<p>
+Actually, there's no field called "name".
+This field's name is the name of the message &mdash;
+the same <em>name</em> that you see in
+<code>__MSG_<em>name</em>__</code>
+or <code>getMessage("<em>name</em>")</code>.
+</p>
+
+<p>
+The name is a case-insensitive key
+that lets you retrieve the localized message text.
+The name can include the following characters:
+</p>
+
+<ul>
+  <li> A-Z </li>
+  <li> a-z </li>
+  <li> 0-9 </li>
+  <li> _ (underscore) </li>
+  <li> @ </li>
+</ul>
+
+<p class="note">
+<b>Note:</b>
+Don't define names that begin with "@@".
+Those names are reserved for
+<a href="i18n.html#overview-predefined">predefined messages</a>.
+</p>
+
+<p>
+Here are three examples of names,
+taken from the <a href="i18n-messages.html#example">Example</a> section:
+</p>
+
+<pre>
+"prompt_for_name": {
+  ...
+},
+"hello": {
+  ...
+},
+"bye": {
+  ...
+}
+</pre>
+
+<p>
+For more examples of using names, see the
+<a href="i18n.html">Internationalization</a> page.
+</p>
+
+
+<h3 id="message">message</h3>
+
+<p>
+The translated message,
+in the form of a string that can contain
+<a href="i18n-messages.html#placeholders">placeholders</a>.
+Use <code>$<em>placeholder_name</em>$</code>
+(case insensitive)
+to refer to a particular placeholder.
+For example, you can refer to a placeholder named "our_site" as
+<code>$our_site$</code>, <code>$OUR_SITE$</code>, or <code>$oUR_sITe$</code>.
+</p>
+
+<p>
+Here are three examples of messages,
+taken from the <a href="i18n-messages.html#example">Example</a> section:
+</p>
+
+<pre>
+"message": "What's your name?"
+...
+"message": "Hello, $USER$"
+...
+"message": "Goodbye, $USER$. Come back to $OUR_SITE$ soon!"
+</pre>
+
+<p>
+To put a dollar sign (<code>$</code>) into the string,
+use <code>$$</code>.
+For example, use the following code to specify the message
+<b>Amount (in $)</b>:
+
+<pre>
+"message": "Amount (in $$)"
+</pre>
+
+<p>
+Although placeholders such as <code>$USER$</code> are
+the preferred way of referring to <em>substitution strings</em>
+(strings specified using the <em>substitutions</em> parameter of
+<a href="i18n.html#method-getMessage">i18n.getMessage</a>)
+you can also refer to substitution strings directly
+within the message.
+For example, the following message
+refers to the first three substitution strings passed into
+<code>getMessage()</code>:
+</p>
+
+<pre>
+"message": "Params: $1, $2, $3"
+</pre>
+
+<p>
+Despite that example,
+we recommend that you stick to using placeholders
+instead of <code>$<em>n</em></code> strings
+within your messages.
+Think of placeholders as good variable names.
+A week after you write your code,
+you'll probably forget what <code>$1</code> refers to,
+but you'll know what your placeholders refer to.
+For more information on placeholders and substitution strings, see
+the <a href="i18n-messages.html#placeholders">placeholders</a> section.
+</p>
+
+<h3 id="description">description</h3>
+
+<p>
+<em>Optional.</em>
+A description of the message,
+intended to give context
+or details to help the translator
+make the best possible translation.
+</p>
+
+<p>
+Here are three examples of descriptions,
+taken from the <a href="i18n-messages.html#example">Example</a> section:
+</p>
+
+<pre>
+"description": "Ask for the user's name"
+...
+"description": "Greet the user"
+...
+"description": "Say goodbye to the user"
+</pre>
+
+<h3 id="placeholders">placeholders</h3>
+
+<p>
+<em>Optional.</em>
+Defines one or more substrings
+to be used within the message.
+Here are two reasons you might want to use a placeholder:
+</p>
+
+<ul>
+  <li>
+    To define the text
+    for a part of your message
+    that shouldn't be translated.
+    Examples: HTML code, trademarked names, formatting specifiers.
+  </li>
+  <li>
+    To refer to a substitution string passed into
+    <code>getMessage()</code>.
+    Example: <code>$1</code>.
+  </li>
+</ul>
+
+<p>
+Each placeholder has a name,
+a "content" item,
+and an optional "example" item.
+A placeholder's name is case-insensitive
+and can contain the same characters
+as a <a href="i18n-messages.html#name">message name</a>.
+</p>
+
+<p>
+The "content" item's value is a string
+that can refer to substitution strings, which are
+specified using the
+<a href="i18n.html#method-getMessage">i18n.getMessage</a> method's
+<em>substitutions</em> parameter.
+The value of a "content" item is typically something like
+"Example.com" or "$1".
+If you refer to
+a substitution string that doesn't exist,
+you get an empty string.
+The following table shows how
+<code>$<em>n</em></code> strings correspond to
+strings specified by the <em>substitutions</em> parameter.
+</p>
+
+<table class="simple">
+<tr>
+<th> <em>substitutions</em> parameter </th>
+<th> Value of $1</th>
+<th> Value of $2</th>
+<th> Value of $3</th>
+</tr>
+<tr>
+  <td> <code>userName</code> </td>
+  <td> value of <code>userName</code> </td>
+  <td> <code>""</code> </td>
+  <td> <code>""</code> </td>
+</tr>
+<tr>
+  <td> <code>["Cira", "Kathy"]</code> </td>
+  <td> <code>"Cira"</code> </td>
+  <td> <code>"Kathy"</code> </td>
+  <td> <code>""</code> </td>
+</tr>
+</table>
+
+<p>
+The "example" item
+(optional, but highly recommended)
+helps translators by showing how the content appears to the end user.
+For example, a placeholder
+for a dollar amount
+should have an example like <code>"$23.45"</code>.
+</p>
+
+<p>
+The following snippet,
+taken from the <a href="i18n-messages.html#example">Example</a> section,
+shows a "placeholders" item that contains two placeholders
+named "our_site" and "user".
+The "our_site" placeholder has no "example" item
+because its value is obvious from the "content" field.
+</p>
+
+<pre>
+"placeholders": {
+  "our_site": {
+    "content": "Example.com",
+  },
+  "user": {
+    "content": "$1",
+    "example": "Cira"
+  }
+}
+</pre>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

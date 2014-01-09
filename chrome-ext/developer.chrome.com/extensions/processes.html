@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chrome.processes - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<p class="warning">
+  This API is experimental. It is only available to Chrome users on the
+  <a href="http://www.chromium.org/getting-involved/dev-channel">dev channel</a>.
+</p>
+<h1>chrome.processes</h1>
+<div id="toc">
+  <ol>
+    <li >
+      <a href="processes.html#types"
+         data-list-item
+         >Types</a>
+      <ol>
+        <li >
+          <a href="processes.html#type-Process"
+             data-list-item
+             >Process</a>
+        </li>
+        <li >
+          <a href="processes.html#type-Cache"
+             data-list-item
+             >Cache</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="processes.html#methods"
+         data-list-item
+         >Methods</a>
+      <ol>
+        <li >
+          <a href="processes.html#method-terminate"
+             data-list-item
+             >terminate        </a>
+        </li>
+        <li >
+          <a href="processes.html#method-getProcessIdForTab"
+             data-list-item
+             >getProcessIdForTab        </a>
+        </li>
+        <li >
+          <a href="processes.html#method-getProcessInfo"
+             data-list-item
+             >getProcessInfo        </a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="processes.html#events"
+         data-list-item
+         >Events</a>
+      <ol>
+        <li >
+          <a href="processes.html#event-onUpdated"
+             data-list-item
+             >onUpdated</a>
+        </li>
+        <li >
+          <a href="processes.html#event-onUpdatedWithMemory"
+             data-list-item
+             >onUpdatedWithMemory</a>
+        </li>
+        <li >
+          <a href="processes.html#event-onCreated"
+             data-list-item
+             >onCreated</a>
+        </li>
+        <li >
+          <a href="processes.html#event-onUnresponsive"
+             data-list-item
+             >onUnresponsive</a>
+        </li>
+        <li >
+          <a href="processes.html#event-onExited"
+             data-list-item
+             >onExited</a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<table class="intro" id="intro">
+  <tr>
+    <td class="title">Description:</td>
+    <td>
+        Use the <code>chrome.processes</code> API to interact with the browser's processes.
+                <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Availability:</td>
+    <td>
+        <a href="http://www.chromium.org/getting-involved/dev-channel">Dev</a> channel only.
+        <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Permissions:</td>
+    <td>
+        <span class="code">
+        "processes"
+                </span>
+        <br>
+    </td>
+  </tr>
+</table>
+<section>
+<h2 id="api-reference-header" title="">chrome.processes reference</h2>
+<div class="api_reference">
+    <h2 id="types">Types</h2>
+      <div>
+        <h3 id="type-Process">Process</h3>
+        <div>
+          <dd>An object containing information about one of the browser's processes.</dd>
+            <h3 id="Process-properties" class="capitalize" title="">
+              properties of <a href="processes.html#type-Process">Process</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-Process-id"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-id" title="">
+                        id
+                        <span class="property">
+                          (
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Unique ID of the process provided by the browser.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-osProcessId"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-osProcessId" title="">
+                        osProcessId
+                        <span class="property">
+                          (
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The ID of the process, as provided by the OS.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-type"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-type" title="">
+                        type
+                        <span class="property">
+                          (
+                            enum of <code>"browser"</code>, <code>"renderer"</code>, <code>"extension"</code>, <code>"notification"</code>, <code>"plugin"</code>, <code>"worker"</code>, <code>"nacl"</code>, <code>"utility"</code>, <code>"gpu"</code>, or <code>"other"</code>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The type of process.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-profile"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-profile" title="">
+                        profile
+                        <span class="property">
+                          (
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The profile which the process is associated with.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-tabs"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-tabs" title="">
+                        tabs
+                        <span class="property">
+                          (
+                            array of integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Array of Tab IDs that have a page rendered by this process. The list will be non-empty for renderer processes only.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-cpu"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-cpu" title="">
+                        cpu
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            double
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The most recent measurement of the process CPU usage, between 0 and 100%. Only available when receiving the object as part of a callback from onUpdated or onUpdatedWithMemory.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-network"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-network" title="">
+                        network
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            double
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The most recent measurement of the process network usage, in bytes per second. Only available when receiving the object as part of a callback from onUpdated or onUpdatedWithMemory.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-privateMemory"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-privateMemory" title="">
+                        privateMemory
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            double
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The most recent measurement of the process private memory usage, in bytes. Only available when receiving the object as part of a callback from onUpdatedWithMemory or getProcessInfo with the includeMemory flag.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-jsMemoryAllocated"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-jsMemoryAllocated" title="">
+                        jsMemoryAllocated
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            double
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The most recent measurement of the process JavaScript allocated memory, in bytes. Only available when receiving the object as part of a callback from onUpdated or onUpdatedWithMemory.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-jsMemoryUsed"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-jsMemoryUsed" title="">
+                        jsMemoryUsed
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            double
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The most recent measurement of the process JavaScript memory used, in bytes. Only available when receiving the object as part of a callback from onUpdated or onUpdatedWithMemory.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-sqliteMemory"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-sqliteMemory" title="">
+                        sqliteMemory
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            double
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The most recent measurement of the process’s SQLite memory usage, in bytes. Only available when receiving the object as part of a callback from onUpdated or onUpdatedWithMemory.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-fps"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-fps" title="">
+                        fps
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            double
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The most recent measurement of the process frames per second. Only available when receiving the object as part of a callback from onUpdated or onUpdatedWithMemory.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-imageCache"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-imageCache" title="">
+                        imageCache
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            <a href="processes.html#type-Cache">Cache</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The most recent information about the image cache for the process. Only available when receiving the object as part of a callback from onUpdated or onUpdatedWithMemory.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-scriptCache"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-scriptCache" title="">
+                        scriptCache
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            <a href="processes.html#type-Cache">Cache</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The most recent information about the script cache for the process. Only available when receiving the object as part of a callback from onUpdated or onUpdatedWithMemory.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Process-cssCache"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Process-cssCache" title="">
+                        cssCache
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            <a href="processes.html#type-Cache">Cache</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The most recent information about the CSS cache for the process. Only available when receiving the object as part of a callback from onUpdated or onUpdatedWithMemory.
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-Cache">Cache</h3>
+        <div>
+          <dd>The Cache object contains information about the size and utilization of a cache used by the browser.</dd>
+            <h3 id="Cache-properties" class="capitalize" title="">
+              properties of <a href="processes.html#type-Cache">Cache</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-Cache-size"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cache-size" title="">
+                        size
+                        <span class="property">
+                          (
+                            double
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The size of the cache, in bytes.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-Cache-liveSize"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-Cache-liveSize" title="">
+                        liveSize
+                        <span class="property">
+                          (
+                            double
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The part of the cache that is utilized, in bytes.
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+    <h2 id="methods">Methods</h2>
+      <div>
+        <h3
+            id="method-terminate"
+            >terminate
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.processes.terminate</span>(<span>integer processId</span>, <span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Terminates the specified renderer process. Equivalent to visiting about:crash, but without changing the tab's URL.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-terminate-processId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-terminate-processId" title="">
+                      processId
+                      <span class="property">
+                        (
+                          integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The ID of the process to be terminated.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-terminate-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-terminate-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function(boolean didTerminate) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-didTerminate"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-didTerminate" title="">
+                        didTerminate
+                        <span class="property">
+                          (
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      True if terminating the process was successful, otherwise false.
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-getProcessIdForTab"
+            >getProcessIdForTab
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.processes.getProcessIdForTab</span>(<span>integer tabId</span>, <span>function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Returns the ID of the renderer process for the specified tab.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-getProcessIdForTab-tabId"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getProcessIdForTab-tabId" title="">
+                      tabId
+                      <span class="property">
+                        (
+                          integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The ID of the tab for which the renderer process ID is to be returned.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-getProcessIdForTab-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getProcessIdForTab-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  The <em>callback</em> parameter should specify a function
+                  that looks like this:
+            </p>
+            <pre>function(integer processId) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-processId"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-processId" title="">
+                        processId
+                        <span class="property">
+                          (
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Process ID of the tab's renderer process.
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+      <div>
+        <h3
+            id="method-getProcessInfo"
+            >getProcessInfo
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.processes.getProcessInfo</span>(<span>integer or array of integer processIds</span>, <span>boolean includeMemory</span>, <span>function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Retrieves the process information for each process ID specified.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-getProcessInfo-processIds"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getProcessInfo-processIds" title="">
+                      processIds
+                      <span class="property">
+                        (
+                          integer or 
+                          array of integer
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    The list of process IDs or single process ID for which to return the process information. An empty list indicates all processes are requested.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-getProcessInfo-includeMemory"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getProcessInfo-includeMemory" title="">
+                      includeMemory
+                      <span class="property">
+                        (
+                          boolean
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    True if detailed memory usage is required. Note, collecting memory usage information incurs extra CPU usage and should only be queried for when needed.
+                  </dd>
+                </dl>
+              </div>
+              <div>
+                <a name="property-getProcessInfo-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-getProcessInfo-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Called when the processes information is collected.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  The <em>callback</em> parameter should specify a function
+                  that looks like this:
+            </p>
+            <pre>function(object processes) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-processes"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-processes" title="">
+                        processes
+                        <span class="property">
+                          (
+                            object
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      A dictionary of Process objects for each requested process that is a live child process of the current browser process, indexed by process ID. Metrics requiring aggregation over time will not be populated in each Process object.
+                    </dd>
+                  </dl>
+                </div>
+            </dl>
+        </div>
+      </div>
+    <h2 id="events">Events</h2>
+      <div>
+        <h3 id="event-onUpdated">onUpdated</h3>
+        <div class="description">
+      <p>
+            Fired each time the Task Manager updates its process statistics, providing the dictionary of updated Process objects, indexed by process ID.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.processes.onUpdated.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onUpdated-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onUpdated-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object processes) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onUpdated-processes"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onUpdated-processes" title="">
+                              processes
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            A dictionary of updated Process objects for each live process in the browser, indexed by process ID.  Metrics requiring aggregation over time will be populated in each Process object.
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onUpdatedWithMemory">onUpdatedWithMemory</h3>
+        <div class="description">
+      <p>
+            Fired each time the Task Manager updates its process statistics, providing the dictionary of updated Process objects, indexed by process ID. Identical to onUpdate, with the addition of memory usage details included in each Process object. Note, collecting memory usage information incurs extra CPU usage and should only be listened for when needed.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.processes.onUpdatedWithMemory.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onUpdatedWithMemory-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onUpdatedWithMemory-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object processes) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onUpdatedWithMemory-processes"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onUpdatedWithMemory-processes" title="">
+                              processes
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            A dictionary of updated Process objects for each live process in the browser, indexed by process ID.  Memory usage details will be included in each Process object.
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onCreated">onCreated</h3>
+        <div class="description">
+      <p>
+            Fired each time a process is created, providing the corrseponding Process object.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.processes.onCreated.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onCreated-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onCreated-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(<a href="processes.html#type-Process">Process</a> process) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onCreated-process"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onCreated-process" title="">
+                              process
+                              <span class="property">
+                                (
+                                  <a href="processes.html#type-Process">Process</a>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Details of the process that was created. Metrics requiring aggregation over time will not be populated in the object.
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onUnresponsive">onUnresponsive</h3>
+        <div class="description">
+      <p>
+            Fired each time a process becomes unresponsive, providing the corrseponding Process object.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.processes.onUnresponsive.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onUnresponsive-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onUnresponsive-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(<a href="processes.html#type-Process">Process</a> process) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onUnresponsive-process"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onUnresponsive-process" title="">
+                              process
+                              <span class="property">
+                                (
+                                  <a href="processes.html#type-Process">Process</a>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Details of the unresponsive process. Metrics requiring aggregation over time will not be populated in the object. Only available for renderer processes.
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onExited">onExited</h3>
+        <div class="description">
+      <p>
+            Fired each time a process is terminated, providing the type of exit.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.processes.onExited.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onExited-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onExited-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(integer processId, integer exitType, integer exitCode) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onExited-processId"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onExited-processId" title="">
+                              processId
+                              <span class="property">
+                                (
+                                  integer
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            The ID of the process that exited.
+                          </dd>
+                        </dl>
+                      </div>
+                      <div>
+                        <a name="property-onExited-exitType"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onExited-exitType" title="">
+                              exitType
+                              <span class="property">
+                                (
+                                  integer
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            The type of exit that occurred for the process - normal, abnormal, killed, crashed. Only available for renderer processes.
+                          </dd>
+                        </dl>
+                      </div>
+                      <div>
+                        <a name="property-onExited-exitCode"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onExited-exitCode" title="">
+                              exitCode
+                              <span class="property">
+                                (
+                                  integer
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            The exit code if the process exited abnormally. Only available for renderer processes.
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+</div>
+</section>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

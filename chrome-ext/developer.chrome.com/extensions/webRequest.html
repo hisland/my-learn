@@ -1,0 +1,3589 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chrome.webRequest - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<h1>chrome.webRequest</h1>
+<div id="toc">
+  <ol>
+    <li >
+      <a href="webRequest.html#manifest"
+         data-list-item
+         >Manifest</a>
+    </li>
+    <li >
+      <a href="webRequest.html#life_cycle"
+         data-list-item
+         >Life cycle of requests</a>
+    </li>
+    <li >
+      <a href="webRequest.html#concepts"
+         data-list-item
+         >Concepts</a>
+      <ol>
+        <li >
+          <a href="webRequest.html#Request IDs"
+             data-list-item
+             >Request IDs</a>
+        </li>
+        <li >
+          <a href="webRequest.html#subscription"
+             data-list-item
+             >Registering event listeners</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="webRequest.html#implementation"
+         data-list-item
+         >Implementation details</a>
+      <ol>
+        <li >
+          <a href="webRequest.html#conflict_resolution"
+             data-list-item
+             >Conflict resolution</a>
+        </li>
+        <li >
+          <a href="webRequest.html#caching"
+             data-list-item
+             >Caching</a>
+        </li>
+        <li >
+          <a href="webRequest.html#timestamps"
+             data-list-item
+             >Timestamps</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="webRequest.html#examples"
+         data-list-item
+         >Examples</a>
+    </li>
+    <li class="separator">
+      <a href="webRequest.html#types"
+         data-list-item
+         >Types</a>
+      <ol>
+        <li >
+          <a href="webRequest.html#type-RequestFilter"
+             data-list-item
+             >RequestFilter</a>
+        </li>
+        <li >
+          <a href="webRequest.html#type-HttpHeaders"
+             data-list-item
+             >HttpHeaders</a>
+        </li>
+        <li >
+          <a href="webRequest.html#type-BlockingResponse"
+             data-list-item
+             >BlockingResponse</a>
+        </li>
+        <li >
+          <a href="webRequest.html#type-UploadData"
+             data-list-item
+             >UploadData</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="webRequest.html#properties"
+         data-list-item
+         >Properties</a>
+      <ol>
+        <li >
+          <a href="webRequest.html#property-MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES"
+             data-list-item
+             >MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="webRequest.html#methods"
+         data-list-item
+         >Methods</a>
+      <ol>
+        <li >
+          <a href="webRequest.html#method-handlerBehaviorChanged"
+             data-list-item
+             >handlerBehaviorChanged        </a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="webRequest.html#events"
+         data-list-item
+         >Events</a>
+      <ol>
+        <li >
+          <a href="webRequest.html#event-onBeforeRequest"
+             data-list-item
+             >onBeforeRequest</a>
+        </li>
+        <li >
+          <a href="webRequest.html#event-onBeforeSendHeaders"
+             data-list-item
+             >onBeforeSendHeaders</a>
+        </li>
+        <li >
+          <a href="webRequest.html#event-onSendHeaders"
+             data-list-item
+             >onSendHeaders</a>
+        </li>
+        <li >
+          <a href="webRequest.html#event-onHeadersReceived"
+             data-list-item
+             >onHeadersReceived</a>
+        </li>
+        <li >
+          <a href="webRequest.html#event-onAuthRequired"
+             data-list-item
+             >onAuthRequired</a>
+        </li>
+        <li >
+          <a href="webRequest.html#event-onResponseStarted"
+             data-list-item
+             >onResponseStarted</a>
+        </li>
+        <li >
+          <a href="webRequest.html#event-onBeforeRedirect"
+             data-list-item
+             >onBeforeRedirect</a>
+        </li>
+        <li >
+          <a href="webRequest.html#event-onCompleted"
+             data-list-item
+             >onCompleted</a>
+        </li>
+        <li >
+          <a href="webRequest.html#event-onErrorOccurred"
+             data-list-item
+             >onErrorOccurred</a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<table class="intro" id="intro">
+  <tr>
+    <td class="title">Description:</td>
+    <td>
+        Use the <code>chrome.webRequest</code> API to observe and analyze traffic and to intercept, block, or modify requests in-flight.
+                <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Availability:</td>
+    <td>
+        Stable since Chrome 17.
+        <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Permissions:</td>
+    <td>
+        <span class="code">
+        "webRequest"
+                </span>
+        <br>
+        <a href="declare_permissions.html#host-permissions">
+        host permissions
+                </a>
+        <br>
+    </td>
+  </tr>
+</table>
+<section>
+<h2 id="manifest">Manifest</h2>
+<p>You must declare the "webRequest" permission in the <a
+  href="manifest.html">extension manifest</a> to use the web request
+API, along with <a href="declare_permissions.html">host permissions</a>
+for any hosts whose network requests you want to access. If you want to
+use the web request API in a blocking fashion, you need to request
+the "webRequestBlocking" permission in addition.
+For example:</p>
+<pre data-filename="manifest.json">
+{
+  "name": "My extension",
+  ...
+  <b>"permissions": [
+    "webRequest",
+    "*://*.google.com/"
+  ]</b>,
+  ...
+}
+</pre>
+
+<h2 id="life_cycle">Life cycle of requests</h2>
+
+<p>
+The web request API defines a set of events that follow the life cycle of a web
+request. You can use these events to observe and analyze traffic. Certain
+synchronous events will allow you to intercept, block, or modify a request.
+</p>
+
+<p>
+The event life cycle for successful requests is illustrated here, followed by
+event definitions:<br/>
+<img src="../static/images/webrequestapi.png"
+  width="385" height="503"
+  alt="Life cycle of a web request from the perspective of the webrequest API"
+  style="margin-left: auto; margin-right: auto; display: block"/>
+</p>
+
+<p>
+<dl>
+  <dt><code>onBeforeRequest</code> (optionally synchronous)</dt>
+  <dd>Fires when a request is about to occur. This event is sent before any TCP
+  connection is made and can be used to cancel or redirect requests.</dd>
+  <dt><code>onBeforeSendHeaders</code> (optionally synchronous)</dt>
+  <dd>Fires when a request is about to occur and the initial headers have been
+  prepared. The event is intended to allow extensions to add, modify, and delete
+  request headers <a href="webRequest.html#life_cycle_footnote">(*)</a>. The
+  <code>onBeforeSendHeaders</code> event is passed to all subscribers, so
+  different subscribers may attempt to modify the request; see the <a
+    href="webRequest.html#implementation">Implementation details</a> section for how this is
+  handled. This event can be used to cancel the request.</dd>
+  <dt><code>onSendHeaders</code></dt>
+  <dd>Fires after all extensions have had a chance to modify the request
+  headers, and presents the final <a href="webRequest.html#life_cycle_footnote">(*)</a>
+  version. The event is triggered before the headers are sent to the network.
+  This event is informational and handled asynchronously. It does not allow
+  modifying or cancelling the request.</dd>
+  <dt><code>onHeadersReceived</code> (optionally synchronous)</dt>
+  <dd>Fires each time that an HTTP(S) response header is received. Due
+  to redirects and authentication requests this can happen multiple times per
+  request. This event is intended to allow extensions to add, modify, and delete
+  response headers, such as incoming Set-Cookie headers.</dd>
+  <dt><code>onAuthRequired</code> (optionally synchronous)</dt>
+  <dd>Fires when a request requires authentication of the user. This event can
+  be handled synchronously to provide authentication credentials. Note that
+  extensions may provide invalid credentials. Take care not to enter an infinite
+  loop by repeatedly providing invalid credentials.</dd>
+  <dt><code>onBeforeRedirect</code></dt>
+  <dd>Fires when a redirect is about to be executed. A redirection can be
+  triggered by an HTTP response code or by an extension. This event is
+  informational and handled asynchronously. It does not allow you to modify or
+  cancel the request. </dd>
+  <dt><code>onResponseStarted</code></dt>
+  <dd>Fires when the first byte of the response body is received. For HTTP
+  requests, this means that the status line and response headers are
+  available. This event is informational and handled asynchronously. It does not
+  allow modifying or cancelling the request.</dd>
+  <dt><code>onCompleted</code></dt>
+  <dd>Fires when a request has been processed successfully.</dd>
+  <dt><code>onErrorOccurred</code></dt>
+  <dd>Fires when a request could not be processed successfully.</dd>
+</dl>
+The web request API guarantees that for each request either
+<code>onCompleted</code> or <code>onErrorOccurred</code> is fired as the final
+event with one exception: If a request is redirected to a <code>data://</code>
+URL, <code>onBeforeRedirect</code> is the last reported event.
+</p>
+
+<p id="life_cycle_footnote">(*) Note that the web request API presents an
+abstraction of the network stack to the extension. Internally, one URL request
+can be split into several HTTP requests (for example to fetch individual byte
+ranges from a large file) or can be handled by the network stack without
+communicating with the network. For this reason, the API does not provide the
+final HTTP headers that are sent to the network. For example, all headers that
+are related to caching are invisible to the extension.</p>
+
+<p>The following headers are currently <b>not provided</b> to the
+<code>onBeforeSendHeaders</code> event. This list is not guaranteed to be
+complete nor stable.
+<ul>
+  <li>Authorization</li>
+  <li>Cache-Control</li>
+  <li>Connection</li>
+  <li>Content-Length</li>
+  <li>Host</li>
+  <li>If-Modified-Since</li>
+  <li>If-None-Match</li>
+  <li>If-Range</li>
+  <li>Partial-Data</li>
+  <li>Pragma</li>
+  <li>Proxy-Authorization</li>
+  <li>Proxy-Connection</li>
+  <li>Transfer-Encoding</li>
+</ul>
+</p>
+
+<p>
+The webRequest API only exposes requests that the extension has
+permission to see, given its
+<a href="declare_permissions.html">host permissions</a>.
+Moreover, only the following schemes are accessible:
+<code>http://</code>,
+<code>https://</code>,
+<code>ftp://</code>,
+<code>file://</code>, or
+<code>chrome-extension://</code>.
+In addition, even certain requests with URLs using one of the above schemes
+are hidden, e.g.,
+<code>chrome-extension://other_extension_id</code> where
+<code>other_extension_id</code> is not the ID of the extension to handle
+the request,
+<code>https://www.google.com/chrome</code>,
+and others (this list is not complete). Also synchronous XMLHttpRequests from
+your extension are hidden from blocking event handlers in order to prevent
+deadlocks.
+Note that for some of the supported schemes the set of available events might be
+limited due to the nature of the corresponding protocol.
+For example, for the <q>file:</q> scheme, only <code>onBeforeRequest</code>,
+<code>onResponseStarted</code>, <code>onCompleted</code>, and
+<code>onErrorOccurred</code> may be dispatched.
+</p>
+
+<h2 id="concepts">Concepts</h2>
+
+<p>As the following sections explain, events in the web request API use request
+IDs, and you can optionally specify filters and extra information when you
+register event listeners.</p>
+
+<h3 id="Request IDs">Request IDs</h3>
+
+<p>Each request is identified by a request ID. This ID is unique within a
+browser session and the context of an extension. It remains constant during the
+the life cycle of a request and can be used to match events for the same
+request. Note that several HTTP requests are mapped to one web request in case
+of HTTP redirection or HTTP authentication.</p>
+
+<h3 id="subscription">Registering event listeners</h3>
+
+<p>To register an event listener for a web request, you use a variation on the
+<a href="events.html">usual <code>addListener()</code> function</a>.
+In addition to specifying a callback function,
+you have to specify a filter argument and you may specify an optional extra info
+argument.</p>
+
+<p>The three arguments to the web request API's <code>addListener()</code> have
+the following definitions:</p>
+<pre>
+var callback = function(details) {...};
+var filter = {...};
+var opt_extraInfoSpec = [...];
+</pre>
+
+<p>Here's an example of listening for the <code>onBeforeRequest</code>
+event:</p>
+<pre>
+chrome.webRequest.onBeforeRequest.addListener(
+  callback, filter, opt_extraInfoSpec);
+</pre>
+
+<p>Each <code>addListener()</code> call takes a mandatory callback function as
+the first parameter. This callback function is passed a dictionary containing
+information about the current URL request. The information in this dictionary
+depends on the specific event type as well as the content of
+<code>opt_extraInfoSpec</code>.</p>
+
+<p>If the optional <code>opt_extraInfoSpec</code> array contains the string
+<code>'blocking'</code> (only allowed for specific events), the callback
+function is handled synchronously. That means that the request is blocked until
+the callback function returns. In this case, the callback can return a 
+  <a href="webRequest.html#type-BlockingResponse">BlockingResponse</a> that determines the further
+life cycle of the request. Depending on the context, this response allows
+cancelling or redirecting a request (<code>onBeforeRequest</code>), cancelling a
+request or modifying headers (<code>onBeforeSendHeaders</code>,
+<code>onHeadersReceived</code>), or providing authentication credentials
+(<code>onAuthRequired</code>).</p>
+
+<p>The <a href="webRequest.html#type-RequestFilter">RequestFilter</a>
+<code>filter</code> allows limiting the requests for which events are
+triggered in various dimensions:
+<dl>
+  <dt>URLs</dt>
+  <dd><a href="match_patterns.html">URL patterns</a> such as
+  <code>*://www.google.com/foo*bar</code>.</dd>
+  <dt>Types</dt>
+  <dd>Request types such as <code>main_frame</code> (a document that is loaded
+  for a top-level frame), <code>sub_frame</code> (a document that is loaded for
+  an embedded frame), and <code>image</code> (an image on a web site).
+  See <a href="webRequest.html#type-RequestFilter">RequestFilter</a>.</dd>
+  <dt>Tab ID</dt>
+  <dd>The identifier for one tab.</dd>
+  <dt>Window ID</dt>
+  <dd>The identifier for a window.</dd>
+</p>
+
+<p>Depending on the event type, you can specify strings in
+<code>opt_extraInfoSpec</code> to ask for additional information about the
+request. This is used to provide detailed information on request's data only
+if explicitly requested.</p>
+
+<h2 id="implementation">Implementation details</h2>
+
+<p>Several implementation details can be important to understand when developing
+an extension that uses the web request API:</p>
+
+<h3 id="conflict_resolution">Conflict resolution</h3>
+<p>In the current implementation of the web request API, a request is considered
+as cancelled if at least one extension instructs to cancel the request. If
+an extension cancels a request, all extensions are notified by an
+<code>onErrorOccurred</code> event. Only one extension is allowed to redirect a
+request or modify a header at a time. If more than one extension attempts to
+modify the request, the most recently installed extension wins and all others
+are ignored. An extension is not notified if its instruction to modify or
+redirect has been ignored.</p>
+
+<h3 id="caching">Caching</h3>
+<p>
+Chrome employs two caches &mdash; an on-disk cache and a very fast in-memory
+cache.  The lifetime of an in-memory cache is attached to the lifetime of a
+render process, which roughly corresponds to a tab. Requests that are answered
+from the in-memory cache are invisible to the web request API. If a request
+handler changes its behavior (for example, the behavior according to which
+requests are blocked), a simple page refresh might not respect this changed
+behavior.  To make sure the behavior change goes through, call
+<code>handlerBehaviorChanged()</code> to flush the in-memory cache. But don't do
+it often; flushing the cache is a very expensive operation. You don't need to
+call <code>handlerBehaviorChanged()</code> after registering or unregistering an
+event listener.</p>
+
+<h3 id="timestamps">Timestamps</h3>
+<p>
+The <code>timestamp</code> property of web request events is only guaranteed to
+be <i>internally</i> consistent. Comparing one event to another event will give
+you the correct offset between them, but comparing them to the current time
+inside the extension (via <code>(new Date()).getTime()</code>, for instance)
+might give unexpected results.
+</p>
+
+<h2 id="examples">Examples</h2>
+
+<p>The following example illustrates how to block all requests to
+<code>www.evil.com</code>:</p>
+<pre>
+chrome.webRequest.onBeforeRequest.addListener(
+  function(details) {
+    return {cancel: details.url.indexOf("://www.evil.com/") != -1};
+  },
+  {urls: ["&lt;all_urls&gt;"]},
+  ["blocking"]);
+</pre>
+
+<p>As this function uses a blocking event handler, it requires the "webRequest"
+as well as the "webRequestBlocking" permission in the manifest file.</p>
+
+<p>The following example achieves the same goal in a more efficient way because
+requests that are not targeted to <code>www.evil.com</code> do not need to be
+passed to the extension:</p>
+<pre>
+chrome.webRequest.onBeforeRequest.addListener(
+  function(details) { return {cancel: true}; },
+  {urls: ["*://www.evil.com/*"]},
+  ["blocking"]);
+</pre>
+
+<p>The following example illustrates how to delete the User-Agent header from
+all requests:</p>
+<pre>
+chrome.webRequest.onBeforeSendHeaders.addListener(
+  function(details) {
+    for (var i = 0; i < details.requestHeaders.length; ++i) {
+      if (details.requestHeaders[i].name === 'User-Agent') {
+        details.requestHeaders.splice(i, 1);
+        break;
+      }
+    }
+    return {requestHeaders: details.requestHeaders};
+  },
+  {urls: ["&lt;all_urls&gt;"]},
+  ["blocking", "requestHeaders"]);
+</pre>
+
+<p> For more example code, see the <a href="samples.html#webrequest">web request
+samples</a>.</p>
+</section>
+<section>
+<h2 id="api-reference-header" title="">chrome.webRequest reference</h2>
+<div class="api_reference">
+    <h2 id="types">Types</h2>
+      <div>
+        <h3 id="type-RequestFilter">RequestFilter</h3>
+        <div>
+          <dd>An object describing filters to apply to webRequest events.</dd>
+            <h3 id="RequestFilter-properties" class="capitalize" title="">
+              properties of <a href="webRequest.html#type-RequestFilter">RequestFilter</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-RequestFilter-urls"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-RequestFilter-urls" title="">
+                        urls
+                        <span class="property">
+                          (
+                            array of string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      A list of URLs or URL patterns. Requests that cannot match any of the URLs will be filtered out.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-RequestFilter-types"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-RequestFilter-types" title="">
+                        types
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            array of enum of <code>"main_frame"</code>, <code>"sub_frame"</code>, <code>"stylesheet"</code>, <code>"script"</code>, <code>"image"</code>, <code>"object"</code>, <code>"xmlhttprequest"</code>, or <code>"other"</code>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      A list of request types. Requests that cannot match any of the types will be filtered out.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-RequestFilter-tabId"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-RequestFilter-tabId" title="">
+                        tabId
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-RequestFilter-windowId"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-RequestFilter-windowId" title="">
+                        windowId
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-HttpHeaders">HttpHeaders</h3>
+        <div>
+          <dd>
+            array of object
+          </dd>
+          <dd>An array of HTTP headers. Each header is represented as a dictionary containing the keys <code>name</code> and either <code>value</code> or <code>binaryValue</code>.</dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-BlockingResponse">BlockingResponse</h3>
+        <div>
+          <dd>Returns value for event handlers that have the 'blocking' extraInfoSpec applied. Allows the event handler to modify network requests.</dd>
+            <h3 id="BlockingResponse-properties" class="capitalize" title="">
+              properties of <a href="webRequest.html#type-BlockingResponse">BlockingResponse</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-BlockingResponse-cancel"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-BlockingResponse-cancel" title="">
+                        cancel
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            boolean
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      If true, the request is cancelled. Used in onBeforeRequest, this prevents the request from being sent.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-BlockingResponse-redirectUrl"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-BlockingResponse-redirectUrl" title="">
+                        redirectUrl
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Only used as a response to the onBeforeRequest event. If set, the original request is prevented from being sent and is instead redirected to the given URL.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-BlockingResponse-requestHeaders"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-BlockingResponse-requestHeaders" title="">
+                        requestHeaders
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            <a href="webRequest.html#type-HttpHeaders">HttpHeaders</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Only used as a response to the onBeforeSendHeaders event. If set, the request is made with these request headers instead.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-BlockingResponse-responseHeaders"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-BlockingResponse-responseHeaders" title="">
+                        responseHeaders
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            <a href="webRequest.html#type-HttpHeaders">HttpHeaders</a>
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Only used as a response to the onHeadersReceived event. If set, the server is assumed to have responded with these response headers instead. Only return <code>responseHeaders</code> if you really want to modify the headers in order to limit the number of conflicts (only one extension may modify <code>responseHeaders</code> for each request).
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-BlockingResponse-authCredentials"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-BlockingResponse-authCredentials" title="">
+                        authCredentials
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            object
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Only used as a response to the onAuthRequired event. If set, the request is made using the supplied credentials.
+                    </dd>
+                  </dl>
+                  <dd>
+                    <h4 title="">Properties</h4>
+                    <dl>
+                      <div>
+                        <a name="property-authCredentials-username"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-authCredentials-username" title="">
+                              username
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                      </div><div>
+                        <a name="property-authCredentials-password"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-authCredentials-password" title="">
+                              password
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                      </div>
+                    </dl>
+                  </dd>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+      <div>
+        <h3 id="type-UploadData">UploadData</h3>
+        <div>
+          <dd>Contains data uploaded in a URL request.</dd>
+            <h3 id="UploadData-properties" class="capitalize" title="">
+              properties of <a href="webRequest.html#type-UploadData">UploadData</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-UploadData-bytes"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-UploadData-bytes" title="">
+                        bytes
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            any
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      An ArrayBuffer with a copy of the data.
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-UploadData-file"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-UploadData-file" title="">
+                        file
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            string
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      A string with the file's path and name.
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+    <h2 id="properties">Properties</h2>
+      <div>
+        <h3 id="property-MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES">MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES</h3>
+        <div class="summary">
+          <div class="line">chrome.webRequest.MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES</div>
+        </div>
+        <div>
+          <dt><span class="property">MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES</span> <span class="type_name">  (  <code>20</code>  )</span></dt>
+      <dd>
+            The maximum number of times that <code>handlerBehaviorChanged</code> can be called per 10 minute sustained interval. <code>handlerBehaviorChanged</code> is an expensive function call that shouldn't be called often.
+          </dd>  </div>
+      </div>
+    <h2 id="methods">Methods</h2>
+      <div>
+        <h3
+            id="method-handlerBehaviorChanged"
+            >handlerBehaviorChanged
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.webRequest.handlerBehaviorChanged</span>(<span class="optional">function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Needs to be called when the behavior of the webRequest handlers has changed to prevent incorrect handling due to caching. This function call is expensive. Don't call it often.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-handlerBehaviorChanged-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-handlerBehaviorChanged-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          <span class="optional">optional</span>
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  If you specify the <em>callback</em> parameter, it should
+                  specify a function that looks like this:
+            </p>
+            <pre>function() <span class="subdued">{...}</span>;</pre>
+        </div>
+      </div>
+    <h2 id="events">Events</h2>
+      <div>
+        <h3 id="event-onBeforeRequest">onBeforeRequest</h3>
+        <div class="description">
+      <p>
+            Fired when a request is about to occur.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.webRequest.onBeforeRequest.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onBeforeRequest-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onBeforeRequest-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object details) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onBeforeRequest-details"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onBeforeRequest-details" title="">
+                              details
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-details-requestId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestId" title="">
+                                    requestId
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-url"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-url" title="">
+                                    url
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-method"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-method" title="">
+                                    method
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP method.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-frameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-frameId" title="">
+                                    frameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (<code>type</code> is <code>main_frame</code> or <code>sub_frame</code>), <code>frameId</code> indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-parentFrameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-parentFrameId" title="">
+                                    parentFrameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-requestBody"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestBody" title="">
+                                    requestBody
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        object
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Contains the HTTP request body data. Only provided if extraInfoSpec contains 'requestBody'.
+                                </dd>
+                              </dl>
+                              <dd>
+                                <h4 title="">Properties</h4>
+                                <dl>
+                                  <div>
+                                    <a name="property-requestBody-error"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-requestBody-error" title="">
+                                          error
+                                          <span class="property">
+                                            (
+                                              <span class="optional">optional</span>
+                                              string
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                        Errors when obtaining request body data.
+                                      </dd>
+                                    </dl>
+                                  </div><div>
+                                    <a name="property-requestBody-formData"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-requestBody-formData" title="">
+                                          formData
+                                          <span class="property">
+                                            (
+                                              <span class="optional">optional</span>
+                                              object
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                        If the request method is POST and the body is a sequence of key-value pairs encoded in UTF8, encoded as either multipart/form-data, or application/x-www-form-urlencoded, this dictionary is present and for each key contains the list of all values for that key. If the data is of another media type, or if it is malformed, the dictionary is not present. An example value of this dictionary is {'key': ['value1', 'value2']}.
+                                      </dd>
+                                    </dl>
+                                  </div><div>
+                                    <a name="property-requestBody-raw"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-requestBody-raw" title="">
+                                          raw
+                                          <span class="property">
+                                            (
+                                              <span class="optional">optional</span>
+                                              array of <a href="webRequest.html#type-UploadData">UploadData</a>
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                        If the request method is PUT or POST, and the body is not already parsed in formData, then the unparsed request body elements are contained in this array.
+                                      </dd>
+                                    </dl>
+                                  </div>
+                                </dl>
+                              </dd>
+                            </div><div>
+                              <a name="property-details-tabId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-tabId" title="">
+                                    tabId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-type"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-type" title="">
+                                    type
+                                    <span class="property">
+                                      (
+                                        enum of <code>"main_frame"</code>, <code>"sub_frame"</code>, <code>"stylesheet"</code>, <code>"script"</code>, <code>"image"</code>, <code>"object"</code>, <code>"xmlhttprequest"</code>, or <code>"other"</code>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  How the requested resource will be used.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-timeStamp"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-timeStamp" title="">
+                                    timeStamp
+                                    <span class="property">
+                                      (
+                                        double
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The time when this signal is triggered, in milliseconds since the epoch.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onBeforeSendHeaders">onBeforeSendHeaders</h3>
+        <div class="description">
+      <p>
+            Fired before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any HTTP data is sent. 
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.webRequest.onBeforeSendHeaders.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onBeforeSendHeaders-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onBeforeSendHeaders-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object details) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onBeforeSendHeaders-details"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onBeforeSendHeaders-details" title="">
+                              details
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-details-requestId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestId" title="">
+                                    requestId
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-url"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-url" title="">
+                                    url
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-method"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-method" title="">
+                                    method
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP method.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-frameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-frameId" title="">
+                                    frameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (<code>type</code> is <code>main_frame</code> or <code>sub_frame</code>), <code>frameId</code> indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-parentFrameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-parentFrameId" title="">
+                                    parentFrameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-tabId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-tabId" title="">
+                                    tabId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-type"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-type" title="">
+                                    type
+                                    <span class="property">
+                                      (
+                                        enum of <code>"main_frame"</code>, <code>"sub_frame"</code>, <code>"stylesheet"</code>, <code>"script"</code>, <code>"image"</code>, <code>"object"</code>, <code>"xmlhttprequest"</code>, or <code>"other"</code>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  How the requested resource will be used.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-timeStamp"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-timeStamp" title="">
+                                    timeStamp
+                                    <span class="property">
+                                      (
+                                        double
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The time when this signal is triggered, in milliseconds since the epoch.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-requestHeaders"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestHeaders" title="">
+                                    requestHeaders
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="webRequest.html#type-HttpHeaders">HttpHeaders</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The HTTP request headers that are going to be sent out with this request.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onSendHeaders">onSendHeaders</h3>
+        <div class="description">
+      <p>
+            Fired just before a request is going to be sent to the server (modifications of previous onBeforeSendHeaders callbacks are visible by the time onSendHeaders is fired).
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.webRequest.onSendHeaders.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onSendHeaders-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onSendHeaders-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object details) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onSendHeaders-details"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onSendHeaders-details" title="">
+                              details
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-details-requestId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestId" title="">
+                                    requestId
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-url"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-url" title="">
+                                    url
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-method"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-method" title="">
+                                    method
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP method.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-frameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-frameId" title="">
+                                    frameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (<code>type</code> is <code>main_frame</code> or <code>sub_frame</code>), <code>frameId</code> indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-parentFrameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-parentFrameId" title="">
+                                    parentFrameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-tabId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-tabId" title="">
+                                    tabId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-type"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-type" title="">
+                                    type
+                                    <span class="property">
+                                      (
+                                        enum of <code>"main_frame"</code>, <code>"sub_frame"</code>, <code>"stylesheet"</code>, <code>"script"</code>, <code>"image"</code>, <code>"object"</code>, <code>"xmlhttprequest"</code>, or <code>"other"</code>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  How the requested resource will be used.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-timeStamp"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-timeStamp" title="">
+                                    timeStamp
+                                    <span class="property">
+                                      (
+                                        double
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The time when this signal is triggered, in milliseconds since the epoch.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-requestHeaders"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestHeaders" title="">
+                                    requestHeaders
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="webRequest.html#type-HttpHeaders">HttpHeaders</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The HTTP request headers that have been sent out with this request.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onHeadersReceived">onHeadersReceived</h3>
+        <div class="description">
+      <p>
+            Fired when HTTP response headers of a request have been received.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.webRequest.onHeadersReceived.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onHeadersReceived-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onHeadersReceived-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object details) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onHeadersReceived-details"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onHeadersReceived-details" title="">
+                              details
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-details-requestId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestId" title="">
+                                    requestId
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-url"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-url" title="">
+                                    url
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-method"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-method" title="">
+                                    method
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP method.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-frameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-frameId" title="">
+                                    frameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (<code>type</code> is <code>main_frame</code> or <code>sub_frame</code>), <code>frameId</code> indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-parentFrameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-parentFrameId" title="">
+                                    parentFrameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-tabId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-tabId" title="">
+                                    tabId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-type"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-type" title="">
+                                    type
+                                    <span class="property">
+                                      (
+                                        enum of <code>"main_frame"</code>, <code>"sub_frame"</code>, <code>"stylesheet"</code>, <code>"script"</code>, <code>"image"</code>, <code>"object"</code>, <code>"xmlhttprequest"</code>, or <code>"other"</code>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  How the requested resource will be used.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-timeStamp"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-timeStamp" title="">
+                                    timeStamp
+                                    <span class="property">
+                                      (
+                                        double
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The time when this signal is triggered, in milliseconds since the epoch.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-statusLine"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-statusLine" title="">
+                                    statusLine
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  HTTP status line of the response or the 'HTTP/0.9 200 OK' string for HTTP/0.9 responses (i.e., responses that lack a status line).
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-responseHeaders"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-responseHeaders" title="">
+                                    responseHeaders
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="webRequest.html#type-HttpHeaders">HttpHeaders</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The HTTP response headers that have been received with this response.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onAuthRequired">onAuthRequired</h3>
+        <div class="description">
+      <p>
+            Fired when an authentication failure is received. The listener has three options: it can provide authentication credentials, it can cancel the request and display the error page, or it can take no action on the challenge. If bad user credentials are provided, this may be called multiple times for the same request.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.webRequest.onAuthRequired.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onAuthRequired-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onAuthRequired-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object details, function callback) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onAuthRequired-details"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onAuthRequired-details" title="">
+                              details
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-details-requestId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestId" title="">
+                                    requestId
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-url"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-url" title="">
+                                    url
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-method"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-method" title="">
+                                    method
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP method.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-frameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-frameId" title="">
+                                    frameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (<code>type</code> is <code>main_frame</code> or <code>sub_frame</code>), <code>frameId</code> indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-parentFrameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-parentFrameId" title="">
+                                    parentFrameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-tabId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-tabId" title="">
+                                    tabId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-type"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-type" title="">
+                                    type
+                                    <span class="property">
+                                      (
+                                        enum of <code>"main_frame"</code>, <code>"sub_frame"</code>, <code>"stylesheet"</code>, <code>"script"</code>, <code>"image"</code>, <code>"object"</code>, <code>"xmlhttprequest"</code>, or <code>"other"</code>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  How the requested resource will be used.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-timeStamp"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-timeStamp" title="">
+                                    timeStamp
+                                    <span class="property">
+                                      (
+                                        double
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The time when this signal is triggered, in milliseconds since the epoch.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-scheme"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-scheme" title="">
+                                    scheme
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The authentication scheme, e.g. Basic or Digest.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-realm"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-realm" title="">
+                                    realm
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The authentication realm provided by the server, if there is one.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-challenger"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-challenger" title="">
+                                    challenger
+                                    <span class="property">
+                                      (
+                                        object
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The server requesting authentication.
+                                </dd>
+                              </dl>
+                              <dd>
+                                <h4 title="">Properties</h4>
+                                <dl>
+                                  <div>
+                                    <a name="property-challenger-host"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-challenger-host" title="">
+                                          host
+                                          <span class="property">
+                                            (
+                                              string
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                      </dd>
+                                    </dl>
+                                  </div><div>
+                                    <a name="property-challenger-port"></a>
+                                    <dl>
+                                      <dt>
+                                        <h4 id="property-challenger-port" title="">
+                                          port
+                                          <span class="property">
+                                            (
+                                              integer
+                                            )
+                                          </span>
+                                        </h4>
+                                      </dt>
+                                      <dd>
+                                      </dd>
+                                    </dl>
+                                  </div>
+                                </dl>
+                              </dd>
+                            </div><div>
+                              <a name="property-details-isProxy"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-isProxy" title="">
+                                    isProxy
+                                    <span class="property">
+                                      (
+                                        boolean
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  True for Proxy-Authenticate, false for WWW-Authenticate.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-responseHeaders"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-responseHeaders" title="">
+                                    responseHeaders
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="webRequest.html#type-HttpHeaders">HttpHeaders</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The HTTP response headers that were received along with this response.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-statusLine"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-statusLine" title="">
+                                    statusLine
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  HTTP status line of the response or the 'HTTP/0.9 200 OK' string for HTTP/0.9 responses (i.e., responses that lack a status line) or an empty string if there are no headers.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                      <div>
+                        <a name="property-onAuthRequired-callback"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onAuthRequired-callback" title="">
+                              callback
+                              <span class="property">
+                                (
+                                  <span class="optional">optional</span>
+                                  function
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onResponseStarted">onResponseStarted</h3>
+        <div class="description">
+      <p>
+            Fired when the first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.webRequest.onResponseStarted.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onResponseStarted-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onResponseStarted-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object details) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onResponseStarted-details"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onResponseStarted-details" title="">
+                              details
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-details-requestId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestId" title="">
+                                    requestId
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-url"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-url" title="">
+                                    url
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-method"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-method" title="">
+                                    method
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP method.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-frameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-frameId" title="">
+                                    frameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (<code>type</code> is <code>main_frame</code> or <code>sub_frame</code>), <code>frameId</code> indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-parentFrameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-parentFrameId" title="">
+                                    parentFrameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-tabId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-tabId" title="">
+                                    tabId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-type"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-type" title="">
+                                    type
+                                    <span class="property">
+                                      (
+                                        enum of <code>"main_frame"</code>, <code>"sub_frame"</code>, <code>"stylesheet"</code>, <code>"script"</code>, <code>"image"</code>, <code>"object"</code>, <code>"xmlhttprequest"</code>, or <code>"other"</code>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  How the requested resource will be used.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-timeStamp"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-timeStamp" title="">
+                                    timeStamp
+                                    <span class="property">
+                                      (
+                                        double
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The time when this signal is triggered, in milliseconds since the epoch.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-ip"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-ip" title="">
+                                    ip
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The server IP address that the request was actually sent to. Note that it may be a literal IPv6 address.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-fromCache"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-fromCache" title="">
+                                    fromCache
+                                    <span class="property">
+                                      (
+                                        boolean
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Indicates if this response was fetched from disk cache.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-statusCode"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-statusCode" title="">
+                                    statusCode
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP status code returned by the server.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-responseHeaders"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-responseHeaders" title="">
+                                    responseHeaders
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="webRequest.html#type-HttpHeaders">HttpHeaders</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The HTTP response headers that were received along with this response.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-statusLine"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-statusLine" title="">
+                                    statusLine
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  HTTP status line of the response or the 'HTTP/0.9 200 OK' string for HTTP/0.9 responses (i.e., responses that lack a status line) or an empty string if there are no headers.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onBeforeRedirect">onBeforeRedirect</h3>
+        <div class="description">
+      <p>
+            Fired when a server-initiated redirect is about to occur.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.webRequest.onBeforeRedirect.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onBeforeRedirect-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onBeforeRedirect-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object details) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onBeforeRedirect-details"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onBeforeRedirect-details" title="">
+                              details
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-details-requestId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestId" title="">
+                                    requestId
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-url"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-url" title="">
+                                    url
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-method"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-method" title="">
+                                    method
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP method.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-frameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-frameId" title="">
+                                    frameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (<code>type</code> is <code>main_frame</code> or <code>sub_frame</code>), <code>frameId</code> indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-parentFrameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-parentFrameId" title="">
+                                    parentFrameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-tabId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-tabId" title="">
+                                    tabId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-type"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-type" title="">
+                                    type
+                                    <span class="property">
+                                      (
+                                        enum of <code>"main_frame"</code>, <code>"sub_frame"</code>, <code>"stylesheet"</code>, <code>"script"</code>, <code>"image"</code>, <code>"object"</code>, <code>"xmlhttprequest"</code>, or <code>"other"</code>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  How the requested resource will be used.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-timeStamp"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-timeStamp" title="">
+                                    timeStamp
+                                    <span class="property">
+                                      (
+                                        double
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The time when this signal is triggered, in milliseconds since the epoch.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-ip"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-ip" title="">
+                                    ip
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The server IP address that the request was actually sent to. Note that it may be a literal IPv6 address.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-fromCache"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-fromCache" title="">
+                                    fromCache
+                                    <span class="property">
+                                      (
+                                        boolean
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Indicates if this response was fetched from disk cache.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-statusCode"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-statusCode" title="">
+                                    statusCode
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP status code returned by the server.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-redirectUrl"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-redirectUrl" title="">
+                                    redirectUrl
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The new URL.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-responseHeaders"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-responseHeaders" title="">
+                                    responseHeaders
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="webRequest.html#type-HttpHeaders">HttpHeaders</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The HTTP response headers that were received along with this redirect.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-statusLine"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-statusLine" title="">
+                                    statusLine
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  HTTP status line of the response or the 'HTTP/0.9 200 OK' string for HTTP/0.9 responses (i.e., responses that lack a status line) or an empty string if there are no headers.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onCompleted">onCompleted</h3>
+        <div class="description">
+      <p>
+            Fired when a request is completed.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.webRequest.onCompleted.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onCompleted-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onCompleted-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object details) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onCompleted-details"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onCompleted-details" title="">
+                              details
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-details-requestId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestId" title="">
+                                    requestId
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-url"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-url" title="">
+                                    url
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-method"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-method" title="">
+                                    method
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP method.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-frameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-frameId" title="">
+                                    frameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (<code>type</code> is <code>main_frame</code> or <code>sub_frame</code>), <code>frameId</code> indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-parentFrameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-parentFrameId" title="">
+                                    parentFrameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-tabId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-tabId" title="">
+                                    tabId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-type"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-type" title="">
+                                    type
+                                    <span class="property">
+                                      (
+                                        enum of <code>"main_frame"</code>, <code>"sub_frame"</code>, <code>"stylesheet"</code>, <code>"script"</code>, <code>"image"</code>, <code>"object"</code>, <code>"xmlhttprequest"</code>, or <code>"other"</code>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  How the requested resource will be used.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-timeStamp"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-timeStamp" title="">
+                                    timeStamp
+                                    <span class="property">
+                                      (
+                                        double
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The time when this signal is triggered, in milliseconds since the epoch.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-ip"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-ip" title="">
+                                    ip
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The server IP address that the request was actually sent to. Note that it may be a literal IPv6 address.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-fromCache"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-fromCache" title="">
+                                    fromCache
+                                    <span class="property">
+                                      (
+                                        boolean
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Indicates if this response was fetched from disk cache.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-statusCode"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-statusCode" title="">
+                                    statusCode
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP status code returned by the server.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-responseHeaders"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-responseHeaders" title="">
+                                    responseHeaders
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        <a href="webRequest.html#type-HttpHeaders">HttpHeaders</a>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The HTTP response headers that were received along with this response.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-statusLine"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-statusLine" title="">
+                                    statusLine
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  HTTP status line of the response or the 'HTTP/0.9 200 OK' string for HTTP/0.9 responses (i.e., responses that lack a status line) or an empty string if there are no headers.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div>
+        <h3 id="event-onErrorOccurred">onErrorOccurred</h3>
+        <div class="description">
+      <p>
+            Fired when an error occurs.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.webRequest.onErrorOccurred.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onErrorOccurred-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onErrorOccurred-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(object details) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onErrorOccurred-details"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onErrorOccurred-details" title="">
+                              details
+                              <span class="property">
+                                (
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                          </dd>
+                        </dl>
+                        <dd>
+                          <h4 title="">Properties</h4>
+                          <dl>
+                            <div>
+                              <a name="property-details-requestId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-requestId" title="">
+                                    requestId
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-url"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-url" title="">
+                                    url
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-method"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-method" title="">
+                                    method
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Standard HTTP method.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-frameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-frameId" title="">
+                                    frameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (<code>type</code> is <code>main_frame</code> or <code>sub_frame</code>), <code>frameId</code> indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-parentFrameId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-parentFrameId" title="">
+                                    parentFrameId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-tabId"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-tabId" title="">
+                                    tabId
+                                    <span class="property">
+                                      (
+                                        integer
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-type"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-type" title="">
+                                    type
+                                    <span class="property">
+                                      (
+                                        enum of <code>"main_frame"</code>, <code>"sub_frame"</code>, <code>"stylesheet"</code>, <code>"script"</code>, <code>"image"</code>, <code>"object"</code>, <code>"xmlhttprequest"</code>, or <code>"other"</code>
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  How the requested resource will be used.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-timeStamp"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-timeStamp" title="">
+                                    timeStamp
+                                    <span class="property">
+                                      (
+                                        double
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The time when this signal is triggered, in milliseconds since the epoch.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-ip"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-ip" title="">
+                                    ip
+                                    <span class="property">
+                                      (
+                                        <span class="optional">optional</span>
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The server IP address that the request was actually sent to. Note that it may be a literal IPv6 address.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-fromCache"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-fromCache" title="">
+                                    fromCache
+                                    <span class="property">
+                                      (
+                                        boolean
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  Indicates if this response was fetched from disk cache.
+                                </dd>
+                              </dl>
+                            </div><div>
+                              <a name="property-details-error"></a>
+                              <dl>
+                                <dt>
+                                  <h4 id="property-details-error" title="">
+                                    error
+                                    <span class="property">
+                                      (
+                                        string
+                                      )
+                                    </span>
+                                  </h4>
+                                </dt>
+                                <dd>
+                                  The error description. This string is <em>not</em> guaranteed to remain backwards compatible between releases. You must not parse and act based upon its content.
+                                </dd>
+                              </dl>
+                            </div>
+                          </dl>
+                        </dd>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+</div>
+</section>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

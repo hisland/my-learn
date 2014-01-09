@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manifest - Incognito - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="../index.html" title="Google Chrome Extensions">
+          <img src="../../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="../samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="../getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="../overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="../whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="../devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="../browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="../contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="../desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="../omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="../options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="../override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="../pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="../bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="../cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="../devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="../events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="../history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="../management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="../tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="../windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="../a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="../event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="../contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="../content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="../xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="../i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="../messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="../permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="../npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="../hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="../external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="../tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="../tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="../tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="../tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="../tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="../manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="../match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="../permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="../api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="../api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="../faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="../themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<div id="toc">
+  <ol>
+    <li >
+      <a href="incognito.html#spanning"
+         data-list-item
+         >Spanning mode</a>
+    </li>
+    <li >
+      <a href="incognito.html#split"
+         data-list-item
+         >Split mode</a>
+    </li>
+    <li >
+      <a href="incognito.html#how-to-choose"
+         data-list-item
+         >How to choose</a>
+    </li>
+  </ol>
+</div>
+
+<h1 id="incognito">Manifest - Incognito</h1>
+
+<p>
+Use the <code>"incognito"</code> manifest key with either
+<code>"spanning"</code> or <code>"split"</code> to specify how this
+extension will behave if allowed to run in incognito mode.
+</p>
+
+<p>
+Only extensions can choose. Apps will always use the default value for the app
+type; <code>"spanning"</code> for Chrome apps and <code>"split"</code> for
+installable web and legacy packaged apps.
+</p>
+
+<h2 id="spanning">Spanning mode</h2>
+<p>
+The default for extensions and Chrome apps is <code>"spanning"</code>, which
+means that it will run in a single shared process. Any events or messages from
+an incognito tab will be sent to the shared process, with an <em>incognito</em>
+flag indicating where it came from. Because incognito tabs cannot use this
+shared process, an extension using the <code>"spanning"</code> incognito mode
+will not be able to load pages from its extension package into the main frame
+of an incognito tab.
+</p>
+
+<h2 id="split">Split mode</h2>
+<p>
+The default for installable web apps and legacy packaged apps is
+<code>"split"</code>, which means that all app pages in an incognito window
+will run in their own incognito process.  If the app or extension contains a
+background page, that will also run in the incognito process.  This incognito
+process runs along side the regular process, but has a separate memory-only
+cookie store. Each process sees events and messages only from its own context
+(for example, the incognito process will see only incognito tab updates).  The
+processes are unable to communicate with each other.
+</p>
+
+<h2 id="how-to-choose">How to choose</h2>
+<p>
+As a rule of thumb, if your extension or app needs to load a tab in an
+incognito browser, use <em>split</em> incognito behavior. If your extension or
+app needs to be logged into a remote server use <em>spanning</em> incognito
+behavior.
+</p>
+
+<p>
+<a href="../storage.html#property-sync">chrome.storage.sync</a> and
+<a href="../storage.html#property-local">chrome.storage.local</a>
+are <em>always</em> shared between regular and incognito processes. It is
+recommended to use them for persisting your extension's settings.
+</p>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../../static/js/popup.js" type="text/javascript"></script>
+      <script src="../../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

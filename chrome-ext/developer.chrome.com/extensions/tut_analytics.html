@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tutorial: Google Analytics - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a  class="level3 selected">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<div id="toc">
+  <ol>
+    <li >
+      <a href="tut_analytics.html#toc-requirements"
+         data-list-item
+         >Requirements</a>
+    </li>
+    <li >
+      <a href="tut_analytics.html#toc-installing"
+         data-list-item
+         >Installing the tracking code</a>
+    </li>
+    <li >
+      <a href="tut_analytics.html#toc-tracking-pageviews"
+         data-list-item
+         >Tracking page views</a>
+    </li>
+    <li >
+      <a href="tut_analytics.html#toc-debugging"
+         data-list-item
+         >Monitoring analytics requests</a>
+    </li>
+    <li >
+      <a href="tut_analytics.html#toc-tracking-events"
+         data-list-item
+         >Tracking events</a>
+    </li>
+    <li >
+      <a href="tut_analytics.html#toc-samplecode"
+         data-list-item
+         >Sample code</a>
+    </li>
+  </ol>
+</div>
+
+<h1>Tutorial: Google Analytics</h1>
+
+
+<p>
+  This tutorial demonstrates using Google Analytics to track the usage of your
+  extension. If you are developing a platform app, see <a
+  href="http://developer.chrome.com/apps/analytics.html">Analytics for Apps</a> since apps have different
+  restrictions from extensions.
+</p>
+
+<h2 id="toc-requirements">Requirements</h2>
+<p>
+  This tutorial expects that you have some familiarity writing extensions for
+  Google Chrome.  If you need information on how to write an extension, please
+  read the <a href="getstarted.html">Getting Started tutorial</a>.
+</p>
+
+<p>
+  You will also need a <a href="http://www.google.com/analytics">Google
+  Analytics account</a> set up to track your extension. Note that when setting
+  up the account, you can use any value in the Website's URL field, as your
+  extension will not have an URL of its own.
+</p>
+
+<p style="text-align: center">
+  <img src="../static/images/tut_analytics/screenshot01.png"
+       style="width:400px;height:82px;"
+       alt="The analytics setup with info for a chrome extension filled out." />
+</p>
+
+<h2 id="toc-installing">Installing the tracking code</h2>
+
+<p>
+  The standard Google Analytics tracking code snippet fetches a file named
+  <code>ga.js</code> from an SSL protected URL if the current page
+  was loaded using the <code>https://</code> protocol.  <strong>Chrome
+  extensions and applications may <em>only</em> use the SSL-protected version of
+  <code>ga.js</code></strong>. Loading <code>ga.js</code> over insecure HTTP is
+  disallowed by Chrome's default <a href="contentSecurityPolicy.html">Content
+  Security Policy</a>. This, plus the fact that Chrome extensions are hosted
+  under the <code>chrome-extension://</code> schema, requires a slight
+  modification to the usual tracking snippet to pull <code>ga.js</code> directly
+  from <code>https://ssl.google-analytics.com/ga.js</code> instead of the
+  default location.
+</p>
+
+<p>
+  Below is a modified snippet for the
+  <a href="http://code.google.com/apis/analytics/docs/tracking/asyncTracking.html">asynchronous
+  tracking API</a> (the modified line is bolded):
+</p>
+
+<pre data-filename="asyncTracking.js">
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  <strong>ga.src = 'https://ssl.google-analytics.com/ga.js';</strong>
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</pre>
+
+<p>
+  You'll also need to ensure that your extension has access to load the resource
+  by relaxing the default content security policy. The policy definition in your
+  <a href="manifest.html"><code>manifest.json</code></a> might look like:
+</p>
+
+<pre data-filename="manifest.json">
+{
+  ...,
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+  ...
+}
+</pre>
+
+<p>
+  Here is a popup page (<code>popup.html</code>) which loads the asynchronous
+  tracking code via an external JavaScript file (<code>popup.js</code>) and
+  tracks a single page view:
+</p>
+
+<pre data-filename="popup.html">
+&lt;!DOCTYPE html>
+&lt;html>
+ &lt;head>
+   ...
+  &lt;script src="popup.js">&lt;/script>
+ &lt;/head>
+ &lt;body>
+   ...
+ &lt;/body>
+&lt;/html>
+</pre>
+
+<pre data-filename="popup.js">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</pre>
+
+<p>
+  Keep in mind that the string <code>UA-XXXXXXXX-X</code> should be replaced
+  with your own Google Analytics account number.
+</p>
+
+<h2 id="toc-tracking-pageviews">Tracking page views</h2>
+
+<p>
+  The <code>_gaq.push(['_trackPageview']);</code> code will track a single
+  page view.  This code may be used on any page in your extension.  When
+  placed on a background page, it will register a view once per browser
+  session.  When placed on a popup, it will register a view once every time
+  the popup is opened.
+</p>
+
+<p>
+  By looking at the page view data for each page in your extension, you can
+  get an idea of how many times your users interact with your extension per
+  browser session:
+</p>
+
+<p style="text-align: center">
+  <img src="../static/images/tut_analytics/screenshot02.png"
+       style="width:300px;height:119px;"
+       alt="Analytics view of the top content for a site." />
+</p>
+
+<h2 id="toc-debugging">Monitoring analytics requests</h2>
+
+<p>
+  To ensure that tracking data from your extension is being sent to Google
+  Analytics, you can inspect the pages of your extension in the
+  Developer Tools window (see the
+  <a href="tut_debugging.html">debugging tutorial</a> for more information).
+  As the following figure shows, you should see requests for a file named
+  <strong>__utm.gif</strong> if everything is set up correctly.
+</p>
+
+<p style="text-align: center">
+  <img src="../static/images/tut_analytics/screenshot04.png"
+       style="width:683px;height:418px;"
+       alt="Developer Tools window showing the __utm.gif request" />
+</p>
+
+<h2 id="toc-tracking-events">Tracking events</h2>
+
+<p>
+  By configuring event tracking, you can determine which parts of your
+  extension your users interact with the most.  For example, if you have
+  three buttons users may click:
+</p>
+
+<pre>
+  &lt;button id='button1'>Button 1&lt;/button>
+  &lt;button id='button2'>Button 2&lt;/button>
+  &lt;button id='button3'>Button 3&lt;/button>
+</pre>
+
+<p>
+  Write a function that sends click events to Google Analytics:
+</p>
+
+<pre>
+  function trackButton(e) {
+    _gaq.push(['_trackEvent', e.target.id, 'clicked']);
+  };
+</pre>
+
+<p>
+  And use it as an event handler for each button's click:
+</p>
+
+<pre>
+  var buttons = document.querySelectorAll('button');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', trackButtonClick);
+  }
+</pre>
+
+<p>
+  The Google Analytics event tracking overview page will give you metrics
+  regarding how many times each individual button is clicked:
+</p>
+
+<p style="text-align: center">
+  <img src="../static/images/tut_analytics/screenshot03.png"
+       style="width:300px;height:482px;"
+       alt="Analytics view of the event tracking data for a site." />
+</p>
+
+<p>
+  By using this approach, you can see which parts of your extension are
+  under-or-overutilized.  This information can help guide decisions about UI
+  redesigns or additional functionality to implement.
+</p>
+
+<p>
+  For more information about using event tracking, see the
+  Google Analytics
+  <a href="https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide">developer
+  documentation</a>.
+</p>
+
+<h2 id="toc-samplecode">Sample code</h2>
+
+<p>
+  A sample extension that uses these techniques is
+  available in the Chromium source tree:
+</p>
+
+<blockquote>
+  <a href="http://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/extensions/docs/examples/tutorials/analytics/">.../examples/tutorials/analytics/</a>
+</blockquote>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

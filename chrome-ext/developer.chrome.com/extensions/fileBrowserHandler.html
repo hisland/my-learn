@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chrome.fileBrowserHandler - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<h1>chrome.fileBrowserHandler</h1>
+<div id="toc">
+  <ol>
+    <li >
+      <a href="fileBrowserHandler.html#manifest"
+         data-list-item
+         >Manifest</a>
+    </li>
+    <li >
+      <a href="fileBrowserHandler.html#code"
+         data-list-item
+         >Implementing a file browser handler</a>
+    </li>
+    <li class="separator">
+      <a href="fileBrowserHandler.html#types"
+         data-list-item
+         >Types</a>
+      <ol>
+        <li >
+          <a href="fileBrowserHandler.html#type-FileHandlerExecuteEventDetails"
+             data-list-item
+             >FileHandlerExecuteEventDetails</a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="fileBrowserHandler.html#methods"
+         data-list-item
+         >Methods</a>
+      <ol>
+        <li >
+          <a href="fileBrowserHandler.html#method-selectFile"
+             data-list-item
+             >selectFile        </a>
+        </li>
+      </ol>
+    </li>
+    <li >
+      <a href="fileBrowserHandler.html#events"
+         data-list-item
+         >Events</a>
+      <ol>
+        <li >
+          <a href="fileBrowserHandler.html#event-onExecute"
+             data-list-item
+             >onExecute</a>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<table class="intro" id="intro">
+  <tr>
+    <td class="title">Description:</td>
+    <td>
+        Use the <code>chrome.fileBrowserHandler</code> API to extend the Chrome OS file browser. For example, you can use this API to enable users to upload files to your website.
+                <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Availability:</td>
+    <td>
+        Stable since Chrome 12.
+        <br>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Permissions:</td>
+    <td>
+        <span class="code">
+        "fileBrowserHandler"
+                </span>
+        <br>
+    </td>
+  </tr>
+</table>
+<section>
+<p class="caution">
+<b>Important:</b>
+This API works <b>only on Chrome OS</b>.
+</p>
+
+<p>
+The Chrome OS file browser comes up when
+the user either presses Ctrl+M
+or connects an external storage device,
+such as an SD card, USB key, external drive, or digital camera.
+Besides showing the files on external devices,
+the file browser can also display files
+that the user has previously saved to the system.
+</p>
+
+<p>
+When the user selects one or more files,
+the file browser adds buttons
+representing the valid handlers for those files.
+For example, in the following screenshot,
+selecting a file with a ".jpg" suffix
+results in an "Upload to Picasa" button that the user can click.
+</p>
+
+<p>
+<img src="../static/images/filebrowserhandler.png"
+  width="640" height="400" alt="file browser screenshot" />
+</p>
+
+
+<h2 id="manifest">Manifest</h2>
+
+<p>
+You must declare the "fileBrowserHandler" permission
+in the <a href="manifest.html">extension manifest</a>,
+and you must use the "file_browser_handlers" field
+to register the extension as a handler of at least one file type.
+You should also provide a 16x16 icon
+to be displayed on the button.
+For example:
+</p>
+
+<pre data-filename="manifest.json">
+{
+  "name": "My extension",
+  ...
+  <b>"file_browser_handlers"</b>: [
+    {
+      <b>"id"</b>: "upload",
+      <b>"default_title"</b>: "Save to Gallery", <em>// What the button will display</em>
+      <b>"file_filters"</b>: [
+        "filesystem:*.jpg", <em>// To match all files, use "filesystem:*.*"</em>
+        "filesystem:*.jpeg",
+        "filesystem:*.png"
+      ]
+    }
+  ]</b>,
+  "permissions" : [
+    <b>"fileBrowserHandler"</b>
+  ],
+  "icons": { <b>"16"</b>: "icon16.png",
+             "48": "icon48.png",
+            "128": "icon128.png" },
+  ...
+}
+</pre>
+
+<p class="note">
+<b>Note:</b>
+You can specify locale-specific strings for the value of "default_title".
+See <a href="i18n.html">Internationalization (i18n)</a> for details.
+</p>
+
+<h2 id="code">Implementing a file browser handler</h2>
+
+<p>
+To use this API,
+you must implement a function that handles the <code>onExecute</code> event
+of <code>chrome.fileBrowserHandler</code>.
+Your function will be called whenever the user clicks the button
+that represents your file browser handler.
+In your function, use the HTML5
+<a href="http://www.html5rocks.com/tutorials/file/filesystem/">FileSystem API</a>
+to get access to the file contents.
+Here is an example:
+</p>
+
+<pre data-filename="background.js">
+chrome.fileBrowserHandler.onExecute.addListener(function(id, details) {
+  if (id == 'upload') {
+    var fileEntries = details.entries;
+    for (var i = 0, entry; entry = fileEntries[i]; ++i) {
+      entry.file(function(file) {
+        <em>// send file somewhere</em>
+      });
+    }
+  }
+});
+</pre>
+
+<p>
+Your event handler is passed two arguments:
+</p>
+
+<dl>
+  <dt> id </dt>
+  <dd> The "id" value from the manifest file.
+       If your extension implements multiple handlers,
+       you can check the <code>id</code> value
+       to see which handler has been triggered.
+       </dd>
+  <dt> details </dt>
+  <dd> An object describing the event.
+       You can get the file or files that the user has selected
+       from the <code>entries</code> field of this object,
+       which is an array of
+       FileSystem <code>Entry</code> objects.
+       </dd>
+</p>
+
+
+<!--
+<h2 id="manifest_details">Manifest details</h2>
+
+<p class="authornote">
+{PENDING: give details about "id" and "default_title".
+It should be unique within your extension -- don't worry about other extensions.
+"default_title" implies that you can change the title,
+but you can't aside from internationalizing it.
+</p>
+
+<p class="authornote">
+{PENDING: give details about the file_filters entry.
+File filters are currently case-sensitive, but we plan to change that.
+Mention <code>filesystem:*.*</code>.
+</p>
+-->
+
+<!--
+<h2 id="examples">Examples</h2>
+
+<p>
+For examples of using this API, see ...
+For other examples and for help in viewing the source code, see
+<a href="samples.html">Samples</a>.
+</p>
+-->
+</section>
+<section>
+<h2 id="api-reference-header" title="">chrome.fileBrowserHandler reference</h2>
+<div class="api_reference">
+    <h2 id="types">Types</h2>
+      <div>
+        <h3 id="type-FileHandlerExecuteEventDetails">FileHandlerExecuteEventDetails</h3>
+        <div>
+          <dd>Event details payload for fileBrowserHandler.onExecute event.</dd>
+            <h3 id="FileHandlerExecuteEventDetails-properties" class="capitalize" title="">
+              properties of <a href="fileBrowserHandler.html#type-FileHandlerExecuteEventDetails">FileHandlerExecuteEventDetails</a>
+            </h3>
+            <dd>
+              <dl>
+                <div>
+                  <a name="property-FileHandlerExecuteEventDetails-entries"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-FileHandlerExecuteEventDetails-entries" title="">
+                        entries
+                        <span class="property">
+                          (
+                            array of any
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Array of Entry instances representing files that are targets of this action (selected in ChromeOS file browser).
+                    </dd>
+                  </dl>
+                </div><div>
+                  <a name="property-FileHandlerExecuteEventDetails-tab_id"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-FileHandlerExecuteEventDetails-tab_id" title="">
+                        tab_id
+                        <span class="property">
+                          (
+                            <span class="optional">optional</span>
+                            integer
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      The ID of the tab that raised this event. Tab IDs are unique within a browser session.
+                    </dd>
+                  </dl>
+                </div>
+              </dl>
+            </dd>
+        </div>
+      </div>
+    <h2 id="methods">Methods</h2>
+      <div>
+        <h3
+            id="method-selectFile"
+            >selectFile
+        </h3>
+        <div class="summary uncapitalize">
+        <div class="line">
+        <span>chrome.fileBrowserHandler.selectFile</span>(<span>object selectionParams</span>, <span>function callback</span>)
+        </div>
+        </div>
+        <div class="description">
+          <p>
+            Prompts user to select file path under which file should be saved. When the file is selected, file access permission required to use the file (read, write and create) are granted to the caller. The file will not actually get created during the function call, so function caller must ensure its existence before using it. The function has to be invoked with a user gesture.
+          </p>
+          <h4 title="">Parameters</h4>
+          <dl>
+              <div>
+                <a name="property-selectFile-selectionParams"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-selectFile-selectionParams" title="">
+                      selectionParams
+                      <span class="property">
+                        (
+                          object
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Parameters that will be used while selecting the file.
+                  </dd>
+                </dl>
+                <dd>
+                  <h4 title="">Properties</h4>
+                  <dl>
+                    <div>
+                      <a name="property-selectionParams-suggestedName"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-selectionParams-suggestedName" title="">
+                            suggestedName
+                            <span class="property">
+                              (
+                                string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          Suggested name for the file.
+                        </dd>
+                      </dl>
+                    </div><div>
+                      <a name="property-selectionParams-allowedFileExtensions"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-selectionParams-allowedFileExtensions" title="">
+                            allowedFileExtensions
+                            <span class="property">
+                              (
+                                <span class="optional">optional</span>
+                                array of string
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                          List of file extensions that the selected file can have. The list is also used to specify what files to be shown in the select file dialog. Files with the listed extensions are only shown in the dialog. Extensions should not include the leading '.'. Example: ['jpg', 'png']
+                        </dd>
+                      </dl>
+                    </div>
+                  </dl>
+                </dd>
+              </div>
+              <div>
+                <a name="property-selectFile-callback"></a>
+                <dl>
+                  <dt>
+                    <h4 id="property-selectFile-callback" title="">
+                      callback
+                      <span class="property">
+                        (
+                          function
+                        )
+                      </span>
+                    </h4>
+                  </dt>
+                  <dd>
+                    Function called upon completion.
+                  </dd>
+                </dl>
+              </div>
+          </dl>
+            <p>
+                  The <em>callback</em> parameter should specify a function
+                  that looks like this:
+            </p>
+            <pre>function(object result) <span class="subdued">{...}</span>;</pre>
+            <dl>
+                <div>
+                  <a name="property-callback-result"></a>
+                  <dl>
+                    <dt>
+                      <h4 id="property-callback-result" title="">
+                        result
+                        <span class="property">
+                          (
+                            object
+                          )
+                        </span>
+                      </h4>
+                    </dt>
+                    <dd>
+                      Result of the method.
+                    </dd>
+                  </dl>
+                  <dd>
+                    <h4 title="">Properties</h4>
+                    <dl>
+                      <div>
+                        <a name="property-result-success"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-result-success" title="">
+                              success
+                              <span class="property">
+                                (
+                                  boolean
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Whether the file has been selected.
+                          </dd>
+                        </dl>
+                      </div><div>
+                        <a name="property-result-entry"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-result-entry" title="">
+                              entry
+                              <span class="property">
+                                (
+                                  <span class="optional">optional</span>
+                                  object
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            Selected file entry. It will be null if a file hasn't been selected.
+                          </dd>
+                        </dl>
+                      </div>
+                    </dl>
+                  </dd>
+                </div>
+            </dl>
+        </div>
+      </div>
+    <h2 id="events">Events</h2>
+      <div>
+        <h3 id="event-onExecute">onExecute</h3>
+        <div class="description">
+      <p>
+            Fired when file system action is executed from ChromeOS file browser.
+          </p>      <div>
+              <h4
+                  title="">addListener
+              </h4>
+              <div class="summary uncapitalize">
+              <div class="line">
+              <span>chrome.fileBrowserHandler.onExecute.addListener</span>(<span>function callback</span>)
+              </div>
+              </div>
+              <div class="description">
+                <h4 title="">Parameters</h4>
+                <dl>
+                    <div>
+                      <a name="property-onExecute-callback"></a>
+                      <dl>
+                        <dt>
+                          <h4 id="property-onExecute-callback" title="">
+                            callback
+                            <span class="property">
+                              (
+                                function
+                              )
+                            </span>
+                          </h4>
+                        </dt>
+                        <dd>
+                        </dd>
+                      </dl>
+                    </div>
+                </dl>
+                  <p>
+                        The <em>callback</em> parameter should specify a function
+                        that looks like this:
+                  </p>
+                  <pre>function(string id, <a href="fileBrowserHandler.html#type-FileHandlerExecuteEventDetails">FileHandlerExecuteEventDetails</a> details) <span class="subdued">{...}</span>;</pre>
+                  <dl>
+                      <div>
+                        <a name="property-onExecute-id"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onExecute-id" title="">
+                              id
+                              <span class="property">
+                                (
+                                  string
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            File browser action id as specified in the listener component's manifest.
+                          </dd>
+                        </dl>
+                      </div>
+                      <div>
+                        <a name="property-onExecute-details"></a>
+                        <dl>
+                          <dt>
+                            <h4 id="property-onExecute-details" title="">
+                              details
+                              <span class="property">
+                                (
+                                  <a href="fileBrowserHandler.html#type-FileHandlerExecuteEventDetails">FileHandlerExecuteEventDetails</a>
+                                )
+                              </span>
+                            </h4>
+                          </dt>
+                          <dd>
+                            File handler execute event details.
+                          </dd>
+                        </dl>
+                      </div>
+                  </dl>
+              </div>
+            </div>
+        </div>
+      </div>
+</div>
+</section>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>

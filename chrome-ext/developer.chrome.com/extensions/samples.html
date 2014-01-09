@@ -1,0 +1,2753 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample Extensions - Google Chrome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/site.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="../static/css/prettify.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41980257-1');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body>
+    <div id="gc-topnav">
+      <table><tr>
+      <td id="chrome-logo">
+        <a href="index.html" title="Google Chrome Extensions">
+          <img src="../static/images/chrome-logo.png" alt=""> chrome
+        </a>
+        <div id="platform-chooser">
+          <button id="platform-chooser-toggle" data-menu="platform-chooser-popup">
+            extensions &#x25be;&#x202F;
+          </button>
+          <div id="platform-chooser-popup">
+            <button class="apps" data-href="/apps/about_apps.html">apps</button>
+            <button class="extensions" data-href="/extensions">extensions</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <a href="samples.html"
+               title="Sample Extensions (with source code)">Samples</a>
+          </li>
+          <li>
+            <a href="http://groups.google.com/a/chromium.org/group/chromium-extensions"
+               title="Google Chrome Extensions developer forum"
+               target="_blank">Group</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/tags/google-chrome-extension/info"
+               title="[google-chrome-extension] tag on Stack Overflow"
+               target="_blank">Stack overflow</a>
+          </li>
+        </ul>
+      </td>
+      </tr></table>
+    </div>
+    <div id="gc-topnav-space"></div>
+    <div id="gc-container">
+      <div id="gc-sidebar">
+        <ul 
+            class="level1 ">
+        <li class="level2">
+              <a href="getstarted.html" class="level2 ">Getting Started</a>
+        </li><li class="level2">
+              <a href="overview.html" class="level2 ">Overview</a>
+        </li><li class="level2">
+              <a href="whats_new.html" class="level2 ">What's New?</a>
+        </li><li class="level2">
+              <a href="devguide.html" class="level2 ">Developer's Guide</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser UI</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="browserAction.html" class="level4 ">Browser Actions</a>
+            </li><li class="level4">
+                  <a href="contextMenus.html" class="level4 ">Context Menus</a>
+            </li><li class="level4">
+                  <a href="desktop_notifications.html" class="level4 ">Desktop Notifications</a>
+            </li><li class="level4">
+                  <a href="omnibox.html" class="level4 ">Omnibox</a>
+            </li><li class="level4">
+                  <a href="options.html" class="level4 ">Options Pages</a>
+            </li><li class="level4">
+                  <a href="override.html" class="level4 ">Override Pages</a>
+            </li><li class="level4">
+                  <a href="pageAction.html" class="level4 ">Page Actions</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Browser Interaction</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="bookmarks.html" class="level4 ">Bookmarks</a>
+            </li><li class="level4">
+                  <a href="cookies.html" class="level4 ">Cookies</a>
+            </li><li class="level4">
+                  <a href="devtools.html" class="level4 ">Extending DevTools</a>
+            </li><li class="level4">
+                  <a href="events.html" class="level4 ">Events</a>
+            </li><li class="level4">
+                  <a href="history.html" class="level4 ">History</a>
+            </li><li class="level4">
+                  <a href="management.html" class="level4 ">Management</a>
+            </li><li class="level4">
+                  <a href="tabs.html" class="level4 ">Tabs</a>
+            </li><li class="level4">
+                  <a href="windows.html" class="level4 ">Windows</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Implementation</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="a11y.html" class="level4 ">Accessibility</a>
+            </li><li class="level4">
+                  <a href="event_pages.html" class="level4 ">Event Pages</a>
+            </li><li class="level4">
+                  <a href="contentSecurityPolicy.html" class="level4 ">Content Security Policy</a>
+            </li><li class="level4">
+                  <a href="content_scripts.html" class="level4 ">Content Scripts</a>
+            </li><li class="level4">
+                  <a href="xhr.html" class="level4 ">Cross-Origin XHR</a>
+            </li><li class="level4">
+                  <a href="i18n.html" class="level4 ">Internationalization</a>
+            </li><li class="level4">
+                  <a href="messaging.html" class="level4 ">Message Passing</a>
+            </li><li class="level4">
+                  <a href="permissions.html" class="level4 ">Optional Permissions</a>
+            </li><li class="level4">
+                  <a href="npapi.html" class="level4 ">NPAPI Plugins</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+              <a class="button level3">
+                <span class="level3">Finishing</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="hosting.html" class="level4 ">Hosting</a>
+            </li><li class="level4">
+                  <a href="external_extensions.html" class="level4 ">Other Deployment Options</a>
+            </li>
+            </ul>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <a href="tutorials.html" class="level2 ">Tutorials</a>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="tut_migration_to_manifest_v2.html" class="level3 ">Manifest V2</a>
+          </li><li class="level3">
+                <a href="tut_debugging.html" class="level3 ">Debugging</a>
+          </li><li class="level3">
+                <a href="tut_analytics.html" class="level3 ">Google Analytics</a>
+          </li><li class="level3">
+                <a href="tut_oauth.html" class="level3 ">OAuth</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">Reference</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+              <a class="button level3">
+                <span class="level3">Formats</span>
+                <div class="toggleIndicator level3"></div>
+              </a>
+            <ul toggleable
+                class="level3 hidden">
+            <li class="level4">
+                  <a href="manifest.html" class="level4 ">Manifest Files</a>
+            </li><li class="level4">
+                  <a href="match_patterns.html" class="level4 ">Match Patterns</a>
+            </li>
+            </ul>
+          </li><li class="level3">
+                <a href="permission_warnings.html" class="level3 ">Permission Warnings</a>
+          </li><li class="level3">
+                <a href="api_index.html" class="level3 ">chrome.* APIs</a>
+          </li><li class="level3">
+                <a href="api_other.html" class="level3 ">Other APIs</a>
+          </li>
+          </ul>
+        </li><li class="level2">
+              <span class="level2">More</span>
+          <ul 
+              class="level2 ">
+          <li class="level3">
+                <a href="faq.html" class="level3 ">FAQ</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/webstore/docs/index.html" class="level3 ">Chrome Web Store</a>
+          </li><li class="level3">
+                <a href="http://code.google.com/chrome/apps/docs/developers_guide.html" class="level3 ">Hosted Apps</a>
+          </li><li class="level3">
+                <a href="themes.html" class="level3 ">Themes</a>
+          </li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div id="gc-pagecontent">
+
+<h1>Sample Extensions</h1>
+<div id="samples-controls">
+  <table class="controlbox">
+    <tr>
+      <td class="label">Filter by keyword:</td>
+      <td><input autofocus type="search" id="search_input" placeholder="Type to search"></td>
+    </tr>
+    <tr>
+      <td class="label">Filter by API:</td>
+      <td>
+        <div id="api_filter_items">
+          <span><a href="javascript:void(0)">alarms</a> | </span><span><a href="javascript:void(0)">bookmarks</a> | </span><span><a href="javascript:void(0)">browserAction</a> | </span><span><a href="javascript:void(0)">browsingData</a> | </span><span><a href="javascript:void(0)">commands</a> | </span><span><a href="javascript:void(0)">contentSettings</a> | </span><span><a href="javascript:void(0)">contextMenus</a> | </span><span><a href="javascript:void(0)">cookies</a> | </span><span><a href="javascript:void(0)">debugger</a> | </span><span><a href="javascript:void(0)">declarativeContent</a> | </span><span><a href="javascript:void(0)">declarativeWebRequest</a> | </span><span><a href="javascript:void(0)">desktopCapture</a> | </span><span><a href="javascript:void(0)">devtools.inspectedWindow</a> | </span><span><a href="javascript:void(0)">devtools.network</a> | </span><span><a href="javascript:void(0)">devtools.panels</a> | </span><span><a href="javascript:void(0)">downloads</a> | </span><span><a href="javascript:void(0)">events</a> | </span><span><a href="javascript:void(0)">experimental.devtools.audits</a> | </span><span><a href="javascript:void(0)">experimental.devtools.console</a> | </span><span><a href="javascript:void(0)">experimental.discovery</a></span><span><a href="javascript:void(0)">extension</a> | </span><span><a href="javascript:void(0)">fileBrowserHandler</a> | </span><span><a href="javascript:void(0)">fontSettings</a> | </span><span><a href="javascript:void(0)">gcm</a> | </span><span><a href="javascript:void(0)">history</a> | </span><span><a href="javascript:void(0)">i18n</a> | </span><span><a href="javascript:void(0)">identity</a> | </span><span><a href="javascript:void(0)">idle</a> | </span><span><a href="javascript:void(0)">infobars</a> | </span><span><a href="javascript:void(0)">input.ime</a> | </span><span><a href="javascript:void(0)">location</a> | </span><span><a href="javascript:void(0)">management</a> | </span><span><a href="javascript:void(0)">notifications</a> | </span><span><a href="javascript:void(0)">omnibox</a> | </span><span><a href="javascript:void(0)">pageAction</a> | </span><span><a href="javascript:void(0)">pageCapture</a> | </span><span><a href="javascript:void(0)">permissions</a> | </span><span><a href="javascript:void(0)">power</a> | </span><span><a href="javascript:void(0)">privacy</a> | </span><span><a href="javascript:void(0)">processes</a> | </span><span><a href="javascript:void(0)">proxy</a> | </span><span><a href="javascript:void(0)">pushMessaging</a> | </span><span><a href="javascript:void(0)">runtime</a> | </span><span><a href="javascript:void(0)">scriptBadge</a></span><span><a href="javascript:void(0)">sessions</a> | </span><span><a href="javascript:void(0)">signedInDevices</a></span><span><a href="javascript:void(0)">storage</a> | </span><span><a href="javascript:void(0)">system.cpu</a> | </span><span><a href="javascript:void(0)">system.memory</a></span><span><a href="javascript:void(0)">system.storage</a> | </span><span><a href="javascript:void(0)">tabCapture</a> | </span><span><a href="javascript:void(0)">tabs</a> | </span><span><a href="javascript:void(0)">topSites</a> | </span><span><a href="javascript:void(0)">tts</a> | </span><span><a href="javascript:void(0)">ttsEngine</a> | </span><span><a href="javascript:void(0)">types</a> | </span><span><a href="javascript:void(0)">webNavigation</a> | </span><span><a href="javascript:void(0)">webRequest</a> | </span><span><a href="javascript:void(0)">webstore</a> | </span><span><a href="javascript:void(0)">windows</a></span><br>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+  <div class="sample" tags="chrome.bookmarks.create chrome.bookmarks.getTree chrome.bookmarks.remove chrome.bookmarks.update chrome.tabs.create ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="my-bookmarks"><a href="examples/api/bookmarks/basic.zip">My Bookmarks</a></h2>
+    A browser action with a popup dump of all bookmarks, including search, add, edit and delete.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="bookmarks.html#method-create">bookmarks.create</a></code></li>
+        <li><code><a href="bookmarks.html#method-getTree">bookmarks.getTree</a></code></li>
+        <li><code><a href="bookmarks.html#method-remove">bookmarks.remove</a></code></li>
+        <li><code><a href="bookmarks.html#method-update">bookmarks.update</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/bookmarks/basic/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/bookmarks/basic/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/bookmarks/basic/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/bookmarks/basic/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.tabs.executeScript ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="page-redder"><a href="examples/api/browserAction/make_page_red.zip">Page Redder</a></h2>
+    Make the current page red
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="tabs.html#method-executeScript">tabs.executeScript</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/browserAction/make_page_red/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/browserAction/make_page_red/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.tabs.update ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="print-this-page"><a href="examples/api/browserAction/print.zip">Print this page</a></h2>
+    Adds a print button to the browser.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="tabs.html#method-update">tabs.update</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/browserAction/print/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/browserAction/print/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/browserAction/print/print_16x16.png">print_16x16.png</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.browserAction.setIcon ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="a-browser-action-which-changes-its-icon-when-clicked"><a href="examples/api/browserAction/set_icon_path.zip">A browser action which changes its icon when clicked</a></h2>
+    Change browser action color when its icon is clicked
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="browserAction.html#method-setIcon">browserAction.setIcon</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/browserAction/set_icon_path/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/browserAction/set_icon_path/icon1.png">icon1.png</a></code></li>
+        <li><code><a href="examples/api/browserAction/set_icon_path/icon2.png">icon2.png</a></code></li>
+        <li><code><a href="examples/api/browserAction/set_icon_path/icon3.png">icon3.png</a></code></li>
+        <li><code><a href="examples/api/browserAction/set_icon_path/icon4.png">icon4.png</a></code></li>
+        <li><code><a href="examples/api/browserAction/set_icon_path/icon5.png">icon5.png</a></code></li>
+        <li><code><a href="examples/api/browserAction/set_icon_path/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.tabs.executeScript ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="a-browser-action-with-a-popup-that-changes-the-page-color"><a href="examples/api/browserAction/set_page_color.zip">A browser action with a popup that changes the page color</a></h2>
+    Change the current page color
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="tabs.html#method-executeScript">tabs.executeScript</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/browserAction/set_page_color/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/browserAction/set_page_color/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/browserAction/set_page_color/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/browserAction/set_page_color/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browsingData.remove ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="browsingdata-api:-basics"><a href="examples/api/browsingData/basic.zip">BrowsingData API: Basics</a></h2>
+    A trivial usage example.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browsingData.html#method-remove">browsingData.remove</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/browsingData/basic/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/browsingData/basic/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/browsingData/basic/popup.css">popup.css</a></code></li>
+        <li><code><a href="examples/api/browsingData/basic/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/browsingData/basic/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.commands.onCommand ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="sample-extension-commands-extension"><a href="examples/api/commands.zip">Sample Extension Commands extension</a></h2>
+    Press Ctrl+Shift+F (Command+Shift+F on a Mac) to open the browser action popup, press Ctrl+Shift+Y to send an event (Command+Shift+Y on a Mac).
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="commands.html#event-onCommand">commands.onCommand</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/commands/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/commands/browser_action.html">browser_action.html</a></code></li>
+        <li><code><a href="examples/api/commands/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.contentSettings.ContentSetting.get chrome.contentSettings.ContentSetting.set chrome.tabs.query ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="content-settings"><a href="examples/api/contentSettings.zip">Content settings</a></h2>
+    Shows the content settings for the current site.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="contentSettings.html#method-ContentSetting-get">contentSettings.ContentSetting.get</a></code></li>
+        <li><code><a href="contentSettings.html#method-ContentSetting-set">contentSettings.ContentSetting.set</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/contentSettings/contentSettings.png">contentSettings.png</a></code></li>
+        <li><code><a href="examples/api/contentSettings/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/contentSettings/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/contentSettings/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.contextMenus.create chrome.extension.lastError chrome.extension.lastError.message ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="context-menus-sample"><a href="examples/api/contextMenus/basic.zip">Context Menus Sample</a></h2>
+    Shows some of the features of the Context Menus API
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="contextMenus.html#method-create">contextMenus.create</a></code></li>
+        <li><code><a href="extension.html#property-lastError">extension.lastError</a></code></li>
+        <li><code><a href="extension.html#property-lastError-message">extension.lastError.message</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/contextMenus/basic/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/contextMenus/basic/sample.js">sample.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.contextMenus.create chrome.contextMenus.onClicked chrome.extension.lastError chrome.extension.lastError.message chrome.runtime.onInstalled ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="context-menus-sample-(with-event-page)"><a href="examples/api/contextMenus/event_page.zip">Context Menus Sample (with Event Page)</a></h2>
+    Shows some of the features of the Context Menus API using an event page
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="contextMenus.html#method-create">contextMenus.create</a></code></li>
+        <li><code><a href="contextMenus.html#event-onClicked">contextMenus.onClicked</a></code></li>
+        <li><code><a href="extension.html#property-lastError">extension.lastError</a></code></li>
+        <li><code><a href="extension.html#property-lastError-message">extension.lastError.message</a></code></li>
+        <li><code><a href="runtime.html#event-onInstalled">runtime.onInstalled</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/contextMenus/event_page/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/contextMenus/event_page/sample.js">sample.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.cookies.getAll chrome.cookies.onChanged chrome.cookies.remove chrome.extension.getURL chrome.tabs.create chrome.tabs.update chrome.windows.getAll ">
+    <img class="icon" src="examples/api/cookies/cookie.png">
+    <h2 id="cookie-api-test-extension"><a href="examples/api/cookies.zip">Cookie API Test Extension</a></h2>
+    Testing Cookie API
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="cookies.html#method-getAll">cookies.getAll</a></code></li>
+        <li><code><a href="cookies.html#event-onChanged">cookies.onChanged</a></code></li>
+        <li><code><a href="cookies.html#method-remove">cookies.remove</a></code></li>
+        <li><code><a href="extension.html#method-getURL">extension.getURL</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="tabs.html#method-update">tabs.update</a></code></li>
+        <li><code><a href="windows.html#method-getAll">windows.getAll</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/cookies/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/cookies/cookie.png">cookie.png</a></code></li>
+        <li><code><a href="examples/api/cookies/manager.html">manager.html</a></code></li>
+        <li><code><a href="examples/api/cookies/manager.js">manager.js</a></code></li>
+        <li><code><a href="examples/api/cookies/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.debugger.attach chrome.debugger.detach chrome.debugger.onEvent chrome.debugger.sendCommand chrome.runtime.lastError chrome.runtime.lastError.message chrome.windows.create ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="live-http-headers"><a href="examples/api/debugger/live-headers.zip">Live HTTP headers</a></h2>
+    Displays the live log with the http requests headers
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="debugger.html#method-attach">debugger.attach</a></code></li>
+        <li><code><a href="debugger.html#method-detach">debugger.detach</a></code></li>
+        <li><code><a href="debugger.html#event-onEvent">debugger.onEvent</a></code></li>
+        <li><code><a href="debugger.html#method-sendCommand">debugger.sendCommand</a></code></li>
+        <li><code><a href="runtime.html#property-lastError">runtime.lastError</a></code></li>
+        <li><code><a href="runtime.html#property-lastError-message">runtime.lastError.message</a></code></li>
+        <li><code><a href="windows.html#method-create">windows.create</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/debugger/live-headers/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/debugger/live-headers/headers.html">headers.html</a></code></li>
+        <li><code><a href="examples/api/debugger/live-headers/headers.js">headers.js</a></code></li>
+        <li><code><a href="examples/api/debugger/live-headers/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/debugger/live-headers/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.browserAction.setIcon chrome.browserAction.setTitle chrome.debugger.attach chrome.debugger.detach chrome.debugger.onDetach chrome.debugger.onEvent chrome.debugger.sendCommand chrome.runtime.lastError chrome.runtime.lastError.message ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="javascript-pause/resume"><a href="examples/api/debugger/pause-resume.zip">JavaScript pause/resume</a></h2>
+    Pauses / resumes JavaScript execution
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="browserAction.html#method-setIcon">browserAction.setIcon</a></code></li>
+        <li><code><a href="browserAction.html#method-setTitle">browserAction.setTitle</a></code></li>
+        <li><code><a href="debugger.html#method-attach">debugger.attach</a></code></li>
+        <li><code><a href="debugger.html#method-detach">debugger.detach</a></code></li>
+        <li><code><a href="debugger.html#event-onDetach">debugger.onDetach</a></code></li>
+        <li><code><a href="debugger.html#event-onEvent">debugger.onEvent</a></code></li>
+        <li><code><a href="debugger.html#method-sendCommand">debugger.sendCommand</a></code></li>
+        <li><code><a href="runtime.html#property-lastError">runtime.lastError</a></code></li>
+        <li><code><a href="runtime.html#property-lastError-message">runtime.lastError.message</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/debugger/pause-resume/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/debugger/pause-resume/debuggerContinue.png">debuggerContinue.png</a></code></li>
+        <li><code><a href="examples/api/debugger/pause-resume/debuggerPause.png">debuggerPause.png</a></code></li>
+        <li><code><a href="examples/api/debugger/pause-resume/debuggerPausing.png">debuggerPausing.png</a></code></li>
+        <li><code><a href="examples/api/debugger/pause-resume/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.app.runtime.onLaunched chrome.app.window.create chrome.desktopCapture.cancelChooseDesktopMedia chrome.desktopCapture.chooseDesktopMedia ">
+    <img class="icon" src="examples/api/desktopCapture/icon.png">
+    <h2 id="desktop-capture-example"><a href="examples/api/desktopCapture.zip">Desktop Capture Example</a></h2>
+    Show desktop media picker UI
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="app.runtime.html#event-onLaunched">app.runtime.onLaunched</a></code></li>
+        <li><code><a href="app.window.html#method-create">app.window.create</a></code></li>
+        <li><code><a href="desktopCapture.html#method-cancelChooseDesktopMedia">desktopCapture.cancelChooseDesktopMedia</a></code></li>
+        <li><code><a href="desktopCapture.html#method-chooseDesktopMedia">desktopCapture.chooseDesktopMedia</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/desktopCapture/app.js">app.js</a></code></li>
+        <li><code><a href="examples/api/desktopCapture/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/desktopCapture/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/desktopCapture/index.html">index.html</a></code></li>
+        <li><code><a href="examples/api/desktopCapture/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.signedInDevices.get chrome.signedInDevices.onDeviceInfoChange ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="my-devices"><a href="examples/api/deviceInfo/basic.zip">My Devices</a></h2>
+    A browser action with a popup dump of all devices signed into the same account as the current profile.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="signedInDevices.html#method-get">signedInDevices.get</a></code></li>
+        <li><code><a href="signedInDevices.html#event-onDeviceInfoChange">signedInDevices.onDeviceInfoChange</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/deviceInfo/basic/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/deviceInfo/basic/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/deviceInfo/basic/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/deviceInfo/basic/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.experimental.devtools.audits.addCategory chrome.extension.onRequest chrome.extension.sendRequest chrome.tabs.executeScript chrome.tabs.sendRequest ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="broken-links"><a href="examples/api/devtools/audits/broken-links.zip">Broken Links</a></h2>
+    Extends the Developer Tools, adding an audit category that finds broken links on the inspected page.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="experimental.devtools.audits.html#method-addCategory">experimental.devtools.audits.addCategory</a></code></li>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="extension.html#method-sendRequest">extension.sendRequest</a></code></li>
+        <li><code><a href="tabs.html#method-executeScript">tabs.executeScript</a></code></li>
+        <li><code><a href="tabs.html#method-sendRequest">tabs.sendRequest</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/devtools/audits/broken-links/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/devtools/audits/broken-links/content.js">content.js</a></code></li>
+        <li><code><a href="examples/api/devtools/audits/broken-links/devtools.html">devtools.html</a></code></li>
+        <li><code><a href="examples/api/devtools/audits/broken-links/devtools.js">devtools.js</a></code></li>
+        <li><code><a href="examples/api/devtools/audits/broken-links/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.devtools.inspectedWindow.eval chrome.devtools.inspectedWindow.reload chrome.devtools.panels.create ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="chrome-preprocessor-example"><a href="examples/api/devtools/inspectedWindow/chrome-preprocessor.zip">Chrome Preprocessor Example</a></h2>
+    Simple hello-world example for chrome.devtools.inspectedWindow.reload() using preprocessor.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="devtools.inspectedWindow.html#method-eval">devtools.inspectedWindow.eval</a></code></li>
+        <li><code><a href="devtools.inspectedWindow.html#method-reload">devtools.inspectedWindow.reload</a></code></li>
+        <li><code><a href="devtools.panels.html#method-create">devtools.panels.create</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/devtools/inspectedWindow/chrome-preprocessor/chrome-preprocessor.html">chrome-preprocessor.html</a></code></li>
+        <li><code><a href="examples/api/devtools/inspectedWindow/chrome-preprocessor/chrome-preprocessor.js">chrome-preprocessor.js</a></code></li>
+        <li><code><a href="examples/api/devtools/inspectedWindow/chrome-preprocessor/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/devtools/inspectedWindow/chrome-preprocessor/Panel/InspectedWindowLoadMonitor.js">Panel/InspectedWindowLoadMonitor.js</a></code></li>
+        <li><code><a href="examples/api/devtools/inspectedWindow/chrome-preprocessor/Panel/PreprocessorPanel.css">Panel/PreprocessorPanel.css</a></code></li>
+        <li><code><a href="examples/api/devtools/inspectedWindow/chrome-preprocessor/Panel/PreprocessorPanel.html">Panel/PreprocessorPanel.html</a></code></li>
+        <li><code><a href="examples/api/devtools/inspectedWindow/chrome-preprocessor/Panel/PreprocessorPanel.js">Panel/PreprocessorPanel.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.devtools.network.getHAR chrome.devtools.network.onRequestFinished chrome.extension.onRequest chrome.extension.sendRequest chrome.tabs.executeScript ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="firephp-for-chrome"><a href="examples/api/devtools/network/chrome-firephp.zip">FirePHP for Chrome</a></h2>
+    Extends the Developer Tools, adding support for parsing FirePHP messages from server
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="devtools.network.html#method-getHAR">devtools.network.getHAR</a></code></li>
+        <li><code><a href="devtools.network.html#event-onRequestFinished">devtools.network.onRequestFinished</a></code></li>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="extension.html#method-sendRequest">extension.sendRequest</a></code></li>
+        <li><code><a href="tabs.html#method-executeScript">tabs.executeScript</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/devtools/network/chrome-firephp/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/devtools/network/chrome-firephp/devtools.html">devtools.html</a></code></li>
+        <li><code><a href="examples/api/devtools/network/chrome-firephp/devtools.js">devtools.js</a></code></li>
+        <li><code><a href="examples/api/devtools/network/chrome-firephp/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.devtools.panels.ElementsPanel.createSidebarPane chrome.devtools.panels.ElementsPanel.onSelectionChanged ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="chrome-query"><a href="examples/api/devtools/panels/chrome-query.zip">Chrome Query</a></h2>
+    Extends the Developer Tools, adding a sidebar that displays the jQuery data associated with the selected DOM element.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="devtools.panels.html#method-ElementsPanel-createSidebarPane">devtools.panels.ElementsPanel.createSidebarPane</a></code></li>
+        <li><code><a href="devtools.panels.html#event-ElementsPanel-onSelectionChanged">devtools.panels.ElementsPanel.onSelectionChanged</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/devtools/panels/chrome-query/devtools.html">devtools.html</a></code></li>
+        <li><code><a href="examples/api/devtools/panels/chrome-query/devtools.js">devtools.js</a></code></li>
+        <li><code><a href="examples/api/devtools/panels/chrome-query/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.downloads.onDeterminingFilename ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="download-filename-controller"><a href="examples/api/downloads/download_filename_controller.zip">Download Filename Controller</a></h2>
+    Download Filename Controller
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="downloads.html#event-onDeterminingFilename">downloads.onDeterminingFilename</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/downloads/download_filename_controller/bg.js">bg.js</a></code></li>
+        <li><code><a href="examples/api/downloads/download_filename_controller/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/downloads/download_filename_controller/options.html">options.html</a></code></li>
+        <li><code><a href="examples/api/downloads/download_filename_controller/options.js">options.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.downloads.download chrome.extension.onRequest chrome.extension.sendRequest chrome.tabs.executeScript chrome.tabs.query chrome.windows.getCurrent ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="download-selected-links"><a href="examples/api/downloads/download_links.zip">Download Selected Links</a></h2>
+    Select links on a page and download them.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="downloads.html#method-download">downloads.download</a></code></li>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="extension.html#method-sendRequest">extension.sendRequest</a></code></li>
+        <li><code><a href="tabs.html#method-executeScript">tabs.executeScript</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+        <li><code><a href="windows.html#method-getCurrent">windows.getCurrent</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/downloads/download_links/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/downloads/download_links/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/downloads/download_links/popup.js">popup.js</a></code></li>
+        <li><code><a href="examples/api/downloads/download_links/send_links.js">send_links.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.setIcon chrome.downloads.acceptDanger chrome.downloads.cancel chrome.downloads.download chrome.downloads.drag chrome.downloads.erase chrome.downloads.getFileIcon chrome.downloads.onChanged chrome.downloads.onCreated chrome.downloads.onErased chrome.downloads.open chrome.downloads.pause chrome.downloads.removeFile chrome.downloads.resume chrome.downloads.search chrome.downloads.setShelfEnabled chrome.downloads.show chrome.downloads.showDefaultFolder chrome.i18n.getMessage chrome.permissions.contains chrome.permissions.request chrome.runtime.onMessage chrome.runtime.sendMessage chrome.tabs.create ">
+    <img class="icon" src="examples/api/downloads/download_manager/icon128.png">
+    <h2 id="download-manager-button"><a href="examples/api/downloads/download_manager.zip">Download Manager Button</a></h2>
+    Browser Action Download Manager User Interface for Google Chrome
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#method-setIcon">browserAction.setIcon</a></code></li>
+        <li><code><a href="downloads.html#method-acceptDanger">downloads.acceptDanger</a></code></li>
+        <li><code><a href="downloads.html#method-cancel">downloads.cancel</a></code></li>
+        <li><code><a href="downloads.html#method-download">downloads.download</a></code></li>
+        <li><code><a href="downloads.html#method-drag">downloads.drag</a></code></li>
+        <li><code><a href="downloads.html#method-erase">downloads.erase</a></code></li>
+        <li><code><a href="downloads.html#method-getFileIcon">downloads.getFileIcon</a></code></li>
+        <li><code><a href="downloads.html#event-onChanged">downloads.onChanged</a></code></li>
+        <li><code><a href="downloads.html#event-onCreated">downloads.onCreated</a></code></li>
+        <li><code><a href="downloads.html#event-onErased">downloads.onErased</a></code></li>
+        <li><code><a href="downloads.html#method-open">downloads.open</a></code></li>
+        <li><code><a href="downloads.html#method-pause">downloads.pause</a></code></li>
+        <li><code><a href="downloads.html#method-removeFile">downloads.removeFile</a></code></li>
+        <li><code><a href="downloads.html#method-resume">downloads.resume</a></code></li>
+        <li><code><a href="downloads.html#method-search">downloads.search</a></code></li>
+        <li><code><a href="downloads.html#method-setShelfEnabled">downloads.setShelfEnabled</a></code></li>
+        <li><code><a href="downloads.html#method-show">downloads.show</a></code></li>
+        <li><code><a href="downloads.html#method-showDefaultFolder">downloads.showDefaultFolder</a></code></li>
+        <li><code><a href="i18n.html#method-getMessage">i18n.getMessage</a></code></li>
+        <li><code><a href="permissions.html#method-contains">permissions.contains</a></code></li>
+        <li><code><a href="permissions.html#method-request">permissions.request</a></code></li>
+        <li><code><a href="runtime.html#event-onMessage">runtime.onMessage</a></code></li>
+        <li><code><a href="runtime.html#method-sendMessage">runtime.sendMessage</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/downloads/download_manager/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/downloads/download_manager/icon128.png">icon128.png</a></code></li>
+        <li><code><a href="examples/api/downloads/download_manager/icon19.png">icon19.png</a></code></li>
+        <li><code><a href="examples/api/downloads/download_manager/icon38.png">icon38.png</a></code></li>
+        <li><code><a href="examples/api/downloads/download_manager/icons.html">icons.html</a></code></li>
+        <li><code><a href="examples/api/downloads/download_manager/icons.js">icons.js</a></code></li>
+        <li><code><a href="examples/api/downloads/download_manager/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/downloads/download_manager/popup.css">popup.css</a></code></li>
+        <li><code><a href="examples/api/downloads/download_manager/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/downloads/download_manager/popup.js">popup.js</a></code></li>
+        <li><code><a href="examples/api/downloads/download_manager/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.contextMenus.create chrome.contextMenus.onClicked chrome.downloads.download chrome.downloads.onChanged chrome.downloads.open chrome.i18n.getMessage ">
+    <img class="icon" src="examples/api/downloads/download_open/icon128.png">
+    <h2 id="download-and-open-button"><a href="examples/api/downloads/download_open.zip">Download and Open Button</a></h2>
+    Download and Open Context Menu Button
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="contextMenus.html#method-create">contextMenus.create</a></code></li>
+        <li><code><a href="contextMenus.html#event-onClicked">contextMenus.onClicked</a></code></li>
+        <li><code><a href="downloads.html#method-download">downloads.download</a></code></li>
+        <li><code><a href="downloads.html#event-onChanged">downloads.onChanged</a></code></li>
+        <li><code><a href="downloads.html#method-open">downloads.open</a></code></li>
+        <li><code><a href="i18n.html#method-getMessage">i18n.getMessage</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/downloads/download_open/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/downloads/download_open/icon128.png">icon128.png</a></code></li>
+        <li><code><a href="examples/api/downloads/download_open/icon16.png">icon16.png</a></code></li>
+        <li><code><a href="examples/api/downloads/download_open/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/downloads/download_open/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.downloads.onDeterminingFilename ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="downloads-overwrite-existing-files"><a href="examples/api/downloads/downloads_overwrite.zip">Downloads Overwrite Existing Files</a></h2>
+    All downloads overwrite existing files instead of adding ' (1)', ' (2)', etc.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="downloads.html#event-onDeterminingFilename">downloads.onDeterminingFilename</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/downloads/downloads_overwrite/bg.js">bg.js</a></code></li>
+        <li><code><a href="examples/api/downloads/downloads_overwrite/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.alarms.create chrome.alarms.onAlarm chrome.bookmarks.onRemoved chrome.browserAction.onClicked chrome.browserAction.setBadgeText chrome.commands.onCommand chrome.declarativeWebRequest.RedirectRequest chrome.declarativeWebRequest.RequestMatcher chrome.runtime.onInstalled chrome.runtime.onMessage chrome.runtime.onSuspend chrome.runtime.sendMessage chrome.tabs.create chrome.tabs.executeScript chrome.tabs.query chrome.tabs.sendMessage ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="event-page-example"><a href="examples/api/eventPage/basic.zip">Event Page Example</a></h2>
+    Demonstrates usage and features of the event page
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="alarms.html#method-create">alarms.create</a></code></li>
+        <li><code><a href="alarms.html#event-onAlarm">alarms.onAlarm</a></code></li>
+        <li><code><a href="bookmarks.html#event-onRemoved">bookmarks.onRemoved</a></code></li>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="browserAction.html#method-setBadgeText">browserAction.setBadgeText</a></code></li>
+        <li><code><a href="commands.html#event-onCommand">commands.onCommand</a></code></li>
+        <li><code><a href="declarativeWebRequest.html#type-RedirectRequest">declarativeWebRequest.RedirectRequest</a></code></li>
+        <li><code><a href="declarativeWebRequest.html#type-RequestMatcher">declarativeWebRequest.RequestMatcher</a></code></li>
+        <li><code><a href="runtime.html#event-onInstalled">runtime.onInstalled</a></code></li>
+        <li><code><a href="runtime.html#event-onMessage">runtime.onMessage</a></code></li>
+        <li><code><a href="runtime.html#event-onSuspend">runtime.onSuspend</a></code></li>
+        <li><code><a href="runtime.html#method-sendMessage">runtime.sendMessage</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="tabs.html#method-executeScript">tabs.executeScript</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+        <li><code><a href="tabs.html#method-sendMessage">tabs.sendMessage</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/eventPage/basic/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/eventPage/basic/content.js">content.js</a></code></li>
+        <li><code><a href="examples/api/eventPage/basic/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/eventPage/basic/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.isAllowedFileSchemeAccess chrome.extension.isAllowedIncognitoAccess ">
+    <img class="icon" src="examples/api/extension/isAllowedAccess/sample-128.png">
+    <h2 id="`extension.isallowedfileschemeaccess`-and-`extension.isallowedincognitoaccess`-example"><a href="examples/api/extension/isAllowedAccess.zip">`extension.isAllowedFileSchemeAccess` and `extension.isAllowedIncognitoAccess` Example</a></h2>
+    Demonstrates the `extension.isAllowedFileSchemeAccess` and `extesion.isAllowedIncognitoAccess` APIs
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#method-isAllowedFileSchemeAccess">extension.isAllowedFileSchemeAccess</a></code></li>
+        <li><code><a href="extension.html#method-isAllowedIncognitoAccess">extension.isAllowedIncognitoAccess</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/extension/isAllowedAccess/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/extension/isAllowedAccess/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/extension/isAllowedAccess/popup.js">popup.js</a></code></li>
+        <li><code><a href="examples/api/extension/isAllowedAccess/sample-128.png">sample-128.png</a></code></li>
+        <li><code><a href="examples/api/extension/isAllowedAccess/sample-16.png">sample-16.png</a></code></li>
+        <li><code><a href="examples/api/extension/isAllowedAccess/sample-19.png">sample-19.png</a></code></li>
+        <li><code><a href="examples/api/extension/isAllowedAccess/sample-48.png">sample-48.png</a></code></li>
+        <li><code><a href="examples/api/extension/isAllowedAccess/sample.css">sample.css</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.fontSettings.clearDefaultFixedFontSize chrome.fontSettings.clearDefaultFontSize chrome.fontSettings.clearFont chrome.fontSettings.clearMinimumFontSize chrome.fontSettings.getDefaultFixedFontSize chrome.fontSettings.getDefaultFontSize chrome.fontSettings.getFont chrome.fontSettings.getFontList chrome.fontSettings.getMinimumFontSize chrome.fontSettings.onDefaultFixedFontSizeChanged chrome.fontSettings.onDefaultFontSizeChanged chrome.fontSettings.onFontChanged chrome.fontSettings.onMinimumFontSizeChanged chrome.fontSettings.setDefaultFixedFontSize chrome.fontSettings.setDefaultFontSize chrome.fontSettings.setFont chrome.fontSettings.setMinimumFontSize ">
+    <img class="icon" src="examples/api/fontSettings/fonts128.png">
+    <h2 id="advanced-font-settings"><a href="examples/api/fontSettings.zip">Advanced Font Settings</a></h2>
+    Customize per-script font settings.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="fontSettings.html#method-clearDefaultFixedFontSize">fontSettings.clearDefaultFixedFontSize</a></code></li>
+        <li><code><a href="fontSettings.html#method-clearDefaultFontSize">fontSettings.clearDefaultFontSize</a></code></li>
+        <li><code><a href="fontSettings.html#method-clearFont">fontSettings.clearFont</a></code></li>
+        <li><code><a href="fontSettings.html#method-clearMinimumFontSize">fontSettings.clearMinimumFontSize</a></code></li>
+        <li><code><a href="fontSettings.html#method-getDefaultFixedFontSize">fontSettings.getDefaultFixedFontSize</a></code></li>
+        <li><code><a href="fontSettings.html#method-getDefaultFontSize">fontSettings.getDefaultFontSize</a></code></li>
+        <li><code><a href="fontSettings.html#method-getFont">fontSettings.getFont</a></code></li>
+        <li><code><a href="fontSettings.html#method-getFontList">fontSettings.getFontList</a></code></li>
+        <li><code><a href="fontSettings.html#method-getMinimumFontSize">fontSettings.getMinimumFontSize</a></code></li>
+        <li><code><a href="fontSettings.html#event-onDefaultFixedFontSizeChanged">fontSettings.onDefaultFixedFontSizeChanged</a></code></li>
+        <li><code><a href="fontSettings.html#event-onDefaultFontSizeChanged">fontSettings.onDefaultFontSizeChanged</a></code></li>
+        <li><code><a href="fontSettings.html#event-onFontChanged">fontSettings.onFontChanged</a></code></li>
+        <li><code><a href="fontSettings.html#event-onMinimumFontSizeChanged">fontSettings.onMinimumFontSizeChanged</a></code></li>
+        <li><code><a href="fontSettings.html#method-setDefaultFixedFontSize">fontSettings.setDefaultFixedFontSize</a></code></li>
+        <li><code><a href="fontSettings.html#method-setDefaultFontSize">fontSettings.setDefaultFontSize</a></code></li>
+        <li><code><a href="fontSettings.html#method-setFont">fontSettings.setFont</a></code></li>
+        <li><code><a href="fontSettings.html#method-setMinimumFontSize">fontSettings.setMinimumFontSize</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/fontSettings/fonts128.png">fonts128.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/fonts16.png">fonts16.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/fontSettings/options.html">options.html</a></code></li>
+        <li><code><a href="examples/api/fontSettings/options.js">options.js</a></code></li>
+        <li><code><a href="examples/api/fontSettings/pending_changes.js">pending_changes.js</a></code></li>
+        <li><code><a href="examples/api/fontSettings/slider.css">slider.css</a></code></li>
+        <li><code><a href="examples/api/fontSettings/slider.js">slider.js</a></code></li>
+        <li><code><a href="examples/api/fontSettings/css/chrome_shared.css">css/chrome_shared.css</a></code></li>
+        <li><code><a href="examples/api/fontSettings/css/overlay.css">css/overlay.css</a></code></li>
+        <li><code><a href="examples/api/fontSettings/css/uber_shared.css">css/uber_shared.css</a></code></li>
+        <li><code><a href="examples/api/fontSettings/css/widgets.css">css/widgets.css</a></code></li>
+        <li><code><a href="examples/api/fontSettings/js/cr.js">js/cr.js</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/disabled_select.png">images/disabled_select.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/select.png">images/select.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/x-hover.png">images/x-hover.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/x-pressed.png">images/x-pressed.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/x.png">images/x.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slide_bar_center.png">images/slider/slide_bar_center.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slide_bar_disabled_center.png">images/slider/slide_bar_disabled_center.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slide_bar_disabled_left.png">images/slider/slide_bar_disabled_left.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slide_bar_disabled_right.png">images/slider/slide_bar_disabled_right.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slide_bar_fill_center.png">images/slider/slide_bar_fill_center.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slide_bar_fill_left.png">images/slider/slide_bar_fill_left.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slide_bar_fill_right.png">images/slider/slide_bar_fill_right.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slide_bar_left.png">images/slider/slide_bar_left.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slider_bar_right.png">images/slider/slider_bar_right.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slider_thumb.png">images/slider/slider_thumb.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slider_thumb_disabled.png">images/slider/slider_thumb_disabled.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slider_thumb_down.png">images/slider/slider_thumb_down.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/images/slider/slider_thumb_hover.png">images/slider/slider_thumb_hover.png</a></code></li>
+        <li><code><a href="examples/api/fontSettings/js/cr/ui.js">js/cr/ui.js</a></code></li>
+        <li><code><a href="examples/api/fontSettings/js/cr/ui/overlay.js">js/cr/ui/overlay.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.history.getVisits chrome.history.search chrome.tabs.create ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="typed-url-history"><a href="examples/api/history/showHistory.zip">Typed URL History</a></h2>
+    Reads your history, and shows the top ten pages you go to by typing the URL.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="history.html#method-getVisits">history.getVisits</a></code></li>
+        <li><code><a href="history.html#method-search">history.search</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/history/showHistory/clock.png">clock.png</a></code></li>
+        <li><code><a href="examples/api/history/showHistory/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/history/showHistory/typedUrls.html">typedUrls.html</a></code></li>
+        <li><code><a href="examples/api/history/showHistory/typedUrls.js">typedUrls.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.setBadgeText chrome.tabs.detectLanguage chrome.tabs.onSelectionChanged chrome.tabs.onUpdated chrome.tabs.query ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="cld"><a href="examples/api/i18n/cld.zip">CLD</a></h2>
+    Displays the language of a tab
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#method-setBadgeText">browserAction.setBadgeText</a></code></li>
+        <li><code><a href="tabs.html#method-detectLanguage">tabs.detectLanguage</a></code></li>
+        <li><code><a href="tabs.html#event-onSelectionChanged">tabs.onSelectionChanged</a></code></li>
+        <li><code><a href="tabs.html#event-onUpdated">tabs.onUpdated</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/i18n/cld/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/i18n/cld/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.i18n.getAcceptLanguages chrome.i18n.getMessage ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="acceptlanguage"><a href="examples/api/i18n/getMessage.zip">AcceptLanguage</a></h2>
+    Returns accept languages of the browser
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="i18n.html#method-getAcceptLanguages">i18n.getAcceptLanguages</a></code></li>
+        <li><code><a href="i18n.html#method-getMessage">i18n.getMessage</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/i18n/getMessage/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/i18n/getMessage/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/i18n/getMessage/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/i18n/getMessage/popup.js">popup.js</a></code></li>
+        <li><code><a href="examples/api/i18n/getMessage/_locales/en_US/messages.json">_locales/en_US/messages.json</a></code></li>
+        <li><code><a href="examples/api/i18n/getMessage/_locales/sr/messages.json">_locales/sr/messages.json</a></code></li>
+        <li><code><a href="examples/api/i18n/getMessage/_locales/es/messages.json">_locales/es/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="">
+    <img class="icon" src="examples/api/i18n/localizedHostedApp/icon128.png">
+    <h2 id="minimal-localized-hosted-app"><a href="examples/api/i18n/localizedHostedApp.zip">Minimal Localized Hosted App</a></h2>
+    This is the minimal set of data required to upload a localized hosted application to the web store.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/i18n/localizedHostedApp/icon128.png">icon128.png</a></code></li>
+        <li><code><a href="examples/api/i18n/localizedHostedApp/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/i18n/localizedHostedApp/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+        <li><code><a href="examples/api/i18n/localizedHostedApp/_locales/de/messages.json">_locales/de/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.extension.getBackgroundPage chrome.idle.onStateChanged chrome.idle.queryState ">
+    <img class="icon" src="examples/api/idle/idle_simple/sample-128.png">
+    <h2 id="idle---simple-example"><a href="examples/api/idle/idle_simple.zip">Idle - Simple Example</a></h2>
+    Demonstrates the Idle API
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="extension.html#method-getBackgroundPage">extension.getBackgroundPage</a></code></li>
+        <li><code><a href="idle.html#event-onStateChanged">idle.onStateChanged</a></code></li>
+        <li><code><a href="idle.html#method-queryState">idle.queryState</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/idle/idle_simple/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/idle/idle_simple/history.html">history.html</a></code></li>
+        <li><code><a href="examples/api/idle/idle_simple/history.js">history.js</a></code></li>
+        <li><code><a href="examples/api/idle/idle_simple/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/idle/idle_simple/sample-128.png">sample-128.png</a></code></li>
+        <li><code><a href="examples/api/idle/idle_simple/sample-16.png">sample-16.png</a></code></li>
+        <li><code><a href="examples/api/idle/idle_simple/sample-19.png">sample-19.png</a></code></li>
+        <li><code><a href="examples/api/idle/idle_simple/sample-48.png">sample-48.png</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.onRequest chrome.extension.sendRequest chrome.infobars.show ">
+    <img class="icon" src="examples/api/infobars/sandwichbar/sandwich-128.png">
+    <h2 id="sandwichbar"><a href="examples/api/infobars/sandwichbar.zip">SandwichBar</a></h2>
+    Shows an infobar on pages which contain the word 'sandwich'
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="extension.html#method-sendRequest">extension.sendRequest</a></code></li>
+        <li><code><a href="infobars.html#method-show">infobars.show</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/infobars/sandwichbar/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/infobars/sandwichbar/contentscript.js">contentscript.js</a></code></li>
+        <li><code><a href="examples/api/infobars/sandwichbar/infobar.html">infobar.html</a></code></li>
+        <li><code><a href="examples/api/infobars/sandwichbar/infobar.js">infobar.js</a></code></li>
+        <li><code><a href="examples/api/infobars/sandwichbar/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/infobars/sandwichbar/sandwich-128.png">sandwich-128.png</a></code></li>
+        <li><code><a href="examples/api/infobars/sandwichbar/sandwich-16.png">sandwich-16.png</a></code></li>
+        <li><code><a href="examples/api/infobars/sandwichbar/sandwich-19.png">sandwich-19.png</a></code></li>
+        <li><code><a href="examples/api/infobars/sandwichbar/sandwich-48.png">sandwich-48.png</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.input.ime chrome.input.ime.commitText chrome.input.ime.onActivate chrome.input.ime.onBlur chrome.input.ime.onDeactivated chrome.input.ime.onFocus chrome.input.ime.onKeyEvent ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="test-ime"><a href="examples/api/input.ime/basic.zip">Test IME</a></h2>
+    A simple IME that converts all keystrokes to upper case.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="input.ime.html">input.ime</a></code></li>
+        <li><code><a href="input.ime.html#method-commitText">input.ime.commitText</a></code></li>
+        <li><code><a href="input.ime.html#event-onActivate">input.ime.onActivate</a></code></li>
+        <li><code><a href="input.ime.html#event-onBlur">input.ime.onBlur</a></code></li>
+        <li><code><a href="input.ime.html#event-onDeactivated">input.ime.onDeactivated</a></code></li>
+        <li><code><a href="input.ime.html#event-onFocus">input.ime.onFocus</a></code></li>
+        <li><code><a href="input.ime.html#event-onKeyEvent">input.ime.onKeyEvent</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/input.ime/basic/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/input.ime/basic/main.js">main.js</a></code></li>
+        <li><code><a href="examples/api/input.ime/basic/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.onRequest chrome.runtime.onConnect chrome.tabs.connect chrome.tabs.query chrome.tabs.sendRequest ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="message-timer"><a href="examples/api/messaging/timer.zip">Message Timer</a></h2>
+    Times how long it takes to send a message to a content script and back.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="runtime.html#event-onConnect">runtime.onConnect</a></code></li>
+        <li><code><a href="tabs.html#method-connect">tabs.connect</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+        <li><code><a href="tabs.html#method-sendRequest">tabs.sendRequest</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/messaging/timer/clock.png">clock.png</a></code></li>
+        <li><code><a href="examples/api/messaging/timer/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/messaging/timer/page.js">page.js</a></code></li>
+        <li><code><a href="examples/api/messaging/timer/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/messaging/timer/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.runtime.connectNative chrome.runtime.lastError.message ">
+    <img class="icon" src="examples/api/nativeMessaging/app/icon-128.png">
+    <h2 id="native-messaging-example"><a href="examples/api/nativeMessaging/app.zip">Native Messaging Example</a></h2>
+    Send a message to a native application.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="runtime.html#method-connectNative">runtime.connectNative</a></code></li>
+        <li><code><a href="runtime.html#property-lastError-message">runtime.lastError.message</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/nativeMessaging/app/icon-128.png">icon-128.png</a></code></li>
+        <li><code><a href="examples/api/nativeMessaging/app/main.html">main.html</a></code></li>
+        <li><code><a href="examples/api/nativeMessaging/app/main.js">main.js</a></code></li>
+        <li><code><a href="examples/api/nativeMessaging/app/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="">
+    <img class="icon" src="examples/api/notifications/128.png">
+    <h2 id="notification-demo"><a href="examples/api/notifications.zip">Notification Demo</a></h2>
+    Shows off desktop notifications, which are "toast" windows that pop up on the desktop.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/notifications/128.png">128.png</a></code></li>
+        <li><code><a href="examples/api/notifications/16.png">16.png</a></code></li>
+        <li><code><a href="examples/api/notifications/48.png">48.png</a></code></li>
+        <li><code><a href="examples/api/notifications/64.png">64.png</a></code></li>
+        <li><code><a href="examples/api/notifications/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/notifications/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/notifications/options.html">options.html</a></code></li>
+        <li><code><a href="examples/api/notifications/options.js">options.js</a></code></li>
+        <li><code><a href="examples/api/notifications/style.css">style.css</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.omnibox.onInputChanged chrome.omnibox.onInputEntered ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="omnibox-example"><a href="examples/api/omnibox/simple-example.zip">Omnibox Example</a></h2>
+    To use, type 'omnix' plus a search term into the Omnibox.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="omnibox.html#event-onInputChanged">omnibox.onInputChanged</a></code></li>
+        <li><code><a href="omnibox.html#event-onInputEntered">omnibox.onInputEntered</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/omnibox/simple-example/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/omnibox/simple-example/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="blank-new-tab-page"><a href="examples/api/override/blank_ntp.zip">Blank new tab page</a></h2>
+    Override the new tab page with a blank one
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/override/blank_ntp/blank.html">blank.html</a></code></li>
+        <li><code><a href="examples/api/override/blank_ntp/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="igoogle-new-tab-page"><a href="examples/api/override/override_igoogle.zip">iGoogle new tab page</a></h2>
+    Override the new tab page with iGoogle
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/override/override_igoogle/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/override/override_igoogle/redirect.html">redirect.html</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.onRequest chrome.extension.sendRequest chrome.pageAction.show ">
+    <img class="icon" src="examples/api/pageAction/pageaction_by_content/sandwich-128.png">
+    <h2 id="page-action-by-content"><a href="examples/api/pageAction/pageaction_by_content.zip">Page action by content</a></h2>
+    Shows a page action for HTML pages containing the word 'sandwich'
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="extension.html#method-sendRequest">extension.sendRequest</a></code></li>
+        <li><code><a href="pageAction.html#method-show">pageAction.show</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/pageAction/pageaction_by_content/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/pageAction/pageaction_by_content/contentscript.js">contentscript.js</a></code></li>
+        <li><code><a href="examples/api/pageAction/pageaction_by_content/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/pageAction/pageaction_by_content/sandwich-128.png">sandwich-128.png</a></code></li>
+        <li><code><a href="examples/api/pageAction/pageaction_by_content/sandwich-19.png">sandwich-19.png</a></code></li>
+        <li><code><a href="examples/api/pageAction/pageaction_by_content/sandwich-48.png">sandwich-48.png</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.pageAction.show chrome.tabs.onUpdated ">
+    <img class="icon" src="examples/api/pageAction/pageaction_by_url/icon-128.png">
+    <h2 id="page-action-by-url"><a href="examples/api/pageAction/pageaction_by_url.zip">Page action by URL</a></h2>
+    Shows a page action for urls which have the letter 'g' in them.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="pageAction.html#method-show">pageAction.show</a></code></li>
+        <li><code><a href="tabs.html#event-onUpdated">tabs.onUpdated</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/pageAction/pageaction_by_url/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/pageAction/pageaction_by_url/icon-128.png">icon-128.png</a></code></li>
+        <li><code><a href="examples/api/pageAction/pageaction_by_url/icon-19.png">icon-19.png</a></code></li>
+        <li><code><a href="examples/api/pageAction/pageaction_by_url/icon-48.png">icon-48.png</a></code></li>
+        <li><code><a href="examples/api/pageAction/pageaction_by_url/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.pageAction.hide chrome.pageAction.onClicked chrome.pageAction.setIcon chrome.pageAction.setTitle chrome.pageAction.show chrome.tabs.onSelectionChanged chrome.tabs.query ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="animated-page-action"><a href="examples/api/pageAction/set_icon.zip">Animated Page Action</a></h2>
+    This extension adds an animated browser action to the toolbar.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="pageAction.html#method-hide">pageAction.hide</a></code></li>
+        <li><code><a href="pageAction.html#event-onClicked">pageAction.onClicked</a></code></li>
+        <li><code><a href="pageAction.html#method-setIcon">pageAction.setIcon</a></code></li>
+        <li><code><a href="pageAction.html#method-setTitle">pageAction.setTitle</a></code></li>
+        <li><code><a href="pageAction.html#method-show">pageAction.show</a></code></li>
+        <li><code><a href="tabs.html#event-onSelectionChanged">tabs.onSelectionChanged</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/pageAction/set_icon/background.html">background.html</a></code></li>
+        <li><code><a href="examples/api/pageAction/set_icon/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/pageAction/set_icon/icon1.png">icon1.png</a></code></li>
+        <li><code><a href="examples/api/pageAction/set_icon/icon2.png">icon2.png</a></code></li>
+        <li><code><a href="examples/api/pageAction/set_icon/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.permissions.contains chrome.permissions.onAdded chrome.permissions.onRemoved chrome.permissions.remove chrome.permissions.request chrome.tabs.create ">
+    <img class="icon" src="examples/api/permissions/extension-questions/images/icon.png">
+    <h2 id="top-chrome-extension-questions"><a href="examples/api/permissions/extension-questions.zip">Top Chrome Extension Questions</a></h2>
+    Sample demonstration of the optional permissions API.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="permissions.html#method-contains">permissions.contains</a></code></li>
+        <li><code><a href="permissions.html#event-onAdded">permissions.onAdded</a></code></li>
+        <li><code><a href="permissions.html#event-onRemoved">permissions.onRemoved</a></code></li>
+        <li><code><a href="permissions.html#method-remove">permissions.remove</a></code></li>
+        <li><code><a href="permissions.html#method-request">permissions.request</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/permissions/extension-questions/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/permissions/extension-questions/options.html">options.html</a></code></li>
+        <li><code><a href="examples/api/permissions/extension-questions/options.js">options.js</a></code></li>
+        <li><code><a href="examples/api/permissions/extension-questions/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/permissions/extension-questions/popup.js">popup.js</a></code></li>
+        <li><code><a href="examples/api/permissions/extension-questions/images/icon.png">images/icon.png</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.browserAction.setIcon chrome.browserAction.setTitle chrome.i18n.getMessage chrome.power.releaseKeepAwake chrome.power.requestKeepAwake chrome.runtime.onStartup chrome.storage.StorageArea.get chrome.storage.StorageArea.set chrome.windows.onCreated ">
+    <img class="icon" src="examples/api/power/images/icon-128.png">
+    <h2 id="keep-awake"><a href="examples/api/power.zip">Keep Awake</a></h2>
+    Override system power-saving settings.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="browserAction.html#method-setIcon">browserAction.setIcon</a></code></li>
+        <li><code><a href="browserAction.html#method-setTitle">browserAction.setTitle</a></code></li>
+        <li><code><a href="i18n.html#method-getMessage">i18n.getMessage</a></code></li>
+        <li><code><a href="power.html#method-releaseKeepAwake">power.releaseKeepAwake</a></code></li>
+        <li><code><a href="power.html#method-requestKeepAwake">power.requestKeepAwake</a></code></li>
+        <li><code><a href="runtime.html#event-onStartup">runtime.onStartup</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-get">storage.StorageArea.get</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-set">storage.StorageArea.set</a></code></li>
+        <li><code><a href="windows.html#event-onCreated">windows.onCreated</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/power/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/power/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/power/images/day-19.png">images/day-19.png</a></code></li>
+        <li><code><a href="examples/api/power/images/day-38.png">images/day-38.png</a></code></li>
+        <li><code><a href="examples/api/power/images/icon-128.png">images/icon-128.png</a></code></li>
+        <li><code><a href="examples/api/power/images/icon-16.png">images/icon-16.png</a></code></li>
+        <li><code><a href="examples/api/power/images/icon-48.png">images/icon-48.png</a></code></li>
+        <li><code><a href="examples/api/power/images/night-19.png">images/night-19.png</a></code></li>
+        <li><code><a href="examples/api/power/images/night-38.png">images/night-38.png</a></code></li>
+        <li><code><a href="examples/api/power/images/sunset-19.png">images/sunset-19.png</a></code></li>
+        <li><code><a href="examples/api/power/images/sunset-38.png">images/sunset-38.png</a></code></li>
+        <li><code><a href="examples/api/power/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.isAllowedIncognitoAccess chrome.privacy.websites.thirdPartyCookiesAllowed ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="block/allow-third-party-cookies-api-example-extension"><a href="examples/api/preferences/allowThirdPartyCookies.zip">Block/allow third-party cookies API example extension</a></h2>
+    Sample extension which demonstrates how to access a preference.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#method-isAllowedIncognitoAccess">extension.isAllowedIncognitoAccess</a></code></li>
+        <li><code><a href="privacy.html#property-websites-thirdPartyCookiesAllowed">privacy.websites.thirdPartyCookiesAllowed</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/preferences/allowThirdPartyCookies/advicedog.jpg">advicedog.jpg</a></code></li>
+        <li><code><a href="examples/api/preferences/allowThirdPartyCookies/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/preferences/allowThirdPartyCookies/popup.css">popup.css</a></code></li>
+        <li><code><a href="examples/api/preferences/allowThirdPartyCookies/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/preferences/allowThirdPartyCookies/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.isAllowedIncognitoAccess chrome.privacy.websites.referrersEnabled ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="block/allow-referrer-api-example-extension"><a href="examples/api/preferences/enableReferrer.zip">Block/allow referrer API example extension</a></h2>
+    Sample extension which demonstrates how to access a preference.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#method-isAllowedIncognitoAccess">extension.isAllowedIncognitoAccess</a></code></li>
+        <li><code><a href="privacy.html#property-websites-referrersEnabled">privacy.websites.referrersEnabled</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/preferences/enableReferrer/advicedog.jpg">advicedog.jpg</a></code></li>
+        <li><code><a href="examples/api/preferences/enableReferrer/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/preferences/enableReferrer/popup.css">popup.css</a></code></li>
+        <li><code><a href="examples/api/preferences/enableReferrer/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/preferences/enableReferrer/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.processes.onUpdatedWithMemory chrome.processes.terminate ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="process-monitor"><a href="examples/api/processes/process_monitor.zip">Process Monitor</a></h2>
+    Adds a browser action that monitors resource usage of all browser processes.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="processes.html#event-onUpdatedWithMemory">processes.onUpdatedWithMemory</a></code></li>
+        <li><code><a href="processes.html#method-terminate">processes.terminate</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/processes/process_monitor/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/processes/process_monitor/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/processes/process_monitor/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/processes/process_monitor/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.processes.getProcessIdForTab chrome.tabs.query chrome.tabs.update chrome.windows.getAll chrome.windows.getCurrent chrome.windows.update ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="show-tabs-in-process"><a href="examples/api/processes/show_tabs.zip">Show Tabs in Process</a></h2>
+    Adds a browser action showing which tabs share the current tab's process.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="processes.html#method-getProcessIdForTab">processes.getProcessIdForTab</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+        <li><code><a href="tabs.html#method-update">tabs.update</a></code></li>
+        <li><code><a href="windows.html#method-getAll">windows.getAll</a></code></li>
+        <li><code><a href="windows.html#method-getCurrent">windows.getCurrent</a></code></li>
+        <li><code><a href="windows.html#method-update">windows.update</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/processes/show_tabs/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/processes/show_tabs/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/processes/show_tabs/popup.css">popup.css</a></code></li>
+        <li><code><a href="examples/api/processes/show_tabs/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/processes/show_tabs/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.getURL chrome.runtime.lastError chrome.storage.local chrome.storage.StorageArea.clear chrome.storage.StorageArea.get chrome.storage.StorageArea.remove chrome.storage.StorageArea.set chrome.tabs.insertCSS ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="stylizr"><a href="examples/api/storage/stylizr.zip">Stylizr</a></h2>
+    Spruce up your pages with custom CSS.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#method-getURL">extension.getURL</a></code></li>
+        <li><code><a href="runtime.html#property-lastError">runtime.lastError</a></code></li>
+        <li><code><a href="storage.html#property-local">storage.local</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-clear">storage.StorageArea.clear</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-get">storage.StorageArea.get</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-remove">storage.StorageArea.remove</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-set">storage.StorageArea.set</a></code></li>
+        <li><code><a href="tabs.html#method-insertCSS">tabs.insertCSS</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/storage/stylizr/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/storage/stylizr/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/storage/stylizr/options.html">options.html</a></code></li>
+        <li><code><a href="examples/api/storage/stylizr/options.js">options.js</a></code></li>
+        <li><code><a href="examples/api/storage/stylizr/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/storage/stylizr/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.extension.getURL chrome.tabs.create chrome.tabs.get chrome.tabs.getAllInWindow chrome.tabs.move chrome.tabs.onAttached chrome.tabs.onCreated chrome.tabs.onDetached chrome.tabs.onMoved chrome.tabs.onRemoved chrome.tabs.onSelectionChanged chrome.tabs.onUpdated chrome.tabs.query chrome.tabs.remove chrome.tabs.update chrome.windows.create chrome.windows.get chrome.windows.getAll chrome.windows.getCurrent chrome.windows.getLastFocused chrome.windows.onCreated chrome.windows.onFocusChanged chrome.windows.onRemoved chrome.windows.remove chrome.windows.update ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="tab-inspector"><a href="examples/api/tabs/inspector.zip">Tab Inspector</a></h2>
+    Utility for working with the extension tabs api
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="extension.html#method-getURL">extension.getURL</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="tabs.html#method-get">tabs.get</a></code></li>
+        <li><code><a href="tabs.html#method-getAllInWindow">tabs.getAllInWindow</a></code></li>
+        <li><code><a href="tabs.html#method-move">tabs.move</a></code></li>
+        <li><code><a href="tabs.html#event-onAttached">tabs.onAttached</a></code></li>
+        <li><code><a href="tabs.html#event-onCreated">tabs.onCreated</a></code></li>
+        <li><code><a href="tabs.html#event-onDetached">tabs.onDetached</a></code></li>
+        <li><code><a href="tabs.html#event-onMoved">tabs.onMoved</a></code></li>
+        <li><code><a href="tabs.html#event-onRemoved">tabs.onRemoved</a></code></li>
+        <li><code><a href="tabs.html#event-onSelectionChanged">tabs.onSelectionChanged</a></code></li>
+        <li><code><a href="tabs.html#event-onUpdated">tabs.onUpdated</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+        <li><code><a href="tabs.html#method-remove">tabs.remove</a></code></li>
+        <li><code><a href="tabs.html#method-update">tabs.update</a></code></li>
+        <li><code><a href="windows.html#method-create">windows.create</a></code></li>
+        <li><code><a href="windows.html#method-get">windows.get</a></code></li>
+        <li><code><a href="windows.html#method-getAll">windows.getAll</a></code></li>
+        <li><code><a href="windows.html#method-getCurrent">windows.getCurrent</a></code></li>
+        <li><code><a href="windows.html#method-getLastFocused">windows.getLastFocused</a></code></li>
+        <li><code><a href="windows.html#event-onCreated">windows.onCreated</a></code></li>
+        <li><code><a href="windows.html#event-onFocusChanged">windows.onFocusChanged</a></code></li>
+        <li><code><a href="windows.html#event-onRemoved">windows.onRemoved</a></code></li>
+        <li><code><a href="windows.html#method-remove">windows.remove</a></code></li>
+        <li><code><a href="windows.html#method-update">windows.update</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/tabs/inspector/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/tabs/inspector/jstemplate_compiled.js">jstemplate_compiled.js</a></code></li>
+        <li><code><a href="examples/api/tabs/inspector/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/tabs/inspector/tabs_api.html">tabs_api.html</a></code></li>
+        <li><code><a href="examples/api/tabs/inspector/tabs_api.js">tabs_api.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.commands.onCommand chrome.tabs.query chrome.tabs.update ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="keyboard-pin"><a href="examples/api/tabs/pin.zip">Keyboard Pin</a></h2>
+    Creates a keyboard shortcut (Alt + Shift + P) to toggle the pinned state of the currently selected tab
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="commands.html#event-onCommand">commands.onCommand</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+        <li><code><a href="tabs.html#method-update">tabs.update</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/tabs/pin/README">README</a></code></li>
+        <li><code><a href="examples/api/tabs/pin/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/tabs/pin/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.extension.getURL chrome.extension.getViews chrome.tabs.captureVisibleTab chrome.tabs.create chrome.tabs.onUpdated ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="test-screenshot-extension"><a href="examples/api/tabs/screenshot.zip">Test Screenshot Extension</a></h2>
+    Demonstrate screenshot functionality in the chrome.tabs api. Note: only works for code.google.com
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="extension.html#method-getURL">extension.getURL</a></code></li>
+        <li><code><a href="extension.html#method-getViews">extension.getViews</a></code></li>
+        <li><code><a href="tabs.html#method-captureVisibleTab">tabs.captureVisibleTab</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="tabs.html#event-onUpdated">tabs.onUpdated</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/tabs/screenshot/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/tabs/screenshot/camera.png">camera.png</a></code></li>
+        <li><code><a href="examples/api/tabs/screenshot/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/tabs/screenshot/screenshot.html">screenshot.html</a></code></li>
+        <li><code><a href="examples/api/tabs/screenshot/screenshot.js">screenshot.js</a></code></li>
+        <li><code><a href="examples/api/tabs/screenshot/white.png">white.png</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.tabs.create chrome.topSites.get ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="top-sites"><a href="examples/api/topsites/basic.zip">Top Sites</a></h2>
+    Shows the top sites in a browser action
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="topSites.html#method-get">topSites.get</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/topsites/basic/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/topsites/basic/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/topsites/basic/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/topsites/basic/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.topSites.get ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="ntp-prototyping-extension"><a href="examples/api/topsites/magic8ball.zip">NTP prototyping extension</a></h2>
+    extension to prototype new NTP designs
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="topSites.html#method-get">topSites.get</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/topsites/magic8ball/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/topsites/magic8ball/newTab.css">newTab.css</a></code></li>
+        <li><code><a href="examples/api/topsites/magic8ball/newTab.html">newTab.html</a></code></li>
+        <li><code><a href="examples/api/topsites/magic8ball/newTab.js">newTab.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.getViews chrome.ttsEngine.onSpeak chrome.ttsEngine.onStop chrome.windows.create chrome.windows.getCurrent chrome.windows.onRemoved ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="console-tts-engine"><a href="examples/api/ttsEngine/console_tts_engine.zip">Console TTS Engine</a></h2>
+    A "silent" TTS engine that prints text to a small window rather than synthesizing speech.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#method-getViews">extension.getViews</a></code></li>
+        <li><code><a href="ttsEngine.html#event-onSpeak">ttsEngine.onSpeak</a></code></li>
+        <li><code><a href="ttsEngine.html#event-onStop">ttsEngine.onStop</a></code></li>
+        <li><code><a href="windows.html#method-create">windows.create</a></code></li>
+        <li><code><a href="windows.html#method-getCurrent">windows.getCurrent</a></code></li>
+        <li><code><a href="windows.html#event-onRemoved">windows.onRemoved</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/ttsEngine/console_tts_engine/console_tts_engine.html">console_tts_engine.html</a></code></li>
+        <li><code><a href="examples/api/ttsEngine/console_tts_engine/console_tts_engine.js">console_tts_engine.js</a></code></li>
+        <li><code><a href="examples/api/ttsEngine/console_tts_engine/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.onRequest chrome.extension.sendRequest chrome.i18n.getMessage chrome.runtime.onStartup chrome.storage.StorageArea.get chrome.storage.StorageArea.set chrome.webNavigation.onBeforeNavigate chrome.webNavigation.onCommitted chrome.webNavigation.onCompleted chrome.webNavigation.onCreatedNavigationTarget chrome.webNavigation.onErrorOccurred chrome.webNavigation.onHistoryStateUpdated chrome.webNavigation.onReferenceFragmentUpdated ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="webnavigation-tech-demo"><a href="examples/api/webNavigation/basic.zip">WebNavigation Tech Demo</a></h2>
+    Demonstration of the WebNavigation extension API.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="extension.html#method-sendRequest">extension.sendRequest</a></code></li>
+        <li><code><a href="i18n.html#method-getMessage">i18n.getMessage</a></code></li>
+        <li><code><a href="runtime.html#event-onStartup">runtime.onStartup</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-get">storage.StorageArea.get</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-set">storage.StorageArea.set</a></code></li>
+        <li><code><a href="webNavigation.html#event-onBeforeNavigate">webNavigation.onBeforeNavigate</a></code></li>
+        <li><code><a href="webNavigation.html#event-onCommitted">webNavigation.onCommitted</a></code></li>
+        <li><code><a href="webNavigation.html#event-onCompleted">webNavigation.onCompleted</a></code></li>
+        <li><code><a href="webNavigation.html#event-onCreatedNavigationTarget">webNavigation.onCreatedNavigationTarget</a></code></li>
+        <li><code><a href="webNavigation.html#event-onErrorOccurred">webNavigation.onErrorOccurred</a></code></li>
+        <li><code><a href="webNavigation.html#event-onHistoryStateUpdated">webNavigation.onHistoryStateUpdated</a></code></li>
+        <li><code><a href="webNavigation.html#event-onReferenceFragmentUpdated">webNavigation.onReferenceFragmentUpdated</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/webNavigation/basic/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/webNavigation/basic/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/api/webNavigation/basic/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/webNavigation/basic/navigation_collector.js">navigation_collector.js</a></code></li>
+        <li><code><a href="examples/api/webNavigation/basic/popup.css">popup.css</a></code></li>
+        <li><code><a href="examples/api/webNavigation/basic/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/api/webNavigation/basic/popup.js">popup.js</a></code></li>
+        <li><code><a href="examples/api/webNavigation/basic/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.tabs.getAllInWindow chrome.tabs.move chrome.windows.getAll chrome.windows.getCurrent ">
+    <img class="icon" src="examples/api/windows/merge_windows/merge_windows_128.png">
+    <h2 id="merge-windows"><a href="examples/api/windows/merge_windows.zip">Merge Windows</a></h2>
+    Merges all of the browser's windows into the current window
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="tabs.html#method-getAllInWindow">tabs.getAllInWindow</a></code></li>
+        <li><code><a href="tabs.html#method-move">tabs.move</a></code></li>
+        <li><code><a href="windows.html#method-getAll">windows.getAll</a></code></li>
+        <li><code><a href="windows.html#method-getCurrent">windows.getCurrent</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/api/windows/merge_windows/NOTICE">NOTICE</a></code></li>
+        <li><code><a href="examples/api/windows/merge_windows/arrow_in.png">arrow_in.png</a></code></li>
+        <li><code><a href="examples/api/windows/merge_windows/background.js">background.js</a></code></li>
+        <li><code><a href="examples/api/windows/merge_windows/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/api/windows/merge_windows/merge_windows_128.png">merge_windows_128.png</a></code></li>
+        <li><code><a href="examples/api/windows/merge_windows/merge_windows_48.png">merge_windows_48.png</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="simple-background-app"><a href="examples/apps/background-simple.zip">Simple Background App</a></h2>
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/apps/background-simple/README">README</a></code></li>
+        <li><code><a href="examples/apps/background-simple/background.html">background.html</a></code></li>
+        <li><code><a href="examples/apps/background-simple/index.html">index.html</a></code></li>
+        <li><code><a href="examples/apps/background-simple/index.js">index.js</a></code></li>
+        <li><code><a href="examples/apps/background-simple/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.app.runtime chrome.app.runtime.onLaunched chrome.app.runtime.onRestarted chrome.app.window.create chrome.storage.StorageArea.get chrome.storage.StorageArea.set ">
+    <img class="icon" src="examples/apps/calculator/app/images/icon-128x128.png">
+    <h2 id="calculator"><a href="examples/apps/calculator/app.zip">Calculator</a></h2>
+    A simple calculator.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="app.runtime.html">app.runtime</a></code></li>
+        <li><code><a href="app.runtime.html#event-onLaunched">app.runtime.onLaunched</a></code></li>
+        <li><code><a href="app.runtime.html#event-onRestarted">app.runtime.onRestarted</a></code></li>
+        <li><code><a href="app.window.html#method-create">app.window.create</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-get">storage.StorageArea.get</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-set">storage.StorageArea.set</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/apps/calculator/app/LICENSE">LICENSE</a></code></li>
+        <li><code><a href="examples/apps/calculator/app/calculator.html">calculator.html</a></code></li>
+        <li><code><a href="examples/apps/calculator/app/controller.js">controller.js</a></code></li>
+        <li><code><a href="examples/apps/calculator/app/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/apps/calculator/app/model.js">model.js</a></code></li>
+        <li><code><a href="examples/apps/calculator/app/style.css">style.css</a></code></li>
+        <li><code><a href="examples/apps/calculator/app/view.js">view.js</a></code></li>
+        <li><code><a href="examples/apps/calculator/app/images/buttons_1x.png">images/buttons_1x.png</a></code></li>
+        <li><code><a href="examples/apps/calculator/app/images/buttons_2x.png">images/buttons_2x.png</a></code></li>
+        <li><code><a href="examples/apps/calculator/app/images/icon-128x128.png">images/icon-128x128.png</a></code></li>
+        <li><code><a href="examples/apps/calculator/app/images/icon-16x16.png">images/icon-16x16.png</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.getURL chrome.management.getAll chrome.management.launchApp chrome.tabs.create ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="app-launcher"><a href="examples/extensions/app_launcher.zip">App Launcher</a></h2>
+    Get access to your apps in a browser action
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#method-getURL">extension.getURL</a></code></li>
+        <li><code><a href="management.html#method-getAll">management.getAll</a></code></li>
+        <li><code><a href="management.html#method-launchApp">management.launchApp</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/app_launcher/browser_action_icon.png">browser_action_icon.png</a></code></li>
+        <li><code><a href="examples/extensions/app_launcher/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/extensions/app_launcher/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/app_launcher/popup.css">popup.css</a></code></li>
+        <li><code><a href="examples/extensions/app_launcher/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/extensions/app_launcher/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.browserAction.setBadgeBackgroundColor chrome.browserAction.setBadgeText chrome.browserAction.setTitle chrome.extension.getBackgroundPage chrome.extension.getURL chrome.extension.getViews chrome.runtime.connect chrome.runtime.onConnect chrome.tabs.create chrome.tabs.executeScript chrome.tabs.getAllInWindow chrome.tabs.query chrome.tabs.remove chrome.tabs.update chrome.windows.getCurrent ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="page-benchmarker"><a href="examples/extensions/benchmark.zip">Page Benchmarker</a></h2>
+    Chromium Page Benchmarker.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="browserAction.html#method-setBadgeBackgroundColor">browserAction.setBadgeBackgroundColor</a></code></li>
+        <li><code><a href="browserAction.html#method-setBadgeText">browserAction.setBadgeText</a></code></li>
+        <li><code><a href="browserAction.html#method-setTitle">browserAction.setTitle</a></code></li>
+        <li><code><a href="extension.html#method-getBackgroundPage">extension.getBackgroundPage</a></code></li>
+        <li><code><a href="extension.html#method-getURL">extension.getURL</a></code></li>
+        <li><code><a href="extension.html#method-getViews">extension.getViews</a></code></li>
+        <li><code><a href="runtime.html#method-connect">runtime.connect</a></code></li>
+        <li><code><a href="runtime.html#event-onConnect">runtime.onConnect</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="tabs.html#method-executeScript">tabs.executeScript</a></code></li>
+        <li><code><a href="tabs.html#method-getAllInWindow">tabs.getAllInWindow</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+        <li><code><a href="tabs.html#method-remove">tabs.remove</a></code></li>
+        <li><code><a href="tabs.html#method-update">tabs.update</a></code></li>
+        <li><code><a href="windows.html#method-getCurrent">windows.getCurrent</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/benchmark/README.txt">README.txt</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/background.html">background.html</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/options.html">options.html</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/options.js">options.js</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/script.js">script.js</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/stopwatch.jpg">stopwatch.jpg</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/jst/jsevalcontext.js">jst/jsevalcontext.js</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/jst/jstemplate.js">jst/jstemplate.js</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/jst/jstemplate_test.js">jst/jstemplate_test.js</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/jst/util.js">jst/util.js</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/jquery/jquery-1.8.2.min.js">jquery/jquery-1.8.2.min.js</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/jquery/jquery.flot.dashes.js">jquery/jquery.flot.dashes.js</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/jquery/jquery.flot.min.js">jquery/jquery.flot.min.js</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/util/sorttable.js">util/sorttable.js</a></code></li>
+        <li><code><a href="examples/extensions/benchmark/util/table2CSV.js">util/table2CSV.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.setBadgeBackgroundColor chrome.browserAction.setBadgeText chrome.browserAction.setTitle chrome.extension.getBackgroundPage chrome.extension.getURL chrome.extension.getViews chrome.storage.StorageArea.get chrome.storage.StorageArea.set ">
+    <img class="icon" src="examples/extensions/buildbot/icon.png">
+    <h2 id="chromium-buildbot-monitor"><a href="examples/extensions/buildbot.zip">Chromium Buildbot Monitor</a></h2>
+    Displays the status of the Chromium buildbot in the toolbar.  Click to see more detailed status in a popup.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#method-setBadgeBackgroundColor">browserAction.setBadgeBackgroundColor</a></code></li>
+        <li><code><a href="browserAction.html#method-setBadgeText">browserAction.setBadgeText</a></code></li>
+        <li><code><a href="browserAction.html#method-setTitle">browserAction.setTitle</a></code></li>
+        <li><code><a href="extension.html#method-getBackgroundPage">extension.getBackgroundPage</a></code></li>
+        <li><code><a href="extension.html#method-getURL">extension.getURL</a></code></li>
+        <li><code><a href="extension.html#method-getViews">extension.getViews</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-get">storage.StorageArea.get</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-set">storage.StorageArea.set</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/buildbot/active_issues.js">active_issues.js</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/bg.js">bg.js</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/chromium.png">chromium.png</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/options.html">options.html</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/options.js">options.js</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/popup.css">popup.css</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/popup.js">popup.js</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/prefs.js">prefs.js</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/try_status.js">try_status.js</a></code></li>
+        <li><code><a href="examples/extensions/buildbot/utils.js">utils.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.browserAction.setBadgeBackgroundColor chrome.browserAction.setBadgeText chrome.browserAction.setIcon chrome.browserAction.setTitle chrome.extension.getBackgroundPage chrome.extension.onRequest chrome.extension.sendRequest chrome.i18n.getMessage chrome.tabs.create chrome.tabs.getAllInWindow chrome.tabs.onUpdated chrome.tabs.update ">
+    <img class="icon" src="examples/extensions/calendar/images/icon-128.gif">
+    <h2 id="google-calendar-checker-(by-google)"><a href="examples/extensions/calendar.zip">Google Calendar Checker (by Google)</a></h2>
+    Quickly see the time until your next meeting from any of your calendars. Click on the button to be taken to your calendar.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="browserAction.html#method-setBadgeBackgroundColor">browserAction.setBadgeBackgroundColor</a></code></li>
+        <li><code><a href="browserAction.html#method-setBadgeText">browserAction.setBadgeText</a></code></li>
+        <li><code><a href="browserAction.html#method-setIcon">browserAction.setIcon</a></code></li>
+        <li><code><a href="browserAction.html#method-setTitle">browserAction.setTitle</a></code></li>
+        <li><code><a href="extension.html#method-getBackgroundPage">extension.getBackgroundPage</a></code></li>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="extension.html#method-sendRequest">extension.sendRequest</a></code></li>
+        <li><code><a href="i18n.html#method-getMessage">i18n.getMessage</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="tabs.html#method-getAllInWindow">tabs.getAllInWindow</a></code></li>
+        <li><code><a href="tabs.html#event-onUpdated">tabs.onUpdated</a></code></li>
+        <li><code><a href="tabs.html#method-update">tabs.update</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/calendar/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/javascript/background.js">javascript/background.js</a></code></li>
+        <li><code><a href="examples/extensions/calendar/javascript/options.js">javascript/options.js</a></code></li>
+        <li><code><a href="examples/extensions/calendar/javascript/util.js">javascript/util.js</a></code></li>
+        <li><code><a href="examples/extensions/calendar/views/background.html">views/background.html</a></code></li>
+        <li><code><a href="examples/extensions/calendar/views/options.html">views/options.html</a></code></li>
+        <li><code><a href="examples/extensions/calendar/images/calendar_logo.gif">images/calendar_logo.gif</a></code></li>
+        <li><code><a href="examples/extensions/calendar/images/icon-128.gif">images/icon-128.gif</a></code></li>
+        <li><code><a href="examples/extensions/calendar/images/icon-16.gif">images/icon-16.gif</a></code></li>
+        <li><code><a href="examples/extensions/calendar/images/icon-16_bw.gif">images/icon-16_bw.gif</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/sr/messages.json">_locales/sr/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/sk/messages.json">_locales/sk/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/vi/messages.json">_locales/vi/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/pt_BR/messages.json">_locales/pt_BR/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/hu/messages.json">_locales/hu/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/fi/messages.json">_locales/fi/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/el/messages.json">_locales/el/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/es/messages.json">_locales/es/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/de/messages.json">_locales/de/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/lv/messages.json">_locales/lv/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/nl/messages.json">_locales/nl/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/th/messages.json">_locales/th/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/ca/messages.json">_locales/ca/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/ja/messages.json">_locales/ja/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/cs/messages.json">_locales/cs/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/id/messages.json">_locales/id/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/nb/messages.json">_locales/nb/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/fr/messages.json">_locales/fr/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/pl/messages.json">_locales/pl/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/zh_TW/messages.json">_locales/zh_TW/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/he/messages.json">_locales/he/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/es_419/messages.json">_locales/es_419/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/it/messages.json">_locales/it/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/pt_PT/messages.json">_locales/pt_PT/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/lt/messages.json">_locales/lt/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/sv/messages.json">_locales/sv/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/et/messages.json">_locales/et/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/en_GB/messages.json">_locales/en_GB/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/fil/messages.json">_locales/fil/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/hr/messages.json">_locales/hr/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/ko/messages.json">_locales/ko/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/da/messages.json">_locales/da/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/ro/messages.json">_locales/ro/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/bg/messages.json">_locales/bg/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/ar/messages.json">_locales/ar/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/ru/messages.json">_locales/ru/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/hi/messages.json">_locales/hi/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/sl/messages.json">_locales/sl/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/uk/messages.json">_locales/uk/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/tr/messages.json">_locales/tr/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/calendar/_locales/zh_CN/messages.json">_locales/zh_CN/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.webRequest.onBeforeRequest ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="catblock"><a href="examples/extensions/catblock.zip">CatBlock</a></h2>
+    I can't has cheezburger!
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="webRequest.html#event-onBeforeRequest">webRequest.onBeforeRequest</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/catblock/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/catblock/loldogs.js">loldogs.js</a></code></li>
+        <li><code><a href="examples/extensions/catblock/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.declarativeWebRequest.IgnoreRules chrome.declarativeWebRequest.RedirectRequest chrome.declarativeWebRequest.RequestMatcher chrome.runtime.lastError chrome.runtime.onInstalled ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="catifier"><a href="examples/extensions/catifier.zip">Catifier</a></h2>
+    Moar cats!
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="declarativeWebRequest.html#type-IgnoreRules">declarativeWebRequest.IgnoreRules</a></code></li>
+        <li><code><a href="declarativeWebRequest.html#type-RedirectRequest">declarativeWebRequest.RedirectRequest</a></code></li>
+        <li><code><a href="declarativeWebRequest.html#type-RequestMatcher">declarativeWebRequest.RequestMatcher</a></code></li>
+        <li><code><a href="runtime.html#property-lastError">runtime.lastError</a></code></li>
+        <li><code><a href="runtime.html#event-onInstalled">runtime.onInstalled</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/catifier/event_page.js">event_page.js</a></code></li>
+        <li><code><a href="examples/extensions/catifier/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.omnibox.onInputCancelled chrome.omnibox.onInputChanged chrome.omnibox.onInputEntered chrome.omnibox.onInputStarted chrome.omnibox.setDefaultSuggestion chrome.tabs.query chrome.tabs.update ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="chromium-search"><a href="examples/extensions/chrome_search.zip">Chromium Search</a></h2>
+    Add support to the omnibox to search the Chromium source code.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="omnibox.html#event-onInputCancelled">omnibox.onInputCancelled</a></code></li>
+        <li><code><a href="omnibox.html#event-onInputChanged">omnibox.onInputChanged</a></code></li>
+        <li><code><a href="omnibox.html#event-onInputEntered">omnibox.onInputEntered</a></code></li>
+        <li><code><a href="omnibox.html#event-onInputStarted">omnibox.onInputStarted</a></code></li>
+        <li><code><a href="omnibox.html#method-setDefaultSuggestion">omnibox.setDefaultSuggestion</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+        <li><code><a href="tabs.html#method-update">tabs.update</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/chrome_search/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/chrome_search/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.runtime.connect chrome.runtime.onConnect chrome.tabs.create chrome.tabs.executeScript chrome.tabs.update ">
+    <img class="icon" src="examples/extensions/email_this_page/mail_128x128.png">
+    <h2 id="email-this-page-(by-google)"><a href="examples/extensions/email_this_page.zip">Email this page (by Google)</a></h2>
+    This extension adds an email button to the toolbar which allows you to email the page link using your default mail client or Gmail.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="runtime.html#method-connect">runtime.connect</a></code></li>
+        <li><code><a href="runtime.html#event-onConnect">runtime.onConnect</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="tabs.html#method-executeScript">tabs.executeScript</a></code></li>
+        <li><code><a href="tabs.html#method-update">tabs.update</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/email_this_page/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/email_this_page/content_script.js">content_script.js</a></code></li>
+        <li><code><a href="examples/extensions/email_this_page/email_16x16.png">email_16x16.png</a></code></li>
+        <li><code><a href="examples/extensions/email_this_page/mail_128x128.png">mail_128x128.png</a></code></li>
+        <li><code><a href="examples/extensions/email_this_page/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/email_this_page/options.html">options.html</a></code></li>
+        <li><code><a href="examples/extensions/email_this_page/options.js">options.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.bookmarks.onCreated chrome.bookmarks.onMoved chrome.bookmarks.onRemoved chrome.extension.getBackgroundPage chrome.extension.onRequest chrome.extension.sendRequest chrome.tabs.get chrome.tabs.onAttached chrome.tabs.onCreated chrome.tabs.onDetached chrome.tabs.onMoved chrome.tabs.onRemoved chrome.tabs.onSelectionChanged chrome.tabs.onUpdated chrome.windows.onCreated chrome.windows.onFocusChanged chrome.windows.onRemoved ">
+    <img class="icon" src="examples/extensions/fx/icon.png">
+    <h2 id="chrome-sounds"><a href="examples/extensions/fx.zip">Chrome Sounds</a></h2>
+    Enjoy a more magical and immersive experience when browsing the web using the power of sound.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="bookmarks.html#event-onCreated">bookmarks.onCreated</a></code></li>
+        <li><code><a href="bookmarks.html#event-onMoved">bookmarks.onMoved</a></code></li>
+        <li><code><a href="bookmarks.html#event-onRemoved">bookmarks.onRemoved</a></code></li>
+        <li><code><a href="extension.html#method-getBackgroundPage">extension.getBackgroundPage</a></code></li>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="extension.html#method-sendRequest">extension.sendRequest</a></code></li>
+        <li><code><a href="tabs.html#method-get">tabs.get</a></code></li>
+        <li><code><a href="tabs.html#event-onAttached">tabs.onAttached</a></code></li>
+        <li><code><a href="tabs.html#event-onCreated">tabs.onCreated</a></code></li>
+        <li><code><a href="tabs.html#event-onDetached">tabs.onDetached</a></code></li>
+        <li><code><a href="tabs.html#event-onMoved">tabs.onMoved</a></code></li>
+        <li><code><a href="tabs.html#event-onRemoved">tabs.onRemoved</a></code></li>
+        <li><code><a href="tabs.html#event-onSelectionChanged">tabs.onSelectionChanged</a></code></li>
+        <li><code><a href="tabs.html#event-onUpdated">tabs.onUpdated</a></code></li>
+        <li><code><a href="windows.html#event-onCreated">windows.onCreated</a></code></li>
+        <li><code><a href="windows.html#event-onFocusChanged">windows.onFocusChanged</a></code></li>
+        <li><code><a href="windows.html#event-onRemoved">windows.onRemoved</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/fx/bg.js">bg.js</a></code></li>
+        <li><code><a href="examples/extensions/fx/content.js">content.js</a></code></li>
+        <li><code><a href="examples/extensions/fx/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/extensions/fx/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/fx/options.html">options.html</a></code></li>
+        <li><code><a href="examples/extensions/fx/options.js">options.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.getBackgroundPage chrome.extension.getURL chrome.tabs.create chrome.tabs.onUpdated chrome.tabs.query chrome.tabs.remove ">
+    <img class="icon" src="examples/extensions/gdocs/img/docs_spreadsheets-128.gif">
+    <h2 id="google-document-list-viewer"><a href="examples/extensions/gdocs.zip">Google Document List Viewer</a></h2>
+    Demonstrates how to use OAuth to connect the Google Documents List Data API.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#method-getBackgroundPage">extension.getBackgroundPage</a></code></li>
+        <li><code><a href="extension.html#method-getURL">extension.getURL</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="tabs.html#event-onUpdated">tabs.onUpdated</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+        <li><code><a href="tabs.html#method-remove">tabs.remove</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/gdocs/README">README</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/background.html">background.html</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/chrome_ex_oauth.html">chrome_ex_oauth.html</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/chrome_ex_oauth.js">chrome_ex_oauth.js</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/chrome_ex_oauthsimple.js">chrome_ex_oauthsimple.js</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/options.html">options.html</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/docs_spreadsheets-128.gif">img/docs_spreadsheets-128.gif</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/docs_spreadsheets-32.gif">img/docs_spreadsheets-32.gif</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/docs_spreadsheets-48.gif">img/docs_spreadsheets-48.gif</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/js/jquery-1.4.1.min.js">js/jquery-1.4.1.min.js</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/icons/audio.gif">img/icons/audio.gif</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/icons/document.gif">img/icons/document.gif</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/icons/file.gif">img/icons/file.gif</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/icons/folder.gif">img/icons/folder.gif</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/icons/form.gif">img/icons/form.gif</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/icons/pdf.gif">img/icons/pdf.gif</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/icons/presentation.gif">img/icons/presentation.gif</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/icons/spreadsheet.gif">img/icons/spreadsheet.gif</a></code></li>
+        <li><code><a href="examples/extensions/gdocs/img/icons/trashed.png">img/icons/trashed.png</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.alarms.create chrome.alarms.get chrome.alarms.onAlarm chrome.browserAction.onClicked chrome.browserAction.setBadgeBackgroundColor chrome.browserAction.setBadgeText chrome.browserAction.setIcon chrome.i18n.getMessage chrome.runtime.onInstalled chrome.runtime.onStartup chrome.runtime.onStartup chrome.tabs.create chrome.tabs.getAllInWindow chrome.tabs.onUpdated chrome.tabs.update chrome.webNavigation.onDOMContentLoaded chrome.webNavigation.onDOMContentLoaded chrome.webNavigation.onReferenceFragmentUpdated chrome.webNavigation.onReferenceFragmentUpdated chrome.windows.onCreated ">
+    <img class="icon" src="examples/extensions/gmail/icon_128.png">
+    <h2 id="google-mail-checker"><a href="examples/extensions/gmail.zip">Google Mail Checker</a></h2>
+    Displays the number of unread messages in your Google Mail inbox. You can also click the button to open your inbox.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="alarms.html#method-create">alarms.create</a></code></li>
+        <li><code><a href="alarms.html#method-get">alarms.get</a></code></li>
+        <li><code><a href="alarms.html#event-onAlarm">alarms.onAlarm</a></code></li>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="browserAction.html#method-setBadgeBackgroundColor">browserAction.setBadgeBackgroundColor</a></code></li>
+        <li><code><a href="browserAction.html#method-setBadgeText">browserAction.setBadgeText</a></code></li>
+        <li><code><a href="browserAction.html#method-setIcon">browserAction.setIcon</a></code></li>
+        <li><code><a href="i18n.html#method-getMessage">i18n.getMessage</a></code></li>
+        <li><code><a href="runtime.html#event-onInstalled">runtime.onInstalled</a></code></li>
+        <li><code><a href="runtime.html#event-onStartup">runtime.onStartup</a></code></li>
+        <li><code><a href="runtime.html#event-onStartup">runtime.onStartup</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="tabs.html#method-getAllInWindow">tabs.getAllInWindow</a></code></li>
+        <li><code><a href="tabs.html#event-onUpdated">tabs.onUpdated</a></code></li>
+        <li><code><a href="tabs.html#method-update">tabs.update</a></code></li>
+        <li><code><a href="webNavigation.html#event-onDOMContentLoaded">webNavigation.onDOMContentLoaded</a></code></li>
+        <li><code><a href="webNavigation.html#event-onDOMContentLoaded">webNavigation.onDOMContentLoaded</a></code></li>
+        <li><code><a href="webNavigation.html#event-onReferenceFragmentUpdated">webNavigation.onReferenceFragmentUpdated</a></code></li>
+        <li><code><a href="webNavigation.html#event-onReferenceFragmentUpdated">webNavigation.onReferenceFragmentUpdated</a></code></li>
+        <li><code><a href="windows.html#event-onCreated">windows.onCreated</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/gmail/background.html">background.html</a></code></li>
+        <li><code><a href="examples/extensions/gmail/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/gmail/gmail_logged_in.png">gmail_logged_in.png</a></code></li>
+        <li><code><a href="examples/extensions/gmail/gmail_not_logged_in.png">gmail_not_logged_in.png</a></code></li>
+        <li><code><a href="examples/extensions/gmail/icon_128.png">icon_128.png</a></code></li>
+        <li><code><a href="examples/extensions/gmail/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/es/messages.json">_locales/es/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/nl/messages.json">_locales/nl/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/pt_BR/messages.json">_locales/pt_BR/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/ar/messages.json">_locales/ar/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/sk/messages.json">_locales/sk/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/pt_PT/messages.json">_locales/pt_PT/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/lv/messages.json">_locales/lv/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/hr/messages.json">_locales/hr/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/nb/messages.json">_locales/nb/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/fil/messages.json">_locales/fil/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/hi/messages.json">_locales/hi/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/sv/messages.json">_locales/sv/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/ko/messages.json">_locales/ko/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/cs/messages.json">_locales/cs/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/da/messages.json">_locales/da/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/sl/messages.json">_locales/sl/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/pl/messages.json">_locales/pl/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/es_419/messages.json">_locales/es_419/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/en_GB/messages.json">_locales/en_GB/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/fi/messages.json">_locales/fi/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/fr/messages.json">_locales/fr/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/vi/messages.json">_locales/vi/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/zh_CN/messages.json">_locales/zh_CN/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/hu/messages.json">_locales/hu/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/he/messages.json">_locales/he/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/th/messages.json">_locales/th/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/id/messages.json">_locales/id/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/bg/messages.json">_locales/bg/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/ca/messages.json">_locales/ca/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/el/messages.json">_locales/el/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/sr/messages.json">_locales/sr/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/zh_TW/messages.json">_locales/zh_TW/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/ro/messages.json">_locales/ro/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/ja/messages.json">_locales/ja/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/tr/messages.json">_locales/tr/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/uk/messages.json">_locales/uk/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/it/messages.json">_locales/it/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/et/messages.json">_locales/et/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/ru/messages.json">_locales/ru/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/lt/messages.json">_locales/lt/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/gmail/_locales/de/messages.json">_locales/de/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.contextMenus.create chrome.tabs.getCurrent chrome.windows.create chrome.windows.update ">
+    <img class="icon" src="examples/extensions/imageinfo/imageinfo-128.png">
+    <h2 id="imageinfo"><a href="examples/extensions/imageinfo.zip">Imageinfo</a></h2>
+    Get image info for images, including EXIF data
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="contextMenus.html#method-create">contextMenus.create</a></code></li>
+        <li><code><a href="tabs.html#method-getCurrent">tabs.getCurrent</a></code></li>
+        <li><code><a href="windows.html#method-create">windows.create</a></code></li>
+        <li><code><a href="windows.html#method-update">windows.update</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/imageinfo/NOTICE">NOTICE</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/imageinfo-128.png">imageinfo-128.png</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/imageinfo-16.png">imageinfo-16.png</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/imageinfo-19.png">imageinfo-19.png</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/imageinfo-48.png">imageinfo-48.png</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/info.css">info.css</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/info.html">info.html</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/info.js">info.js</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/loader.gif">loader.gif</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/imageinfo/binaryajax.js">imageinfo/binaryajax.js</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/imageinfo/exif.js">imageinfo/exif.js</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/imageinfo/imageinfo.js">imageinfo/imageinfo.js</a></code></li>
+        <li><code><a href="examples/extensions/imageinfo/imageinfo/readme.txt">imageinfo/readme.txt</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="chromium-irc-app"><a href="examples/extensions/irc/app.zip">Chromium IRC App</a></h2>
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/irc/app/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.bookmarks.create chrome.bookmarks.getChildren chrome.bookmarks.move chrome.bookmarks.onChanged chrome.bookmarks.onMoved chrome.bookmarks.onRemoved chrome.bookmarks.remove chrome.bookmarks.removeTree chrome.bookmarks.update chrome.runtime.onInstalled chrome.storage.StorageArea.get chrome.storage.StorageArea.set chrome.storage.StorageArea.get chrome.storage.onChanged ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="managed-bookmarks"><a href="examples/extensions/managed_bookmarks.zip">Managed Bookmarks</a></h2>
+    Adds bookmarks configured by your system administrator to Chrome.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="bookmarks.html#method-create">bookmarks.create</a></code></li>
+        <li><code><a href="bookmarks.html#method-getChildren">bookmarks.getChildren</a></code></li>
+        <li><code><a href="bookmarks.html#method-move">bookmarks.move</a></code></li>
+        <li><code><a href="bookmarks.html#event-onChanged">bookmarks.onChanged</a></code></li>
+        <li><code><a href="bookmarks.html#event-onMoved">bookmarks.onMoved</a></code></li>
+        <li><code><a href="bookmarks.html#event-onRemoved">bookmarks.onRemoved</a></code></li>
+        <li><code><a href="bookmarks.html#method-remove">bookmarks.remove</a></code></li>
+        <li><code><a href="bookmarks.html#method-removeTree">bookmarks.removeTree</a></code></li>
+        <li><code><a href="bookmarks.html#method-update">bookmarks.update</a></code></li>
+        <li><code><a href="runtime.html#event-onInstalled">runtime.onInstalled</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-get">storage.StorageArea.get</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-set">storage.StorageArea.set</a></code></li>
+        <li><code><a href="storage.html#method-StorageArea-get">storage.StorageArea.get</a></code></li>
+        <li><code><a href="storage.html#event-onChanged">storage.onChanged</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/managed_bookmarks/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/managed_bookmarks/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/managed_bookmarks/schema.json">schema.json</a></code></li>
+        <li><code><a href="examples/extensions/managed_bookmarks/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.getBackgroundPage chrome.extension.onRequest chrome.pageAction.hide chrome.pageAction.setTitle chrome.pageAction.show chrome.tabs.onSelectionChanged chrome.tabs.onUpdated chrome.tabs.query chrome.tabs.sendRequest ">
+    <img class="icon" src="examples/extensions/mappy/icon.png">
+    <h2 id="mappy"><a href="examples/extensions/mappy.zip">Mappy</a></h2>
+    Finds addresses in the web page you're on and pops up a map window.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#method-getBackgroundPage">extension.getBackgroundPage</a></code></li>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="pageAction.html#method-hide">pageAction.hide</a></code></li>
+        <li><code><a href="pageAction.html#method-setTitle">pageAction.setTitle</a></code></li>
+        <li><code><a href="pageAction.html#method-show">pageAction.show</a></code></li>
+        <li><code><a href="tabs.html#event-onSelectionChanged">tabs.onSelectionChanged</a></code></li>
+        <li><code><a href="tabs.html#event-onUpdated">tabs.onUpdated</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+        <li><code><a href="tabs.html#method-sendRequest">tabs.sendRequest</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/mappy/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/mappy/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/extensions/mappy/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/mappy/mappy_content_script.js">mappy_content_script.js</a></code></li>
+        <li><code><a href="examples/extensions/mappy/marker.png">marker.png</a></code></li>
+        <li><code><a href="examples/extensions/mappy/popup.css">popup.css</a></code></li>
+        <li><code><a href="examples/extensions/mappy/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/extensions/mappy/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="">
+    <img class="icon" src="examples/extensions/maps_app/128.png">
+    <h2 id="google-maps"><a href="examples/extensions/maps_app.zip">Google Maps</a></h2>
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/maps_app/128.png">128.png</a></code></li>
+        <li><code><a href="examples/extensions/maps_app/24.png">24.png</a></code></li>
+        <li><code><a href="examples/extensions/maps_app/manifest.json">manifest.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.extension.getURL chrome.i18n.getMessage chrome.tabs.create ">
+    <img class="icon" src="examples/extensions/news/images/news_icon.png">
+    <h2 id="news-reader-(by-google)"><a href="examples/extensions/news.zip">News Reader (by Google)</a></h2>
+    Displays the latest stories from Google News in a popup.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="extension.html#method-getURL">extension.getURL</a></code></li>
+        <li><code><a href="i18n.html#method-getMessage">i18n.getMessage</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/news/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/news/images/buzz.png">images/buzz.png</a></code></li>
+        <li><code><a href="examples/extensions/news/images/delete-icon.png">images/delete-icon.png</a></code></li>
+        <li><code><a href="examples/extensions/news/images/fb.png">images/fb.png</a></code></li>
+        <li><code><a href="examples/extensions/news/images/news.gif">images/news.gif</a></code></li>
+        <li><code><a href="examples/extensions/news/images/news_action.png">images/news_action.png</a></code></li>
+        <li><code><a href="examples/extensions/news/images/news_icon.png">images/news_icon.png</a></code></li>
+        <li><code><a href="examples/extensions/news/images/sprite_arrows.gif">images/sprite_arrows.gif</a></code></li>
+        <li><code><a href="examples/extensions/news/images/twitter.png">images/twitter.png</a></code></li>
+        <li><code><a href="examples/extensions/news/css/feed.css">css/feed.css</a></code></li>
+        <li><code><a href="examples/extensions/news/css/options.css">css/options.css</a></code></li>
+        <li><code><a href="examples/extensions/news/javascript/feed.js">javascript/feed.js</a></code></li>
+        <li><code><a href="examples/extensions/news/javascript/options.js">javascript/options.js</a></code></li>
+        <li><code><a href="examples/extensions/news/javascript/util.js">javascript/util.js</a></code></li>
+        <li><code><a href="examples/extensions/news/views/background.html">views/background.html</a></code></li>
+        <li><code><a href="examples/extensions/news/views/feed.html">views/feed.html</a></code></li>
+        <li><code><a href="examples/extensions/news/views/options.html">views/options.html</a></code></li>
+        <li><code><a href="examples/extensions/news/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.tabs.create ">
+    <img class="icon" src="examples/extensions/news_a11y/news_icon.png">
+    <h2 id="news-reader"><a href="examples/extensions/news_a11y.zip">News Reader</a></h2>
+    Displays the first 5 items from the 'Google News - top news' RSS feed in a popup.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/news_a11y/feed.css">feed.css</a></code></li>
+        <li><code><a href="examples/extensions/news_a11y/feed.html">feed.html</a></code></li>
+        <li><code><a href="examples/extensions/news_a11y/feed.js">feed.js</a></code></li>
+        <li><code><a href="examples/extensions/news_a11y/feed_iframe.css">feed_iframe.css</a></code></li>
+        <li><code><a href="examples/extensions/news_a11y/feed_iframe.js">feed_iframe.js</a></code></li>
+        <li><code><a href="examples/extensions/news_a11y/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/news_a11y/news_action.png">news_action.png</a></code></li>
+        <li><code><a href="examples/extensions/news_a11y/news_icon.png">news_icon.png</a></code></li>
+        <li><code><a href="examples/extensions/news_a11y/sprite_arrows.gif">sprite_arrows.gif</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="">
+    <img class="icon" src="examples/extensions/news_i18n/news_icon.png">
+    <h2 id="news-reader"><a href="examples/extensions/news_i18n.zip">News Reader</a></h2>
+    Displays the first 5 items from the '$Google$ News - top news' RSS feed in a popup.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/news_i18n/feed.html">feed.html</a></code></li>
+        <li><code><a href="examples/extensions/news_i18n/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/news_i18n/news_action.png">news_action.png</a></code></li>
+        <li><code><a href="examples/extensions/news_i18n/news_icon.png">news_icon.png</a></code></li>
+        <li><code><a href="examples/extensions/news_i18n/sprite_arrows.gif">sprite_arrows.gif</a></code></li>
+        <li><code><a href="examples/extensions/news_i18n/_locales/sr/messages.json">_locales/sr/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/news_i18n/_locales/es/messages.json">_locales/es/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/news_i18n/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.browserAction.setIcon chrome.extension.getBackgroundPage chrome.extension.getURL chrome.tabs.create chrome.tabs.onUpdated chrome.tabs.query chrome.tabs.remove ">
+    <img class="icon" src="examples/extensions/oauth_contacts/img/icon-128.png">
+    <h2 id="sample---oauth-contacts"><a href="examples/extensions/oauth_contacts.zip">Sample - OAuth Contacts</a></h2>
+    Uses OAuth to connect to Google's contacts service and display a list of your contacts.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="browserAction.html#method-setIcon">browserAction.setIcon</a></code></li>
+        <li><code><a href="extension.html#method-getBackgroundPage">extension.getBackgroundPage</a></code></li>
+        <li><code><a href="extension.html#method-getURL">extension.getURL</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="tabs.html#event-onUpdated">tabs.onUpdated</a></code></li>
+        <li><code><a href="tabs.html#method-query">tabs.query</a></code></li>
+        <li><code><a href="tabs.html#method-remove">tabs.remove</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/oauth_contacts/NOTICE">NOTICE</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/README">README</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/chrome_ex_oauth.html">chrome_ex_oauth.html</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/chrome_ex_oauth.js">chrome_ex_oauth.js</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/chrome_ex_oauthsimple.js">chrome_ex_oauthsimple.js</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/contacts.html">contacts.html</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/contacts.js">contacts.js</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/onload.js">onload.js</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/img/icon-128.png">img/icon-128.png</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/img/icon-19-off.png">img/icon-19-off.png</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/img/icon-19-on.png">img/icon-19-on.png</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/img/icon-32.png">img/icon-32.png</a></code></li>
+        <li><code><a href="examples/extensions/oauth_contacts/img/icon-48.png">img/icon-48.png</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.contentSettings.plugins chrome.contentSettings.ContentSetting.clear chrome.contentSettings.ContentSetting.getResourceIdentifiers chrome.contentSettings.ContentSetting.set chrome.i18n.getMessage chrome.runtime.lastError chrome.runtime.lastError.message ">
+    <img class="icon" src="examples/extensions/plugin_settings/bunny128.png">
+    <h2 id="per-plugin-content-settings"><a href="examples/extensions/plugin_settings.zip">Per-plugin content settings</a></h2>
+    Customize your content setting for different plug-ins.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="contentSettings.html#property-plugins">contentSettings.plugins</a></code></li>
+        <li><code><a href="contentSettings.html#method-ContentSetting-clear">contentSettings.ContentSetting.clear</a></code></li>
+        <li><code><a href="contentSettings.html#method-ContentSetting-getResourceIdentifiers">contentSettings.ContentSetting.getResourceIdentifiers</a></code></li>
+        <li><code><a href="contentSettings.html#method-ContentSetting-set">contentSettings.ContentSetting.set</a></code></li>
+        <li><code><a href="i18n.html#method-getMessage">i18n.getMessage</a></code></li>
+        <li><code><a href="runtime.html#property-lastError">runtime.lastError</a></code></li>
+        <li><code><a href="runtime.html#property-lastError-message">runtime.lastError.message</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/plugin_settings/bunny128.png">bunny128.png</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/bunny48.png">bunny48.png</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/options.html">options.html</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/js/chrome_stubs.js">js/chrome_stubs.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/js/main.js">js/main.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/js/plugin_list.js">js/plugin_list.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/js/plugin_list_test.html">js/plugin_list_test.html</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/js/plugin_settings.js">js/plugin_settings.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/js/plugin_settings_test.html">js/plugin_settings_test.html</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/js/rule_list.js">js/rule_list.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/js/rule_list_test.html">js/rule_list_test.html</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/css/plugin_list.css">css/plugin_list.css</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/css/rule_list.css">css/rule_list.css</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/css/button.css">domui/css/button.css</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/css/chrome_shared.css">domui/css/chrome_shared.css</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/css/list.css">domui/css/list.css</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/css/select.css">domui/css/select.css</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/options/images/close_bar.png">options/images/close_bar.png</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/options/images/close_bar_h.png">options/images/close_bar_h.png</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/options/images/close_bar_p.png">options/images/close_bar_p.png</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/options/css/list.css">options/css/list.css</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/options/js/deletable_item_list.js">options/js/deletable_item_list.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/options/js/inline_editable_list.js">options/js/inline_editable_list.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/images/select.png">domui/images/select.png</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/js/cr.js">domui/js/cr.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/js/util.js">domui/js/util.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/js/cr/event_target.js">domui/js/cr/event_target.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/js/cr/ui.js">domui/js/cr/ui.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/js/cr/ui/array_data_model.js">domui/js/cr/ui/array_data_model.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/js/cr/ui/list.js">domui/js/cr/ui/list.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/js/cr/ui/list_item.js">domui/js/cr/ui/list_item.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/js/cr/ui/list_selection_controller.js">domui/js/cr/ui/list_selection_controller.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/js/cr/ui/list_selection_model.js">domui/js/cr/ui/list_selection_model.js</a></code></li>
+        <li><code><a href="examples/extensions/plugin_settings/domui/js/cr/ui/list_single_selection_model.js">domui/js/cr/ui/list_single_selection_model.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.setBadgeBackgroundColor chrome.browserAction.setBadgeText chrome.browserAction.setTitle chrome.extension.isAllowedIncognitoAccess chrome.extension.onRequest chrome.extension.sendRequest chrome.i18n.getMessage chrome.proxy.onProxyError chrome.runtime.lastError ">
+    <img class="icon" src="examples/extensions/proxy_configuration/icon128.png">
+    <h2 id="proxy-extension-api-sample"><a href="examples/extensions/proxy_configuration.zip">Proxy Extension API Sample</a></h2>
+    Set Chrome-specific proxies; a demonstration of Chrome's Proxy API
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#method-setBadgeBackgroundColor">browserAction.setBadgeBackgroundColor</a></code></li>
+        <li><code><a href="browserAction.html#method-setBadgeText">browserAction.setBadgeText</a></code></li>
+        <li><code><a href="browserAction.html#method-setTitle">browserAction.setTitle</a></code></li>
+        <li><code><a href="extension.html#method-isAllowedIncognitoAccess">extension.isAllowedIncognitoAccess</a></code></li>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="extension.html#method-sendRequest">extension.sendRequest</a></code></li>
+        <li><code><a href="i18n.html#method-getMessage">i18n.getMessage</a></code></li>
+        <li><code><a href="proxy.html#event-onProxyError">proxy.onProxyError</a></code></li>
+        <li><code><a href="runtime.html#property-lastError">runtime.lastError</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/proxy_configuration/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/icon128.png">icon128.png</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/icon16.png">icon16.png</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/icon32.png">icon32.png</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/icon48.png">icon48.png</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/popup.css">popup.css</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/popup.js">popup.js</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/proxy_error_handler.js">proxy_error_handler.js</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/proxy_form_controller.js">proxy_form_controller.js</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/test/jsunittest.js">test/jsunittest.js</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/test/proxy_form_controller_test.html">test/proxy_form_controller_test.html</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/test/proxy_form_controller_test.js">test/proxy_form_controller_test.js</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/test/unittest.css">test/unittest.css</a></code></li>
+        <li><code><a href="examples/extensions/proxy_configuration/_locales/en/messages.json">_locales/en/messages.json</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked chrome.browserAction.setIcon chrome.extension.getURL chrome.extension.onRequest chrome.extension.sendRequest chrome.tabs.create chrome.tabs.executeScript chrome.tabs.sendRequest chrome.tts.getVoices chrome.tts.speak chrome.tts.stop chrome.windows.getAll ">
+    <img class="icon" src="examples/extensions/speak_selection/SpeakSel128.png">
+    <h2 id="speak-selection"><a href="examples/extensions/speak_selection.zip">Speak Selection</a></h2>
+    Speaks the current selection out loud.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+        <li><code><a href="browserAction.html#method-setIcon">browserAction.setIcon</a></code></li>
+        <li><code><a href="extension.html#method-getURL">extension.getURL</a></code></li>
+        <li><code><a href="extension.html#event-onRequest">extension.onRequest</a></code></li>
+        <li><code><a href="extension.html#method-sendRequest">extension.sendRequest</a></code></li>
+        <li><code><a href="tabs.html#method-create">tabs.create</a></code></li>
+        <li><code><a href="tabs.html#method-executeScript">tabs.executeScript</a></code></li>
+        <li><code><a href="tabs.html#method-sendRequest">tabs.sendRequest</a></code></li>
+        <li><code><a href="tts.html#method-getVoices">tts.getVoices</a></code></li>
+        <li><code><a href="tts.html#method-speak">tts.speak</a></code></li>
+        <li><code><a href="tts.html#method-stop">tts.stop</a></code></li>
+        <li><code><a href="windows.html#method-getAll">windows.getAll</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/speak_selection/SpeakSel128.png">SpeakSel128.png</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/SpeakSel16.png">SpeakSel16.png</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/SpeakSel19-active.png">SpeakSel19-active.png</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/SpeakSel19.png">SpeakSel19.png</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/SpeakSel256.png">SpeakSel256.png</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/SpeakSel48.png">SpeakSel48.png</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/content_script.js">content_script.js</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/keycodes.js">keycodes.js</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/options.html">options.html</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/options.js">options.js</a></code></li>
+        <li><code><a href="examples/extensions/speak_selection/tabs.js">tabs.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.setIcon chrome.runtime.connect chrome.runtime.onConnect chrome.tts.getVoices chrome.tts.speak chrome.tts.stop ">
+    <img class="icon" src="examples/extensions/talking_alarm_clock/clock-128.png">
+    <h2 id="talking-alarm-clock"><a href="examples/extensions/talking_alarm_clock.zip">Talking Alarm Clock</a></h2>
+    A clock with two configurable alarms that will play a sound and speak a phrase of your choice.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#method-setIcon">browserAction.setIcon</a></code></li>
+        <li><code><a href="runtime.html#method-connect">runtime.connect</a></code></li>
+        <li><code><a href="runtime.html#event-onConnect">runtime.onConnect</a></code></li>
+        <li><code><a href="tts.html#method-getVoices">tts.getVoices</a></code></li>
+        <li><code><a href="tts.html#method-speak">tts.speak</a></code></li>
+        <li><code><a href="tts.html#method-stop">tts.stop</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/talking_alarm_clock/background.js">background.js</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/blank-clock-150.png">blank-clock-150.png</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/blank-clock-ring1-150.png">blank-clock-ring1-150.png</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/blank-clock-ring2-150.png">blank-clock-ring2-150.png</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/clock-128.png">clock-128.png</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/clock-16.png">clock-16.png</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/clock-19.png">clock-19.png</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/clock-256.png">clock-256.png</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/clock-48.png">clock-48.png</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/clock-disabled-19.png">clock-disabled-19.png</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/clock-highlighted-19.png">clock-highlighted-19.png</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/common.js">common.js</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/credits.html">credits.html</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/play.png">play.png</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/popup.js">popup.js</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/audio/cuckoo.ogg">audio/cuckoo.ogg</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/audio/digital.ogg">audio/digital.ogg</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/audio/metal.ogg">audio/metal.ogg</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/audio/ringing.ogg">audio/ringing.ogg</a></code></li>
+        <li><code><a href="examples/extensions/talking_alarm_clock/audio/rooster.ogg">audio/rooster.ogg</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.tts.getVoices chrome.tts.speak chrome.tts.stop ">
+    <img class="icon" src="examples/extensions/ttsdebug/128.png">
+    <h2 id="tts-debug"><a href="examples/extensions/ttsdebug.zip">TTS Debug</a></h2>
+    Tool for developers of Chrome TTS engine extensions to help them test their engines are implementing the API correctly.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="tts.html#method-getVoices">tts.getVoices</a></code></li>
+        <li><code><a href="tts.html#method-speak">tts.speak</a></code></li>
+        <li><code><a href="tts.html#method-stop">tts.stop</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/ttsdebug/128.png">128.png</a></code></li>
+        <li><code><a href="examples/extensions/ttsdebug/16.png">16.png</a></code></li>
+        <li><code><a href="examples/extensions/ttsdebug/256.png">256.png</a></code></li>
+        <li><code><a href="examples/extensions/ttsdebug/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/ttsdebug/pacman.gif">pacman.gif</a></code></li>
+        <li><code><a href="examples/extensions/ttsdebug/ttsdebug.css">ttsdebug.css</a></code></li>
+        <li><code><a href="examples/extensions/ttsdebug/ttsdebug.html">ttsdebug.html</a></code></li>
+        <li><code><a href="examples/extensions/ttsdebug/ttsdebug.js">ttsdebug.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.runtime.lastError chrome.runtime.lastError.message chrome.tts.getVoices chrome.tts.isSpeaking chrome.tts.speak chrome.tts.stop ">
+    <img class="icon" src="examples/extensions/ttsdemo/128.png">
+    <h2 id="tts-demo"><a href="examples/extensions/ttsdemo.zip">TTS Demo</a></h2>
+    Demo Chrome's synthesized text-to-speech capabilities.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="runtime.html#property-lastError">runtime.lastError</a></code></li>
+        <li><code><a href="runtime.html#property-lastError-message">runtime.lastError.message</a></code></li>
+        <li><code><a href="tts.html#method-getVoices">tts.getVoices</a></code></li>
+        <li><code><a href="tts.html#method-isSpeaking">tts.isSpeaking</a></code></li>
+        <li><code><a href="tts.html#method-speak">tts.speak</a></code></li>
+        <li><code><a href="tts.html#method-stop">tts.stop</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/extensions/ttsdemo/128.png">128.png</a></code></li>
+        <li><code><a href="examples/extensions/ttsdemo/16.png">16.png</a></code></li>
+        <li><code><a href="examples/extensions/ttsdemo/256.png">256.png</a></code></li>
+        <li><code><a href="examples/extensions/ttsdemo/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/extensions/ttsdemo/ttsdemo.html">ttsdemo.html</a></code></li>
+        <li><code><a href="examples/extensions/ttsdemo/ttsdemo.js">ttsdemo.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="">
+    <img class="icon" src="examples/howto/contentscript_xhr/sample-128.png">
+    <h2 id="content-script-cross-domain-xmlhttprequest-example"><a href="examples/howto/contentscript_xhr.zip">Content Script Cross-Domain XMLHttpRequest Example</a></h2>
+    Demonstrates making cross domain requests from a content script by putting Twitter trends on Google News.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/howto/contentscript_xhr/contentscript.js">contentscript.js</a></code></li>
+        <li><code><a href="examples/howto/contentscript_xhr/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/howto/contentscript_xhr/sample-128.png">sample-128.png</a></code></li>
+        <li><code><a href="examples/howto/contentscript_xhr/sample-48.png">sample-48.png</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.browserAction.onClicked ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="sandboxed-frame"><a href="examples/howto/sandbox.zip">Sandboxed Frame</a></h2>
+    Demonstrate use of handlebars inside a sandboxed frame
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="browserAction.html#event-onClicked">browserAction.onClicked</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/howto/sandbox/LICENSE.handlebars">LICENSE.handlebars</a></code></li>
+        <li><code><a href="examples/howto/sandbox/eventpage.html">eventpage.html</a></code></li>
+        <li><code><a href="examples/howto/sandbox/eventpage.js">eventpage.js</a></code></li>
+        <li><code><a href="examples/howto/sandbox/handlebars-1.0.0.beta.6.js">handlebars-1.0.0.beta.6.js</a></code></li>
+        <li><code><a href="examples/howto/sandbox/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/howto/sandbox/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/howto/sandbox/sandbox.html">sandbox.html</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="chrome.commands.onCommand chrome.tabs.duplicate chrome.tabs.update ">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="tab-shortcuts"><a href="examples/howto/tab_shortcuts.zip">Tab Shortcuts</a></h2>
+    Allows pinning and duplication of tabs via keyboard shortcuts.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+        <li><code><a href="commands.html#event-onCommand">commands.onCommand</a></code></li>
+        <li><code><a href="tabs.html#method-duplicate">tabs.duplicate</a></code></li>
+        <li><code><a href="tabs.html#method-update">tabs.update</a></code></li>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/howto/tab_shortcuts/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/howto/tab_shortcuts/tab_shortcuts.js">tab_shortcuts.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="">
+    <img class="icon" src="examples/tutorials/analytics/analytics-extension-icon-128.png">
+    <h2 id="event-tracking-with-google-analytics"><a href="examples/tutorials/analytics.zip">Event Tracking with Google Analytics</a></h2>
+    A sample extension which uses Google Analytics to track usage.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/tutorials/analytics/analytics-extension-icon-128.png">analytics-extension-icon-128.png</a></code></li>
+        <li><code><a href="examples/tutorials/analytics/analytics-extension-icon-19.png">analytics-extension-icon-19.png</a></code></li>
+        <li><code><a href="examples/tutorials/analytics/analytics-extension-icon-48.png">analytics-extension-icon-48.png</a></code></li>
+        <li><code><a href="examples/tutorials/analytics/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/tutorials/analytics/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/tutorials/analytics/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div><div class="sample" tags="">
+    <img class="icon" src="../static/images/sample-default-icon.png">
+    <h2 id="one-click-kittens"><a href="examples/tutorials/getstarted.zip">One-click Kittens</a></h2>
+    This extension demonstrates a 'browser action' with kittens.
+    <div>
+      <span class="label">Calls:</span>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <span class="label">Source Files:</span>
+      <ul>
+        <li><code><a href="examples/tutorials/getstarted/icon.png">icon.png</a></code></li>
+        <li><code><a href="examples/tutorials/getstarted/manifest.json">manifest.json</a></code></li>
+        <li><code><a href="examples/tutorials/getstarted/popup.html">popup.html</a></code></li>
+        <li><code><a href="examples/tutorials/getstarted/popup.js">popup.js</a></code></li>
+      </ul>
+    </div>
+  </div>
+<script src="../static/js/samples.js" type="text/javascript"></script>
+      </div>
+    </div>
+  </body>
+
+  <div id="gc-footer">
+    <button class="google-button" id="scroll-to-top">↑</button>
+    <button class="google-button" id="send-feedback">Send Feedback</button>
+    <div class="text">
+      <p>
+        Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>,
+        the content of this page is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+        Attribution 3.0 License</a>, and code samples are licensed under the
+        <a rel="license" href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+      </p>
+      <p>
+        ©2013 Google
+      </p>
+      <script src="../static/js/platform_chooser.js" type="text/javascript"></script>
+      <script src="../static/js/popup.js" type="text/javascript"></script>
+      <script src="../static/js/prettify.js" type="text/javascript"></script>
+      <script src="../static/js/scroll.js" type="text/javascript"></script>
+      <script src="../static/js/sidebar.js" type="text/javascript"></script>
+      <script src="../static/js/tabs.js" type="text/javascript"></script>
+      <script>
+        (function() {
+          // Auto syntax highlight all pre tags.
+          var preElements = document.getElementsByTagName('pre');
+          for (var i = 0; i < preElements.length; i++) {
+            var preElement = preElements[i];
+            preElement.classList.add('prettyprint');
+            var datasetFilename = preElement.getAttribute('data-filename');
+            if (datasetFilename) {
+              var filename = document.createElement('div');
+              filename.className = 'filename nocode';
+              filename.textContent = datasetFilename;
+              preElement.insertBefore(filename, preElement.firstChild);
+            }
+          }
+          prettyPrint();
+        })();
+      </script>
+
+      <!-- Feedback. -->
+      <script type="text/javascript" src="http://www.gstatic.com/feedback/api.js"></script>
+      <script type="text/javascript">
+        (function() {
+         document.getElementById('send-feedback').addEventListener('click', function() {
+           userfeedback.api.startFeedback({ productId: 86265 });
+         });
+        })();
+      </script>
+    </div>
+  </div>
+</html>
