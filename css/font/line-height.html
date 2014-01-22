@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="cache-control" content="nocache" />
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+		fieldset{border:1px solid #ccc;margin-bottom:10px;}
+		legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
+		section{margin:10px;position:relative;background:#f3f3f3;}
+
+		.green {
+		  line-height: 1.1;
+		  border: solid limegreen;
+		}
+		.red {
+		  line-height: 1.1em;
+		  border: solid red;
+		}
+		h1 {
+		  font-size: 30px;
+		}
+		.box {
+		  width: 18em;
+		  display: inline-block;
+		  vertical-align: top;
+		  font-size: 15px;
+		}
+	</style>
+</head>
+<body>
+<div class="box green">
+ <h1>Avoid unexpected results by using unitless line-height</h1>
+  length and percentage line-heights have poor inheritance behavior ...
+</div>
+
+<div class="box red">
+ <h1>Avoid unexpected results by using unitless line-height</h1>
+  length and percentage line-heights have poor inheritance behavior ...
+</div>
+
+<div>red box 里面的 h1 直接使用父元素的值,没有再进行计算</div>
+</body>
+</html>

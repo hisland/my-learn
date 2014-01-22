@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		@-webkit-keyframes rotate {
+			from {
+				-webkit-transform:rotateX(-30deg) rotateY(-45deg);
+			}
+			to {
+				-webkit-transform:rotateX(-30deg) rotateY(315deg);
+			}
+		}
+
+		.cube{
+			width:200px;height:200px;position:relative;
+			-webkit-transform-style: preserve-3d;
+			-webkit-animation:8s rotate linear infinite;
+		}
+		.cube>div{position:absolute;width:200px;height:200px;opacity:.8;}
+		.cube>.top{background:pink;-webkit-transform:rotateX(90deg) translateZ(100px)}
+		.cube>.right{background:purple;-webkit-transform:rotateY(90deg) translateZ(100px)}
+		.cube>.bottom{background:green;-webkit-transform:rotateX(-90deg) translateZ(100px)}
+		.cube>.left{background:black;-webkit-transform:rotateY(-90deg) translateZ(100px)}
+		.cube>.back{background:yellow;-webkit-transform:translateZ(-100px)}
+		.cube>.front{background:blue;-webkit-transform:translateZ(100px)}
+	</style>
+</head>
+<body>
+	<p>用css画一个立方体</p>
+	<div class="cube">
+		<div class="top"></div>
+		<div class="right"></div>
+		<div class="bottom"></div>
+		<div class="left"></div>
+		<div class="back"></div>
+		<div class="front"></div>
+	</div>
+	<p>之后的文字</p>
+</body>
+</html>

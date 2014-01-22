@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="cache-control" content="nocache" />
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+		fieldset{border:1px solid #ccc;margin-bottom:10px;}
+		legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
+		section{margin:10px;position:relative;background:#f3f3f3;}
+		.red{color:red;}
+
+		
+	</style>
+</head>
+<body>
+	<fieldset>
+		<legend>PC默认 16px, android默认 18px</legend>
+		<section>
+			<div class="box">
+				<div class="in">text</div>
+			</div>
+		</section>
+	</fieldset>
+	<fieldset>
+		<legend>font-size:1em 18*1=18 16*1=16</legend>
+		<section>
+			<div class="box">
+				<div class="in" style="font-size:1em">text</div>
+			</div>
+		</section>
+	</fieldset>
+	<fieldset>
+		<legend>font-size:1.2em 18*1.2=21.6取21 16*1.2=19.2取19</legend>
+		<section>
+			<div class="box">
+				<div class="in" style="font-size:1.2em">text</div>
+			</div>
+		</section>
+	</fieldset>
+	<fieldset>
+		<legend>font-size:0.8em 18*0.8=14.4取14 16*0.8=12.8取13</legend>
+		<section>
+			<div class="box">
+				<div class="in" style="font-size:0.8em">text</div>
+			</div>
+		</section>
+	</fieldset>
+</body>
+</html>
