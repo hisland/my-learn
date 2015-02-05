@@ -8,16 +8,16 @@
 		body{padding:50px;}
 
 		@-webkit-keyframes rotate {
-			from {
-				-webkit-transform:rotateX(-30deg) rotateY(-45deg);
+			0% {
+				-webkit-transform:rotateX(-40deg) rotateY(-10deg);
 			}
-			to {
-				-webkit-transform:rotateX(-30deg) rotateY(315deg);
+			100% {
+				-webkit-transform:rotateX(-400deg) rotateY(-370deg);
 			}
 		}
 
 		.cube{
-			width:200px;height:200px;position:relative;
+			width:200px;height:200px;position:relative;left:200px;
 			-webkit-transform-style: preserve-3d;
 			-webkit-animation:8s rotate linear infinite;
 		}
