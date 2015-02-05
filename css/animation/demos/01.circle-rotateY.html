@@ -7,40 +7,41 @@
 		*{padding:0;margin:0;}
 		body{padding:50px;}
 	</style>
-	<style type="text/less">
-		@size: 30px;
-		.circle{
-			width:@size;height:@size;border-radius:15px;
-			background:rgba(0,0,0,.5);color:#eee;
-			position:relative;
-
-			span:nth-child(1){
-				color:#fff;position:absolute;top:2px;left:4px;
-			}
-			span:nth-child(2){
-				display:block;width:100%;height:100%;line-height:@size;text-align:center;font-size:@size;
-			}
-			span:nth-child(3){
-				position:absolute;bottom:2px;right:4px;
-			}
-			-webkit-animation: circle-rotate 500ms linear;
+	<style type="text/css">
+		.circle {
+			width: 30px;
+			height: 30px;
+			border-radius: 15px;
+			background: rgba(0, 0, 0, 0.5);
+			color: #eee;
+			position: relative;
+			-webkit-animation: circle-rotate 1s linear;
 		}
-
+		.circle span:nth-child(1) {
+			color: #fff;
+			position: absolute;
+			top: 2px;
+			left: 4px;
+		}
+		.circle span:nth-child(2) {
+			display: block;
+			width: 100%;
+			height: 100%;
+			line-height: 30px;
+			text-align: center;
+			font-size: 30px;
+		}
+		.circle span:nth-child(3) {
+			position: absolute;
+			bottom: 2px;
+			right: 4px;
+		}
 		@-webkit-keyframes circle-rotate {
-			50% { -webkit-transform: rotateY(90deg); }
+			50% {
+				-webkit-transform: rotateY(90deg);
+			}
 		}
 	</style>
-	<script type="text/javascript">
-		var require = {
-			baseUrl: '../../../assets/js/',
-			deps: ['config'],
-			callback: function() {
-				require(['less'], function(){
-				});
-			}
-		}
-	</script>
-	<script type="text/javascript" src="../../../assets/js/vendor/requirejs/require.js"></script>
 </head>
 <body>
 	<div class="circle">

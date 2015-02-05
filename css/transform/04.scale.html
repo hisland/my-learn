@@ -12,6 +12,11 @@
 		.red{color:red;}
 
 		.box{background:green;width:100px;height:100px;}
+
+		@-webkit-keyframes appear {
+			0% {-webkit-transform: scale(0);opacity: 0;}
+			80% {-webkit-transform: scale(1);opacity: 1;}
+		}
 	</style>
 </head>
 <body>
@@ -38,6 +43,14 @@
 	<section style="margin-bottom:50px;">
 		<div class="box" style="-webkit-transform-origin:right bottom;-webkit-transform:scale(0.8)">transform-origin:right bottom;, scale(0.8)</div>
 	</section>
+	</fieldset>
+
+	<fieldset style="margin-bottom:50px;">
+	<legend>出现</legend>
+	<section style="margin-bottom:50px;">
+		<div class="box" style="-webkit-animation:appear 1.5s infinite;">出现</div>
+	</section>
+	<section>
 	</fieldset>
 
 	<fieldset style="margin-bottom:50px;">
