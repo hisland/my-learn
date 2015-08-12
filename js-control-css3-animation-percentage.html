@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' /> 
+    <!-- js引用包 -->
+    <script src='http://libs.baidu.com/jquery/1.9.0/jquery.min.js'></script> 
+   
+    <style>
+      .main {
+        text-align: center;
+        font-family: Helvetica;
+      }
+       
+      #loader, #done {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -moz-transition: opacity 0.4s;
+        -o-transition: opacity 0.4s;
+        -webkit-transition: opacity 0.4s;
+        transition: opacity 0.4s;
+      }
+       
+      #loader svg {
+        -moz-animation: rotate 2s infinite linear;
+        -webkit-animation: rotate 2s infinite linear;
+        animation: rotate 2s infinite linear;
+      }
+      #loader span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        line-height: 100px;
+        font-family: Helvetica;
+        font-size: 51px;
+        font-weight: bold;
+      }
+       
+      #done {
+        opacity: 0;
+      }
+       
+      @-moz-keyframes rotate {
+        from {
+          -moz-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+          -moz-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @-webkit-keyframes rotate {
+        from {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes rotate {
+        from {
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+     
+     
+    <div class="main">
+  <div id="loader">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+ 
+        <circle cx="50" cy="50" r="48" stroke="red" stroke-width="3" fill="#fff" stroke-dasharray="0, 100"  />
+    </svg>
+    <span>0</span>
+  </div>
+ 
+  <div id="done">
+    <p>Done!<br />Refresh to see the loader again!</p>
+  </div>
+   
+</div>
+     
+  </body>
+ 
+  <script style='text/javascript'>
+      (function() {
+        var circle, diameter, done, finish, loader, percentage, starting, total_loading, update;
+       
+        window.requestAnimationFrame || (window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame);
+       
+        total_loading = 10 * 1000;
+       
+        diameter = 2 * Math.PI * 48;
+       
+        loader = document.getElementById('loader');
+       
+        done = document.getElementById('done');
+       
+        circle = document.querySelector('circle');
+       
+        percentage = document.querySelector('span');
+       
+        starting = performance.now();
+       
+        update = function() {
+          var progress;
+          progress = parseInt(100 * (performance.now() - starting) / total_loading);
+          circle.setAttribute("stroke-dasharray", "" + (diameter * progress / 100) + ", " + diameter);
+          percentage.innerHTML = progress;
+          if (progress >= 100) {
+            finish();
+            return false;
+          }
+          return window.requestAnimationFrame(update);
+        };
+       
+        update();
+       
+        finish = function() {
+        };
+       
+      }).call(this);
+    </script>
+</html>
