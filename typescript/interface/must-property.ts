@@ -1,0 +1,4 @@
+interface Hello{
+  god: string;
+}
+
