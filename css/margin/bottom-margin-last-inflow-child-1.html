@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test file</title>
+  <style type="text/css">
+  *{margin: 0;padding: 0;}
+  .a{
+    background: green;
+    margin: 10px;
+  }
+  .b{
+    background: purple;
+    margin: 20px;
+  }
+  .c{
+    margin: 50px;
+    background: pink;
+  }
+  </style>
+</head>
+<body>
+  <div class="a">
+    <div class="b">i am first-child</div>
+    <div class="b">i am first-child</div>
+    <div class="c">i am first-child</div>
+  </div>
+  <div>a's next inflow sibling here</div>
+  <div>a has 'auto' height, bottom margin collapse with the last inflow child's bottom margin</div>
+</body>
+</html>
