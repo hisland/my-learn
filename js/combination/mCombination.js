@@ -38,6 +38,11 @@ function mCombination(list, m, result) {
 }
 
 
+// test
+function t(f, a, b) {
+  console.time("time");
+  f(a, b);
+  console.timeEnd("time");
+}
+t(mCombination, [0, 1, 2, 3, 4, 5,0, 1, 2, 3, 4, 5,0, 1, 2, 3, 4, 5,0, 1, 2, 3, 4, 5], 8)
 
-
-console.log(mCombination(['a', 'b', 'c', 'd'], 4));
