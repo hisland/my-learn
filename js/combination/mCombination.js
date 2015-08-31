@@ -1,4 +1,4 @@
-// 从list里面任意选取m个的所有组合
+// 从list里面任意选取m个的所有组合, 网上找的, 递归方式, 效率不如2
 function mCombination(list, m, result) {
 
   var result = result ? result : [];
@@ -44,5 +44,5 @@ function t(f, a, b) {
   f(a, b);
   console.timeEnd("time");
 }
-t(mCombination, [0, 1, 2, 3, 4, 5,0, 1, 2, 3, 4, 5,0, 1, 2, 3, 4, 5,0, 1, 2, 3, 4, 5], 8)
+t(mCombination, [0, 1, 2, 3, 4, 5,0, 1, 2, 3, 4, 5,0, 1, 2, 3, 4, 5,0, 1, 2, 3, 4, 5], 14)
 

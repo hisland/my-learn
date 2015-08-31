@@ -11,6 +11,7 @@ function fibonacciCached(n) {
   return nFib ? nFib : (fibArr[n] = fibonacciCached(n - 1) + fibonacciCached(n - 2));
 }
 
+// very fast
 function fibonacciFor(n) {
   var x = 1,
     y = 1,
