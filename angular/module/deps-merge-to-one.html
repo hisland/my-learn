@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+	<script src="../angular.js"></script>
+  <script type="text/javascript">
+    angular.module('app', [])
+    .run(function($rootScope) {
+      $rootScope.god = 'cc';
+      console.log($rootScope);
+    });
+    angular.module('bb', ['app'])
+    .run(function($rootScope) {
+      $rootScope.hello = 'hello';
+      console.log($rootScope);
+    });
+  </script>
+</head>
+<body ng-app="bb">
+<p>bb依赖app, 使用bb的时候像是app合并到了bb, 共用一个$rootScope</p>
+<div>{{god}}</div>
+<div>{{hello}}</div>
+</body>
+</html>

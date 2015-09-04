@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+	<script src="../angular.js"></script>
+  <script type="text/javascript">
+    angular.module('app', [])
+    .run(function($rootScope) {
+      $rootScope.god = 'cc';
+    });
+    angular.module('app', [])
+    .run(function($rootScope) {
+      $rootScope.god = 'hello';
+    });
+  </script>
+</head>
+<body>
+<p> 定义2次, 覆盖前面的定义, 只有最后一次有效</p>
+<div>{{god}}</div>
+</body>
+</html>

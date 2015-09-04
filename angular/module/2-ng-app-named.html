@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body>
+  <p> only first ng-app will auto-init, any other must use angular.bootstrap manual!</p>
+  <div ng-app="god">
+    <input ng-model="hello" />
+  hey! {{hello}}</div>
+  <div ng-app="bb">
+    <input ng-model="hello" />
+  BB! {{hello}}</div>
+
+  <script src="../angular.js"></script>
+  <script type="text/javascript">
+      angular.module('god', [])
+      .run(function($rootScope) {
+        $rootScope.hello = 'you';
+      });
+      angular.module('bb', [])
+      .run(function($rootScope) {
+        $rootScope.hello = 'me';
+      });
+  </script>
+</body>
+</html>

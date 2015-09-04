@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body>
+  <p>每bootstrap一次,就是一个新的rootScope</p>
+<div id="bb">
+  <div>{{god}}</div>
+  <div>{{hello}}</div>
+</div>
+<div id="cc">
+  <div>{{god}}</div>
+  <div>{{hello}}</div>
+</div>
+  <script src="../angular.js"></script>
+  <script type="text/javascript">
+    angular.module('app', [])
+    .run(function($rootScope) {
+      $rootScope.god = 'cc';
+      console.log($rootScope);
+    });
+    angular.module('bb', ['app'])
+    .run(function($rootScope) {
+      $rootScope.hello = 'hello';
+      console.log($rootScope);
+    });
+      angular.bootstrap(document.getElementById('bb'), ['bb'])
+      angular.bootstrap(document.getElementById('cc'), ['app'])
+  </script>
+</body>
+</html>

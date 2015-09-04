@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+	<script src="../angular.js"></script>
+  <script type="text/javascript">
+    angular.element(document).ready(function(){
+      var m = angular.module('god', []);
+      m.run(function($rootScope) {
+        $rootScope.hello = 'you';
+      });
+      angular.bootstrap(document.getElementById('aa'), ['god'])
+      angular.bootstrap(document.getElementById('bb'), ['god'])
+    })
+  </script>
+</head>
+<body>
+  <p>one app bootstrap to 2div, they are diff</p>
+
+  <div id="aa">
+    <input ng-model="hello" />
+  hey! {{hello}}</div>
+  <div id="bb">
+    <input ng-model="hello" />
+  BB! {{hello}}</div>
+</body>
+</html>
