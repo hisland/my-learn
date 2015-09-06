@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <h3>嵌套之后,下层能读取到上层的属性</h3>
+  <h5>aaa>bbb 嵌套</h5>
+  <div ng-controller="aaa">
+    <p>aaa.god: {{god}}</p>
+    <p>aaa.hello: {{hello}}</p>
+    <div ng-controller="bbb">
+      <p>bbb.god: {{god}}</p>
+      <p>bbb.hello: {{hello}}</p>
+    </div>
+  </div>
+  <h5>bbb>aaa 嵌套</h5>
+  <div ng-controller="bbb">
+    <p>bbb.god: {{god}}</p>
+    <p>bbb.hello: {{hello}}</p>
+    <div ng-controller="aaa">
+      <p>aaa.god: {{god}}</p>
+      <p>aaa.hello: {{hello}}</p>
+    </div>
+  </div>
+  <script src="../angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .controller('aaa', function($scope) {
+      $scope.god = 'cc';
+    })
+    .controller('bbb', function($scope) {
+      $scope.hello = 'please';
+    });
+  </script>
+</body>
+</html>

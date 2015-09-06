@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <div ng-controller="bbb"> aa实例化的时候只执行一次,即使同时被bb,app作为deps</div>
+  <script src="../angular.js"></script>
+  <script>
+    angular.module('aa', [])
+    .config(function(){
+      console.log('aa1');
+    })
+    .run(function(){
+      console.log('aa2');
+    });
+    angular.module('bb', ['aa'])
+    .config(function(){
+      console.log('bb1');
+    })
+    .run(function(){
+      console.log('bb2');
+    });
+    angular.module('app', ['bb', 'aa'])
+    .controller('aaa', function($scope) {
+      console.log(1);
+    })
+    .controller('bbb', function($scope) {
+      console.log(2);
+    })
+    .config(function(){
+      console.log(3);
+    })
+    .run(function(){
+      console.log(4);
+    })
+    .config(function(){
+      console.log(5);
+    })
+    .run(function(){
+      console.log(6);
+    });
+  </script>
+</body>
+</html>

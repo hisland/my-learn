@@ -1,0 +1,19 @@
+<!doctype html>
+<html ng-app="phonecatApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+	<script src="angular.js"></script>
+  <script type="text/javascript">
+    var m = angular.module('phonecatApp', []);
+    m.controller('PhoneListCtrl', function($scope) {
+      $scope.god = 'cc';
+    });
+  </script>
+</head>
+<body ng-controller="PhoneListCtrl">
+  <p>{{god ? 'a' : 'b'}}</p>
+	<p>{{god ? 'b' : 'a'}}</p>
+  <p>{{god == 'cc'}}</p>
+</body>
+</html>

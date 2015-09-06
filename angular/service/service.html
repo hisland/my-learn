@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <div ng-controller="my">
+    <span>{{god}}</span>
+  </div>
+  <div ng-controller="me">
+    <span>{{kkk}}</span>
+  </div>
+  <script src="../angular.js"></script>
+  <script>
+    var a = angular.module('app', []);
+    a.factory('aaa', function(){
+      console.log('aaa');
+      return {
+        please: 'god'
+      };
+    })
+    .controller('my', function($scope, aaa){
+      console.log('my');
+      $scope.god = aaa.please;
+    })
+    .controller('me', function($scope, aaa){
+      console.log('me');
+      $scope.kkk = aaa.please + ' me';
+    })
+    .config(function($stateProvider){
+      console.log(111, $stateProvider);
+    })
+    .run(function(){
+      console.log(222);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="phonecatApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-controller="PhoneListCtrl as kk">
+  <p>同时使用as, $scope, as是$scope的一个属性</p>
+  <p>{{god}}</p>
+	<ul>
+   <li ng-repeat="phone in kk.phones">
+     {{phone.name}} : {{phone.snippet}}
+   </li> 
+  </ul>
+  <script src="../angular.js"></script>
+  <script>
+    var m = angular.module('phonecatApp', []);
+    m.controller('PhoneListCtrl', function($scope) {
+      console.log(this, $scope);
+      $scope.god = 'i am on $scope';
+      this.phones = [{
+        'name': 'Nexus S',
+        'snippet': 'Fast just got faster with Nexus S.'
+      }, {
+        'name': 'Motorola XOOM™ with Wi-Fi',
+        'snippet': 'The Next, Next Generation tablet.'
+      }, {
+        'name': 'MOTOROLA XOOM™',
+        'snippet': 'The Next, Next Generation tablet.'
+      }]
+    });
+  </script>
+</body>
+</html>
