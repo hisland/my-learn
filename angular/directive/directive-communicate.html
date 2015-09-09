@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <div my-tabs>
+    <div my-pane title="one">
+      content 1
+    </div>
+    <div my-pane title="two">
+      content 2
+    </div>
+  </div>
+  <script src="../angular.js"></script>
+  <script>
+    var a = angular.module('app', []);
+    a
+    .directive('myTabs', function(){
+      return {
+        template: '<ul><li ng-repeat="pane in panes"><a href="#" ng-click="select(pane)">{{pane.title}}</a></li></ul><div ng-transclude></div>',
+        transclude: true,
+        scope: {},
+        controller: function($scope){
+          var p = $scope.panes = [];
+          $scope.select = function(n){
+            for(var i of p){
+              i.selected = false;
+            }
+            n.selected = true;
+          }
+          this.add = function(pane){  //这里要用this, 把方法注册到controller对象身上,不是scope
+            console.log(pane);
+            if (!p.length) {
+              $scope.select(pane);
+            }
+            p.push(pane);
+          }
+        }
+      };
+    })
+    .directive('myPane', function(){
+      return {
+        require: '^myTabs', // 如果是数组, ['^myTabs', '^other'], 下面的ctrl会变成数组,依次索引
+        template: '<div ng-transclude></div>',
+        transclude: true,
+        scope: {
+          title: '@'
+        },
+        link: function(scope, element, attrs, ctrl){
+          console.log(arguments);
+          ctrl.add(scope);
+        }
+      };
+    })
+  </script>
+</body>
+</html>

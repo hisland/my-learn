@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <div ng-controller="oh-god">
+    <div test="god"></div>
+    <div test="help"></div>
+  </div>
+  <script src="../angular.js"></script>
+  <script>
+    var a = angular.module('app', []);
+    a
+    .controller('oh-god', ['$scope', function($scope){
+      $scope.god = '"aha"'
+    }])
+    .directive('test', function(){
+      return {
+        template: 'this is some text from test directive {{god}}'
+      };
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <h2>没有使用 transclude, directive里面的内容全被 template直接替换</h2>
+  <div ng-controller="oh-god">
+    <div test="god"><div>use me twice, get the god: {{god}}</div></div>
+  </div>
+  <script src="../angular.js"></script>
+  <script>
+    var a = angular.module('app', []);
+    a
+    .controller('oh-god', ['$scope', function($scope){
+      $scope.god = '"aha"'
+    }])
+    .directive('test', function(){
+      return {
+        template: '<div ng-transclude class="hello1">模板里面的内容1</div><div ng-transclude class="hello2">模板里面的内容2</div>',
+        link: function(scope, element, attrs){
+          console.log(arguments);
+          scope.god = 'in directive';
+        }
+      };
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <h2>@ 实际上就是获取属性的值, 没有转换 </h2>
+  <div ng-controller="oh-god">
+    <div test my-attr="god"></div>
+    <div test my-attr="aha"></div>
+  </div>
+  <script src="../angular.js"></script>
+  <script>
+    var a = angular.module('app', []);
+    a
+    .controller('oh-god', ['$scope', '$rootScope', function($scope, $rs){
+      $scope.god = {
+        hello: 'god',
+        please: 'say'
+      };
+      $scope.aha = {
+        hello: 'you',
+        please: 'com'
+      };
+
+      $rs.out = {
+        a: 'b'
+      }
+    }])
+    .directive('test', function(){
+      return {
+        scope:{ 
+          myAttr: '@' // 获取 my-attr 的值
+        },
+        template: 'something inside me: {{inner|json}}, outside: {{out|json}}',
+        link: function(scope, element, attrs){
+          console.log(arguments);
+        }
+      };
+    })
+  </script>
+</body>
+</html>

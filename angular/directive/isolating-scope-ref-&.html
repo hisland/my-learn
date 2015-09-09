@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <div ng-controller="oh-god">
+    <div test="god" ng-hide="hide" on-close="hideMe()"></div>
+  </div>
+  <script src="../angular.js"></script>
+  <script>
+    var a = angular.module('app', []);
+    a
+    .controller('oh-god', ['$scope', function($scope){
+      $scope.god = 'aha';
+      $scope.hide = false;
+      $scope.hideMe = function(){
+        console.log(this, $scope, this===$scope);
+        $scope.hide = true;
+      }
+    }])
+    .directive('test', function(){
+      return {
+        transclude: true,
+        scope:{
+          // close: '=onClose' //这个执行的时候this是这个scope
+          close: '&onClose' //this指向上面的$scope
+        },
+        template: '<div ng-click="close()">隐藏</div><div ng-transclude></div>',
+        link: function(scope, element, attrs){
+          console.log(arguments);
+        }
+      };
+    })
+  </script>
+</body>
+</html>

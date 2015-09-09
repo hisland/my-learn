@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <h2>使用 transclude, directive里面的内容全被 template里面的 ng-transclude 包含, 纯文本会加上span标签包含</h2>
+  <div ng-controller="oh-god">
+    <div test="god"><div>use me twice, get the god: {{god}}</div></div>
+  </div>
+  <script src="../angular.js"></script>
+  <script>
+    var a = angular.module('app', []);
+    a
+    .controller('oh-god', ['$scope', function($scope){
+      $scope.god = '"aha"'
+    }])
+    .directive('test', function(){
+      return {
+        transclude: true,
+        template: '<div ng-transclude class="hello1">模板里面的内容1</div><div ng-transclude class="hello2">模板里面的内容2</div>',
+        link: function(scope, element, attrs){
+          console.log(arguments);
+          scope.god = 'in directive';
+        }
+      };
+    })
+  </script>
+</body>
+</html>

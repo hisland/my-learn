@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <div ui-view="viewA"></div>
+  <div ui-view="viewB"></div>
+  <a ui-sref="state1.test">state1</a>
+  <script src="angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script>
+    var a = angular.module('app', ['ui.router']);
+    a.config(function($stateProvider, $urlRouterProvider){
+      $stateProvider
+      .state('index', {
+        url: '',
+        views:{
+          viewA: {
+            template: 'i am string 1'
+          },
+          viewB: {
+            template: 'i am string 2'
+          }
+        }
+      })
+      .state('state1', {
+        url: '/state1',
+        views:{
+          viewA: {
+            template: 'i am state 1.a<span ui-view></span>'
+          },
+          viewB: {
+            template: 'i am state 1.b<span ui-view></span>'
+          }
+        }
+      })
+      .state('state1.test', {
+        url: '/test',
+        template: 'i am state1.test 1.a'
+      })
+    })
+  </script>
+</body>
+</html>

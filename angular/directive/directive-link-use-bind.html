@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <div ng-controller="oh-god">
+    <div>format: <input ng-model="format" /></div>
+    <div>now time: <span my-current-time>{{time | date:format}}</span></div>
+    <div>now time: <span my-current-time ng-bind="time | date:format"></span></div>
+  </div>
+  <script src="../angular.js"></script>
+  <script>
+    var a = angular.module('app', []);
+    a
+    .controller('oh-god', ['$scope', function($scope){
+      $scope.format = 'M/d/yy h:mm:ss a';
+    }])
+    .directive('myCurrentTime', function($interval){
+      console.log('factory run once');
+      return {
+        link: function(scope, element, attrs){
+          console.log('link run every time directive matches');
+          var id;
+          function update(){
+            scope.time = new Date;
+          }
+          element.on('$destroy', function(){
+            $interval.cancel(id);
+          })
+          id = $interval(update, 1000);
+          update();
+        }
+      };
+    })
+  </script>
+</body>
+</html>

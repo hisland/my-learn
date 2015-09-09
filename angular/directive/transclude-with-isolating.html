@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <h2>有isolating-scope, directive里面的内容是访问外面的scope</h2>
+  <div ng-controller="oh-god">
+    <div test="god"><div>get the god: {{god}}</div></div>
+  </div>
+  <script src="../angular.js"></script>
+  <script>
+    var a = angular.module('app', []);
+    a
+    .controller('oh-god', ['$scope', function($scope){
+      $scope.god = '"aha"'
+    }])
+    .directive('test', function(){
+      return {
+        transclude: true,
+        scope:{},
+        template: '<div ng-transclude class="hello"></div>',
+        link: function(scope, element, attrs){
+          console.log(arguments);
+          scope.god = 'in directive';
+        }
+      };
+    })
+  </script>
+</body>
+</html>

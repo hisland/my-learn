@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <div my-drag>catch me and drag!</div>
+  <div my-drag>catch me and drag!</div>
+  <div my-drag>catch me and drag!</div>
+  <script src="../angular.js"></script>
+  <script>
+    var a = angular.module('app', []);
+    a
+    .controller('oh-god', ['$scope', function($scope){
+      $scope.format = 'M/d/yy h:mm:ss a';
+    }])
+    .directive('myDrag', function($document){
+      return function(scope, element, attrs){
+        console.log('此函数是link函数, 每次遇到相应的directive便处理一次');
+        var startX=0, startY=0, x=0, y=0;
+        element.css({
+          position:'relative',
+          border: '1px solid red',
+          background: 'green',
+          width: '100px'
+        });
+        element.on('mousedown', function(e){
+          e.preventDefault();
+          startX = e.pageX - x;
+          startY = e.pageY - y;
+          $document.on('mousemove', mousemove);
+          $document.on('mouseup', mouseup);
+        });
+        function mousemove(e){
+          x = e.pageX - startX;
+          y = e.pageY - startY;
+          element.css({
+            left: x + 'px',
+            top: y + 'px'
+          })
+        }
+        function mouseup(){
+          $document.off('mousemove', mousemove);
+          $document.off('mouseup', mouseup);
+        }
+      };
+    })
+  </script>
+</body>
+</html>

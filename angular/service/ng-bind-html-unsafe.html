@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <p>需要首先引入jquery, 可以用filter, 方法, 及trustAsHtml之后的结果</p>
+  <div ng-controller="my">
+    <div ng-bind-html="trust(kkk)"></div>
+  </div>
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .controller('my', function($scope, $sce) {
+      window.aaa = $scope;
+      window.bbb = $sce;
+      $scope.kkk = '<div>gdlksjdf</div><scr' + 'ipt type="text/javascript">alert(33)</scr' + 'ipt>';
+      $scope.kkk2 = $sce.trustAsHtml('<div>gdlksjdf</div><scr' + 'ipt type="text/javascript">alert(33)</scr' + 'ipt>');
+      $scope.trust = function(str) {
+        return $sce.trustAsHtml(str);
+      }
+    })
+    .filter('trustAsHtml', function($sce) {
+      return function(html) {
+        return $sce.trustAsHtml(html);
+      };
+    });
+  </script>
+</body>
+</html>
