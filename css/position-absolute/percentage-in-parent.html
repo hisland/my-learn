@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>test file</title>
+  <style type="text/css">
+  *{margin: 0;padding: 0;}
+  .a{
+    background: pink;
+    width: 10%;
+    height: 10%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+  }
+  .p1{
+    position:relative;
+  }
+  .p2{
+    position:relative;
+    height:100px;
+  }
+  .p3{
+    position:relative;
+    padding:20px 0;
+  }
+  </style>
+</head>
+<body>
+  <div class="p1"><div class="a">p1高度没有显示设置, 取决于里面的内容, 此是它为0, 所以a的10%为0, 看不到背景</div></div>
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  <div class="p2"><div class="a">p2设置了100的高度, 10%是10</div></div>
+  <div class="p3"><div class="a">p3有上下padding 40, 10%是4, 说明 absolute 是从padding区域计算, 而不是content区域</div></div>
+</body>
+</html>

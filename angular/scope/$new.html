@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <script src="../angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .run(function($rootScope) {
+      $rootScope.p1 = 'god';
+      var a = $rootScope.$new();
+      a.p2 = '3ks';
+      var b = a.$new();
+      b.p3 = 'lv3';
+      var c = b.$new(true); // isolate
+      c.p4 = 'lv4';
+
+      log('$rootScope.p1');
+      log('$rootScope.p2');
+      log('$rootScope.p3');
+      log('$rootScope.p4');
+
+      log('a.p1');
+      log('a.p2');
+      log('a.p3');
+      log('a.p4');
+
+      log('b.p1');
+      log('b.p2');
+      log('b.p3');
+      log('b.p4');
+
+      log('c.p1');
+      log('c.p2');
+      log('c.p3');
+      log('c.p4');
+
+      log('a.$root === $rootScope');
+
+      log('$rootScope.$id')
+      log('a.$id')
+      log('b.$id')
+      log('c.$id')
+
+      log('$rootScope.$parent')
+      log('a.$parent')
+      log('b.$parent')
+      log('c.$parent')
+
+      function log(str){
+        console.log(str + ': ', eval('(' + str + ')'));
+      }
+    });
+  </script>
+</body>
+</html>

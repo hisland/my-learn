@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <script src="../angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .run(function($rootScope) {
+      $rootScope.a = 3;
+      $rootScope.b = 4;
+
+      console.log("$rootScope.$eval('a+b')", $rootScope.$eval('a+b'));
+      console.log("$rootScope.$eval(fn)", $rootScope.$eval(function(scope){
+        console.log(scope, this);
+        return scope.a + scope.b;
+      }));
+
+      var a = $rootScope.$new();
+      a.god = 99;
+
+      //读取的都是继承了的
+      console.log("a.$eval('god+b')", a.$eval('god+b'));
+
+      //locals
+      console.log("a.$eval('god+b'), locals overrides", a.$eval('god+b', {god:10,b:5}));
+    });
+  </script>
+</body>
+</html>

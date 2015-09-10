@@ -35,7 +35,7 @@
         },
         template: 'something inside me: {{inner|json}}, outside: {{out|json}}',
         link: function(scope, element, attrs){
-          console.log(arguments);
+          console.log(arguments, scope, scope.myAttr);
         }
       };
     })

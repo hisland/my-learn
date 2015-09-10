@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <h2>不管是emit, broadcast, 都是从自己开始传播, 自己的on会执行一次</h2>
+  <script src="../angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .run(function($rootScope) {
+      $rootScope.$on('evtName', function(e, args){
+        console.log('on root: ', e, args);
+      });
+
+      var a = $rootScope.$new();
+      a.$on('evtName', function(e, args){
+        console.log('on a: ', e, args);
+      });
+
+      var b = $rootScope.$new();
+      b.$on('evtName', function(e, args){
+        console.log('on b: ', e, args);
+      });
+
+      var a1 = a.$new();
+      var b1 = b.$new();
+
+      a1.$on('evtName', function(e, args){
+        console.log('on a1: ', e, args);
+      });
+
+      a1.$emit('evtName', {a: 'on a1'});
+      b1.$emit('evtName', {b: 'on a1'});
+
+      console.log('broadcast-----------');
+      $rootScope.$broadcast('evtName', {root: 'on root'});
+    });
+  </script>
+</body>
+</html>
