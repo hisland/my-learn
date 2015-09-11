@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <h2>watchCollection 能监听对象或数组的一层属性变化,包括增加删除修改</h2>
+  <script src="../angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .run(function($rootScope, $timeout) {
+      // 监听数组
+      $rootScope.$watchCollection('names', function(v){
+        console.log('names: ', v);
+      });
+      $rootScope.names = [1,2,3,4];
+      $rootScope.$digest();
+      var a = {cc: 1};
+      $rootScope.names.push(a);
+      $rootScope.$digest();
+      a.cc = 22; // 只能监听一层, 里面的变化没有反应
+      $rootScope.$digest();
+      $rootScope.names[3] = 'god';
+      $rootScope.$digest();
+
+      // 监听对象
+      $rootScope.$watchCollection('obj', function(v){
+        console.log('obj: ', v);
+      });
+      $rootScope.obj = {a: 'b'};
+      $rootScope.$digest();
+      $rootScope.obj.b = {cc: 1};
+      $rootScope.$digest();
+      $rootScope.obj.b.cc = 22; // 只能监听一层, 里面的变化没有反应
+      $rootScope.$digest();
+      delete $rootScope.obj.a;
+      $rootScope.$digest();
+    });
+  </script>
+</body>
+</html>

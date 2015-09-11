@@ -5,11 +5,50 @@
   <title>Hello World!</title>
 </head>
 <body ng-app="app">
+  <h2>最明显的就是连续的值修改,立即触发</h2>
+  <h2>另外, digest是向下广播的</h2>
   <script src="../angular.js"></script>
   <script>
     angular.module('app', [])
-    .run(function($rootScope) {
-      console.log($rootScope);
+    .run(function($rootScope, $timeout) {
+      $rootScope.$watch('god', function(v){
+        console.log('in root.god: ', v);
+      });
+      $rootScope.god = 33; //这个没有显示调用,所以在最后
+
+      var a = $rootScope.$new();
+      a.$watch('please', function(v){
+        console.log('in a.please: ', v);
+      });
+      a.please = 'cc';
+      a.please = 44; // 正常情况下, 连续修改please, cc的值并不会有效果, 因为digest有延迟
+      a.$digest();
+      a.please = 55;
+      a.$digest();
+      a.please = 66;
+      a.$digest(); // 修改后立即调用, 所以 55, 66都会有显示
+
+      $timeout(function(){
+        a.please = 'yes';
+        a.please = 'maybe'; //正常情况 连续修改,,yes不会显示
+      }, 200);
+      $timeout(function(){
+        a.please = 'halo';
+        $rootScope.$digest(); // 显示触发root, 子scope都要触发
+        a.please = 'asf';
+      }, 300);
+      $timeout(function(){
+        $rootScope.god = 'kkk';
+        a.$digest(); // a是子scope, 并不会向上, 所以 kkk不会显示
+        $rootScope.god = 'aaa';
+      }, 400);
+
+      console.log('$apply: ', a.$apply('please'));
+
+      function log(str){
+        console.log(str + ': ', eval('(' + str + ')'));
+      }
+
     });
   </script>
 </body>

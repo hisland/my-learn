@@ -23,6 +23,7 @@
 
       //读取的都是继承了的
       console.log("a.$eval('god+b')", a.$eval('god+b'));
+      console.log("a.$eval('god')", a.$eval('god'));
 
       //locals
       console.log("a.$eval('god+b'), locals overrides", a.$eval('god+b', {god:10,b:5}));

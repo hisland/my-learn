@@ -15,6 +15,9 @@
       console.log('aaa');
       this.please = 'god';
     })
+    .config(function(aaaProvider){
+      console.log('service aaa is a provider now: aaaProvider: ', aaaProvider, aaaProvider.$get());
+    })
     .controller('my', function($scope, aaa){
       $scope.god = aaa.please;
     });

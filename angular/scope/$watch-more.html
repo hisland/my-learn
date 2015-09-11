@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <script src="../angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .run(function($rootScope, $timeout) {
+      // 可以watch子属性
+      $rootScope.$watch('a.b', function(v){
+        console.log('a.b: ', v);
+      });
+      $rootScope.a = {b: 1};
+      $rootScope.$digest();
+      $rootScope.a.b = 'kk';
+      $rootScope.$watch('a', function(v){
+        console.log('a: ', v);
+      });
+      $rootScope.a.c = 'have c'; // 添加c不会触发a
+
+      $rootScope.$watch('b', function(v){
+        console.log('b: ', v);
+      }, true);
+      $rootScope.b = {x: 1};
+      $rootScope.$digest();
+      $rootScope.b.h = {may:'yes'}; // 监听使用了 true, 会监听整个对象的子属性变化
+      $rootScope.$digest();
+      $rootScope.b.h.god = 'also'; // 监听使用了 true, 会监听整个对象的子属性变化
+
+    });
+  </script>
+</body>
+</html>
