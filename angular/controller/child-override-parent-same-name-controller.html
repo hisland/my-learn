@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body>
+  <h2>子模块会覆盖父模块同名的controller</h2>
+  <div id="a">
+    <div ng-controller="god as god">{{god.kk}}</div>
+  </div>
+  <div id="b">
+    <div ng-controller="god as god">{{god.kk}}</div>
+  </div>
+  <script src="../angular.js"></script>
+  <script type="text/javascript">
+    var m = angular.module('app', []);
+    m.controller('god', function(){
+      this.kk = 'ctrl in app'
+    }); // 这里不定义, run块也可使用, 不过需要子模块实现, 否则异常
+    var m2 = angular.module('cc', ['app']);
+    m2.controller('god', function(){
+      this.kk = 'ctrl in child'
+    });
+    angular.bootstrap(document.getElementById('a'), ['app']);
+    angular.bootstrap(document.getElementById('b'), ['cc']);
+
+
+  </script>
+</body>
+</html>

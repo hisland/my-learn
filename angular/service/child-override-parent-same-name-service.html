@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body>
+  <h3>module bootstrap之后, 再对module运行config, run, 不会反应在 已经 bootstrap 的元素上, 它们已经是完全自己运行的实例</h3>
+  <div id="a"></div>
+  <div id="b"></div>
+  <script src="../angular.js"></script>
+  <script type="text/javascript">
+    var m = angular.module('app', []);
+    m.value('god', {kk:'may'}); // 这里不定义, run块也可使用, 不过需要子模块实现, 否则异常
+    m.run(function(god){
+      console.log(1, god, '子模块的定义会覆盖父的, 子模块有定义,父模块run里面能获取到');
+      god.kk = 'change it';
+    });
+    m.run(function(god){
+      console.log(2, god);
+    });
+    var m2 = angular.module('cc', ['app']);
+    m2.value('god', {kk:'says'});
+    m2.run(function(god){
+      console.log(3, god);
+      god.kk = 'change to me';
+      god.tt = 'new tt'
+    });
+    m2.run(function(god){
+      console.log(4, god);
+    });
+
+    m.run(function(god){
+      god.kk = 'im love in it'
+      console.log(5, god);
+    });
+    angular.bootstrap(document.getElementById('a'), ['app']);
+    console.log('---------');
+    angular.bootstrap(document.getElementById('b'), ['cc']);
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body>
+  <h3>module bootstrap之后, 再对module运行config, run, 不会反应在 已经 bootstrap 的元素上, 它们已经是完全自己运行的实例</h3>
+  <h3>config, run段只会在bootstrap阶段执行一次, 每次都是将所有module的config block, run block, 全部合并了顺序执行, deps的优先执行</h3>
+  <div id="a"></div>
+  <div id="b"></div>
+  <script src="../angular.js"></script>
+  <script type="text/javascript">
+    var m = angular.module('app', []);
+    m.config(function() {
+      console.log(1, 'i am config');
+    }).run(function($rootScope) {
+      console.log(1, 'i am run');
+    });
+    angular.bootstrap(document.getElementById('a'), ['app']);
+
+    console.log('--我又继续添加config,不会有反应, 因为上面的模块已经初始化完成');
+    m.config(function() {
+      console.log(2, 'i am config 2');
+    }).run(function($rootScope) {
+      console.log(2, 'i am run 2');
+    });
+
+    console.log('-- 此时我再把它注册到另外一个dom上 会走一次前面的流程,并且新添加的config会被执行一次');
+    angular.bootstrap(document.getElementById('b'), ['app']);
+  </script>
+</body>
+</html>

@@ -26064,7 +26064,17 @@ var styleDirective = valueFn({
   jqLite(document).ready(function() {
     angularInit(document, bootstrap);
   });
-
+(function() {
+    var orig = angular.module;
+    angular.modules = [];
+    angular.module = function() {
+        var args = Array.prototype.slice.call(arguments);
+        if (arguments.length > 1) {
+            angular.modules.push(arguments[0]);
+        }
+        return orig.apply(null, args);
+    }
+})();
 })(window, document);
 
 !window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}</style>');

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body>
+  <h3>采用 angular.bootstrap 注册的返回值即是 injector, 跟用 angular.element(el).injector() 取得的是同一个</h3>
+  <div id="a">
+  </div>
+  <script src="../angular.js"></script>
+  <script type="text/javascript">
+    var m = angular.module('app', []);
+    m.config(function() {
+      console.log(1, 'i am config');
+    }).run(function($rootScope) {
+      console.log(1, 'i am run');
+    });
+    var injector = angular.bootstrap(document.getElementById('a'), ['app']);
+    var me = angular.element(document.getElementById('a'));
+
+    console.log(injector);
+    console.log(injector === me.injector());
+  </script>
+</body>
+</html>

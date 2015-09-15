@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body>
+  <div id="a">
+    <div ng-controller="ctrl">{{s.kk}}</div>
+    <div ng-controller="ctrl2">{{s.kk}}</div>
+    <div ng-controller="ctrl">{{s.kk}}</div>
+    <div ng-controller="ctrl2">{{s.kk}}</div>
+  </div>
+  <script src="../angular.js"></script>
+  <script type="text/javascript">
+    var m = angular.module('app', []);
+    m.service('god', function(){
+      console.log(1, 'in service: god, 有依赖我的地方, 我才被调用, 然后就不再调用了, 我是单例');
+      this.kk = 'some prop';
+    }).config(function(godProvider){
+      console.log(2, 'in config, use godProvider', godProvider);
+    }).run(function(god){
+      console.log(3, 'in run, use god service', god, 'service god run, becase i use it, not the config');
+    }).controller('ctrl',  function($scope, god){
+      console.log(4, 'in controller: 需要我的地方就调用我一次', '我修改了god, #a这次bootstrap里面任何地方再调用都是同一个');
+      $scope.s = god;
+      god.kk = 'new kk';
+    }).controller('ctrl2',  function($scope, god){
+      console.log(5, 'in controller2: 需要我的地方就调用我一次');
+      $scope.s = god;
+    });
+    angular.bootstrap(document.getElementById('a'), ['app']);
+  </script>
+</body>
+</html>
