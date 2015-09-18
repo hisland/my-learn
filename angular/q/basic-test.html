@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body>
+  <div id="a"></div>
+  <script src="../angular.js"></script>
+  <script type="text/javascript">
+    var m = angular.module('app', []);
+    m.run(function($q){
+      console.log($q);
+      var d = $q.defer();
+      var p = d.promise;
+      console.log(d, p);
+
+      p.then(function(v){
+        console.log('ok', v, arguments, this);
+      }, function(v){
+        console.log('fail', v, arguments, this);
+        return 'fail return';
+      });
+      p.then(function(v){
+        console.log('ok2', v, arguments, this);
+      }).finally(function(v){
+        console.log('finally', v, arguments, this);
+      });
+
+      setTimeout(function() {
+        d.resolve('ohho')
+      }, 1000);
+    });
+    angular.bootstrap(document.getElementById('a'), ['app']);
+  </script>
+</body>
+</html>
