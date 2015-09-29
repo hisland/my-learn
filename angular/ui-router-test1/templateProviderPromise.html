@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <p>parent,child如果同时有相同的param名字(比如id), child变更会触发parent, 不同名字则不会, 花了很长时间才发现, 应该是bug</p>
+  <div ui-view></div>
+  <a ui-sref="state1">state1</a>
+  <a ui-sref="state2">state2</a>
+  <a ui-sref="state3">state3</a>
+  <script src="../angular.js"></script>
+  <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script>
+    var a = angular.module('app', ['ui.router']);
+    a.config(function($stateProvider, $urlRouterProvider){
+      $urlRouterProvider.otherwise('/state1');
+      $stateProvider
+      .state('state1', {
+        url: '/state1',
+        templateProvider: function($timeout, $http){
+          window.aaaa = $http;
+          window.bbbb = $timeout;
+          return $timeout(function(){
+            console.log('timeout: 333');
+            return $http({
+              url: 'state1.html',
+              headers: {
+                'Accept': '*/*' //必须这样, 不然得不到html,只得到json
+              }
+            }).then(function(resp) {
+              console.log(resp);
+              return resp.data;
+            });
+          }, 1000);
+        },
+        controller: function($scope, $timeout, $http){
+          console.log('state1');
+          ;
+        },
+        onEnter: function(){
+          console.log('enter');
+        },
+        onExit: function(){
+          console.log('exit, 子状态不会触发');
+        }
+      })
+      .state('state1.list1', {
+        url: '/list1',
+        templateUrl: 'state1.list.html',
+        controller: function($scope){
+          console.log('state1.list1');
+          $scope.items = ['a', 'list', 'of', 'items'];
+        },
+        onEnter: function(){
+          console.log('enter list1');
+        }
+      })
+      .state('state1.list2', {
+        url: '/list2',
+        templateUrl: 'state1.list.html',
+        controller: function($scope){
+          console.log('state1.list2');
+          $scope.items = ['a', 'list', 'of', 'items'];
+        }
+      })
+      .state('state2', {
+        url: '/state2',
+        templateUrl: 'state2.html'
+      })
+      .state('state2.list', {
+        url: '/list',
+        templateUrl: 'state2.list.html',
+        controller: function($scope){
+          $scope.things = ['a', 'set', 'of', 'things'];
+        }
+      })
+      .state('state3', {
+        url: '^/state3',
+        templateUrl: 'state3.html',
+        controller: function($scope){
+          console.log('state3');
+        }
+      })
+      .state('state3.list', {
+        url: '^/list3/:id',
+        templateUrl: 'state3.list.html',
+        controller: function($scope){
+          console.log('state3.list');
+          $scope.things = ['a', 'set', 'of', 'things'];
+        }
+      })
+
+      .state('state4', {
+        url: '^/state4/:id1',
+        templateUrl: 'state3.html',
+        controller: function($scope, $stateParams){
+          console.log('state4', $stateParams.id1, $stateParams.id2);
+        }
+      })
+      .state('state4.list', {
+        url: '^/list4/:id2',
+        templateUrl: 'state3.list.html',
+        controller: function($scope, $stateParams){
+          console.log('state4.list', $stateParams.id1, $stateParams.id2);
+          $scope.things = ['a', 'set', 'of', 'things'];
+        }
+      })
+    })
+  </script>
+</body>
+</html>
