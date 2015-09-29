@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test file</title>
+  <style type="text/css">
+  *{margin: 0;padding: 0;}
+  .a{
+    border:3px solid #ccc;
+    width: 300px;
+    padding:10px;
+  }
+  .b{
+    width: 200px;
+    height: 300px;
+    border-bottom:3px solid #fff;
+    margin-bottom:-13px;
+  }
+  body{
+    padding:100px;
+  }
+  </style>
+</head>
+<body>
+  <p>负的margin-bottom, 当parent高度取决于内容时, 可以影响高度, parent overflow:visible 会盖住其边框, overflow:hidden,则只能在padding区域显示, 不会盖住边框</p>
+  <div class="a">
+    <div class="b">
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test file</title>
+  <style type="text/css">
+  *{margin: 0;padding: 0;}
+  .a{
+    background: green;
+    width: 300px;
+    height: 400px;
+  }
+  .b{
+    background:pink;
+  }
+  .c{
+    background: red;
+    height:50%;
+    width: 200px;
+  }
+  body{
+    padding:100px;
+  }
+  </style>
+</head>
+<body>
+  <div class="a">
+    <div class="b">
+      <div class="c">height:50%; 我只看父.b, 不管.a, 所以要用百分比,每层都要设置</div>
+    </div>
+  </div>
+</body>
+</html>

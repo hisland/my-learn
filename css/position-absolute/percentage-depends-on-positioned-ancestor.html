@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test file</title>
+  <style type="text/css">
+  *{margin: 0;padding: 0;}
+  .a{
+    position:relative;
+    width: 300px;
+    height: 100px;
+    background:pink;
+    margin-bottom:10px;
+  }
+  .c{
+    background: red;
+    width: 10%;
+    height: 10%;
+    position: absolute;
+    white-space:nowrap;
+  }
+  .b2{
+    position:relative;
+  }
+  body{
+    padding:100px;
+  }
+  </style>
+</head>
+<body>
+  <div class="a">
+    <div class="b">
+      <div class="c">我的百分比是相对于.a的, .b没有定位</div>
+    </div>
+  </div>
+  <div class="a">
+    <div class="b2">
+      <div class="c">我的百分比是相对于.b的, .b定位了, 我只是没高度, 有宽度的</div>
+    </div>
+  </div>
+</body>
+</html>
