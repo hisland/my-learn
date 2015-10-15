@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <h3>provider是核心方法, value,factory,service都是基于此方法的语法糖</h3>
+  <script src="../angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .value('aha', 'bbq')
+    .provider('aaa', function(ahaProvider){
+      console.log('此函数是providerInjector的,需要加上 Provider后缀', arguments);
+      console.log('init aaa, 立即执行, 生成aaaProvider');
+      this.$get = function(aha){
+        console.log('此方法是instanceInjector的', arguments);
+        console.log('instance aaa');
+        this.god = 'cc'; // 不是new操作, 此方法不行
+        return 'result2'; // 必须是返回的内容
+      }
+      // 是new操作, 上面和下面2种方法都行
+      // return {
+      //   $get: function(){
+      //     console.log('instance aaa');
+      //     this.god = 'cc'; // 不是new操作, 此方法不行
+      //     return 'result'; // 必须是返回的内容
+      //   }
+      // }
+    })
+    .config(function(aaaProvider){
+      console.log(aaaProvider, '直接引用上面生成的 aaaProvider');
+    })
+    .run(function(aaa){
+      console.log(aaa, '通过aaaProvider的 $get 生成的对象');
+    })
+  </script>
+</body>
+</html>

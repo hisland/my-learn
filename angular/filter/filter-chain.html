@@ -5,8 +5,8 @@
   <title>Hello World!</title>
 </head>
 <body ng-app="app">
-  <h2>filter可以带多个参数</h2>
-  <div ng-init="god=333" ng-bind="god|test:god:'bbq'"></div>
+  <h2>filter可以串连</h2>
+  <div ng-init="god=333" ng-bind="god|test:god:'bbq'|dosome:'thing'"></div>
   <script src="../angular.js"></script>
   <script>
     var a = angular.module('app', []);
@@ -14,13 +14,13 @@
     .filter('test', function(){
       return function(val, param1){
         console.log(val, param1, arguments);
-        return val;
+        return val+' test';
       };
     })
     .filter('dosome', function(){
       return function(val, param1){
         console.log(val, param1, arguments);
-        return val;
+        return val+' dosome';
       };
     })
   </script>

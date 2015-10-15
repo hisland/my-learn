@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <div ng-init="god=333" ng-controller="test" kik>
+    <h3>filter可以注入 controller service directive</h3>
+    <div>{{god}}</div>
+    <div>{{aha}}</div>
+  </div>
+  <script src="../angular.js"></script>
+  <script>
+    var a = angular.module('app', []);
+    a
+    .filter('test', function(){
+      return function(val, param1){
+        console.log(val, param1, arguments);
+        return val;
+      };
+    })
+    .controller('test', function(testFilter, may){
+      this.god = testFilter('please');
+      this.aha = testFilter('aha', 'arg1');
+    })
+    .service('may', function(testFilter){
+      this.may = testFilter('itis');
+    })
+    .directive('kik', function(testFilter){
+      return function(){
+        console.log(testFilter('inkik'));
+      };
+    })
+  </script>
+</body>
+</html>
