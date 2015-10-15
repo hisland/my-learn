@@ -16,7 +16,7 @@
       <td ng-repeat="j in [0,1,2,3,4,5,6,7]">{{(i+1) + 'x' + (j+1) + '=' + (i+1)*(j+1)}}</td>
     </tr>
   </table>
-  <script src="../angular.js"></script>
+  <script src="../../bower_components/angular/angular.js"></script>
   <script>
     var m = angular.module('phonecatApp', []);
     m.controller('PhoneListCtrl', function($rootScope, $scope) {

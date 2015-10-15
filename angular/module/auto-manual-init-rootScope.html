@@ -7,7 +7,7 @@
 <body>
   <div ng-app><input type="text" ng-model="cc" ng-init="cc='我是自动初始化的'" /> {{cc}}</div>
   <div id="bb"><input type="text" ng-model="cc" ng-init="cc='我是手工初始化的'" /> {{cc}}</div>
-  <script src="../angular.js"></script>
+  <script src="../../bower_components/angular/angular.js"></script>
   <script type="text/javascript">
     var m = angular.module('app', []);
     angular.bootstrap(document.getElementById('bb'), ['app'])

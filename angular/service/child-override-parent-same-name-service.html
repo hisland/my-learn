@@ -8,7 +8,7 @@
   <h3>module bootstrap之后, 再对module运行config, run, 不会反应在 已经 bootstrap 的元素上, 它们已经是完全自己运行的实例</h3>
   <div id="a"></div>
   <div id="b"></div>
-  <script src="../angular.js"></script>
+  <script src="../../bower_components/angular/angular.js"></script>
   <script type="text/javascript">
     var m = angular.module('app', []);
     m.value('god', {kk:'may'}); // 这里不定义, run块也可使用, 不过需要子模块实现, 否则异常
