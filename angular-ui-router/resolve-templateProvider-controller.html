@@ -25,12 +25,18 @@
               console.log('state1.tpl');
               return $timeout(function(){
                 console.log('state1.tpl.ok');
-                return '<h1>State 1</h1> <hr/> <a ui-sref="state1.list1">Show List1</a> <a ui-sref="state1.list2">Show List2</a> <div ui-view></div>';
+                return '<h1>State 1</h1> <div>god is: {{ctrl.god}}</div> <hr/> <a ui-sref="state1.list1">Show List1</a> <a ui-sref="state1.list2">Show List2</a> <div ui-view></div>';
               }, 500);
             },
-            controller: function(name1, name2){
-              console.log('state1.controller', 'resolve 可以注入到controller', arguments);
-            }
+            controllerProvider: function(name1, name2, $timeout){
+              return function ctrlConstructor(){
+                return {god: 'some2'};
+              };
+            },
+            controllerAs: 'ctrl',
+            // controller: function(name1, name2){
+            //   console.log('state1.controller', 'resolve 可以注入到controller', arguments);
+            // }
           },
           view2: {
             templateProvider: function($timeout, $http){
