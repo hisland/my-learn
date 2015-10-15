@@ -15,6 +15,7 @@
   "dependencies": {
     "angular": "~1.4.5",
     "angular-file-upload": "~2.1.4",
+    "angular-resource": "~1.4.7",
     "angular-route": "~1.4.5",
     "angular-ui-router": "~0.2.15",
     "bootstrap": "~3.3.5",

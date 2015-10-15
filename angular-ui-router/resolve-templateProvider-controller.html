@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <h3>没有提供ui-view的话, 相应的controller不会执行</h3>
+  <h3>多个 templateProvider 会被执行, 即使没有被使用</h3>
+  <div ui-view="view1"></div>
+  <a ui-sref="state1">state1</a>
+  <a ui-sref="state2">state2</a>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script>
+    var a = angular.module('app', ['ui.router']);
+    a.config(function($stateProvider, $urlRouterProvider){
+      $urlRouterProvider.otherwise('/state1');
+      $stateProvider
+      .state('state1', {
+        url: '/state1',
+        views: {
+          view1: {
+            templateProvider: function($timeout, $http){
+              console.log('state1.tpl');
+              return $timeout(function(){
+                console.log('state1.tpl.ok');
+                return '<h1>State 1</h1> <hr/> <a ui-sref="state1.list1">Show List1</a> <a ui-sref="state1.list2">Show List2</a> <div ui-view></div>';
+              }, 500);
+            },
+            controller: function(name1, name2){
+              console.log('state1.controller', 'resolve 可以注入到controller', arguments);
+            }
+          },
+          view2: {
+            templateProvider: function($timeout, $http){
+              console.log('state1.tpl.view2');
+              return $timeout(function(){
+                console.log('state1.tpl.view2.ok');
+                return 'test';
+              }, 500);
+            }
+          }
+        },
+        onEnter: function(){
+          console.log('enter state1');
+        },
+        onExit: function(){
+          console.log('exit, 子状态不会触发');
+        },
+        resolve: {
+          name1: function($timeout){
+            console.log('state1.resolve.name1');
+            return $timeout(function(){
+              console.log('state1.resolve.name1.ok');
+              return 'value of resolve name1';
+            }, 500);
+          },
+          name2: function($timeout){
+            console.log('state1.resolve.name2');
+            return $timeout(function(){
+              console.log('state1.resolve.name2.ok');
+              return 'value of resolve name2';
+            }, 800);
+          }
+        }
+      })
+      .state('state1.list1', {
+        url: '/list1',
+        templateProvider: function($timeout, $http){
+          console.log('state1.list1.tpl');
+          return $timeout(function(){
+            console.log('state1.list1.tpl.ok');
+            return '<h3>List of State 1 Items</h3> <ul> <li ng-repeat="item in items">{{ item }}</li> </ul>';
+          }, 200);
+        },
+        controller: function($scope, list1, list2){
+          console.log('state1.list1.controller', 'resolve 可以注入到controller', arguments);
+          $scope.items = ['a', 'list', 'of', 'items'];
+        },
+        onEnter: function(){
+          console.log('enter state1.list1');
+        },
+        onExit: function(){
+          console.log('exit state1.list1');
+        },
+        resolve: {
+          list1: function($timeout){
+            console.log('state1.list1.resolve.name1');
+            return $timeout(function(){
+              console.log('state1.list1.resolve.name1.ok');
+              return 'value of resolve list1';
+            }, 500);
+          },
+          list2: function($timeout){
+            console.log('state1.list1.resolve.name2');
+            return $timeout(function(){
+              console.log('state1.list1.resolve.name2.ok');
+              return 'value of resolve list2';
+            }, 300);
+          }
+        }
+      })
+      .state('state1.list2', {
+        url: '/list2',
+        templateUrl: 'state2.list.html',
+        controller: function($scope){
+          console.log('state1.list2.controller');
+          $scope.items = ['a', 'list', 'of', 'items'];
+        }
+      })
+    })
+  </script>
+</body>
+</html>
