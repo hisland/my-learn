@@ -7,9 +7,11 @@
 <body ng-app="app">
   <div ng-init="god=333" ng-controller="test" kik>
     <h3>filter可以注入 controller service directive</h3>
+    <h3>可以通过 $filter('name') 和 nameFilter 注入, 查看控制台</h3>
     <div>{{god}}</div>
     <div>{{aha}}</div>
   </div>
+  <div ng-controller="test2"></div>
   <script src="../../bower_components/angular/angular.js"></script>
   <script>
     var a = angular.module('app', []);
@@ -23,6 +25,10 @@
     .controller('test', function(testFilter, may){
       this.god = testFilter('please');
       this.aha = testFilter('aha', 'arg1');
+    })
+    .controller('test2', function($filter, testFilter){
+      var f = $filter('test');
+      console.log('$filter(name) 和 nameFilter 一样: ', f===testFilter);
     })
     .service('may', function(testFilter){
       this.may = testFilter('itis');

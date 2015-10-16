@@ -12,4 +12,6 @@ console.log('------------------');
 
 k.forEach((v, i) => console.log(v, i)) // arg
 
+console.log('------------------');
 
+console.log('返回对象必须用()包起来,否则会有歧义');

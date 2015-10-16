@@ -10,6 +10,7 @@
   <script>
     angular.module('app', [])
     .directive('bindHtmlCompile', ['$compile', function ($compile) {
+      debugger;
       return {
         restrict: 'A',
         link: function (scope, element, attrs) {
