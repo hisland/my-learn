@@ -12,18 +12,18 @@
 <body>
 	<script type="text/javascript">
 		window.onpopstate = function(e) {
-			console.log(e);
+			console.log(e, e.state);
 		}
 		window.onload = function() {
 			history.replaceState({
-				foo: "page 1"
-			}, "page 1", "a.html");
+				foo: "page1"
+			}, "page1", "page1.html");
 			history.replaceState({
-				foo: "page 2"
-			}, "page 2", "b.html");
+				foo: "page2"
+			}, "page2", "page2.html");
 			history.replaceState({
-				foo: "page 3"
-			}, "page 3", "c.html");
+				foo: "page3"
+			}, "page3", "page3.html");
 		}
 	</script>
 </body>

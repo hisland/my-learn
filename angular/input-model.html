@@ -9,5 +9,10 @@
   Your name: <input type="text" ng-model="yourname" placeholder="World">
   <hr>
   Hello {{yourname || 'World'}}!
+  <hr />
+  <p>随便的层级会自动创建</p>
+  other name: <input type="text" ng-model="a.b.c" placeholder="other">
+  <hr>
+  Hello {{a.b.c || 'other'}}!
 </body>
 </html>

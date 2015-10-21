@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <style type="text/css">
+.css-class-add, .css-class-remove {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 10s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 10s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 10s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 10s;
+}
+
+.css-class,
+.css-class-add.css-class-add-active {
+  color: red;
+  font-size:3em;
+}
+
+.css-class-remove.css-class-remove-active {
+  font-size:1.0em;
+  color:black;
+}
+  </style>
+</head>
+<body ng-app="app">
+<h3>必须要有 ngAnimate 依赖</h3>
+<p>
+  <input type="button" value="set" ng-click="myCssVar='css-class'">
+  <input type="button" value="clear" ng-click="myCssVar=''">
+  <br>
+  <span ng-class="myCssVar">CSS-Animated Text</span>
+</p>
+  <script src="../../bower_components/angular/angular.js"></script>
+  <script src="../../bower_components/angular-animate/angular-animate.js"></script>
+  <script>
+    angular.module('app', ['ngAnimate'])
+    .config(function($compileProvider){
+      console.log($compileProvider);
+    })
+  </script>
+</body>
+</html>

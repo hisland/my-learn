@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <script src="../../bower_components/angular/angular.js"></script>
+  <div ng-controller="ExampleController">
+    <h3>只有一个input, 回车触发submit</h3>
+    <form class="css-form" ng-submit="submit($event)">
+      Name: <input type="text" ng-model="name" /><br />
+    </form>
+    <hr />
+    <h3>2个input, 回车不能触发submit</h3>
+    <form class="css-form" ng-submit="submit($event)">
+      Name: <input type="text" ng-model="name" /><br />
+      email: <input type="text" ng-model="email" /><br />
+    </form>
+    <hr />
+    <h3>2个input, 增加submit按钮, 回车能触发submit</h3>
+    <form class="css-form" ng-submit="submit($event)">
+      Name: <input type="text" ng-model="name" /><br />
+      email: <input type="text" ng-model="email" /><br />
+      <input type="submit" value="submit" />
+    </form>
+    <hr />
+    <h3>带有action, angular不会阻止, 页面会跳转</h3>
+    <form class="css-form" ng-submit="submit($event)" action="test">
+      Name: <input type="text" ng-model="name" /><br />
+      email: <input type="text" ng-model="email" /><br />
+      <input type="submit" value="submit" />
+    </form>
+    <hr />
+    <h3>使用了name属性, 会在scope上添加相应的对象, 并且有各种验证方法及状态属性</h3>
+    <form name="aaa" class="css-form" ng-submit="submit($event)">
+      Name: <input type="text" name="aaaName" ng-model="name" /><br />
+      email: <input type="text" name="aaaEmail" ng-model="email" /><br />
+      <input type="submit" value="submit" />
+    </form>
+  </div>
+  <script>
+    angular.module('app', [])
+      .controller('ExampleController', ['$scope', function($scope) {
+        $scope.master = {};
+        $scope.submit = function(){
+          console.log(arguments, $scope);
+        }
+      }]);
+  </script>
+</body>
+</html>

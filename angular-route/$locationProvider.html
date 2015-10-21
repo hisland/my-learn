@@ -5,21 +5,15 @@
   <title>Hello World!</title>
 </head>
 <body ng-app="app">
-  <a href="list.html">list</a>
-  <div ng-view></div>
   <script src="../bower_components/angular/angular.js"></script>
   <script src="../bower_components/angular-route/angular-route.js"></script>
   <script>
     var a = angular.module('app', ['ngRoute']);
-    a.config(function($routeProvider, $locationProvider) {
-      $routeProvider.when('list.html', {
-        templateUrl: 'list.html'
-      });
-      $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
-      });
-    })
+    a.config(['$locationProvider',function($locationProvider) {
+      window.aaa = $locationProvider;
+    }]).run(['$location',function($location) {
+      window.bbb = $location;
+    }])
   </script>
 </body>
 </html>
