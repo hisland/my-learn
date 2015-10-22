@@ -12,17 +12,68 @@
 		.red{color:red;}
 
 		.box{width:300px;height:200px;background:#ccc;}
-		.in{background:green;}
+		.box>div{height:150px;}
+		.a{
+			background-image:url('img.png');
+		}
+		.b{
+			background-image:linear-gradient(to bottom, blue, red);
+		}
+		.c{
+			background-image:element(#iam);
+		}
+		.d{
+			float:left;width: 300px;height:200px;
+			background-image:url('img.png'), linear-gradient(to bottom, blue, red);
+			background-repeat: no-repeat;
+		}
+		.d2{
+			float:left;width: 300px;height:200px;margin-left: 5px;color:#fff;
+			background-image:linear-gradient(to bottom, blue, red), url('img.png');
+			background-repeat: no-repeat, no-repeat;
+		}
+		.d3{
+			background-image:none,,url('flower.jpg');
+		}
 	</style>
 </head>
 <body>
 	<fieldset>
-		<legend>calc属性可以使用相对值,动态计算,类似以前的css expression</legend>
-		<legend>操作符之间要有空格,如calc(100% - 1em)不能写成calc(100%-1em)</legend>
+		<legend>背景图片地址 background-image:url('img.png')</legend>
+		<legend>url里面可以有单引号或者双引号或者没有, 相对地址相对于stylesheet, 不是page</legend>
 		<section>
 			<div class="box">
-				<div class="in" style="width:calc(100% - 1em);height:calc(100% - 1em);">text</div>
+				<div class="a"></div>
 			</div>
+		</section>
+	</fieldset>
+
+	<fieldset>
+		<legend>渐变 linear-gradient(to bottom, blue, red)</legend>
+		<section>
+			<div class="box">
+				<div class="b"></div>
+			</div>
+		</section>
+	</fieldset>
+
+	<fieldset>
+		<legend>某个元素id element(#id)</legend>
+		<legend>浏览器支持不好, 现在只有firefox支持, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/element">element</a></legend>
+		<section>
+			<div class="box">
+				<div class="c"></div>
+				<div id="iam">我是一个元素</div>
+			</div>
+		</section>
+	</fieldset>
+
+	<fieldset>
+		<legend>多个背景, 可以同时混合上面的</legend>
+		<section>
+			<div class="d"></div>
+			<div class="d2">实测图片顺序是先设置的在上面</div>
+			<div class="d2 d3">好像不能通过 background-image 单独修改其中某张图片</div>
 		</section>
 	</fieldset>
 </body>

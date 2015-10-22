@@ -6,22 +6,40 @@
 	<style type="text/css">
 		*{padding:0;margin:0;}
 		body{padding:50px;}
-		fieldset{border:1px solid #ccc;margin-bottom:10px;}
+		fieldset{border:1px solid #ccc;margin:10px 0;}
 		legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
-		section{margin:10px;position:relative;background:#f3f3f3;}
-		.red{color:red;}
+		section{margin:10px;position:relative;background:#f3f3f3;display: flex;flex-wrap:wrap;}
 
-		.box{width:300px;height:200px;background:#ccc;}
-		.in{background:green;}
+		.box{width:300px;height:150px;margin: 3px;color:red;border:1px solid #ccc;background-repeat: no-repeat;}
+		.box1{background-image:url('img.png');background-position: right bottom;}
+		.box2{background-image:url('img.png');background-position: right;}
+		.box3{background-image:url('img.png');background-position: center;}
+		.box4{background-image:url('img.png');background-position: 10%;}
+		.box5{background-image:url('img.png');background-position: 100%;}
+		.box6{background-image:url('img.png');background-position: 110%;}
+		.box7{background-image:url('img.png');background-position: -10%;}
 	</style>
 </head>
 <body>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-position">MDN</a>
 	<fieldset>
-		<legend>calc属性可以使用相对值,动态计算,类似以前的css expression</legend>
-		<legend>操作符之间要有空格,如calc(100% - 1em)不能写成calc(100%-1em)</legend>
+		<legend>背景图片位置 默认是 0% 0% 即左上角对齐</legend>
+		<legend>left right这种值是不合法的</legend>
+		<legend>单个值是设置的x, y方向是center</legend>
 		<section>
-			<div class="box">
-				<div class="in" style="width:calc(100% - 1em);height:calc(100% - 1em);">text</div>
+			<div class="box box1">background-position: right bottom; 关键字
+			</div>
+			<div class="box box2">background-position: right; 另一边居中相当于50%或者center
+			</div>
+			<div class="box box3">background-position: center; 绝对居中
+			</div>
+			<div class="box box4">background-position: 10%; 百分比官方解释是 area*10%-img*10%, 相当于area的10%的点对齐img的10%的点
+			</div>
+			<div class="box box5">background-position: 100%; 100%和right相同
+			</div>
+			<div class="box box6">background-position: 110%; 超出
+			</div>
+			<div class="box box7">background-position: -10%; 负值
 			</div>
 		</section>
 	</fieldset>

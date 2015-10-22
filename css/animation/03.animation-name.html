@@ -17,32 +17,32 @@
 		@-webkit-keyframes aa1 {
 			20% { left: 100px; }
 		}
-		.aa1{background:#ccc;position:relative;-webkit-animation:aa1 2s linear;}
+		.aa1{background:#ccc;position:relative;left:0;-webkit-animation:aa1 2s linear;}
 
 		@-webkit-keyframes -aa1 {
 			20% { left: 100px; }
 		}
-		.aa2{background:#ccc;position:relative;-webkit-animation:-aa1 2s linear;}
+		.aa2{background:#ccc;position:relative;left:0;-webkit-animation:-aa1 2s linear;}
 
 		@-webkit-keyframes --aa1 {
 			20% { left: 100px; }
 		}
-		.aa3{background:#ccc;position:relative;-webkit-animation:--aa1 2s linear;}
+		.aa3{background:#ccc;position:relative;left:0;-webkit-animation:--aa1 2s linear;}
 
 		@-webkit-keyframes 11aa {
 			20% { left: 100px; }
 		}
-		.aa4{background:#ccc;position:relative;-webkit-animation:11aa 2s linear;}
+		.aa4{background:#ccc;position:relative;left:0;-webkit-animation:11aa 2s linear;}
 
 		@-webkit-keyframes _11aa {
 			20% { left: 100px; }
 		}
-		.aa5{background:#ccc;position:relative;-webkit-animation:_11aa 2s linear;}
+		.aa5{background:#ccc;position:relative;left:0;-webkit-animation:_11aa 2s linear;}
 
 		@-webkit-keyframes -_11aa {
 			20% { left: 100px; }
 		}
-		.aa6{background:#ccc;position:relative;-webkit-animation:-_11aa 2s linear;}
+		.aa6{background:#ccc;position:relative;left:0;-webkit-animation:-_11aa 2s linear;}
 
 		@-webkit-keyframes bb1 {
 			20% { left: 100px; }
@@ -50,15 +50,16 @@
 		@-webkit-keyframes bb2 {
 			30% { top: 100px; }
 		}
-		.aa7{background:#ccc;position:relative;-webkit-animation:bb1, bb2 2s linear;}
+		.aa7{background:#ccc;position:relative;left:0;top:0;-webkit-animation:bb1, bb2 2s linear;}
 
 		@-webkit-keyframes cc1 {
 			20% { left: 100px; }
 		}
-		.aa8{background:#ccc;position:relative;-webkit-animation:CC1 2s linear;}
+		.aa8{background:#ccc;position:relative;left:0;-webkit-animation:CC1 2s linear;}
 	</style>
 </head>
 <body>
+	<h3>现在必须要有初始值才能动画了</h3>
 	<p class="red">animation-name, 可用字符[A-Za-z0-9_-], --开头不行, 第一个非-字符必须是字母或_, 区分大小写</p>
 	<div class="desc">
 		<p>animation-name: aa1</p>
