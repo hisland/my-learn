@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>test file</title>
+  <style type="text/css">
+  :root{}
+  html{margin:100px;}
+  body{margin:100px;}
+  .a{height:50%;width:150px;background:#ccc;position:absolute;top:0;left:0;}
+  .b{height:20%;background:#ccc;}
+  .c{height:1000px;}
+  </style>
+</head>
+<body>
+  <div class="a">
+    我直接 position:absolute; <br />
+    如果body设置position:relative我就相对于body<br />
+    此时我的%高度是相对于:root <br />
+    我会随着页面滚动, 如果相固定住, 使用 position:fixed; <br />
+  </div>
+  <div class="b">我和body都是normal flow的方式</div>
+  <div class="c">
+    <h3>对 :root html body 设置 overflow:hidden; 全局滚动条都会消失</h3>
+    <h3>全局滚动条的 卷去高度 通过 document.body.scrollTop 得到, 不是 document.documentElement.scrollTop</h3>
+    <h3>html body 都可以用 margin, 它们都是display:block</h3>
+    <h3>document.documentElement.clientHeight 可得到 页面显示区域的高度</h3>  
+  </div>
+</body>
+</html>

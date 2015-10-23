@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>test file</title>
+  </head>
+  <body>
+    <h3>现在好像只有firefox支持</h3>
+    <div>
+      我应该是默认的黑色, 如果是红色, 则不支持 style标签的scoped属性
+    </div>
+    <div>
+      <style type="text/css" scoped>
+        div {color:red;}
+      </style>
+      <div>我应该是红色, 我是子标签</div>
+      我也应该是红色, 我是同级的匿名标签
+    </div>
+  </body>
+</html>
