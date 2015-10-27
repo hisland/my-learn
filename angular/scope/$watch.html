@@ -5,13 +5,14 @@
   <title>Hello World!</title>
 </head>
 <body ng-app="app">
+  <p>整个run块执行完, 如果里面没有$apply $digest之类的, 会在完成后有个$digest把 watch按注册顺序执行一次</p>
   <script src="../../bower_components/angular/angular.js"></script>
   <script>
     angular.module('app', [])
     .run(function($rootScope, $timeout) {
       // ref可以被调用来清除这个watch
-      var ref = $rootScope.$watch('god', function(v){ //本来会初始化调用一次, 因为下面立即修改了, 所以这里不会执行
-        console.log('god: ', v);
+      var ref = $rootScope.$watch('god', function(newValue, oldValue, scope){ //本来会初始化调用一次, 因为下面立即修改了, 所以会得到下面的 44
+        console.log('god: ', newValue, arguments);
       });
 
       $rootScope.god = 33; //下面这个立刻执行, 有缓冲, 所以这个结果不会出现
@@ -29,32 +30,8 @@
         ref();
       }, 300);
       $timeout(function(){
-        $rootScope.god = 'no watching';
+        $rootScope.god = 'no watching'; // 这个不会输出, 因为上面已经把watch取消了
       }, 400);
-
-      // 这个会随时执行 $digest() is called
-      $rootScope.$watch(function(){
-        console.log('fired every time: ', arguments);
-      });
-
-
-      // test的改变会让这个按 1,2,1 执行, 其它改变会执行1次1
-      $rootScope.$watch(function(scope){
-        console.log('fired', arguments);
-        return scope.$eval('test');
-      }, function(v){
-        console.log('in test:', arguments);
-      });
-      $timeout(function(){
-        $rootScope.test = 'this is';
-      }, 100);
-      $timeout(function(){
-        $rootScope.test = 'that';
-      }, 200);
-      // 其它改变会执行1次1
-      $timeout(function(){
-        $rootScope.tt = 'asd';
-      }, 300);
 
       // 这个会随时执行 $digest() is called
       $rootScope.$watch('a.b', function(v){

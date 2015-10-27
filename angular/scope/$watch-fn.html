@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <style type="text/css">
+    .red{color:red;}
+  </style>
+</head>
+<body ng-app="app">
+  <h3>scope.$watch(function(scope){}), 每个 $digest 都会执行</h3>
+  <h3>scope.$watch(function get(scope){}, function listener(newValue, oldValue, scope){}), <br />
+    每次 get 返回值的改变都会传入 listener 的 newValue <br />
+    然后会再次 get 直到返回值没有改变, <span class="red">所以 get 不能永远返回不同的值, 会导致无限递归, angular有设置10次上限</span>
+  </h3>
+  <script src="../../bower_components/angular/angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .run(function($rootScope, $timeout) {
+
+      // 每次 $digest() 这个function都会被触发
+      $rootScope.$watch(function(scope){
+        console.log('fired every $digest : ', arguments);
+
+        // return Math.random();  // 这种不可以, 每次返回的值不一样, 会导致无限 $digest
+      });
+
+
+      // 每次 get 返回值的改变都会传入 listener 的 newValue
+      $rootScope.$watch(function get(scope){
+        console.log('fired', arguments);
+        return scope.$eval('test');
+      }, function listener(v){
+        console.log('in test:', arguments);
+      });
+
+
+      $timeout(function(){
+        $rootScope.test = 'this is';
+        console.log('---- time 1: ');
+      }, 100);
+      $timeout(function(){
+        $rootScope.test = 'that';
+        console.log('---- time 2: ');
+      }, 200);
+      // 其它改变会执行1次1
+      $timeout(function(){
+        $rootScope.tt = 'asd';
+        console.log('---- time 3: ');
+      }, 300);
+
+      // 这个会随时执行 $digest() is called
+      $rootScope.$watch('a.b', function(v){
+        console.log('a.b: ', v);
+      });
+      $rootScope.a = {b: 1};
+
+      console.log('run block ok: ');
+
+    });
+  </script>
+</body>
+</html>

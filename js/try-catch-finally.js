@@ -14,7 +14,7 @@ try {
 
 
 
-console.log('-------------');
+console.log('\n\n-------------');
 try {
   console.log('in try');
   ll++; //错误行
@@ -27,7 +27,7 @@ try {
 
 
 
-console.log('------------- finally 段是可选的, 通常用来避免代码出现问题, 做一些资源释放等事情');
+console.log('\n\n------------- finally 段是可选的, 通常用来避免代码出现问题, 做一些资源释放等事情');
 try {
   console.log('in try');
   console.log('try 完毕, catch不会执行');
@@ -38,3 +38,25 @@ try {
 
 
 
+console.log('\n\n------------- try return 了');
+function aa(){
+  try {
+    console.log('下面一行返回值了');
+    return '横断山脉';
+  } catch (e) {
+    console.log('遇到错误', e);
+  } finally {
+    console.log('返回了也要执行 finally');
+  }
+
+  // 后面的不会再执行了, 哪怕后面还有 finally 块
+  try {
+    console.log('下面一行返回值了');
+    return '横断山脉';
+  } catch (e) {
+    console.log('遇到错误', e);
+  } finally {
+    console.log('返回了也要执行 finally');
+  }
+}
+console.log('调用aa(): ', aa());

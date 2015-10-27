@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <script src="../../bower_components/angular/angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .run(function($rootScope) {
+      $rootScope.a = 3;
+      $rootScope.b = 4;
+
+      log("$rootScope.$eval('a+b')");
+      console.log("$rootScope.$eval(fn)", $rootScope.$eval(function(scope){
+        console.log("$rootScope.$eval(fn)", scope, this);
+        return scope.a + scope.b;
+      }));
+
+      var a = $rootScope.$new();
+      a.god = 99;
+
+      console.log('--- 读取的都是继承了的');
+      log("a.$eval('god+b')");
+      log("a.$eval('god')");
+
+      console.log('---- 使用 locals');
+      console.log("a.$eval('god+b'), locals overrides, god是locals里面的", a.$eval('god+b', {god:10}));
+
+      console.log('---- 调用函数');
+      a.test = function(v){
+        if (v > 10000) { // 避免传入的b:4 走这段流程, 10000随意取的大于4的值
+          console.log('时间差 ms: ',  +new Date - v);
+        }
+        console.log('in test: 参数传入了 b:', v);
+        console.log('this 是 scope: this.b: ', this.b);
+        return 'some value';
+      };
+
+      console.log('      --- eval function, 调用函数');
+      log("a.$eval('test(b)')");
+
+      console.log('---- evalAsync, 看起来暂时对异步调用方法有用');
+      console.log(33, a.$evalAsync('test(' + +new Date + ')'));
+
+      function log(str){
+        console.log(str + ': ', eval('(' + str + ')'));
+      }
+    });
+  </script>
+</body>
+</html>

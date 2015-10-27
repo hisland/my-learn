@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <script src="../../bower_components/angular/angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .run(function($rootScope, $timeout) {
+      $rootScope.$watch('god', function(v){
+        console.log('in root.god: ', v);
+      });
+      $rootScope.god = 33;
+
+      var a = $rootScope.$new();
+      a.$watch('please', function(v){
+        console.log('in a.please: ', v);
+      });
+
+      a.please = 'some new';
+      $rootScope.$digest();
+
+      a.please = 'is a good';
+      $rootScope.god = 'halo';
+      $rootScope.$digest();
+
+      console.log('---- $destroy');
+
+      a.$destroy();
+      a.please = 'not show'; // 已经 $destroy, 不再显示, 会被垃圾回收
+      $rootScope.god = 'yes got';
+      $rootScope.$digest();
+
+
+
+    });
+  </script>
+</body>
+</html>

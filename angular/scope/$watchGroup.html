@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
+<body ng-app="app">
+  <h3>成组传入传出的</h3>
+  <script src="../../bower_components/angular/angular.js"></script>
+  <script>
+    angular.module('app', [])
+    .run(function($rootScope, $timeout) {
+      $rootScope.$watchGroup(['god', 'please'], function(newValues, oldValues, scope){
+        console.log('fire : ', newValues.join(), oldValues.join());
+      });
+
+      $rootScope.god = 33;
+      $rootScope.please = 44;
+
+      // 延迟一点就可以了
+      $timeout(function(){
+        $rootScope.god = 'please';
+      }, 100);
+      $timeout(function(){
+        $rootScope.god = 'aha';
+      }, 200);
+
+    });
+  </script>
+</body>
+</html>

@@ -43,7 +43,7 @@
         $rootScope.god = 'aaa';
       }, 400);
 
-      console.log('$apply: ', a.$apply('please'));
+      console.log('$apply: 返回值: ', a.$apply('please'), '前面先显示了 root.god:33 是因为 $apply里面会调用root.$digest');
 
       function log(str){
         console.log(str + ': ', eval('(' + str + ')'));

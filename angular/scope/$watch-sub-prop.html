@@ -23,12 +23,13 @@
 
       $rootScope.$watch('b', function(v){
         console.log('b: ', v);
-      }, true);
+      }, true); //  这时使用了true, 子属性的所有变化都会出现
       $rootScope.b = {x: 1};
+      console.log('---下面的 $digest 会把前面的修改全部处理');
       $rootScope.$digest();
-      $rootScope.b.h = {may:'yes'}; // 监听使用了 true, 会监听整个对象的子属性变化
+      $rootScope.b.h = {may:'yes'}; // 下面的 $digest 会触发这里的修改
       $rootScope.$digest();
-      $rootScope.b.h.god = 'also'; // 监听使用了 true, 会监听整个对象的子属性变化
+      $rootScope.b.h.god = 'also'; // run块结束后 会触发这里的修改
 
     });
   </script>
