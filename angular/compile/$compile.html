@@ -14,14 +14,16 @@
     .run(function($compile, $rootScope){
       console.log($compile);
 
-      var tpl = $compile('<div>{{god}}</div>');
-      console.log(tpl);
+      var tplStr = '<div>{{god}}</div>';
 
-      var s = $rootScope.$new();
-      s.god = 'hello';
+      var tplCompile = $compile(tplStr);
+      console.log(tplCompile);
 
-      var linked = tpl(s); //必须要scope, 普通对象不行
-      console.log(linked, 'linked 现在可以append到dom中,已经注册了事件了');
+      var scope = $rootScope.$new();
+      scope.god = 'hello';
+
+      var linkedDOM = tplCompile(scope); //必须要scope, 普通对象不行
+      console.log(linkedDOM, 'linkedDOM 是DOM节点 现在可以append到dom中,已经注册了事件了');
     });
   </script>
 </body>

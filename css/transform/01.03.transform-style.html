@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>new document</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+    *{padding:0;margin:0;}
+    body{padding:50px;}
+    fieldset{border:1px solid #ccc;margin:10px 0;}
+    legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
+    section{margin:10px;position:relative;background:#f3f3f3;display: flex;flex-wrap:wrap;}
+
+    .box{width:100%;height:100px;background:#ccc;padding:50px;}
+    .in{background:green;width: 100px;height:100px;margin-right:100px;float:left;}
+    .in>div{width:100%;height:100%;background:purple;}
+    .a{transform-style:preserve-3d;}
+    .a>div{transform:rotateX(45deg);}
+    .b>div{transform:rotateX(45deg);}
+    .c>div{}
+    .d>div{}
+  </style>
+</head>
+<body>
+  <fieldset>
+    <legend>3D-space中变换或者flat中变换</legend>
+    <legend>3D-space 平面有背景,平面后面的会被盖住, 它们在三维空间上交互</legend>
+    <section>
+      <div class="box">
+        <div class="in a"><div></div></div>
+      </div>
+    </section>
+    <legend>flat, 相当于此元素变换后, 在平面上产生的投影</legend>
+    <section>
+      <div class="box">
+        <div class="in b"><div>left top</div></div>
+      </div>
+    </section>
+  </fieldset>
+</body>
+</html>

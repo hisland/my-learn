@@ -16,13 +16,12 @@
 </head>
 <body>
 	<fieldset style="margin-bottom:50px;">
-	<legend>rotate(a), 等同于 matrix(cos(a), -sin(a), sin(a), cos(a), 0, 0)</legend>
+	<legend>rotate(a) 相当于 rotateZ(a) 相当于 rotate3d(0, 0, 1, a) 相当于 matrix(cos(a), -sin(a), sin(a), cos(a), 0, 0)</legend>
 	<legend class="red">a是角度,示例: 90deg = 100grad = 0.25turn ≈ 1.5708rad, 即使是0单位也不可缺,必须写成0deg之类</legend>
-	<section style="margin-bottom:50px;">
-		<div class="box" style="-webkit-transform:rotate(45deg)">rotate(45deg)</div>
-	</section>
-	<section>
-		<div class="box" style="-webkit-transform:rotate(100grad)">rotate(100grad)</div>
+	<section style="margin-bottom:50px;height:100px;padding:50px;">
+		<div class="box" style="-webkit-transform:rotate(45deg);float:left;">rotate(45deg)</div>
+		<div class="box" style="-webkit-transform:rotateZ(45deg);float:left;margin-left:100px;">rotateZ(45deg)</div>
+		<div class="box" style="-webkit-transform:rotate(100grad);float:left;margin-left:100px;">rotate(100grad)</div>
 	</section>
 	<legend>默认中心点是正中心, 可通过transform-origin修改</legend>
 	<section style="margin-bottom:50px;">
@@ -34,29 +33,30 @@
 	</fieldset>
 
 	<fieldset style="margin-bottom:50px;">
-	<legend>rotate3d(x, y, z, a), 公式太复杂,参考<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function#rotate3d()">MDN</a></legend>
+	<legend>rotate3d(x, y, z, a),参考<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function#rotate3d()">MDN</a></legend>
+	<legend>x,y,z确定一个点, 从原点到此点画一条直线作为旋转轴, 此直线是向量, 方向指向自己, a为正时顺时针转, a为负时逆时针转</legend>
 	<section style="margin-bottom:50px;">
-		<div class="box" style="-webkit-transform:rotate3d(1, 1, 1, 0deg)">rotate3d(1, 1, 1, 45deg)</div>
+		<div class="box" style="-webkit-transform:rotate3d(1, 1, 1, 45deg)">rotate3d(1, 1, 1, 45deg)</div>
 	</section>
 	<section>
 	</fieldset>
 
 	<fieldset style="margin-bottom:50px;">
-	<legend>rotateX(a) is a shorthand for rotate3d(1, 0, 0, a)</legend>
+	<legend>rotateX(a) is a shorthand for rotate3d(1, 0, 0, a), 此时旋转轴为x方向</legend>
 	<section style="margin-bottom:50px;">
 		<div class="box" style="-webkit-transform:rotateX(45deg)">rotateX(45deg)</div>
 	</section>
 	</fieldset>
 
 	<fieldset style="margin-bottom:50px;">
-	<legend>rotateY(a) is a shorthand for rotate3d(0, 1, 0, a)</legend>
+	<legend>rotateY(a) is a shorthand for rotate3d(0, 1, 0, a), 此时旋转轴为y方向</legend>
 	<section style="margin-bottom:50px;">
 		<div class="box" style="-webkit-transform:rotateY(45deg)">rotateY(45deg)</div>
 	</section>
 	</fieldset>
 
 	<fieldset style="margin-bottom:50px;">
-	<legend>rotateZ(a) is a shorthand for rotate3d(0, 0, 1, a)</legend>
+	<legend>rotateZ(a) is a shorthand for rotate3d(0, 0, 1, a), 此时旋转轴为z方向</legend>
 	<section style="margin-bottom:50px;">
 		<div class="box" style="-webkit-transform:rotateZ(45deg)">rotateZ(45deg)</div>
 	</section>

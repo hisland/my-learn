@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>new document</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+    *{padding:0;margin:0;}
+    body{padding:50px;}
+    fieldset{border:1px solid #ccc;margin:10px 0;}
+    legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
+    section{margin:10px;position:relative;background:#f3f3f3;display: flex;flex-wrap:wrap;}
+
+    .box{width:100%;height:200px;background:#ccc;padding:50px;}
+    .in{background:green;width: 100px;height:100px;margin-right:100px;float:left;}
+    .in>div{width:100%;height:100%;background:purple;transform:rotate(45deg);}
+    .a>div{transform-origin:left top;}
+    .b>div{transform-origin:10px 10px;}
+    .c>div{transform-origin:100%;}
+    .d>div{transform-origin:2px;}
+  </style>
+</head>
+<body>
+  <fieldset>
+    <legend>设置 transform应用的中心, 默认是 50% 50% 0, 表示在正中心</legend>
+    <legend>transform-origin:100%; 实际是 transform-origin:100% 50% 0;即不设置的值为默认值</legend>
+    <legend>绝对值的时候是盒子右上角的偏移</legend>
+    <section>
+      <div class="box">
+        <div class="in a"><div>left top</div></div>
+        <div class="in b"><div>左上角偏移 10px 10px</div></div>
+        <div class="in c"><div>100% 50%</div></div>
+        <div class="in d"><div>2px 50%</div></div>
+      </div>
+    </section>
+  </fieldset>
+</body>
+</html>
