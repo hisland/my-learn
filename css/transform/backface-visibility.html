@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>new document</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+    *{padding:0;margin:0;}
+    body{padding:50px;}
+    fieldset{border:1px solid #ccc;margin:10px 0;}
+    legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
+    section{margin:10px;position:relative;background:#f3f3f3;display: flex;flex-wrap:wrap;}
+
+    .box{width:150px;height:100px;margin-right:10px;padding:20px;transform-style:preserve-3d;perspective:500px;}
+    .box>div{width:100px;height:100px;background:url(demos/flower.jpg) no-repeat left 80% / 50% green;color:#fff;}
+@keyframes spin{
+    0%{
+        transform:rotateY(0deg)
+    }
+    100%{
+        transform:rotateY(360deg)
+    }
+}
+.box>div:hover{animation: spin 5s;}
+.box:nth-child(2n)>div{}
+.box:nth-child(2n+1)>div{backface-visibility:hidden;}
+  </style>
+</head>
+<body>
+  <fieldset>
+    <legend>元素背面是否可见</legend>
+    <section>
+      <div class="box">
+        <div>翻到背面看不见</div>
+      </div>
+      <div class="box">
+        <div>2面可见</div>
+      </div>
+    </section>
+  </fieldset>
+</body>
+</html>
