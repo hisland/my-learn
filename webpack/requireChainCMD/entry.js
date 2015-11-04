@@ -1,1 +1,1 @@
-document.write(require('./cmd-file.js'));
+console.log(require('./cmd-file.js'));

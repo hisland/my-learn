@@ -1,1 +1,1 @@
-document.write(require('./amd-file.js'));
+console.log(require('./amd-file.js'));

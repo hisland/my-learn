@@ -44,14 +44,30 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	document.write(__webpack_require__(1));
+	console.log(__webpack_require__(1));
 
 
 /***/ },
 /* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var a = __webpack_require__(2);
+
+	a('halo:');
+
+	module.exports = 'cmd-file';
+
+
+/***/ },
+/* 2 */
 /***/ function(module, exports) {
 
-	module.exports = 'it works from cmd-file.js';
+	
+	console.log('some thing like me');
+
+	module.exports = function(can){
+	  console.log(can, ' you do!');
+	};
 
 
 /***/ }
