@@ -1,0 +1,1 @@
+require('script!./normal.js');
