@@ -51,28 +51,19 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(2)(__webpack_require__(3))
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["iamGlobal"] = __webpack_require__(2);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
 
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	module.exports = function(src) {
-		if (typeof execScript === "function")
-			execScript(src);
-		else
-			eval.call(null, src);
-	}
+	
+	var iamGlobal = 333;
+	iamGlobal2 = 444;
 
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
+	exports.aa = 3;
 
-	module.exports = "\nvar iamGlobal = 333;\niamGlobal2 = 444;\n\n"
 
 /***/ }
 /******/ ]);

@@ -6,6 +6,7 @@
     <h3>script-loader 的使用相当于用script标签加载url, 只不过转换成了字符串</h3>
     <h3>实际看 bundle.js 是转换成字符串 通过 execScript 或者 eval 执行了</h3>
     <h3>所以 需要压缩得先压缩, 变成字符串后就不会压缩了</h3>
+    <h3>expose 相当于 window.xxx = exports </h3>
     <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
   </body>
 </html>

@@ -1,1 +1,1 @@
-require('script!./normal.js');
+require('expose?iamGlobal!./normal.js');
