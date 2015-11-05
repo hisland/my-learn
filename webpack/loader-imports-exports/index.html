@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+      .red{color:red;}
+    </style>
+  </head>
+  <body>
+    <h3>require的文件都是默认为 commonjs 规范的文件</h3>
+    <h3 class="red">总的来说, imports就是在开头加一些代码, exports就是在末尾加一些代码, 都是赋值来改变作用域内变量值的 <br />
+    => 直接转换成 = 赋值, 而=XXX, XXX被当作模块来解析</h3>
+    <h3>imports-loader 用于给脚本开始处加上 var module=... 来指定依赖</h3>
+    <pre>
+Examples:
+
+file.js expect a global variable $ and you have a module jquery that should be used.
+
+require("imports?$=jquery!./file.js")
+
+file.js expect its configuration on a global variable xConfig and you want it to be {value:123}.
+
+require("imports?xConfig=>{value:123}!./file.js")
+
+file.js expect that this is the global context.
+
+require("imports?this=>window!./file.js") or require("imports?this=>global!./file.js")
+
+    </pre>
+    <h3>exports-loader 用于给脚本结尾处加上 module.exports = xxx 来导出对象</h3>
+    <pre>
+Examples:
+
+The file sets a variable in the global context with var XModule = ....
+
+var XModule = require("exports?XModule!./file.js") <span class="red">单个导出: 直接是 module.exports = XModule</span>
+
+The file sets multiple variables in the global context with var XParser, Minimizer.
+
+var XModule = require("exports?Parser=XParser&Minimizer!./file.js"); XModule.Parser; XModule.Minimizer  <span class="red">多个导出: 依次 exports['Parser'] = XParser; exports['Minimizer'] = Minimizer; </span>
+
+The file sets a global variable with XModule = ....
+
+require("imports?XModule=>undefined!exports?XModule!./file.js") (import to not leak to the global context) <span class="red">在开头增加: var XModule = undefined; 使 XModule 不会变成全局变量</span>
+
+The file sets a property on window window.XModule = ....
+
+require("imports?window=>{}!exports?window.XModule!./file.js
+    </pre>
+    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+  </body>
+</html>
