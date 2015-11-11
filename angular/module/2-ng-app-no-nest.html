@@ -6,12 +6,14 @@
 </head>
 <body>
   <p>嵌套ng-app, 只有上层有效,忽略里面的ng-app</p>
-  <div ng-app="god">
+  <p>外层ng-app, 内层 angular.bootstrap, 生效,初始化错误(好像是因为外层最后执行覆盖了), 有可能2个都作用了,效率可能有问题, 实测 halo 2个地方都调用了</p>
+  <p>使用 angular.bootstrap 会提示错误</p>
+  <div ng-app="god" id="aa">
     <input ng-model="hello" />
   hey! {{hello}}
 
-    <div ng-app="bb">
-      <input ng-model="cc" />
+    <div ng-app="bb" id="bb">
+      <input ng-model="cc" ng-click="halo()" />
     BB! {{cc}}</div>
   </div>
 
@@ -20,10 +22,18 @@
       angular.module('god', [])
       .run(function($rootScope) {
         $rootScope.hello = 'you';
+        console.log($rootScope);
+        $rootScope.halo = function(){
+          console.log(33);
+        }
       });
       angular.module('bb', [])
       .run(function($rootScope) {
         $rootScope.cc = 'me';
+        console.log($rootScope);
+        $rootScope.halo = function(){
+          console.log(44);
+        }
       });
       angular.bootstrap(document.getElementById('bb'), ['bb'])
   </script>
