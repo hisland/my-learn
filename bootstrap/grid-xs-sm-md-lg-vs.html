@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>new document</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <style type="text/css">
+      body{padding:50px 0;}
+      div[class^=col]{border:1px solid green;}
+      .row{margin-bottom:10px;}
+    </style>
+  </head>
+  <body>
+    <p id="winsize"></p>
+    <div class="container">
+      <h3>container 固定宽度,使用@media设置</h3>
+      <h3>始终水平</h3>
+      <div class="row">
+        <div class="col-xs-3">a</div>
+        <div class="col-xs-3">a</div>
+        <div class="col-xs-6">a</div>
+      </div>
+      <h3>低于768垂直</h3>
+      <div class="row">
+        <div class="col-sm-4">a</div>
+        <div class="col-sm-4">a</div>
+        <div class="col-sm-4">a</div>
+      </div>
+      <h3>低于992垂直</h3>
+      <div class="row">
+        <div class="col-md-5">a</div>
+        <div class="col-md-5">a</div>
+        <div class="col-md-2">a</div>
+      </div>
+      <h3>低于1200垂直</h3>
+      <div class="row">
+        <div class="col-lg-6">a</div>
+        <div class="col-lg-4">a</div>
+        <div class="col-lg-2">a</div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <h3>container-fluid 100%宽度</h3>
+      <h3>始终水平</h3>
+      <div class="row">
+        <div class="col-xs-3">a</div>
+        <div class="col-xs-3">a</div>
+        <div class="col-xs-6">a</div>
+      </div>
+      <h3>低于768垂直</h3>
+      <div class="row">
+        <div class="col-sm-4">a</div>
+        <div class="col-sm-4">a</div>
+        <div class="col-sm-4">a</div>
+      </div>
+      <h3>低于992垂直</h3>
+      <div class="row">
+        <div class="col-md-5">a</div>
+        <div class="col-md-5">a</div>
+        <div class="col-md-2">a</div>
+      </div>
+      <h3>低于1200垂直</h3>
+      <div class="row">
+        <div class="col-lg-6">a</div>
+        <div class="col-lg-4">a</div>
+        <div class="col-lg-2">a</div>
+      </div>
+    </div>
+    <div class="container">
+      <h3>实例：移动设备和桌面屏幕</h3>
+      <p>实际上是, 宽度小了, xs起作用, 大了 md起作用</p>
+      <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+      <div class="row">
+        <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      </div>
+
+      <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+      <div class="row">
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      </div>
+
+      <!-- Columns are always 50% wide, on mobile and desktop -->
+      <div class="row">
+        <div class="col-xs-6">.col-xs-6</div>
+        <div class="col-xs-6">.col-xs-6</div>
+      </div>
+    </div>
+    <div class="container">
+      <h3>实例：手机、平板、桌面</h3>
+      <p>实际上是, 宽度小了, xs起作用, 大一点了 xs,md共同起作用, 再大 sm,md共同起作用</p>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
+        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+        <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+        <!-- Optional: clear the XS cols if their content doesn't match in height -->
+        <div class="clearfix visible-xs-block"></div>
+        <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $(window).on('resize', function(e){
+          $('#winsize').html('窗口宽度: ' + document.documentElement.clientWidth);
+        }).trigger('resize');
+      });
+    </script>
+  </body>
+</html>
