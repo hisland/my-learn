@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <style type="text/css">
+p{
+  border:1px solid green;width: 300px;height:100px;
+}
+.init{
+  display:block;height:100px;width: 100px;position:relative;left:200px;background:purple;
+}
+/* enter初始状态 */
+.init.ng-enter,.init.ng-move{
+  left:0;
+}
+/* enter最终状态 */
+.init.ng-enter.ng-enter-active{
+  left:200px;
+}
+/* 指定过渡动画时间及函数 */
+.init.ng-enter,.init.ng-move,.init.ng-leave{
+  transition:all linear 2s;
+}
+/* leave最终状态 */
+.init.ng-leave-active{
+  left:0;
+}
+  </style>
+</head>
+<body ng-app="app">
+<h3>动画效果在init指定, 只需要添加删除 moveRight 即有动画效果, 不需要用到 ng-enter ng-remove</h3>
+<h3>这种情况在中途切换,切换之后的动画会重新计时</h3>
+  <input type="button" value="set" ng-click="myCssVar=true">
+  <input type="button" value="clear" ng-click="myCssVar=false">
+  <br>
+<p>
+  <span ng-if="myCssVar" class="init">CSS-Animated Text</span>
+</p>
+  <script src="../../bower_components/angular/angular.js"></script>
+  <script src="../../bower_components/angular-animate/angular-animate.js"></script>
+  <script>
+    angular.module('app', ['ngAnimate'])
+    .config(function($compileProvider){
+      console.log($compileProvider);
+    })
+  </script>
+</body>
+</html>

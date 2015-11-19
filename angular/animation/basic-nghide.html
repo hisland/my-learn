@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <style type="text/css">
+p{
+  border:1px solid green;width: 300px;height:100px;
+}
+/* 显示状态 */
+.init{
+  display:block;height:100px;width: 100px;position:relative;left:200px;background:purple;
+}
+/* 指定过渡动画时间及函数 */
+.init.ng-hide-add, .init.ng-hide-remove{
+  transition:all linear 8s;
+}
+/* hide状态 */
+.init.ng-hide{
+  left:0;
+}
+  </style>
+</head>
+<body ng-app="app">
+<h3>只需要显示的样式,及ng-hide的样式即有动画</h3>
+  <input type="button" value="set" ng-click="myCssVar=true">
+  <input type="button" value="clear" ng-click="myCssVar=false">
+  <br>
+<p>
+  ng-hide
+  <span ng-hide="myCssVar" class="init">CSS-Animated Text</span>
+</p>
+<p>
+  ng-show
+  <span ng-show="myCssVar" class="init">CSS-Animated Text</span>
+</p>
+  <script src="../../bower_components/angular/angular.js"></script>
+  <script src="../../bower_components/angular-animate/angular-animate.js"></script>
+  <script>
+    angular.module('app', ['ngAnimate'])
+    .config(function($compileProvider){
+      console.log($compileProvider);
+    })
+  </script>
+</body>
+</html>

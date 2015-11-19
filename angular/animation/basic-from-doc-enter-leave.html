@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <style type="text/css">
+.wrap{
+  border:1px solid green;width: 300px;
+}
+/*
+  We're using CSS transitions for when
+  the enter and move events are triggered
+  for the element that has the .repeated-item
+  class
+*/
+.repeated-item.ng-enter, .repeated-item.ng-move {
+  transition:3s linear all;
+  opacity:0;
+}
+
+/*
+ The ng-enter-active and ng-move-active
+ are where the transition destination properties
+ are set so that the animation knows what to
+ animate.
+*/
+.repeated-item.ng-enter.ng-enter-active,
+.repeated-item.ng-move.ng-move-active {
+  opacity:1;
+}
+
+/*
+  We're using CSS keyframe animations for when
+  the leave event is triggered for the element
+  that has the .repeated-item class
+*/
+.repeated-item.ng-leave {
+  animation:3s my_animation;
+}
+
+@keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+/*
+  Unfortunately each browser vendor requires
+  its own definition of keyframe animation code...
+*/
+@-webkit-keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+@-moz-keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+@-o-keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+  </style>
+</head>
+<body ng-app="app">
+  <input type="button" value="set" ng-click="items = items2">
+  <input type="button" value="clear" ng-click="items = []">
+<div class="wrap">
+<div ng-repeat="item in items" class="repeated-item">
+  {{ item.id }}
+</div>
+</div>
+  <script src="../../bower_components/angular/angular.js"></script>
+  <script src="../../bower_components/angular-animate/angular-animate.js"></script>
+  <script>
+    angular.module('app', ['ngAnimate'])
+    .config(function($compileProvider){
+      console.log($compileProvider);
+    })
+    .run(function($rootScope){
+      $rootScope.items = [{id: 'aaa'},{id: 'bbb'},{id: 'ccc'}]
+      $rootScope.items2 = [{id: 'aaa'},{id: 'bbb'},{id: 'ccc'}]
+    })
+  </script>
+</body>
+</html>
