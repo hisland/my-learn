@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>new document</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  </head>
+  <body ng-app="app">
+    <h1>simple demo</h1>
+    <div class="ueditor" ready="readyFn" ng-model="content"></div>
+    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="../bower_components/ueditor/dist/utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" src="../bower_components/ueditor/dist/utf8-php/ueditor.all.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-ueditor/dist/angular-ueditor.js"></script>
+    <script type="text/javascript">
+      var app = angular.module('app', ['ng.ueditor']);
+      app.run(function($rootScope){
+        window.aa = $rootScope;
+        $rootScope.content = 'halo';
+        $rootScope.readyFn = function(editor){
+          console.log('ready: ', editor.getContent());
+        }
+        $rootScope.config={}; // 放到标签的 config="config" 可以设置ueditor的配置
+      })
+    </script>
+  </body>
+</html>
