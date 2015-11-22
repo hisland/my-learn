@@ -1,0 +1,16 @@
+{
+  "apps": [{
+    "name": "proj1",
+    "script": "www/production.js",
+    "cwd": "/Users/hisland/Desktop/learn/thinkjs/proj1",
+    "exec_mode": "cluster",
+    "instances": 0,
+    "max_memory_restart": "1G",
+    "autorestart": true,
+    "node_args": [],
+    "args": [],
+    "env": {
+      
+    }
+  }]
+}
