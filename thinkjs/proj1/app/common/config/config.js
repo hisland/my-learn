@@ -2,6 +2,5 @@
 /**
  * config
  */exports.__esModule = true;exports['default'] = 
-{
-  //key: value
-};module.exports = exports['default'];
+{ 
+  route_on: true };module.exports = exports['default'];
