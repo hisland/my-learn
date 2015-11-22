@@ -9,9 +9,18 @@ export default class extends Base {
    */
   indexAction(){
     //auto render template file index_index.html
-    return this.display();
+    this.write('hello\n')
+    this.display();
+    // return this.display(); // 如果是return, __after没有执行
   }
   helloAction(){
     return this.display();
+  }
+
+  __before(){
+    console.log('index controller: __before');
+  }
+  __after(){
+    console.log('index controller: __after');
   }
 }

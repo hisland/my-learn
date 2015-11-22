@@ -10,6 +10,13 @@ export default class extends think.logic.base {
    * @return {} []
    */
   indexAction(){
-   
+    console.log('index logic: ');
+  }
+
+  __before(){
+    console.log('index logic: __before');
+  }
+  __after(){
+    console.log('index logic: __after');
   }
 }

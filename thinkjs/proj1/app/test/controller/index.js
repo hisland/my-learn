@@ -9,7 +9,16 @@
    */_default.prototype.
   indexAction = function indexAction() {
     //auto render template file index_index.html
+    this.write('hello\n');
+    this.display();
+    // return this.display(); // 如果是return, __after没有执行
+  };_default.prototype.
+  helloAction = function helloAction() {
     return this.display();};_default.prototype.
 
-  helloAction = function helloAction() {
-    return this.display();};return _default;})(_baseJs2['default']);exports['default'] = _default;module.exports = exports['default'];
+
+  __before = function __before() {
+    console.log('index controller: __before');};_default.prototype.
+
+  __after = function __after() {
+    console.log('index controller: __after');};return _default;})(_baseJs2['default']);exports['default'] = _default;module.exports = exports['default'];
