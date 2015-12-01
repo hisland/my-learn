@@ -27,6 +27,7 @@
     "react": "~0.14.2",
     "underscore": "~1.8.3",
     "ueditor": "~1.4.3",
-    "angular-ueditor": "*"
+    "angular-ueditor": "*",
+    "angular-ui-grid": "~3.0.7"
   }
 }
