@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <link rel="stylesheet" type="text/css" href="../bower_components/angular-ui-grid/ui-grid.css" />
+</head>
+<body ng-app="app" ng-controller="name">
+  <div ui-grid="gridOptions" ui-grid-edit></div>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-ui-grid/ui-grid.js"></script>
+  <script>
+    var a = angular.module('app', ['ui.grid', 'ui.grid.edit']);
+    a.controller('name', ['$scope', function($scope) {
+      $scope.gridOptions = {
+        data: [{
+          firstName: 'aaa',
+          lastName: 'bbb'
+        }, {
+          firstName: 'aaa2',
+          lastName: 'bbb2'
+        }],
+        onRegisterApi: function(gridApi) {
+          $scope.gridApi = gridApi;
+          gridApi.edit.on.afterCellEdit($scope, function(rowEntity, colDef, newValue, oldValue) {
+            console.log(arguments);
+          })
+        }
+      };
+    }])
+  </script>
+</body>
+</html>
