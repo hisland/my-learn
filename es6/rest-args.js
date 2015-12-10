@@ -1,4 +1,5 @@
 function containsAll(longStr, ...strs){
+  console.log(longStr, strs);
   for(var word of strs){
     if (longStr.indexOf(word) === -1) {
       return false;
