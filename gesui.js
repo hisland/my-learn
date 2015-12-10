@@ -1,15 +1,16 @@
-
 // 参考 http://www.yinhang.com/tools/Salary-calculator.html
 
 var app = angular.module('app', []);
 app.controller('model', ['$scope', '$timeout', function(s, timeout) {
   var cfg = s.config = {
-    '税前工资': 8500,
+    '税前工资': 4800,
     '基数比例': 70,
     '使用基数比例': true,
     '基数金额': 300,
   }
   s.$watch("config['税前工资']", function(v) {
+    v -= 0;
+    if (!v) return;
     if (cfg['使用基数比例']) {
       cfg['基数金额'] = (v * cfg['基数比例'] / 100).toFixed(2);
     } else {
@@ -19,12 +20,16 @@ app.controller('model', ['$scope', '$timeout', function(s, timeout) {
   cycleWatch(s, {
     key: "config['基数比例']",
     fn: function(v) {
+      v -= 0;
+      if (!v) return;
       // console.log('a', arguments);
       cfg['基数金额'] = (v * cfg['税前工资'] / 100).toFixed(2);
     }
   }, {
     key: "config['基数金额']",
     fn: function(v) {
+      v -= 0;
+      if (!v) return;
       cfg['基数比例'] = (v / cfg['税前工资'] * 100).toFixed(5).replace(/\.0*$/, '');
       // console.log('b', arguments, cfg['基数比例']);
     }
@@ -138,12 +143,33 @@ app.controller('model', ['$scope', '$timeout', function(s, timeout) {
     return rs.toFixed(2);
   }
 
+  s.$watchGroup([
+    "config['税前工资']",
+    "config['基数比例']",
+    "config['基数金额']",
+    "config['个人税率']",
+    "config['单位税率']",
+    "config['个人税率']",
+    "config['单位税率']",
+    "config['个人税率']",
+    "config['单位税率']",
+    "config['个人税率']",
+    "config['单位税率']",
+    "config['个人税率']",
+    "config['单位税率']",
+    "config['个人税率']",
+    "config['单位税率']"
+  ], function(vs) {
+    cfg.someValueChange = Math.random();
+  });
 
   var handle;
   cfg['个人税后实得'] = 0;
   cycleWatch(s, {
-    key: "config['个人所得税']()",
+    key: "config.someValueChange",
     fn: function(v) {
+      v -= 0;
+      if (!v) return;
       var rs = cfg['税前工资'] - cfg['个人缴纳']() - cfg['个人所得税']();
       cfg['个人税后实得'] = rs.toFixed(2);
       cfg.aa = rs.toFixed(2);
@@ -151,6 +177,8 @@ app.controller('model', ['$scope', '$timeout', function(s, timeout) {
   }, {
     key: "config['个人税后实得']",
     fn: function(v) {
+      v -= 0;
+      if (!v) return;
       timeout.cancel(handle);
       handle = timeout(function() {
         fantui(v);
