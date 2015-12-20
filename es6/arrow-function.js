@@ -1,7 +1,16 @@
+console.log('-------趋向于-----------');
 var n = 5;
 while (n --> 0) {
   console.log(n);
 }
+console.log(n);
+console.log(n);
+n = 3;
+while (n --> 10) {
+  console.log(n);
+}
+console.log(n);
+console.log(n);
 
 console.log('------------------');
 
