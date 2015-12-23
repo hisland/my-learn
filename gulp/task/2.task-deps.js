@@ -7,4 +7,3 @@ gulp.task('default', ['dep'], function(){
 gulp.task('dep', function(){
   console.log('我被 default 依赖执行的');
 });
-
