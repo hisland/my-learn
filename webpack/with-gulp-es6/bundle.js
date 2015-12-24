@@ -53,7 +53,7 @@
 
 	var a = __webpack_require__(2);
 
-	a('halo:');
+	a('halo: 22');
 
 	module.exports = 'cmd-file';
 
