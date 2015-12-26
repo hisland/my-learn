@@ -1,0 +1,1 @@
+require('./cmd-file.js');
