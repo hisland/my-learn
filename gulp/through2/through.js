@@ -9,7 +9,7 @@ fs.createReadStream('./through.js', {
     encoding: 'utf8' // 默认是buffer输出
   })
   .pipe(through(function(chunk, enc, callback) {
-    console.log(chunk);
+    console.log(chunk, enc);
     this.push(chunk);
     callback();
   }))
