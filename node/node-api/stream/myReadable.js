@@ -6,7 +6,8 @@ function MyRead(opts) {
   Readable.call(this, opts)
 }
 MyRead.prototype._read = function() {
-  this.push('{pp:1}');
+  this.push('{pp:1}'); // 默认要是 string/buffer
+  // this.push({test:1}); // objectMode: true 才可以这样
 }
 
 util.inherits(MyRead, Readable);
