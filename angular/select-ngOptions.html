@@ -1,0 +1,55 @@
+<!doctype html>
+<html ng-app="phonecatApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+  <style type="text/css">
+    span.red{color:red;}
+  </style>
+	<script src="../bower_components/angular/angular.js"></script>
+  <script type="text/javascript">
+    var m = angular.module('phonecatApp', []);
+    m.run(function($rootScope){
+      var $scope = $rootScope;
+      $scope.items = [{
+        id: 1,
+        label: 'aLabel1',
+        group: 'aLabel1'
+      }, {
+        id: 2,
+        label: 'bLabel2',
+        group: 'bLabel1'
+      }, {
+        id: 3,
+        label: 'aLabel3',
+        group: 'aLabel1'
+      }, {
+        id: 4,
+        label: 'bLabel4',
+        group: 'bLabel1'
+      }];
+    })
+  </script>
+</head>
+<body>
+  <h3>use option ng-repeat item in <span class="red">{{model1}}</span></h3>
+  <select ng-model="model1">
+    <option ng-repeat="a in ['a', 'b', 'c']">{{a}}</option>
+  </select>
+  <h3>use ngOptions label for <span class="red">{{model2}}</span></h3>
+  <select ng-model="model2" ng-options="item.label for item in items">
+  </select>
+  <h3>use ngOptions track by <span class="red">{{model3}}</span> 1,2没作用</h3>
+  <select ng-model="model3" ng-options="item.label for item in items track by item.group">
+  </select>
+  <h3>use ngOptions select as  <span class="red">{{model4}}</span></h3>
+  <select ng-model="model4" ng-options="item.id as item.label for item in items">
+  </select>
+  <h3>use ngOptions group by  <span class="red">{{model5}}</span></h3>
+  <select ng-model="model5" ng-options="item.label group by item.group for item in items">
+  </select>
+  <h3>use ngOptions disable when  <span class="red">{{model6}}</span></h3>
+  <select ng-model="model6" ng-options="item.label disable when item.id==3 for item in items">
+  </select>
+</body>
+</html>
