@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="phonecatApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+  <style type="text/css">
+    span.red{color:red;}
+  </style>
+	<script src="../bower_components/angular/angular.js"></script>
+  <script type="text/javascript">
+    var m = angular.module('phonecatApp', []);
+    m.run(function($rootScope){
+      var $scope = $rootScope;
+      $scope.items = [{
+        id: 1,
+        label: 'aLabel1',
+        group: 'aLabel1'
+      }, {
+        id: 2,
+        label: 'bLabel2',
+        group: 'bLabel1'
+      }, {
+        id: 3,
+        label: 'aLabel3',
+        group: 'aLabel1'
+      }, {
+        id: 4,
+        label: 'bLabel4',
+        group: 'bLabel1'
+      }];
+    })
+  </script>
+</head>
+<body>
+  <h2>obj作为select的值, 并带有初始化</h2>
+  <h3>{{any}}</h3>
+  <select
+  ng-init="any=items[0];id=any.id;label=any.label"
+  ng-model="any"
+  ng-options="item as item.label for item in items"
+  ng-change="id=any.id;label=any.label">
+  </select>
+  <p>id: {{id}}</p>
+  <p>label: {{label}}</p>
+</body>
+</html>
