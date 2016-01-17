@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>new document</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <style type="text/css">
+      .drophere{height:300px;width: 500px;border:1px solid green;
+        display: flex;align-items: center;justify-content: center;}
+      .over{border-color:red;}
+    </style>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        // $('.drophere').prop('draggable', true); // 不要也可以
+        $('.drophere').on('dragenter', function(e){
+          this.classList.add('over')
+        });
+        $('.drophere').on('dragleave', function(e){
+          this.classList.remove('over')
+        });
+        $('.drophere').on('dragover', function(e){
+          e.preventDefault(); // 必须执行这句, 才可以drop
+        });
+        $('.drophere').on('drop', function(e){
+          this.classList.remove('over');
+          e.stopPropagation(); // 阻止浏览器默认的打开拖入文件操作
+          e.preventDefault();
+
+          var file = e.originalEvent.dataTransfer.files[0];
+          var reader = new FileReader();
+          reader.onload = function(e){
+            console.log('content: ');
+            console.log(e.target.result);
+          }
+          reader.readAsText(file);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="drophere">drop here</div>
+  </body>
+</html>

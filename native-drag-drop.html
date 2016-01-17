@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>new document</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <style type="text/css">
+      ul,li{list-style: none;}
+      li{border:1px solid green;padding: 10px;margin-bottom:5px;}
+      li.moving{transform:scale(0.8);transform-origin: left center;}
+      li.over{border-color:red;}
+    </style>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        var dragSrcEl = null;
+        // $('li').on('dragstart drag dragenter dragleave dragover drop dragend', function(e){
+        //   console.log(e.type);
+        // });
+        $('li').prop('draggable', true);
+        $('li').on('dragstart', function(e){
+          this.classList.add('moving')
+          dragSrcEl = this;
+          e.originalEvent.dataTransfer.setData('text/html', this.innerHTML)
+        });
+        $('li').on('dragend', function(e){
+          this.classList.remove('moving')
+        });
+        $('li').on('dragenter', function(e){
+          this.classList.add('over')
+        });
+        $('li').on('dragleave', function(e){
+          this.classList.remove('over')
+        });
+        
+        $('li').on('dragover', function(e){
+          e.preventDefault(); // 必须执行这句, 才可以drop
+        });
+
+        $('li').on('drop', function(e){
+          this.classList.remove('over')
+          if (dragSrcEl != this) {
+            dragSrcEl.innerHTML = this.innerHTML;
+            this.innerHTML = e.originalEvent.dataTransfer.getData('text/html');
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+      <li>D</li>
+      <li>E</li>
+      <li>F</li>
+    </ul>
+  </body>
+</html>
