@@ -1,2 +1,2 @@
-import * as ns from '01.export-single.js';
+import * as ns from './01.export-single.js';
 
