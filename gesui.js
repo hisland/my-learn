@@ -104,6 +104,21 @@ app.controller('model', ['$scope', '$timeout', function(s, timeout) {
     };
   }
 
+  cfg['个人缴纳比例'] = function() {
+    var total = 0;
+    for (var v of names) {
+      total += cfg[v]['个人税率'] - 0;
+    }
+    return total.toFixed(2) + '%';
+  }
+  cfg['单位缴纳比例'] = function() {
+    var total = 0;
+    for (var v of names) {
+      total += cfg[v]['单位税率'] - 0;
+    }
+    return total.toFixed(2) + '%';
+  }
+
   cfg['个人缴纳'] = function() {
     var total = 0;
     for (var v of names) {
@@ -120,6 +135,28 @@ app.controller('model', ['$scope', '$timeout', function(s, timeout) {
   }
 
   cfg['免征额'] = '3500.00';
+  cfg['个人所得税率'] = function() {
+    var rs = cfg['税前工资'] - cfg['个人缴纳']() - cfg['免征额'];
+    var fee = 0;
+    if (rs <= 0) {
+      fee = 0;
+    } else if (rs <= 1500) {
+      fee = 3;
+    } else if (rs <= 4500) {
+      fee = 10;
+    } else if (rs <= 9000) {
+      fee = 20;
+    } else if (rs <= 35000) {
+      fee = 25;
+    } else if (rs <= 55000) {
+      fee = 30;
+    } else if (rs <= 80000) {
+      fee = 35;
+    } else {
+      fee = 45;
+    }
+    return fee.toFixed(2) + '%';
+  }
   cfg['个人所得税'] = function() {
     var rs = cfg['税前工资'] - cfg['个人缴纳']() - cfg['免征额'];
     // 根据个税表: http://114.xixik.com/table-of-rates/
