@@ -2,7 +2,7 @@ interface Shape{
   color: string;
 }
 
-interface Square extends Shape{
+interface Square extends Shape{ // 继承自 Shape
   length: number;
 }
 
@@ -16,7 +16,7 @@ interface PenStroke {
 }
 
 
-interface Square2 extends Shape, PenStroke{
+interface Square2 extends Shape, PenStroke{ // 多继承
   length: number;
 }
 

@@ -1,7 +1,7 @@
 interface Counter{
-  (start: number): string;
-  interval: number;
-  reset(): void;
+  (start: number): string; // 调用签名
+  interval: number; // 属性签名
+  reset(): void; // 方法签名
 }
 
 var c = <Counter>function(start){
