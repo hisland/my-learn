@@ -1,3 +1,5 @@
+// 剩余参数
+
 function containsAll(longStr, ...strs){
   console.log(longStr, strs);
   for(var word of strs){
