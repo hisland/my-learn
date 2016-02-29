@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      new document
+    </title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <style type="text/css">
+      .chrome-scrollbar::-webkit-scrollbar {
+      width: 8px; /*垂直滚动条宽度*/
+      height: 8px; /*水平滚动条高度*/
+      background-color: #eee;
+      background-color: transparent;
+      }
+      .chrome-scrollbar::-webkit-scrollbar-corner { /* 右下角 corner */
+      background-color: blue;
+      }
+      .chrome-scrollbar::-webkit-scrollbar-track { /*底部不可滚动部分样式 横竖*/
+      border-radius: 5px;
+      }
+      .chrome-scrollbar::-webkit-scrollbar-track:vertical { /*底部不可滚动部分样式 竖*/
+      background:red;
+      }
+      .chrome-scrollbar::-webkit-scrollbar-track:horizontal { /*底部不可滚动部分样式 横*/
+      background:purple;
+      }
+      .chrome-scrollbar::-webkit-scrollbar-track:hover {
+      background-color: rgba(0, 0, 0, 0.06);
+      }
+      .chrome-scrollbar::-webkit-scrollbar-track:active {
+      background-color: rgba(0, 0, 0, 0.08);
+      }
+      .chrome-scrollbar::-webkit-scrollbar-thumb { /*可滚动部分样式*/
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      }
+      .chrome-scrollbar::-webkit-scrollbar-thumb:vertical {
+      background:#fff;
+      }
+      .chrome-scrollbar::-webkit-scrollbar-thumb:horizontal {
+      background:#000;
+      }
+      .chrome-scrollbar::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(0, 0, 0, 0.4);
+      }
+      .chrome-scrollbar::-webkit-scrollbar-thumb:active {
+      background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .a{
+        height:240px;
+        width: 240px;
+        margin-bottom:10px;
+        overflow:auto;
+        background:#ccc;
+        white-space:nowrap;
+      }
+      body{
+        background:green;
+      }
+      p{
+        background:#fff;
+        padding:5px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <a href="https://css-tricks.com/custom-scrollbars-in-webkit/">Custom Scrollbars in WebKit</a>
+    </p>
+    <div class="a chrome-scrollbar">
+      <h1>i am .chrome-scrollbar</h1>
+      <h1>halo halo halo</h1>
+      <h1>halo halo halo</h1>
+      <h1>halo halo halo</h1>
+      <h1>halo halo halo</h1>
+      <h1>halo halo halo</h1>
+    </div>
+    <div class="a">
+      <h1>not .chrome-scrollbar</h1>
+      <h1>halo halo halo</h1>
+      <h1>halo halo halo</h1>
+      <h1>halo halo halo</h1>
+      <h1>halo halo halo</h1>
+      <h1>halo halo halo</h1>
+    </div>
+  </body>
+</html>
