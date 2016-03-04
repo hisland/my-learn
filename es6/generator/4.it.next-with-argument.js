@@ -14,8 +14,8 @@ function* god(){
 log('aa');
 var it = god();
 log('bb');
-log(it.next('aaa'));
-log(it.next('bbb', 'not use'));
+log(it.next('aaa')); // 只接收一个参数
+log(it.next('bbb', 'not use')); //第2个参数忽略了
 log(it.next('ccc'));
 log(it.next('ddd'));
 log('end');
