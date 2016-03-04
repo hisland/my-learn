@@ -1,11 +1,11 @@
 var a = new Promise(function(resolve, reject){
   setTimeout(function() {
     resolve(3)
-  }, 1000);
+  }, 300);
 });
 
 a.then(function(value){
-  console.log('resolve: ', value);
+  console.log('resolve 执行then第1个参数: ', value);
 }, function(value){
   console.log('reject: ', value);
 });
@@ -14,11 +14,11 @@ a.then(function(value){
 var a = new Promise(function(resolve, reject){
   setTimeout(function() {
     reject(10)
-  }, 1000);
+  }, 300);
 });
 
 a.then(function(value){
   console.log('resolve: ', value);
 }, function(value){
-  console.log('reject: ', value);
+  console.log('reject 执行then第2个参数: ', value);
 });
