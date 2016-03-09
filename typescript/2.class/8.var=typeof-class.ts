@@ -12,9 +12,9 @@ class Greeter {
 }
 
 var greeter1: Greeter = new Greeter(); // greeter1是实例
-alert(greeter1.greet());
+console.log(greeter1.greet()); // Hello, there
 
-var greeterMaker: typeof Greeter = Greeter; // greeterMaker是类
+var greeterMaker: typeof Greeter = Greeter; // greeterMaker是类, greeterMaker,Greeter都指向同一个类
 greeterMaker.standardGreeting = "Hey there!";
-var greeter2:Greeter = new greeterMaker();
-alert(greeter2.greet());
+var greeter2:Greeter = new greeterMaker(); // greeterMaker的instance可以直接用 Greeter 指定, 两者互换
+console.log(greeter2.greet()); // Hey there!

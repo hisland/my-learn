@@ -3,7 +3,7 @@ class Point {
     y: number;
 }
 
-interface Point3d extends Point {
+interface Point3d extends Point { // 直接用类当interface
     z: number;
 }
 
