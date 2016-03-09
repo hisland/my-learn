@@ -10,6 +10,7 @@ var s = <Square> {};
 
 s.color = 'red';
 s.length = 4;
+s.god = 3; // Property 'god' does not exist on type 'Square'
 
 interface PenStroke {
   weight: number;

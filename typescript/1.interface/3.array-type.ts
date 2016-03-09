@@ -1,10 +1,19 @@
 interface StringArray{
-  [index: number]: string;
+  [index: number]: string; // 数字索引是我们正常使用的数组
 }
 
 var a: StringArray;
 a = ['hello', 'god'];
 
+
+interface Dictionary{
+  [index: string]: string; // 字符串索引是我们的对象,只是对象属性的值类型都一样
+}
+
+var b: Dictionary;
+b = {a:'1',b:'2'};
+
+console.log(b);
 
 
 
@@ -12,10 +21,6 @@ interface god{
   [index: number]: string; // number索引的值类型必须是下面string索引的子类型
   [index: string]: string;
 }
-
-
-var b: StringArray;
-b = ['hello', 'god'];
 
 
 interface Dictionary {
