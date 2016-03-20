@@ -9,6 +9,7 @@
       table{border-collapse: collapse;}
       th,td{border:1px solid #ccc;padding:4px;}
       input[type="text"]{width:5em;text-align:right;border:2px solid green;}
+      input[type="number"]{width:5em;text-align:right;border:2px solid green;}
       .total{display:inline-block;width: 4em;text-align:right;}
       .label1{display:inline-block;width: 5em;text-align:right;}
       .label2{display:inline-block;text-align:right;width:6em;color:#999;}
@@ -28,33 +29,38 @@
       </tr>
       <tr>
         <th>养老</th>
-        <td><input type="text" ng-model="config['养老']['个人税率']" />% <span class="label1" ng-bind="config['养老']['个人金额']()"></span></td>
-        <td><input type="text" ng-model="config['养老']['单位税率']" />% <span class="label1" ng-bind="config['养老']['单位金额']()"></span></td>
+        <td><input type="number" ng-model="config['养老']['个人税率']" />% <span class="label1" ng-bind="config['养老']['个人金额']()"></span></td>
+        <td><input type="number" ng-model="config['养老']['单位税率']" />% <span class="label1" ng-bind="config['养老']['单位金额']()"></span></td>
       </tr>
       <tr>
         <th>医疗</th>
-        <td><input type="text" ng-model="config['医疗']['个人税率']" />% <span class="label1" ng-bind="config['医疗']['个人金额']()"></span></td>
-        <td><input type="text" ng-model="config['医疗']['单位税率']" />% <span class="label1" ng-bind="config['医疗']['单位金额']()"></span></td>
+        <td><input type="number" ng-model="config['医疗']['个人税率']" />% <span class="label1" ng-bind="config['医疗']['个人金额']()"></span></td>
+        <td><input type="number" ng-model="config['医疗']['单位税率']" />% <span class="label1" ng-bind="config['医疗']['单位金额']()"></span></td>
       </tr>
       <tr>
         <th>失业</th>
-        <td><input type="text" ng-model="config['失业']['个人税率']" />% <span class="label1" ng-bind="config['失业']['个人金额']()"></span></td>
-        <td><input type="text" ng-model="config['失业']['单位税率']" />% <span class="label1" ng-bind="config['失业']['单位金额']()"></span></td>
+        <td><input type="number" ng-model="config['失业']['个人税率']" />% <span class="label1" ng-bind="config['失业']['个人金额']()"></span></td>
+        <td><input type="number" ng-model="config['失业']['单位税率']" />% <span class="label1" ng-bind="config['失业']['单位金额']()"></span></td>
       </tr>
       <tr>
         <th>工伤</th>
-        <td><input type="text" ng-model="config['工伤']['个人税率']" />% <span class="label1" ng-bind="config['工伤']['个人金额']()"></span></td>
-        <td><input type="text" ng-model="config['工伤']['单位税率']" />% <span class="label1" ng-bind="config['工伤']['单位金额']()"></span></td>
+        <td><input type="number" ng-model="config['工伤']['个人税率']" />% <span class="label1" ng-bind="config['工伤']['个人金额']()"></span></td>
+        <td><input type="number" ng-model="config['工伤']['单位税率']" />% <span class="label1" ng-bind="config['工伤']['单位金额']()"></span></td>
       </tr>
       <tr>
         <th>生育</th>
-        <td><input type="text" ng-model="config['生育']['个人税率']" />% <span class="label1" ng-bind="config['生育']['个人金额']()"></span></td>
-        <td><input type="text" ng-model="config['生育']['单位税率']" />% <span class="label1" ng-bind="config['生育']['单位金额']()"></span></td>
+        <td><input type="number" ng-model="config['生育']['个人税率']" />% <span class="label1" ng-bind="config['生育']['个人金额']()"></span></td>
+        <td><input type="number" ng-model="config['生育']['单位税率']" />% <span class="label1" ng-bind="config['生育']['单位金额']()"></span></td>
+      </tr>
+      <tr>
+        <th>大病补充</th>
+        <td><input type="number" ng-model="config['大病补充']['个人税率']" />% <span class="label1" ng-bind="config['大病补充']['个人金额']()"></span></td>
+        <td><input type="number" ng-model="config['大病补充']['单位税率']" />% <span class="label1" ng-bind="config['大病补充']['单位金额']()"></span></td>
       </tr>
       <tr>
         <th>公积金</th>
-        <td><input type="text" ng-model="config['公积金']['个人税率']" />% <span class="label1" ng-bind="config['公积金']['个人金额']()"></span></td>
-        <td><input type="text" ng-model="config['公积金']['单位税率']" />% <span class="label1" ng-bind="config['公积金']['单位金额']()"></span></td>
+        <td><input type="number" ng-model="config['公积金']['个人税率']" />% <span class="label1" ng-bind="config['公积金']['个人金额']()"></span></td>
+        <td><input type="number" ng-model="config['公积金']['单位税率']" />% <span class="label1" ng-bind="config['公积金']['单位金额']()"></span></td>
       </tr>
 
       <tr>

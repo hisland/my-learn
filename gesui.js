@@ -66,7 +66,7 @@ app.controller('model', ['$scope', '$timeout', function(s, timeout) {
   }
 
 
-  var names = ['养老', '医疗', '失业', '工伤', '生育', '公积金'];
+  var names = ['养老', '医疗', '失业', '工伤', '生育', '大病补充', '公积金'];
 
   angular.extend(cfg, {
     '养老': {
@@ -75,7 +75,7 @@ app.controller('model', ['$scope', '$timeout', function(s, timeout) {
     },
     '医疗': {
       '个人税率': 2,
-      '单位税率': 7.5
+      '单位税率': 6.5
     },
     '失业': {
       '个人税率': 0.5,
@@ -83,11 +83,15 @@ app.controller('model', ['$scope', '$timeout', function(s, timeout) {
     },
     '工伤': {
       '个人税率': 0,
-      '单位税率': 0.6
+      '单位税率': 0.4
     },
     '生育': {
       '个人税率': 0,
-      '单位税率': 0.6
+      '单位税率': 0.5
+    },
+    '大病补充': {
+      '个人税率': 0,
+      '单位税率': 1
     },
     '公积金': {
       '个人税率': 12,
@@ -183,19 +187,22 @@ app.controller('model', ['$scope', '$timeout', function(s, timeout) {
   s.$watchGroup([
     "config['税前工资']",
     "config['基数比例']",
+    "config['使用基数比例']",
     "config['基数金额']",
-    "config['个人税率']",
-    "config['单位税率']",
-    "config['个人税率']",
-    "config['单位税率']",
-    "config['个人税率']",
-    "config['单位税率']",
-    "config['个人税率']",
-    "config['单位税率']",
-    "config['个人税率']",
-    "config['单位税率']",
-    "config['个人税率']",
-    "config['单位税率']"
+    "config['养老']['个人税率']",
+    "config['医疗']['个人税率']",
+    "config['失业']['个人税率']",
+    "config['工伤']['个人税率']",
+    "config['生育']['个人税率']",
+    "config['大病补充']['个人税率']",
+    "config['公积金']['个人税率']",
+    "config['养老']['单位税率']",
+    "config['医疗']['单位税率']",
+    "config['失业']['单位税率']",
+    "config['工伤']['单位税率']",
+    "config['生育']['单位税率']",
+    "config['大病补充']['单位税率']",
+    "config['公积金']['单位税率']"
   ], function(vs) {
     cfg.someValueChange = Math.random();
   });
