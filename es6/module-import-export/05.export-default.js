@@ -9,7 +9,7 @@ let obj = {
   a: a,
   b: b
 }
-export {obj as default}
+export default obj
 
 // 等价于
-// export default obj
+// export {obj as default}

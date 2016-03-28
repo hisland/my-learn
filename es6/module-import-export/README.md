@@ -28,3 +28,4 @@ from
   c.js: import {aa} from './b';
   这种串联情况, a里面的aa修改后, b里面能读取到, c里面不能读取, 因为b里面的export相当于 exports.aa = _a.aa; 进行了一次值传递
 * export {'aa'} 没有这个语法
+* export * from 'module' 会忽略掉 module 的 default
