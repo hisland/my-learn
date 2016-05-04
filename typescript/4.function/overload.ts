@@ -1,3 +1,5 @@
+// 重载
+
 var suits = ["hearts", "spades", "clubs", "diamonds"];
 
 function pickCard(x: {suit: string; card: number; }[]): number;

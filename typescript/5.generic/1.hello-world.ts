@@ -1,12 +1,12 @@
-function identity1(arg: number): number {
+function identity1(arg: number): number { // 只适用number
     return arg;
 }
 
-function identity2(arg: any): any {
+function identity2(arg: any): any { // 适用任意值, 只是输入输出可以不同
     return arg;
 }
 
-function identity<T>(arg: T): T {
+function identity<T>(arg: T): T { // 适用任意值, 输入输出 相同, 范型
     return arg;
 }
 

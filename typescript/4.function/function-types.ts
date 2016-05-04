@@ -2,12 +2,13 @@ function add(x: number, y: number): number {
   return x + y;
 }
 
+// myAdd 不用指定类型, 会从=右侧推断
 var myAdd = function(x: number, y: number): number {
   return x + y;
 };
 
 
-// 参数名是随意的, 只是为了可读
+// 参数只需要写清楚类型, 参数名是随意的, 只是为了可读
 var myAdd1: (x: number, y: number) => number =
   function(x: number, y: number): number {
     return x + y;
