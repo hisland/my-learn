@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    bundle: 'babel?presets[]=react,presets[]=es2015!./test.js'
+    bundle: './test.js'
   },
   output: {
     filename: '[name].js'
