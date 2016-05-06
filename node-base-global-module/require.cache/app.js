@@ -11,7 +11,7 @@ console.log(modulePath);
 
 // to delete the key, require again, not the same obj
 delete require.cache[modulePath];
-var a1 = require('./a');
+var a1 = require('./a'); // 删除cache后再require, 又是一个新实例
 
 console.log('a1: ', a1);
 

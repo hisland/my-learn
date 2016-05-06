@@ -12,4 +12,4 @@ console.log('a1: ', a1);
 console.log('a: ', a);
 
 
-console.log('即使是json也是有缓存的!');
+console.log('a, a1指向同一个对象');
