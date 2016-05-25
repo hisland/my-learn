@@ -44,8 +44,8 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// require('./reset.css')
 	__webpack_require__(1)
+	// require('./main.less')
 	__webpack_require__(3)
 
 	console.log(__webpack_require__(4));
