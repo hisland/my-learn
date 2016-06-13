@@ -1,0 +1,12 @@
+:global .page {
+    padding: 20px;
+}
+
+.title {
+    composes: title from "./mixins.css";
+    color: green;
+}
+
+.article {
+    font-size: 16px;
+}
