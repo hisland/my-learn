@@ -111,3 +111,4 @@ node_modules
 
 # other
 catalina.base_IS_UNDEFINED
+coverage/

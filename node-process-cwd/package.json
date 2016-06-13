@@ -1,0 +1,11 @@
+{
+  "name": "node-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "a.js",
+  "scripts": {
+    "start": "node b/c.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

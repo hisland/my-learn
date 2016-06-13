@@ -30,3 +30,21 @@ console.log(b);
 console.log('a instanceof test2', a instanceof test2);
 console.log('b instanceof test2', b instanceof test2);
 
+
+function aa(){
+  this.god = 1;
+  return 3
+  this.bb = 2; // 此行被忽略了
+}
+
+var b = new aa
+console.log(b); // a { god: 1 } new 函数里面 return 原始值, 还是new生成的新对象是返回值
+
+function aa2(){
+  this.god = 1;
+  return {some:1}
+  this.bb = 2; // 此行被忽略了
+}
+
+var b = new aa2
+console.log(b); // { some: 1 } new 函数里面 return 对象, 此对象作为返回值
