@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>new document</title>
+  <style>
+    *{margin:0;padding:0;}
+    body{padding:80px;}
+    .box2{position:fixed;top:10px;left:10px;height:30px;background:green;}
+    .box3{position:absolute;top:-5px;left:10px;height:30px;background:red;}
+  </style>
+</head>
+<body>
+
+<div style="height:300px;width: 300px;overflow:hidden;background:#eee;position:relative;margin-bottom:20px;">
+  <div class="box2">i am fixed</div>
+  <div class="box3">i am absolute</div>
+</div>
+
+<div style="height:300px;width: 300px;overflow:auto;background:#eee;position:relative;margin-bottom:20px;overflow:visible;">
+  <div class="box2">i am fixed</div>
+  <div class="box3">i am absolute</div>
+</div>
+
+</body>
+</html>
