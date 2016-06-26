@@ -1,0 +1,4 @@
+{"name":"app","hostname":"hislandMBP.local","pid":1331,"level":30,"msg":"hi","time":"2016-06-26T12:52:13.342Z","v":0}
+{"name":"app","hostname":"hislandMBP.local","pid":1331,"level":40,"lang":"fr","msg":"au hisland","time":"2016-06-26T12:52:13.346Z","v":0}
+{"name":"app","hostname":"hislandMBP.local","pid":1806,"level":30,"msg":"hi","time":"2016-06-26T13:23:26.460Z","v":0}
+{"name":"app","hostname":"hislandMBP.local","pid":1806,"level":40,"lang":"fr","msg":"au hisland","time":"2016-06-26T13:23:26.463Z","v":0}
