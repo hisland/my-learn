@@ -1,0 +1,11 @@
+[ignore]
+# start with v0.23.0, must use <PROJECT_ROOT>
+<PROJECT_ROOT>/b/
+
+[include]
+# 可以使用 ../ 添加其它目录的文件进来
+# <PROJECT_ROOT> 即 .flowconfig 所在的目录, 默认是 include 了的
+
+[libs]
+
+[options]
