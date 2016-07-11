@@ -1,12 +1,6 @@
-
-console.log('defalt values: ', {
-  configurable: false,
-  enumerable: false,
-  value: undefined,
-  writable: false,
-  get: undefined,
-  set: undefined
-});
+// 根据 defineProperty 指设置属性
+// syntax: Object.defineProperties(obj, props)
+// props 的 enumerable properties, key作为obj的key, value作为objprop描述
 
 var a;
 

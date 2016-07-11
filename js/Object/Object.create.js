@@ -4,9 +4,11 @@
 var o;
 
 // create an object with null as prototype
+// 这个纯对象没有 toString 等基本方法
 o = Object.create(null);
 
 
+// 对象字面量
 o = {};
 // is equivalent to:
 o = Object.create(Object.prototype);
