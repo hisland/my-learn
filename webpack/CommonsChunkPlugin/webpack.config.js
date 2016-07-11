@@ -1,5 +1,11 @@
 var webpack = require('webpack');
 
+
+var ccp = require("webpack/lib/optimize/CommonsChunkPlugin");
+var ccp2 = webpack.optimize.CommonsChunkPlugin;
+console.log('它们2个是相同的', ccp === ccp2);
+
+
 module.exports = {
   entry: {
     bundle1: './a1',

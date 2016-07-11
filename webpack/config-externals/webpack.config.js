@@ -4,6 +4,9 @@ module.exports = {
     filename: 'bundle.js'
   },
   externals: {
-    jquery: 'jQuery' // jquery从环境中读取, 不用打包进入 bundle
+    // jquery从环境中读取,
+    // 会插入一个 module: `module.exports = jQuery;`
+    // 内部使用还是 require('jquery');
+    jquery: 'jQuery'
   }
 }

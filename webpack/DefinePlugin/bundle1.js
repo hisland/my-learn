@@ -1,15 +1,16 @@
-!function(r) {
-    function t(o) {
-        if (e[o]) return e[o].exports;
-        var n = e[o] = {
+!function(o) {
+    function r(n) {
+        if (e[n]) return e[n].exports;
+        var t = e[n] = {
             exports: {},
-            id: o,
+            id: n,
             loaded: !1
         };
-        return r[o].call(n.exports, n, n.exports, t), n.loaded = !0, n.exports;
+        return o[n].call(t.exports, t, t.exports, r), t.loaded = !0, t.exports;
     }
     var e = {};
-    return t.m = r, t.c = e, t.p = "", t(0);
-}([ function(r, t, e) {
-    t.v = 3.14;
+    return r.m = o, r.c = e, r.p = "", r(0);
+}([ function(o, r, e) {
+    if (r.v = 3.14, console.log(2), !1) console.log(444);
+    console.log("production");
 } ]);

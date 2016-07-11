@@ -11,14 +11,17 @@ module.exports = {
     new webpack.DefinePlugin({
       TWO: '1+1',
       VERSION: '3.14',
-      SOME: false
+      SOME: false,
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
     }),
     new webpack.optimize.UglifyJsPlugin({
       beautify: true,
       compress:{
-        drop_debugger: true,
-        conditionals: true,
-        drop_console: true,
+        drop_debugger: false,
+        conditionals: false,
+        drop_console: false,
       }
     })
   ],

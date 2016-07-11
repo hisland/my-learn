@@ -8,6 +8,8 @@ var webpackConfig = {
     path: 'dist',
     filename: '[name].[hash].js'
   },
-  plugins: [new HtmlWebpackPlugin()]
+  plugins: [
+    new HtmlWebpackPlugin() // 没有指定模板, 使用默认的最简模板
+  ]
 };
 module.exports = webpackConfig;
