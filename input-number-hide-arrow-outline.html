@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>vue-test</title>
+  <style>
+  .hide-arrow::-webkit-outer-spin-button,
+  .hide-arrow::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+  }
+  .hide-outline{
+    outline: none;
+  }
+  </style>
+</head>
+
+<body>
+  <p>默认有箭头
+    <input type="number">
+  </p>
+  <p>加样式就没有了
+    <input class="hide-arrow" type="number">
+  </p>
+  <p>再去掉蓝色的框框
+    <input class="hide-arrow hide-outline" type="number">
+  </p>
+</body>
+
+</html>
