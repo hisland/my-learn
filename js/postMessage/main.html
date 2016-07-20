@@ -18,7 +18,7 @@
 			var ifr1 = document.getElementById('ifr1');
 			var ifr2 = document.getElementById('ifr2');
 			document.body.onclick = function(){
-				ifr1.contentWindow.postMessage('god', '*')
+				ifr1.contentWindow.postMessage({hello: 'god'}, '*')
 				ifr2.contentWindow.postMessage('shit', '*')
 			}
 			window.onmessage = function(e){
