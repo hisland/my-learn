@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello yourname</title>
+	<script src="../bower_components/angular/angular.js"></script>
+  <script type="text/javascript">
+    var app = angular.module('app', []);
+    app.controller('name', function($scope){
+      $scope.$watch('yourname', function(){
+        console.log(arguments);
+      })
+    })
+  </script>
+</head>
+<body>
+  <div ng-controller="name">
+    test: <input type="checkbox" ng-model="yourname">
+  </div>
+</body>
+</html>
