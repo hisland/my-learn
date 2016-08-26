@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 100px;
+}
+body {
+  font-size: .14rem;
+  line-height: 1.2em;
+  color: #404040;
+  background: #f6f6f6;
+}
+.page-head {
+  text-align: center;
+  padding: .15rem;
+  background: #fff;
+}
+.head {
+  background: #f6f6f6;
+  padding: .15rem;
+}
+.head:before,
+.head:after {
+  content: " ";
+  display: table;
+}
+.head:after {
+  clear: both;
+}
+.head .head-left {
+  float: left;
+  color: #6b6b6b;
+  padding-left: .1rem;
+  max-width: 60%;
+  background: url('img/head-left.png') no-repeat 0 0;
+}
+.head .head-right {
+  float: right;
+  color: #fe686b;
+  line-height: .22rem;
+  padding-right: .3rem;
+  background: url('img/head-right.png') no-repeat right center;
+}
+.item {
+  padding: .15rem;
+  padding-left: .2rem;
+  background: #fff;
+}
+.item:before,
+.item:after {
+  content: " ";
+  display: table;
+}
+.item:after {
+  clear: both;
+}
+.item .item-left {
+  float: left;
+  font-weight: 700;
+}
+.item .item-right {
+  float: right;
+  padding-right: .2rem;
+  color: #9f9f9f;
+  background: url('img/item-right.png') no-repeat right center;
+}
+.item:hover,
+.item:active {
+  background: #e6e6e6;
+}
+.btn-area {
+  padding: .1rem;
+}
+.btn-area input {
+  background: #688dff;
+  border: none;
+  padding: 1em;
+  display: block;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  cursor: pointer;
+}
+.btn-area input:hover,
+.btn-area input:active {
+  background: #008dff;
+}
