@@ -1,0 +1,10 @@
+.some{
+  color:red;
+  background:green;
+}
+
+.abc{
+  composes: some;
+  background:red;
+}
+
