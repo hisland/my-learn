@@ -9,12 +9,19 @@
 		.rem1{font-size:1rem;}
 		.rem15{font-size:1.5rem;}
 		.rem2{font-size:2rem;}
+
+		.chrome-text-size-adjust{ -webkit-text-size-adjust:none;}
+		.scale{ transform: scale(0.8333)}
 	</style>
 </head>
 <body>
 	<div>html{font-size:10px;}, webkit最小是12px, 需要加入 -webkit-text-size-adjust:none;(新版已经不行了)  或者用 transform:scale解决</div>
+	<p class="rem1 chrome-text-size-adjust">-webkit-text-size-adjust 不起作用</p>
+	<p class="rem1 scale">scale 我是文本, 10px了, 但是怎么位置变了</p>
 	<p class="rem1">我是文本</p>
 	<p class="rem15">我是文本</p>
 	<p class="rem2">我是文本</p>
+
+	<p>chrome最小字体是12, 所以 rem1 得到 12px, 但是并不代表1rem就是12px, 后面的 rem15=15px</p>
 </body>
 </html>

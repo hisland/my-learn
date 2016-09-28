@@ -17,14 +17,14 @@
     我直接 position:absolute; <br />
     如果body设置position:relative我就相对于body<br />
     此时我的%高度是相对于:root <br />
-    我会随着页面滚动, 如果相固定住, 使用 position:fixed; <br />
+    我会随着页面滚动, 如果想固定住, 使用 position:fixed; <br />
   </div>
   <div class="b">我和body都是normal flow的方式</div>
   <div class="c">
     <h3>对 :root html body 设置 overflow:hidden; 全局滚动条都会消失</h3>
     <h3>全局滚动条的 卷去高度 通过 document.body.scrollTop 得到, 不是 document.documentElement.scrollTop</h3>
     <h3>html body 都可以用 margin, 它们都是display:block</h3>
-    <h3>document.documentElement.clientHeight 可得到 页面显示区域的高度</h3>  
+    <h3>document.documentElement.clientHeight 可得到 页面显示区域的高度</h3>
   </div>
 </body>
 </html>
