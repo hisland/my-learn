@@ -1,4 +1,5 @@
 function* quips(name){
+  console.log('start');
   yield 'hello ' + name + ' !';
   yield 'welcome here!';
   if (name === 'god') {
