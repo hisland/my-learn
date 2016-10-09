@@ -1,12 +1,12 @@
-var koa = require('koa');
+var Koa = require('koa');
 
-var app = new koa();
+var app = new Koa();
 
 
 /*
 
 * 运行使用 babel: babel-node koa-console.log-flow.js
-* 必须使用 new koa
+* 必须使用 new Koa
 * 使用 ctx 代替 this
 * 使用 await next() 代替 yield next
 * 使用 async/await
@@ -38,3 +38,4 @@ app.use(async (ctx, next)=> {
 
 
 app.listen(9002);
+console.log('listen on: 9002');
