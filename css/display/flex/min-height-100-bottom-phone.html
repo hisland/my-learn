@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>test file</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <style type="text/css">
+  *{margin: 0;padding: 0;}
+  html,body{
+    height:100%;
+  }
+  .aa{
+    background:#eee;
+    height:100%;
+  }
+  .page{
+    position:relative;
+    height:100%;
+  }
+  .body{
+    min-height:100%;
+    padding-bottom:56px;
+    box-sizing: border-box;
+    position:relative;
+  }
+  .foot{
+    text-align: center;
+    padding:20px;
+    transform: translateY(-100%);
+  }
+  .btn{
+    text-align: center;
+    padding:20px;
+    background:green;
+  }
+  .btn-fixed{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+  }
+  </style>
+</head>
+<body>
+  <div class="aa">
+    <div class="page">
+      <div class="body">
+        <button id="refresh">刷新</button>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <div id="p1">1</div>
+        <div id="p2">2</div>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <h1>aa</h1>
+        <p>hello</p>
+        <div class="invisible-fixed">
+          <div class="btn">btn</div>
+        </div>
+      </div>
+      <div class="foot">foot</div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      var btn = document.querySelector('.btn')
+      var doc = document.body
+
+      var init_rect = btn.getBoundingClientRect()
+      var init_top = doc.scrollTop
+
+      var base_top = init_rect.bottom + init_top
+
+      document.querySelector('.invisible-fixed').style.height = btn.clientHeight + 'px'
+
+
+      document.getElementById('p1').innerHTML = [init_rect.bottom, init_top, base_top]
+
+      document.onscroll = function(e) {
+        // console.log(btn.getBoundingClientRect());
+        document.getElementById('p2').innerHTML = '<p>' + base_top + '--' + doc.scrollTop + '--' + (base_top - doc.scrollTop) + '--' + doc.clientHeight + '</p>'
+        if (base_top - doc.scrollTop > doc.clientHeight + 3) {
+          if (!btn.classList.contains('btn-fixed')) {
+          console.log(1);
+            btn.classList.add('btn-fixed')
+          }
+        } else {
+          if (btn.classList.contains('btn-fixed')) {
+          console.log(2);
+            btn.classList.remove('btn-fixed')
+          }
+        }
+      }
+      // document.onscroll()
+
+
+      document.getElementById('refresh').onclick = function() {
+        location.search = '?r=' + Math.random()
+      }
+    }
+  </script>
+</body>
+</html>
