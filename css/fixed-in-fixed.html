@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<style type="text/css">
+		*{padding:0;margin:0;}
+
+		.aa{
+			position:fixed;
+			left:100px;
+			top:100px;
+			width: 200px;
+			height:200px;
+			background:green;
+			overflow:auto;
+			border:10px solid #eee;
+		}
+		.bb{
+			position:fixed;
+			left:150px;
+			top:250px;
+			width: 100px;
+			height:300px;
+			background:red;
+			overflow:auto;
+			border:10px solid #eee;
+		}
+		.cc{
+			height:1000px;
+			width: 100px;
+			background:pink;
+		}
+	</style>
+</head>
+<body>
+	<p>实际结果感觉: 嵌套的 fixed 各自按 fixed 定位, 都是基于浏览器窗口, 只是有从属关系, 内部滚动条超过的时候自动冒泡到上层</p>
+	<div class="aa">
+		<br><br>
+		aa滚动
+		<div class="cc"></div>
+			底
+		<div class="bb">
+		<br><br><br><br>
+		bb滚动, 到底端或顶端开始往aa冒泡
+			<div class="cc"></div>
+			底
+		</div>
+	</div>
+	<div class="cc">
+		<br><br><br><br>
+		外部滚动
+	</div>
+			底
+</body>
+</html>
