@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>title</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<script src="http://cdn.bootcss.com/vue/2.0.3/vue.min.js"></script>
+	<!-- <script src="http://cdn.bootcss.com/vue/1.0.28/vue.min.js"></script> -->
+	<script>
+		window.onload = function() {
+			new Vue({
+				el: '#app',
+				data: {
+					title: 'abc',
+					a: 'def',
+				}
+			})
+		}
+	</script>
+	<style>
+		* {
+			margin:0;
+			padding:0;
+		}
+		html{
+		}
+		body{
+			display: flex;
+			background:green;
+			height:200px;
+			width: 200px;
+		}
+		#app{
+			flex:1;
+			background:pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1 v-for="v in 2">hello {{v}}</h1>
+	</div>
+</body>
+</html>

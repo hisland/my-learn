@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>title</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<script src="http://cdn.bootcss.com/vue/2.0.3/vue.min.js"></script>
+	<!-- <script src="http://cdn.bootcss.com/vue/1.0.28/vue.min.js"></script> -->
+	<script>
+		window.onload = function() {
+			new Vue({
+				el: '#app',
+				data: {
+					title: 'abc',
+					a: 'def',
+				}
+			})
+
+			// 没有冒泡, 要capture才能捕获到事件
+			window.addEventListener('scroll', function(e) {
+				console.log(document.documentElement.scrollTop);
+				console.log(document.body.scrollTop);
+				console.log(document.getElementsByTagName('body')[0].scrollTop);
+			}, true)
+		}
+	</script>
+	<style>
+		* {
+			margin:0;
+			padding:0;
+		}
+		html{
+			height:100%;
+		}
+		body{
+			height:100%;
+		}
+		#app{
+			height:100%;
+			overflow:auto;
+			background:pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1 v-for="v in 30">{{v}}</h1>
+	</div>
+</body>
+</html>
