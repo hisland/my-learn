@@ -17,15 +17,4 @@ class Person {
 }
 
 var p1 = new Person()
-
-
-class Tom extends Person {
-  constructor (){
-    super()
-    this.am = 'tom'
-    this.hello();
-    console.log(super.def);
-  }
-}
-
-var t1 = new Tom()
+console.log(Person.def());
