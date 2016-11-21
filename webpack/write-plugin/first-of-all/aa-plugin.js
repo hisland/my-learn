@@ -1,25 +1,25 @@
 function HelloPlugin(options){
-  console.log(11);
+  console.log('aa', 11);
 }
 
 HelloPlugin.prototype.apply = function(compiler){
-  console.log(22);
+  console.log('aa', 22);
   compiler.plugin('done', function(state){
-    console.log(33);
-    console.log('HelloPlugin');
+    console.log('aa', 33);
+    console.log('aa', 'HelloPlugin');
   })
   compiler.plugin('emit', function(compilation, callback){
-      console.log(66);
+      console.log('aa', 66);
     setTimeout(function() {
-      console.log(77);
+      console.log('aa', 77);
       callback();
     }, 500);
   })
   compiler.plugin('compilation', function(compilation){
-    console.log(44);
+    console.log('aa', 44);
     compilation.plugin('optimize', function(){
-      console.log(55);
-      console.log('aha');
+      console.log('aa', 55);
+      console.log('aa', 'aha');
     })
   })
 }
