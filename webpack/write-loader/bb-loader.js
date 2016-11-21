@@ -1,6 +1,7 @@
 module.exports = function(source, map){
   this.cacheable();
   console.log('bb loader', this.data);
+  console.log('bb loader source, map', source, map);
   return source;
 }
 
