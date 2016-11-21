@@ -1,1 +1,1 @@
-console.log(require('jquery'));
+require('dira/some')

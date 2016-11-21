@@ -73,7 +73,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"1":"halo"}[chunkId]||chunkId) + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + ".dist/" + ({"1":"halo"}[chunkId]||chunkId) + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -98,7 +98,7 @@
 	__webpack_require__.e/* nsure */(1, function(require){
 	  var b = __webpack_require__(1);
 
-	  console.log(b);
+	  console.log('in a1: ', b);
 	})
 
 

@@ -73,7 +73,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"1":"halo"}[chunkId]||chunkId) + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + ".dist/" + ({"1":"halo"}[chunkId]||chunkId) + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -99,9 +99,9 @@
 	  var b = __webpack_require__(1);
 	  var c = __webpack_require__(2);
 
-	  console.log(b);
-	  console.log(c);
-	})
+	  console.log('in a: ', b);
+	  console.log('in a: ', c);
+	}); //指定 name , 不同文件的都会合并到同一个文件里面, 否则会自己生成一个文件
 
 
 /***/ }

@@ -44,26 +44,37 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);
+	__webpack_require__(1); // 将全局的 iamGlobal 属性设置为 require 的模块
+	console.log(iamGlobal)
 
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["iamGlobal"] = __webpack_require__(2);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+	__webpack_require__(2)(__webpack_require__(3))
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
 
-	
-	var iamGlobal = 333;
-	iamGlobal2 = 444;
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	module.exports = function(src) {
+		if (typeof execScript !== "undefined")
+			execScript(src);
+		else
+			eval.call(null, src);
+	}
 
-	exports.aa = 3;
 
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports = "\nvar iamGlobal = 333;\niamGlobal2 = 444;\n\nconsole.log(iamGlobal2)\n\nconsole.log('相当于全局脚本, 不是 cmd 模块, exports 就报错')\nexports.aa = 3;\n"
 
 /***/ }
 /******/ ]);

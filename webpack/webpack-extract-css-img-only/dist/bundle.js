@@ -45,33 +45,21 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	__webpack_require__(2);
-	module.exports = __webpack_require__(3);
+	__webpack_require__(3);
 
 
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
 
-	console.log(1);
-	exports.a = 1;
-
+	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 2 */
-/***/ function(module, exports) {
-
-	console.log(2);
-	exports.b = 2;
-
-
-/***/ },
+/* 2 */,
 /* 3 */
 /***/ function(module, exports) {
 
-	console.log(3);
-	exports.c = 3;
-
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);

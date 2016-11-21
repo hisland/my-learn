@@ -8,7 +8,14 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
-      minimize: true
+      // beautify: true,
+      minimize: true,
+      compress: {
+        drop_debugger: false,
+        conditionals: false,
+        drop_console: false,
+      }
     })
   ]
 }
+

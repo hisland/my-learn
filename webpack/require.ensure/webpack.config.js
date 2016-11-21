@@ -4,6 +4,6 @@ module.exports = {
     bundle1: './a1',
   },
   output: {
-    filename: '[name].js'
+    filename: 'dist/[name].js'
   }
 }

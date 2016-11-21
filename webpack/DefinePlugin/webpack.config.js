@@ -1,5 +1,7 @@
 var webpack = require('webpack');
 
+console.log(process.env.NODE_ENV);
+
 module.exports = {
   entry: {
     bundle1: './a1',
@@ -16,20 +18,5 @@ module.exports = {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      beautify: true,
-      compress:{
-        drop_debugger: false,
-        conditionals: false,
-        drop_console: false,
-      }
-    })
   ],
 }
-
-
-/*
-
-定义 free variable, 相当于全局变量, 随处可用
-
-*/

@@ -13,14 +13,16 @@ var aa = {
   },
 }
 var bb = {
-  entry: 'q',
+  entry: 'bb',
 }
 var cc = {
-  entry: 'q',
+  entry: 'cc',
 }
 
 var util = require('util');
 
-console.log(util.inspect(merge(bb, cc, function() {
-  console.log('aha');
+console.log(util.inspect(merge(bb, cc, function(a_value, b_value, out_obj, src_obj) {
+  console.log('aha', arguments);
 }), false, null));
+
+console.log(bb, cc)

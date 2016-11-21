@@ -44,14 +44,27 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);
+	__webpack_require__(1); // 将全局的 iamGlobal 属性设置为 require 的模块
+	console.log(iamGlobal)
 
 
 /***/ },
 /* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["iamGlobal"] = __webpack_require__(2);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 2 */
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
+	
+	var iamGlobal = 333;
+	iamGlobal2 = 444;
+
+	exports.aa = 3;
+
 
 /***/ }
 /******/ ]);
