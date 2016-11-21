@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>title</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<script src="http://cdn.bootcss.com/vue/2.0.3/vue.min.js"></script>
+	<!-- <script src="http://cdn.bootcss.com/vue/1.0.28/vue.min.js"></script> -->
+	<script>
+		window.onload = function() {
+			window.onhashchange = function(e) {
+				e.preventDefault()
+				e.stopPropagation()
+				console.log(e);
+				history.back()
+			}
+		}
+	</script>
+	<style>
+		* {
+			margin:0;
+			padding:0;
+		}
+		html{
+			/*height:100%;*/
+		}
+		body{
+			padding:50px;
+		}
+		.app{
+			width: 500px;
+			height:200px;
+			background:#eee;
+			margin-bottom:10px;
+			position:relative;
+		}
+		.intro{
+			position:absolute;
+			top: 100px;
+			left: 100px;
+		}
+		.app1{
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-end;
+		}
+		.item1{
+			padding:10px;
+			background:red;
+			margin-right:5px;
+		}
+		.app2{
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-end;
+		}
+		.item2{
+			padding:10px;
+			background:green;
+			margin-right:5px;
+		}
+	</style>
+</head>
+<body>
+	<h1>并不是想象的顺时针旋转</h1>
+	<div class="app app1">
+		<div class="intro">flex-direction: row; <br> main-axis: 左往右> justify-content 测出<br> cross-axis: 上往下V align-items 测出 </div>
+		<div class="item1" style="line-height:2em;">a</div>
+		<div class="item1" style="line-height:3em;">a</div>
+		<div class="item1" style="line-height:5em;">a</div>
+	</div>
+	<div class="app app1" style="flex-direction: row-reverse;">
+		<div class="intro">flex-direction: row-reverse; <br> main-axis: 右往左< justify-content 测出<br> cross-axis: 上往下V align-items 测出 </div>
+		<div class="item1" style="line-height:2em;">a</div>
+		<div class="item1" style="line-height:3em;">a</div>
+		<div class="item1" style="line-height:5em;">a</div>
+	</div>
+	<div class="app app2">
+		<div class="intro">flex-direction: column; <br> main-axis: 上往下V justify-content 测出<br> cross-axis: 左往右> align-items 测出 </div>
+		<div class="item2" style="width: 1em;margin-bottom: 5px;">a</div>
+		<div class="item2" style="width: 2em;margin-bottom: 5px;">a</div>
+		<div class="item2" style="width: 3em;margin-bottom: 5px;">a</div>
+	</div>
+	<div class="app app2" style="flex-direction: column-reverse;">
+		<div class="intro">flex-direction: column-reverse; <br> main-axis: 下往上^ justify-content 测出<br> cross-axis: 左往右> align-items 测出 </div>
+		<div class="item2" style="width: 1em;margin-bottom: 5px;">a</div>
+		<div class="item2" style="width: 2em;margin-bottom: 5px;">a</div>
+		<div class="item2" style="width: 3em;margin-bottom: 5px;">a</div>
+	</div>
+</body>
+</html>

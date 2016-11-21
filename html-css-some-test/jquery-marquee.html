@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>title</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <!-- <script src="http://cdn.bootcss.com/vue/2.0.3/vue.min.js"></script> -->
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+  <!-- <script src="http://cdn.bootcss.com/vue/1.0.28/vue.min.js"></script> -->
+</head>
+
+<body>
+  <h1>Hello World!</h1>
+  <h2>I'll marquee twice</h2>
+  <h3>I go fast!</h3>
+  <h4>Left to right</h4>
+  <h5>I'll defer that question</h5>
+  <script>
+  (function($) {
+    $.fn.textWidth = function() {
+      var calc = $('<span style="display:none">' + $(this).text() + '</span>');
+      $('body').append(calc);
+      var width = calc.width();
+      calc.remove();
+      return width;
+    };
+
+    $.fn.marquee = function(args) {
+      var that = $(this),
+        dfd = $.Deferred();
+      if (that.prop('prev_marquee')) {
+        that.prop('prev_marquee').cancel()
+      }
+      that.prop('prev_marquee', dfd)
+
+      var textWidth = that.textWidth(),
+        offset = that.width(),
+        width = offset,
+        css = {
+          'text-indent': that.css('text-indent'),
+          'overflow': that.css('overflow'),
+          'white-space': that.css('white-space')
+        },
+        marqueeCss = {
+          'text-indent': width,
+          'overflow': 'hidden',
+          'white-space': 'nowrap'
+        },
+        args = $.extend(true, {
+          count: -1, // -1是无限
+          speed: 10, //越小越快
+          leftToRight: false
+        }, args),
+        i = 0,
+        stop = textWidth * -1;
+
+      var canceled = false;
+      dfd.cancel = function() {
+        that.css(css);
+        canceled = true;
+        dfd.reject();
+      }
+
+      function go() {
+        if (!that.length) return dfd.reject();
+        if (canceled) return dfd.reject();
+        // console.log(width , stop)
+        if (width == stop) {
+          i++;
+          if (i == args.count) {
+            // console.log(i , args.count)
+            that.css(css);
+            that.prop('prev_marquee', false)
+            return dfd.resolve();
+          }
+          if (args.leftToRight) {
+            width = textWidth * -1;
+          } else {
+            width = offset;
+          }
+        }
+        that.css('text-indent', width + 'px');
+        if (args.leftToRight) {
+          width++;
+        } else {
+          width--;
+        }
+        setTimeout(go, args.speed);
+      };
+      if (args.leftToRight) {
+        width = textWidth * -1;
+        width++;
+        stop = offset;
+      } else {
+        width--;
+      }
+      that.css(marqueeCss);
+      go();
+      return dfd.promise();
+    };
+  })(jQuery);
+
+  // $('h1').marquee();
+  // $('h2').html(Math.random()).marquee({
+  //   count: 2,
+  //   speed: 10
+  // });
+  // $('h3').marquee({
+  //   speed: 5
+  // });
+  // $('h4').marquee({
+  //   leftToRight: true
+  // });
+  // $('h5').marquee({
+  //   count: 1,
+  //   speed: 2
+  // }).done(function() {
+  //   $('h5').css('color', '#f00');
+  // })
+  </script>
+</body>
+
+</html>

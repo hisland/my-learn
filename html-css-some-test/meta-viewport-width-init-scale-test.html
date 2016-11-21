@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+  </title>
+  <!-- 当前缩放值 = ideal viewport宽度  / visual viewport宽度 -->
+  <!-- visual viewport宽度 = ideal viewport宽度  / 当前缩放值 -->
+  <!-- <meta name="viewport" content="width=640,initial-scale=1,user-scalable=no"> -->
+  <!-- <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"> -->
+  <!-- <meta name="viewport" content="width=device-width,initial-scale=1"> -->
+  <!-- <meta name="viewport" content="width=device-width"> -->
+  <!-- <meta name="viewport" content="width=device-width,initial-scale=.25,user-scalable=no"> -->
+  <meta name="viewport" content="width=600,user-scalable=no">
+  <!-- <meta id="vp1" name="viewport"> -->
+  <style>
+*{
+  margin:0;
+  padding:0;
+}
+pre {
+  background: green;
+  width: 200px;
+}
+.aaa{
+  background:#eee;
+  height: 20px;
+}
+.col{
+  display: -webkit-flex;
+  height: 300px;
+}
+.col1{
+  width: 360px;
+  background:pink;
+}
+.col2{
+  width: 360px;
+  background:purple;
+}
+  </style>
+  <script>
+    window.onload = function() {
+
+      function resize(){
+
+        document.getElementById('a').innerHTML = `
+       ratio: ${devicePixelRatio}
+      screen: ${screen.availWidth} x ${screen.availHeight}
+inner,visual: ${window.innerWidth} x ${window.innerHeight}
+   doc,layout: ${document.documentElement.clientWidth} x ${document.documentElement.clientHeight}`
+
+   var b = `
+ideal-viewport根据设备预设不能改变
+initial-scale以ideal-viewport为基数
+
+ideal-viewport测量:
+  设置 width=device-width,initial-scale=1 取 doc 值, 便是ideal-viewport
+
+
+layout-viewport根据设备初始值不同,通常是980px
+meta用于设置layout-viewport
+设置了layout-viewport之后, 便是min-scale, 只能放大
+            如果同时设置了 user-scalable=0 便不能放大
+            qq浏览器还是能放大
+
+ipad 设置 width 自动缩放scale来适应宽度不出现横向滚动条, 不超过min/max的比例, 超过比例出现滚动条
+ipad 设置 initial-scale 会基于 ideal-viewport 计算出 layout-viewport **这点需要注意
+initial-scale,width同时设置, 综合上2条取max值为layout-viewport **但是不能超过下面的 visual-viewport 的值
+
+ipad qq浏览器/微信 测出 max-scale:1.8, min-scale:0.25
+ipad safari 测出 max-scale:5, min-scale:0.25
+
+android chrome 与 ipad 基本一致, 只设置 width=device-width 横屏时正确,ipad还是按竖屏算的
+
+android 其它浏览器 width 与 ipad 基本一致, 自动缩放scale不出现横向滚动条
+  initial-scale=1 与 ipad 基本一致
+  initial-scale=其它值:
+    layout-viewport为浏览器默认的值(980px) **这点需要注意,不是期望的效果
+    scale缩放比例正确
+
+android qq浏览器/微信 测出 max-scale:5, min-scale:0.25
+android 小米浏览器 测出 max-scale:5, min-scale:0.25
+android chrome 测出 max-scale:5, min-scale:0.25
+
+ipad visual-viewport 最大值为 4倍 ideal-viewport
+android 设置了initial-scale 最大值为 4倍 ideal-viewport, 没设置initial-scale则可以一直缩小
+
+结论:
+  * 单独设置 width, 页面会自动缩放, ipad横屏是按竖屏算
+  * 单独设置 initial-scale, ipad ok, android =1 的时候正确, 其它值的时候 layout-viewport 变成980
+  * initial-scale 设置2个值: layout-viewport, visual-viewport
+  * width,initial-scale 同时设置, 取 min(max(width, initial-scale-calc), visual-viewport) 为 layout-viewport
+  * 当 layout-viewport, visual-viewport 2个的值相等时, 不出现横向滚动条, 此时是期望的状态
+  * width,initial-scale 设置的结果自动为 min-scale , 此时只能放大不能再缩小
+  * 综上得到期望结果后, 设置 user-scalable=no 则页面保持当前比例, 这是最佳状态, 但是如果文字太小, 可能影响阅读
+  * width=device-width,initial-scale=1,user-scalable=no 这个是普遍的设置, 为小屏幕做的页面可用这个
+  * width=xxx,initial-scale=yyy,user-scalable=no 这个可以用来把大的页面等比例缩小到需要的状态, 慎用, 而且需要先测量ideal-viewport`
+
+      }
+
+    window.onresize = resize
+    resize()
+
+    // let vp1 = document.getElementById('vp1')
+    // console.log(vp1)
+
+    // vp1.setAttribute('content', 'width=320')
+
+
+    document.getElementById('b').innerHTML = document.getElementById('b').clientWidth
+    }
+  </script>
+</head>
+
+<body>
+  <div class="page">
+    <pre id="a"></pre>
+    <div id="b" class="aaa"></div>
+    <div class="col">
+      <div class="col1"></div>
+      <div class="col2"></div>
+    </div>
+  </div>
+</body>
+
+</html>
