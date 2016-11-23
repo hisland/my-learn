@@ -1,3 +1,3 @@
-require('./aa');
-require('./dd');
+require('./bb');
 
+console.log('entry 3')
