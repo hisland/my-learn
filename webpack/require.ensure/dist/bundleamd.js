@@ -27,7 +27,7 @@
 /******/ 	// "0" means "already loaded"
 /******/ 	// Array means "loading", array contains callbacks
 /******/ 	var installedChunks = {
-/******/ 		2:0
+/******/ 		0:0
 /******/ 	};
 
 /******/ 	// The require function
@@ -73,7 +73,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + ".dist/" + ({"1":"halo"}[chunkId]||chunkId) + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + ".dist/" + ({}[chunkId]||chunkId) + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -95,11 +95,10 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__.e/* nsure */(1, function(require){
-	  var b = __webpack_require__(1);
-
-	  console.log('in a1: ', b);
-	})
+	__webpack_require__.e/* require */(1, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(1), __webpack_require__(2)]; (function(b, d) {
+	  console.log('in a1: ', b)
+	  console.log('in a1: ', d)
+	}.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));})
 
 
 /***/ }

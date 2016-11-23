@@ -1,18 +1,19 @@
-webpackJsonp([1],[
+webpackJsonp([3],[
 /* 0 */,
 /* 1 */
 /***/ function(module, exports) {
 
-	console.log(33);
+	console.log('in b:');
 
 	exports.b = 3;
 
 
 /***/ },
-/* 2 */
+/* 2 */,
+/* 3 */
 /***/ function(module, exports) {
 
-	console.log(33);
+	console.log('in c:');
 
 	exports.c = 'abc';
 

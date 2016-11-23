@@ -27,7 +27,7 @@
 /******/ 	// "0" means "already loaded"
 /******/ 	// Array means "loading", array contains callbacks
 /******/ 	var installedChunks = {
-/******/ 		0:0
+/******/ 		2:0
 /******/ 	};
 
 /******/ 	// The require function
@@ -73,7 +73,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + ".dist/" + ({"1":"halo"}[chunkId]||chunkId) + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + ".dist/" + ({"3":"chunk-cmd"}[chunkId]||chunkId) + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -95,11 +95,9 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__.e/* nsure */(1, function(require){
-	  var b = __webpack_require__(1);
-	  var c = __webpack_require__(2);
+	__webpack_require__.e/* nsure */(3, function(require){
+	  var c = __webpack_require__(3);
 
-	  console.log('in a: ', b);
 	  console.log('in a: ', c);
 	}); //指定 name , 不同文件的都会合并到同一个文件里面, 否则会自己生成一个文件
 

@@ -1,3 +1,3 @@
-console.log(33);
+console.log('in b:');
 
 exports.b = 3;

@@ -1,7 +1,7 @@
 module.exports = {
   entry: {
-    bundle: './a',
-    bundle1: './a1',
+    bundlecmd: './cmd',
+    bundleamd: './amd',
   },
   output: {
     filename: 'dist/[name].js'
