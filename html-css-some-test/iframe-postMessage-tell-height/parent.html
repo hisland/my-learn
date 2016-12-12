@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <iframe id="aa" src="sub.html" frameborder="0" width="100%" onmessage="console.log(33)"></iframe>
+
+  <script>
+    document.getElementById('aa').addEventListener("load", function(e) {
+      this.contentWindow.addEventListener("message", function(e) {
+        console.log(e)
+        try {
+          var obj = JSON.parse(e.data)
+          console.log(obj)
+        } catch (e) {
+
+        }
+      }, false);
+    }, false);
+  </script>
+</body>
+</html>
