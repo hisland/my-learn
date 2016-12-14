@@ -17,9 +17,11 @@
     "babel-runtime": "^6.9.2",
     "css-loader": "^0.23.1",
     "expose-loader": "^0.7.1",
+    "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.8.1",
+    "http-proxy-middleware": "^0.17.3",
     "jade": "^1.11.0",
     "jade-html-loader": "0.0.3",
     "jade-loader": "^0.8.0",
@@ -32,5 +34,10 @@
     "vue-loader": "^9.9.5",
     "webpack": "^1.13.1",
     "webpack-merge": "^0.13.0"
+  },
+  "devDependencies": {
+    "babel-plugin-component": "^0.6.0",
+    "element-ui": "^1.0.2",
+    "file-loader": "^0.9.0"
   }
 }
