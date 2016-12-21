@@ -19,7 +19,7 @@ module.exports = {
   "extends": "plugin:react/recommended", // from plugin
   "extends": "standard", // npm: eslint-config-standard, eslint-config 可以被忽略
   "extends": "./some-file.js", // file, 不能忽略后缀
-  "extends": ["A", "B"], // 数组形式, B 覆盖 A 相同设置, 查看 simple5
+  "extends": ["A", "B"], // 数组形式, B 覆盖 A 相同设置, 查看 rule-override
   "rules": {
     // 单值, 只是开启或者关闭
     "name": "off", // same as "name": 0

@@ -1,11 +1,10 @@
 module.exports = {
-  "root": true,
   "env": {
     "node": true,
     "browser": true,
   },
-  "extends": ["./rulea.js", "./ruleb.js"],
   "rules": {
-    "no-unused-vars": 2,
+    "no-console": 2,
+    "no-alert": 2,
   }
 };
