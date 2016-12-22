@@ -1,0 +1,16 @@
+{
+  "name": "eslint-test",
+  "version": "1.0.0",
+  "description": "* configuration comments 写在注释里 * configuration File:",
+  "main": "eslint.inline.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-plugin-html": "^1.7.0"
+  }
+}
