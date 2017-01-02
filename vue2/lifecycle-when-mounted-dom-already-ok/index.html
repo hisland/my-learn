@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+  <div id="app1">
+    <div id="app"></div>
+  </div>
+  <pre>
+    mounted 先执行子元素再执行父元素
+    mounted 回调执行的时候, $el 已经在 document 里面了, 不管它们是第几级后代
+  </pre>
+  <script src="../vue.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>

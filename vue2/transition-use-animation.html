@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+  .aa-enter-active {
+    animation: anim-in 1s;
+  }
+
+  .aa-leave-active {
+    animation: anim-in 3s reverse;
+  }
+
+  @keyframes anim-in {
+    10% {
+      transform: translateX(-20px);
+    }
+    50% {
+      transform: translateX(100px);
+    }
+    80% {
+      transform: translateX(10px);
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <transition name="aa">
+      <p v-if="show">hello</p>
+    </transition>
+    <button @click="show = !show">toggle</button>
+  </div>
+  <script src="./vue.min.js"></script>
+  <script>
+  var comp2 = {
+    el: '#app',
+    data: {
+      show: true
+    },
+    components: {},
+    methods: {},
+  }
+  new Vue(comp2)
+  </script>
+</body>
+
+</html>

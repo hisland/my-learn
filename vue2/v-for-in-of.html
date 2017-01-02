@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+  <div id="app">
+    <div> list:
+      <div v-for="(v, index) of list">{{v}} - {{index}}</div>
+      <hr>
+      <div v-for="v of list">{{v}}</div>
+    </div>
+    <hr>
+    <hr>
+    <div> obj:
+      <div v-for="v of obj">{{v}}</div>
+      <hr>
+      <div v-for="(v, key) of obj">{{v}} - {{key}}</div>
+      <hr>
+      <div v-for="(v, key, index) of obj">{{v}} - {{key}} - {{index}}</div>
+    </div>
+    <hr>
+    <hr>
+    <div> range (范围[1-N], 跟自然数数一样):
+      <div v-for="(v, index) of 3">{{v}} - index: {{index}}</div>
+      <hr>
+    </div>
+  </div>
+  <pre>
+    打开控制台查看输出, vm 只到 created, 此时 watch 已经开始起作用
+    此时 $el 还是 undefined
+  </pre>
+  <script src="./vue.min.js"></script>
+  <script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      list: [
+        'data1',
+        'com',
+        'and',
+        'get',
+      ],
+      obj: {
+        key1: 'some',
+        awesome: 'thing',
+        hey: 'hello',
+      },
+    },
+    methods: {
+    },
+  })
+  </script>
+</body>
+
+</html>

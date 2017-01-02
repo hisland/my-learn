@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <comp2>
+      <p>child content1</p>
+      <p>child content2</p>
+      <p slot="other">child content3</p>
+    </comp2>
+  </div>
+  <pre>
+  functional: true, 函数化组件
+    template 不起作用
+    data 也不起作用
+    直接执行 render, this 指向 window, render 第二个参数是 context
+  </pre>
+  <script src="./vue.min.js"></script>
+  <script>
+  var comp2 = {
+    functional: true,
+    // template: '<h1>hello</h1>',
+    render(h, context) {
+      console.log('comp: render', this, context)
+      console.log(context.slots())
+      var self = this
+      return h('div', [
+        context.slots().default
+      ]);
+    },
+    data: function() {
+      console.log('comp: init data')
+      return {
+        sub1: 'sub1 data',
+      };
+    },
+  }
+  Vue.component('comp2', comp2)
+  var vm = new Vue()
+  vm.$mount('#app')
+  </script>
+</body>
+
+</html>

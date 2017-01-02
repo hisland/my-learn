@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+  <div id="app"></div>
+  <hr>
+  <pre>
+v-model 是语法糖, 子组件接收 <strong>props: ['value']</strong>, 父组件监听 <strong>input事件</strong>
+  只要 父子组件 实现了上述, 就可以用 v-model 指令
+
+本实例用的是 props: ['paa'], 所以需要显示实现上述, 如果子组件接收 props: ['paa'], 则可以直接用 v-model
+关键点在子组件2个watch:
+  watch: value, 用于接收父组件的变更, 修改 local_value
+  watch: local_value, 用于 $emit('input', newVal) 新值给 父组件
+  注意 watch 内部的操作, <strong style="color:red;">避免造成无限循环</strong>
+  </pre>
+  <script src="../vue.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>

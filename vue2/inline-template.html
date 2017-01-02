@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+  <div id="app">
+  </div>
+  <script type="text/x-template" id="temp1">
+    <div style="margin:10px;border:1px solid green;padding:10px;">
+      <h1>comp1 content - {{hello()}}</h1>
+      <slot></slot>
+    </div>
+  </script>
+  <script type="text/x-template" id="temp2">
+    <div style="margin:10px;border:1px solid red;padding:10px;">
+      <comp1>这是原始的 comp1</comp1>
+      <comp1 inline-template>
+        <div style="margin:10px;border:1px solid blue;padding:10px;">
+          <h1>直接忽略了 comp1 的模板, 用这个内容作为模板, 可以访问到 comp1 的数据</h1>
+          <p>{{thing}} - {{hello()}}</p>
+          <p>inline-template 需要放到一个 root 元素下</p>
+        </div>
+        <div>这是第二个元素, 被丢弃了</div>
+      </comp1>
+    </div>
+  </script>
+  <pre>
+  就是一个挂钩
+  </pre>
+  <script src="./vue.min.js"></script>
+  <script>
+  var comp1 = {
+    template: '#temp1',
+    data: function() {
+      return {
+        thing: 'god',
+      };
+    },
+    methods: {
+      hello(){
+        return Math.random().toFixed(2);
+      }
+    },
+  }
+  var comp2 = {
+    el: '#app',
+    template: '#temp2',
+    data: {
+    },
+    components: {
+      comp1: comp1,
+    },
+    methods: {},
+  }
+  new Vue(comp2)
+  </script>
+</body>
+
+</html>
