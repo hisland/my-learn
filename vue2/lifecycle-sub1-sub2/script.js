@@ -1,7 +1,7 @@
 var child_lv2 = {
   template: `
     <div>
-      child_lv2: {{child_lv2}}
+      child_lv2: {{child_lv2}}  <button @click="act">点我2</button>
     </div>
       `,
   data: function() {
@@ -9,6 +9,11 @@ var child_lv2 = {
     return {
       child_lv2: 'child_lv2 data'
     };
+  },
+  methods: {
+    act(){
+      this.child_lv2 = Math.random().toFixed(4)
+    },
   },
   beforeCreate() {
     console.log('---- beforeCreate: child_lv2')

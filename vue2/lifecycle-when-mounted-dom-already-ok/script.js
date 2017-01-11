@@ -9,18 +9,21 @@ var child_lv2 = {
     };
   },
   beforeCreate() {
-    console.log('---- beforeCreate: child_lv2')
+    console.log('---- beforeCreate: child_lv2', this, this.child_lv2, this.$el)
   },
   created() {
-    console.log('---- created: child_lv2')
+    console.log('---- created: child_lv2', this, this.child_lv2, this.$el)
   },
   beforeMount() {
-    console.log('---- beforeMount: child_lv2')
+    console.log('---- beforeMount: child_lv2, $el: ', this.$el)
     console.log(document.getElementById('app1').innerHTML)
   },
   mounted() {
-    console.log('---- mounted: child_lv2')
+    console.log('---- mounted: child_lv2, $el: ', this.$el)
     console.log(document.getElementById('app1').innerHTML)
+    this.$nextTick(function() {
+      console.log('-- mounted-$nextTick: child_lv2, $el: ')
+    })
   },
 }
 var child_lv1 = {
@@ -45,23 +48,26 @@ var child_lv1 = {
     };
   },
   beforeCreate() {
-    console.log('-- beforeCreate: child_lv1')
+    console.log('-- beforeCreate: child_lv1', this, this.child_lv1, this.$el)
   },
   created() {
-    console.log('-- created: child_lv1')
+    console.log('-- created: child_lv1', this, this.child_lv1, this.$el)
   },
   beforeMount() {
-    console.log('-- beforeMount: child_lv1')
+    console.log('-- beforeMount: child_lv1, $el: ', this.$el)
     console.log(document.getElementById('app1').innerHTML)
   },
   mounted() {
-    console.log('-- mounted: child_lv1')
+    console.log('-- mounted: child_lv1, $el: ', this.$el)
     console.log(document.getElementById('app1').innerHTML)
+    this.$nextTick(function() {
+      console.log('-- mounted-$nextTick: child_lv1, $el: ')
+    })
   },
 }
 var vm = new Vue({
   template: `
-<div>
+<div :style="style" :class="cssClass">
   <button @click="destroy1">销毁第一个</button>
   <child_lv1 ref="sub"></child_lv1>
 </div>
@@ -73,6 +79,10 @@ var vm = new Vue({
       aa2: 'some aa',
       subActive: true,
       cc: null,
+      style: {
+        color: 'red'
+      },
+      cssClass: ['bb', 'qq']
     }
   },
   props: ['bb'],
@@ -111,18 +121,21 @@ var vm = new Vue({
     },
   },
   beforeCreate() {
-    console.log('beforeCreate: parent')
+    console.log('beforeCreate: parent', this, this.aa, this.$el)
   },
   created() {
-    console.log('created: parent')
+    console.log('created: parent', this, this.aa, this.$el)
   },
   beforeMount() {
-    console.log('beforeMount: parent')
+    console.log('beforeMount: parent, $el: ', this.$el)
     console.log(document.getElementById('app1').innerHTML)
   },
   mounted() {
-    console.log('mounted: parent')
+    console.log('mounted: parent, $el: ', this.$el)
     console.log(document.getElementById('app1').innerHTML)
+    this.$nextTick(function() {
+      console.log('-- mounted-$nextTick: parent, $el: ')
+    })
   },
 })
 

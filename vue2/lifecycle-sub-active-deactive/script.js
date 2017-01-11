@@ -1,7 +1,7 @@
 var vm = new Vue({
   template: `
 <div>
-<button @click="vm.subActive = !vm.subActive">{{vm.subActive ? '点击隐藏子组件' : '点击显示子组件'}}</button>
+<button @click="subActive = !subActive">{{subActive ? '点击隐藏子组件' : '点击显示子组件'}}</button>
 <keep-alive>
   <sub_comp v-if="subActive" ref="sub"></sub_comp>
 </keep-alive>
@@ -54,36 +54,36 @@ var vm = new Vue({
     },
   },
   beforeCreate() {
-    console.log('beforeCreate: 11')
+    console.log('beforeCreate: parent')
   },
   created() {
-    console.log('created: 11')
+    console.log('created: parent')
   },
   beforeMount() {
-    console.log('beforeMount: 11')
-    console.log(this.$refs.sub)
+    console.log('beforeMount: parent')
+    console.log('ref-sub: ', this.$refs.sub)
   },
   mounted() {
-    console.log('mounted: 11')
-    console.log(this.$refs.sub)
+    console.log('mounted: parent')
+    console.log('ref-sub: ', this.$refs.sub)
   },
   beforeUpdate() {
-    console.log('beforeUpdate: 11')
+    console.log('beforeUpdate: parent')
   },
   updated() {
-    console.log('updated: 11')
+    console.log('updated: parent')
   },
   activated() {
-    console.log('activated: 11')
+    console.log('activated: parent')
   },
   deactivated() {
-    console.log('deactivated: 11')
+    console.log('deactivated: parent')
   },
   beforeDestroy() {
-    console.log('beforeDestroy: 11')
+    console.log('beforeDestroy: parent')
   },
   destroyed() {
-    console.log('destroyed: 11')
+    console.log('destroyed: parent')
   },
 })
 
