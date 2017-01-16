@@ -5,13 +5,17 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <style>
-  .aa-enter-active,
+  .aa-enter-active {
+    transition: all .3s ease;
+  }
+
   .aa-leave-active {
-    transition: opacity .5s;
+    transition: all .8s ease;
   }
 
   .aa-enter,
   .aa-leave-active {
+    transform: translateX(10px);
     opacity: 0;
   }
   </style>
@@ -24,6 +28,9 @@
     </transition>
     <button @click="show = !show">toggle</button>
   </div>
+  <pre>
+    transition v-if 显示隐藏
+  </pre>
   <script src="./vue.min.js"></script>
   <script>
   var comp2 = {

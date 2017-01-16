@@ -5,30 +5,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <style>
-  .aa {
-    animation: anim-in 1s;
-  }
-
-  .bb {
-    animation: anim-in 3s reverse;
-  }
-
-  @keyframes anim-in {
-    10% {
-      transform: translateX(-20px);
-    }
-    50% {
-      transform: translateX(100px);
-    }
-    80% {
-      transform: translateX(10px);
-    }
-  }
   </style>
 </head>
 
 <body>
-  <div id="app">
+  <div id="app" style="height: 100px;">
     <button @click="show = !show">toggle</button>
     <transition
       name="aa"
@@ -40,6 +21,9 @@
       <p v-if="show" style="position:absolute;transform-origin: left;">hello</p>
     </transition>
   </div>
+  <pre>
+    transition 通过hook, 使用 Velocity 来做的动画
+  </pre>
   <script src="http://cdn.bootcss.com/velocity/1.4.1/velocity.min.js"></script>
   <script src="./vue.min.js"></script>
   <script>

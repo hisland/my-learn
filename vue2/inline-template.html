@@ -24,12 +24,13 @@
           <p>{{thing}} - {{hello()}}</p>
           <p>inline-template 需要放到一个 root 元素下</p>
         </div>
-        <div>这是第二个元素, 被丢弃了</div>
+        <div>这是第二个元素, 被丢弃了, 开发版会显示警告</div>
       </comp1>
     </div>
   </script>
   <pre>
-  就是一个挂钩
+  <a href="https://github.com/vuejs/vue/issues/2765">这里</a> 有一个issue指出这个问题,
+  因为涉及到模板解析, 应该需要完整版, runtime-only 版本应该不行的
   </pre>
   <script src="./vue.min.js"></script>
   <script>

@@ -13,12 +13,16 @@
     <div id="app">
     </div>
   </div>
+  <pre>
+    整个初始化过程都是同步的
+    methods, computed 根据模板的使用顺序依次调用
+  </pre>
   <script src="./vue.min.js"></script>
   <script>
   var comp2 = {
-    template: '<h1 :style="style" :class="cssClass">use template</h1>',
+    template: '<h1 :style="style" :class="cssClass">use template bb: {{bb}} dd(): {{dd()}} cc: {{cc}}</h1>',
     data: function() {
-      console.log('comp: init data')
+      console.log('init data')
       return {
         sub1: 'sub1 data',
         style: {
@@ -28,40 +32,50 @@
       };
     },
     computed: {
+      bb(){
+        console.log('computed: bb')
+        return 'bb ';
+      },
       cc(){
-        console.log('comp: computed: cc')
-        return 'cc ' + this.sub1;
+        console.log('computed: cc')
+        return 'cc ';
+      },
+    },
+    methods: {
+      dd(){
+        console.log('methods: dd')
+        return 'dd ';
       }
     },
     beforeCreate() {
-      console.log('comp: beforeCreate')
+      console.log('beforeCreate')
     },
     created() {
-      console.log('comp: created')
+      console.log('created')
     },
     beforeMount() {
-      console.log('comp: beforeMount')
+      console.log('beforeMount')
     },
     mounted() {
-      console.log('comp: mounted')
+      console.log('mounted')
     },
     beforeUpdate() {
-      console.log('comp: beforeUpdate')
+      console.log('beforeUpdate')
     },
     updated() {
-      console.log('comp: updated')
+      console.log('updated')
     },
     activated() {
-      console.log('comp: activated')
+      console.log('activated')
     },
     deactivated() {
-      console.log('comp: deactivated')
+      console.log('deactivated')
     },
     beforeDestroy() {
-      console.log('comp: beforeDestroy')
+      console.log('beforeDestroy')
     },
     destroyed() {
-      console.log('comp: destroyed')
+      console.log('destroyed')
     },
   }
   var vm = new Vue(comp2)

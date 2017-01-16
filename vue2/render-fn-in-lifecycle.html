@@ -11,55 +11,58 @@
 <body>
   <div id="app">
   </div>
+  <pre>
+    render函数 的执行紧接着 beforeMount-hook
+  </pre>
   <script src="./vue.min.js"></script>
   <script>
   var comp2 = {
     template: '<h1>use template</h1>',
     render(h) {
-      console.log('comp: render')
+      console.log('render')
       return h('h1', ['use render ' + this.cc]);
     },
     data: function() {
-      console.log('comp: init data')
+      console.log('init data')
       return {
         sub1: 'sub1 data'
       };
     },
     computed: {
       cc(){
-        console.log('comp: computed: cc')
+        console.log('computed: cc')
         return 'cc ' + this.sub1;
       }
     },
     beforeCreate() {
-      console.log('comp: beforeCreate')
+      console.log('beforeCreate')
     },
     created() {
-      console.log('comp: created')
+      console.log('created')
     },
     beforeMount() {
-      console.log('comp: beforeMount')
+      console.log('beforeMount')
     },
     mounted() {
-      console.log('comp: mounted')
+      console.log('mounted')
     },
     beforeUpdate() {
-      console.log('comp: beforeUpdate')
+      console.log('beforeUpdate')
     },
     updated() {
-      console.log('comp: updated')
+      console.log('updated')
     },
     activated() {
-      console.log('comp: activated')
+      console.log('activated')
     },
     deactivated() {
-      console.log('comp: deactivated')
+      console.log('deactivated')
     },
     beforeDestroy() {
-      console.log('comp: beforeDestroy')
+      console.log('beforeDestroy')
     },
     destroyed() {
-      console.log('comp: destroyed')
+      console.log('destroyed')
     },
   }
   var vm = new Vue(comp2)

@@ -35,6 +35,7 @@
   }
   .wrap{
     padding-left:50px;
+    height: 30px;
   }
   .wrap button{
     position:absolute;
@@ -44,23 +45,31 @@
 
 <body>
   <div id="app">
-    <button @click="show = !show">toggle</button>
+    <button @click="show = 1">toggle1</button>
+    <button @click="show = 2">toggle2</button>
+    <button @click="show = 3">toggle3</button>
     <hr>
     <div class="wrap">
       <transition
         name="aa"
         >
-        <button v-if="show" key="1">on</button>
-        <button v-if="!show" key="2">off</button>
+        <button v-if="show === 1" key="1">on</button>
+        <button v-if="show === 2" key="2">off</button>
+        <button v-if="show === 3" key="3">boo</button>
       </transition>
     </div>
   </div>
+  <pre>
+    看源码, transition 好像只会控制子节点, 并且控制的是 if-else 这些切换的节点
+    name属性会让它探测对应规则的 css, 自动判断是 transition 还是 animation
+    切换相同的 tag, 需要用 key 区分, 否则会自动重用元素, 达不到需要的效果
+  </pre>
   <script src="./vue.min.js"></script>
   <script>
   var comp2 = {
     el: '#app',
     data: {
-      show: true
+      show: 1
     },
     components: {},
     methods: {
