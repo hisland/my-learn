@@ -1,6 +1,6 @@
 // @flow
 
-function halo(a): number{
+function halo(a: string): number{
   if (a === null) {return 0;}
   return a.length;
 }
