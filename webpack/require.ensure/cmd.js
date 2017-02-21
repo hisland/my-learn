@@ -1,4 +1,4 @@
-require.ensure(['./b'], function(require){
+require.ensure(['./b'], function(){
   var c = require('./c');
 
   console.log('in a: ', c);

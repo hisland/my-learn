@@ -54,6 +54,16 @@
 
 	console.log(("production"));
 
+	function someFn(){
+	  console.log((1+1));
+	  if (false) {
+	    var a = 'i will be delete, in a funciton'
+	    return a;
+	  }
+	}
+
+	someFn()
+
 
 /***/ }
 /******/ ]);

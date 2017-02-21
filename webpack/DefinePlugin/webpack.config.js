@@ -18,5 +18,14 @@ module.exports = {
         NODE_ENV: '"production"'
       }
     }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   beautify: true,
+    //   // minimize: true,
+    //   compress: {
+    //     drop_debugger: false,
+    //     conditionals: false,
+    //     drop_console: false,
+    //   }
+    // })
   ],
 }

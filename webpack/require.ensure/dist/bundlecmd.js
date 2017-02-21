@@ -95,7 +95,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__.e/* nsure */(3, function(require){
+	__webpack_require__.e/* nsure */(3, function(){
 	  var c = __webpack_require__(3);
 
 	  console.log('in a: ', c);

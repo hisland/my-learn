@@ -10,3 +10,8 @@ export default {
   },
 }
 </script>
+<style>
+  div{
+    color:red;
+  }
+</style>

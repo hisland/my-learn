@@ -7,3 +7,13 @@ if (SOME) {
 }
 
 console.log(process.env.NODE_ENV);
+
+function someFn(){
+  console.log(TWO);
+  if (SOME) {
+    var a = 'i will be delete, in a funciton'
+    return a;
+  }
+}
+
+someFn()
