@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>new document</title>
+  <style>
+    *{margin:0;padding:0;}
+    .aaa{
+      position:absolute;
+      background:#aaa;
+      top:20px;
+      left:20px;
+    }
+    .bbb{
+      position:absolute;
+      background:#aaa;
+      top:80px;
+      left:20px;
+      width: 100px;
+    }
+    .ccc{
+      position:absolute;
+      background:#aaa;
+      top:160px;
+      left:20px;
+      width: 100px;
+      height: 100px;
+    }
+    .ccc2{
+      position:absolute;
+      background:green;
+      left:20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="aaa">
+  宽度随文字伸展
+</div>
+<div class="aaa" style="top:50px">
+  宽度随文字伸展, 许多文字, 许多文字, 许多文字
+</div>
+<div class="bbb">
+  指定了宽度, 文字自动换行
+</div>
+<div class="bbb" style="white-space:nowrap;top:130px">
+  指定了宽度, 强制不换行, 文字溢出
+</div>
+
+<div class="ccc">
+  <div class="ccc2">
+  abs in abs, 宽度对齐 parent 的边缘, 文字换行
+  </div>
+</div>
+
+<div class="ccc" style="white-space:nowrap;top:300px">
+  <div class="ccc2">
+    abs in abs, 强制不换行效果展示
+  </div>
+</div>
+
+</body>
+</html>
