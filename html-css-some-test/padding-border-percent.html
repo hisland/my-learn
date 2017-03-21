@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>title</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<style>
+		* {
+			margin:0;
+			padding:0;
+			font-size:12px;
+		}
+		.box1{
+			float:left;
+			width:100%;
+			margin-bottom:10px;
+			background:#eee;
+		}
+		.box1 .box{
+			float:left;
+			margin: 10px;
+			width: 300px;height: 100px;
+			background:green;
+		}
+		.box1 .box .box-in{
+			padding:20%;
+			height: 20px;
+			background:pink;
+			background-clip: content-box;
+		}
+
+		.box2{
+			float:left;
+			width:100%;
+			margin-bottom:10px;
+			background:#eee;
+		}
+		.box2 .box{
+			float:left;
+			margin: 10px;
+			width: 300px;height: 100px;
+			background:green;
+		}
+		.box2 .box .box-in{
+			border:20% solid transparent;
+			height: 20px;
+			background:pink;
+			background-clip: content-box;
+		}
+
+		.box3{
+			float:left;
+			width:100%;
+			margin-bottom:10px;
+			background:#eee;
+		}
+		.box3 .box{
+			float:left;
+			margin: 10px;
+			width: 300px;height: 100px;
+			background:green;
+			position:relative;
+		}
+		.box3 .box .box-in{
+			position:absolute;
+			top:20%;
+			right:20%;
+			bottom:20%;
+			left:20%;
+			height: 40px;
+			background:pink;
+			background-clip: content-box;
+		}
+
+		.box4{
+			float:left;
+			width:100%;
+			margin-bottom:10px;
+			background:#eee;
+		}
+		.box4 .box{
+			float:left;
+			margin: 10px;
+			width: 300px;height: 100px;
+			background:green;
+			position:relative;
+		}
+		.box4 .box .box-in{
+			margin:20%;
+			height: 40px;
+			background:pink;
+			background-clip: content-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box">
+			<div class="box-in">padding横竖百分比都基于宽度</div>
+		</div>
+		<div class="box">
+			<div class="box-in"></div>
+		</div>
+		<div class="box">
+			<div class="box-in"></div>
+		</div>
+	</div>
+	<div class="box2">
+		<div class="box">
+			<div class="box-in">border没有百分比</div>
+		</div>
+		<div class="box">
+			<div class="box-in"></div>
+		</div>
+		<div class="box">
+			<div class="box-in"></div>
+		</div>
+	</div>
+	<div class="box3">
+		<div class="box">
+			<div class="box-in">abs偏移基于百分比, 横竖分开</div>
+		</div>
+		<div class="box">
+			<div class="box-in"></div>
+		</div>
+		<div class="box">
+			<div class="box-in"></div>
+		</div>
+	</div>
+	<div class="box4">
+		<div class="box">
+			<div class="box-in">margin横竖百分比都基于宽度</div>
+		</div>
+		<div class="box">
+			<div class="box-in"></div>
+		</div>
+		<div class="box">
+			<div class="box-in"></div>
+		</div>
+	</div>
+</body>
+</html>
