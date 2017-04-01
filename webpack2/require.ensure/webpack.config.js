@@ -4,6 +4,7 @@ module.exports = {
     bundlecmd: './cmd',
   },
   output: {
-    filename: 'dist/[name].js'
+    filename: 'dist/[name].js',
+    chunkFilename: 'dist/[id].[name].js',
   }
 }
