@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+  <div id="app">
+  </div>
+  <script type="text/x-template" id="temp1">
+    <div style="margin:10px;border:1px solid green;padding:10px;">
+      <input
+        v-model="some"
+        type="text"
+        ref="input">
+      <textarea
+        v-model="hey"
+        ref="textarea"></textarea>
+
+      <button @click="save">save</button>
+      <button @click="setRandom">setRandom</button>
+      <button @click="update">update</button>
+    </div>
+  </script>
+  <script src="./vue.min.js"></script>
+  <script src="./jquery-3.2.1.min.js"></script>
+  <script>
+  var comp2 = {
+    el: '#app',
+    template: '#temp1',
+    data: {
+      some: '',
+      hey: '',
+    },
+    methods: {
+      save: function() {
+        console.log(this.some)
+        console.log(this.hey)
+      },
+      setRandom: function() {
+        this.$refs.input.value = Math.random().toString(32).substr(2, 5)
+        this.$refs.textarea.value = Math.random().toString(32).substr(2, 5)
+
+        console.log('点击 save 查看, model 没有更新')
+      },
+      update: function() {
+        this.$refs.input.dispatchEvent(new Event('input'))
+        this.$refs.textarea.dispatchEvent(new Event('input'))
+
+        console.log('点击 save 查看, model 更新了')
+      },
+    },
+    mounted: function() {
+      window.ref1 = this.$refs.input
+      window.ref2 = this.$refs.textarea
+      this.$nextTick(function() {
+        console.log(this.$refs.input)
+
+      })
+    }
+  }
+  new Vue(comp2)
+  </script>
+</body>
+
+</html>
