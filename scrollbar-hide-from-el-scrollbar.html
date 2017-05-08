@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>new document</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <style>
+      *{margin:0;padding:0;}
+      body{
+        padding:20px;
+      }
+      .wrap{
+        float:left;
+        margin: 10px;
+        border:1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="wrap"
+      style="width:300px;height:300px;background:#ccc"
+      >
+      <div
+        style="width:100%;height:100%;overflow: scroll;"
+        >
+        <div
+          style="width:100%;height:100%;"
+          >
+          parent scroll-bar 要占用空间
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="wrap"
+      style="width:300px;height:300px;background:#ccc"
+      >
+      <div
+        style="width:100%;height:100%;overflow: scroll;position:relative;"
+        >
+        <div
+          style="position:absolute;top:0;left:0;right:0;bottom:0;"
+          >
+          absolute width:100%;height:100%;
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="wrap"
+      style="width:300px;height:300px;background:#ccc"
+      >
+      <div
+        style="width:100%;height:100%;overflow: scroll;position:relative;display: flex;"
+        >
+        <div
+          style="position:absolute;top:0;left:0;right:0;bottom:0;"
+          >
+          absolute width:100%;height:100%;
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="wrap"
+      style="width:300px;height:300px;background:#ccc"
+      >
+      <div
+        style="width:100%;height:100%;overflow: auto;display: flex;"
+        >
+        <div
+          style="white-space:nowrap;"
+          >
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 parent scroll-bar 要占用空间 parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+          parent scroll-bar 要占用空间 <br>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="wrap"
+      style="width:300px;height:300px;background:#ccc"
+      >
+      <div
+        style="overflow: hidden;"
+        >
+        <div
+          style="max-height:150px;margin-right:-15px;margin-bottom:-15px;overflow: scroll;"
+          >
+          <div
+            style="white-space:nowrap;"
+            >
+            通过 负margin 把滚动条区域往外伸, <br>
+            横向起作用, 纵向高度不固定起作用, <br>
+            高度固定需要把滚动条的高度加上 <br><br>
+            parent scroll-bar 要占用空间 parent scroll-bar 要占用空间 parent scroll-bar 要占用空间 <br>
+            inner <br><br><br>
+            inner <br><br><br>
+            inner <br><br><br>
+            inner <br><br><br>
+            inner <br><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="wrap"
+      style="width:300px;height:300px;background:#ccc"
+      >
+      <div
+        style="height:200px;overflow: hidden;"
+        >
+        <div
+          style="height:calc(100% + 15px);margin-right:-15px;margin-bottom:-15px;overflow: scroll;"
+          >
+          <div
+            style="white-space:nowrap;"
+            >
+            我需要 高度为 100% + 滚动条高度 <br><br>
+            parent scroll-bar 要占用空间 parent scroll-bar 要占用空间 parent scroll-bar 要占用空间 <br>
+            inner <br><br><br>
+            inner <br><br><br>
+            inner <br><br><br>
+            inner <br><br><br>
+            inner <br><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

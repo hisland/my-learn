@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>new document</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <style>
+      *{margin:0;padding:0;}
+      body{
+        padding:20px;
+        background:#ddd;
+      }
+
+      .box1{
+        width: 300px;
+        height: 100px;
+        background:#aaa;
+        margin-bottom:10px;
+        padding-top:20px;
+      }
+      .box11{
+        background:purple;
+        color:#fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <div class="box11">测试文字测试文字测试文字测试文字测试文字测试文字 自动换行</div>
+    </div>
+
+    <div class="box1">
+      <div class="box11" style="white-space:nowrap;">测试文字测试文字测试文字测试文字测试文字测试文字 伸出去了,但是box宽度是100%</div>
+    </div>
+    <div class="box1" style="overflow:auto;">
+      <div class="box11" style="white-space:nowrap;">测试文字测试文字测试文字测试文字测试文字测试文字 伸出去了,但是box宽度是100%</div>
+    </div>
+
+    <div class="box1">
+      <div class="box11" style="white-space:nowrap;display:inline-block;">测试文字测试文字测试文字测试 伸出去了,box宽度随内容</div>
+      <div class="box11" style="white-space:nowrap;display:inline-block;">测试文字测试文字测试文字测试文字测试文字测试文字 伸出去了,box宽度随内容</div>
+    </div>
+    <div class="box1" style="overflow:auto;">
+      <div class="box11" style="white-space:nowrap;display:inline-block;">测试文字测试文字测试文字文字 伸出去了,box宽度随内容</div>
+      <div class="box11" style="white-space:nowrap;display:inline-block;">测试文字测试文字测试文字测试文字测试文字测试文字 伸出去了,box宽度随内容</div>
+    </div>
+
+    <div class="box1" style="display: flex;">
+      <div class="box11" style="white-space:nowrap;background:green;">
+        <div class="box11" style="white-space:nowrap;">测试文字测试文字测试文字文字 伸出去了,box宽度随内容</div>
+        <div class="box11" style="white-space:nowrap;">测试文字测试文字测试文字测试文字测试文字测试文字 伸出去了,box宽度随内容</div>
+      </div>
+    </div>
+    <div class="box1" style="display: flex;">
+      <div class="box11" style="background:green;">
+        <div class="box11" style="white-space:nowrap;display:inline-block;">测试文字测试文字测试文字文字 伸出去了,box宽度随内容</div>
+        <div class="box11" style="white-space:nowrap;display:inline-block;">测试文字测试文字测试文字测试文字测试文字测试文字 伸出去了,box宽度随内容</div>
+      </div>
+    </div>
+
+    <div class="box1" style="">
+      <div class="box11" style="float:left;background:green;padding:10px 0;">
+        <div class="box11" style="white-space:nowrap;display:inline-block;">测试文字测试文字测试文字文字 伸出去了,box宽度随内容</div>
+        <div class="box11" style="white-space:nowrap;display:inline-block;">测试文字测试文字测试文字测试文字测试文字测试文字 伸出去了,box宽度随内容</div>
+      </div>
+    </div>
+  </body>
+</html>

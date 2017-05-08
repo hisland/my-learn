@@ -39,7 +39,7 @@ module.exports = {
         //   not: [/bb/]
         // },
         rules: [
-        // {use: 'css-loader'}, // 嵌套rules数组, 从后往前执行
+        // {use: 'css-loader'}, // 嵌套rules数组, 从内往外执行
           { use: 'less-loader' }, // 完整形式
         ],
         use: 'css-loader' // 嵌套rules完成再执行自身的use
