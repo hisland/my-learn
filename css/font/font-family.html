@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new document</title>
+	<meta http-equiv="cache-control" content="nocache" />
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		body{padding:50px;}
+
+		.aaa{
+
+		}
+	</style>
+</head>
+<body>
+	<h3>default</h3>
+	<div>abc 123 ,.~{}! 还有中文</div>
+
+	<br>
+	<h3>generic-name</h3>
+	<pre>
+* fallback mechanism
+* 应该放在末尾
+* 不能加引号
+	</pre>
+	<div style="font-family: serif;">abc 123 ,.~{}! 还有中文</div>
+	<div style="font-family: sans-serif;">abc 123 ,.~{}! 还有中文</div>
+	<div style="font-family: monospace;">abc 123 ,.~{}! 还有中文</div>
+	<div style="font-family: cursive;">abc 123 ,.~{}! 还有中文</div>
+	<div style="font-family: fantasy;">abc 123 ,.~{}! 还有中文</div>
+	<div style="font-family: system-ui;">abc 123 ,.~{}! 还有中文</div>
+	<br>
+	<h3>initial, inherit, parent-set</h3>
+	<div style="font-family: Times;">
+		<div style="font-family: initial;">abc 123 ,.~{}! 还有中文</div>
+	</div>
+	<div style="font-family: Times;">
+		<div style="font-family: inherit;">abc 123 ,.~{}! 还有中文</div>
+	</div>
+	<div style="font-family: Times;">
+		<div>abc 123 ,.~{}! 还有中文</div>
+	</div>
+
+	<br>
+	<h3>组合</h3>
+	<p>从左往右一个一个字符的查找,找到就使用,没有找到就找下一个family, 都没找到使用 UA 默认的设置再找</p>
+	<div style="font-family: Times, 'PingFang SC';">abc 123 ,.~{}! 还有中文</div>
+	<div style="font-family: 'PingFang SC', Times;">abc 123 ,.~{}! 还有中文</div>
+
+</body>
+</html>
