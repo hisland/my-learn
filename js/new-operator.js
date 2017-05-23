@@ -3,6 +3,7 @@ function test(){
     a: 1
   }
   this.god = 'cc';
+  console.log('test-this-is: ', this)
   return k;
 }
 

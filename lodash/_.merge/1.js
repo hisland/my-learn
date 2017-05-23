@@ -40,7 +40,7 @@ _.merge(aa, dd);
 console.log('子结构不同, 后面覆盖前面');
 console.log(aa)
 
-aa.cc = [1,2,3]
+aa.cc = [1,2,3,4,5,6]
 dd = {
   cc: [4,5,6]
 }

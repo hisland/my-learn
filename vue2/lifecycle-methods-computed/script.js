@@ -9,9 +9,16 @@ aa2: <input type="text" v-model="aa2" />
 <h1>computed(依赖aa2): {{dd}} 有缓存, 只有依赖的值变更才调用</h1>
 </div>
   `,
-  data: {
-    aa: 'some aa',
-    aa2: 'some aa',
+  // render: function(h){
+  //   console.log('render: render-called')
+  //   return h('div', {}, 'hello')
+  // },
+  data: function(){
+    console.log('data: data-called')
+    return {
+      aa: 'some aa',
+      aa2: 'some aa',
+    };
   },
   props: ['bb'],
   propsData: {
@@ -19,50 +26,50 @@ aa2: <input type="text" v-model="aa2" />
   },
   computed: {
     dd: function() {
-      console.log('call: computed.dd')
+      console.log('call.computed: dd')
       return 'some dd' + this.aa2;
     },
   },
   methods: {
     cc(){
-      console.log('call: methods.cc')
+      console.log('call.methods: cc')
       return 'cc' + Math.random().toFixed(2);
     },
   },
   watch: {
     aa: function(newVal, oldVal) {
-      console.log(newVal, arguments, this.aa)
+      console.log('watch: ', newVal, arguments, this.aa)
     },
   },
   beforeCreate() {
-    console.log('beforeCreate: 11')
+    console.log('life-beforeCreate: 11')
   },
   created() {
-    console.log('created: 11')
+    console.log('life-created: 11')
   },
   beforeMount() {
-    console.log('beforeMount: 11')
+    console.log('life-beforeMount: 11')
   },
   mounted() {
-    console.log('mounted: 11')
+    console.log('life-mounted: 11')
   },
   beforeUpdate() {
-    console.log('beforeUpdate: 11')
+    console.log('life-beforeUpdate: 11')
   },
   updated() {
-    console.log('updated: 11')
+    console.log('life-updated: 11')
   },
   activated() {
-    console.log('activated: 11')
+    console.log('life-activated: 11')
   },
   deactivated() {
-    console.log('deactivated: 11')
+    console.log('life-deactivated: 11')
   },
   beforeDestroy() {
-    console.log('beforeDestroy: 11')
+    console.log('life-beforeDestroy: 11')
   },
   destroyed() {
-    console.log('destroyed: 11')
+    console.log('life-destroyed: 11')
   },
 })
 
