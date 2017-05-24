@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+</head>
+<body>
+
+<div id="main" style="width: 600px;height:400px;"></div>
+
+<script src="require-2.3.3.js"></script>
+<script>
+require.config({
+  baseUrl: 'src'
+})
+require(['main'], function(m){
+  console.log('in html')
+  console.log(m)
+});
+</script>
+</body>
+</html>
