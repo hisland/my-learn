@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div ms-controller="test">
+  <input type="text" ms-duplex="@name">
+  <p>Hello: {{@name}}</p>
+  <ul>
+    <li ms-for="($index, val) in @arr">{{$index}} - {{val}}</li>
+  </ul>
+</div>
+<div ms-controller="test">
+  <input type="text" ms-duplex="@name">
+  <p>Hello: {{@name}}</p>
+  <ul>
+    <li ms-for="($index, val) in @arr">{{$index}} - {{val}}</li>
+  </ul>
+</div>
+
+<script src="avalon-2.2.6.js"></script>
+<script>
+var vm = avalon.define({
+  $id: 'test',
+  name: 'some',
+  arr: [1,2,3]
+})
+
+setTimeout(function() {
+  vm.arr.set(0, 'god')
+}, 1000);
+</script>
+</body>
+</html>
