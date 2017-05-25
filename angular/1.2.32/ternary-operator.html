@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+	<script src="angular-1.2.32.js"></script>
+  <script type="text/javascript">
+    var m = angular.module('phonecatApp', []);
+    m.controller('PhoneListCtrl', function($scope) {
+      $scope.god = 'cc';
+    });
+    window.onload = function(){
+      angular.bootstrap(document.getElementById('main'), ['phonecatApp'])
+    }
+  </script>
+</head>
+<body>
+  <div id="main">
+    <div ng-controller="PhoneListCtrl">
+      <h3 halo="{{god}}">支持三元运算</h3>
+      <p>{{god ? 'a' : 'b'}}</p>
+      <p>{{god ? 'b' : 'a'}}</p>
+      <p>{{god == 'cc'}}</p>
+    </div>
+  </div>
+</body>
+</html>
