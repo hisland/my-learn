@@ -16,6 +16,7 @@
     "webpack": "^2.5.1"
   },
   "devDependencies": {
-    "es3ify-webpack-plugin": "0.0.1"
+    "es3ify-webpack-plugin": "0.0.1",
+    "es6-promise": "^4.1.0"
   }
 }
