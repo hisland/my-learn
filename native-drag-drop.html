@@ -9,7 +9,7 @@
       li.moving{transform:scale(0.8);transform-origin: left center;}
       li.over{border-color:red;}
     </style>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
       $(function() {
         var dragSrcEl = null;
@@ -31,7 +31,7 @@
         $('li').on('dragleave', function(e){
           this.classList.remove('over')
         });
-        
+
         $('li').on('dragover', function(e){
           e.preventDefault(); // 必须执行这句, 才可以drop
         });
@@ -47,6 +47,9 @@
     </script>
   </head>
   <body>
+<pre>
+  native drag-drop, ie8不行
+</pre>
     <ul>
       <li>A</li>
       <li>B</li>
