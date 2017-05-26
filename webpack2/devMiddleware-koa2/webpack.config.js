@@ -6,8 +6,10 @@ module.exports = {
     main: './entry.js'
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: 'dist/',
+    // 注意, sub 和 下面的 dist 是映射关系,
+    // /dist/main.js 才正确, /dist/sub/main.js 是不对的
+    path: path.join(__dirname, 'dist/sub/'),
+    filename: '[name].js',
+    publicPath: '/dist/',
   },
 }
