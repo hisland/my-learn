@@ -14,6 +14,9 @@ const middleware = webpackDevMiddleware(compiler, {
   // 注意 开头,结尾 的 /
   // 大部分情况下和 `output.publicPath`相同
   publicPath: "/dist/",
+  stats: {
+    colors: true
+  },
 })
 
 // copy from
