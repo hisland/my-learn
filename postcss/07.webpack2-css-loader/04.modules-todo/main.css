@@ -1,0 +1,20 @@
+div{
+  display: flex;
+}
+.some{
+  height:300px;
+}
+
+.some .foo{
+  height:300px;
+}
+
+:global{
+  .maybe1{
+    font-size:28px;
+  }
+}
+
+:global .maybe2{
+  font-size:35px;
+}
