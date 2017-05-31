@@ -1,65 +1,28 @@
-@component-namespace el {
-
-  @b alert {
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
-    opacity: 1;
-    display: table;
-    transition: opacity .2s;
-
-    @modifier success {
-      background-color: #13ce66
-    }
-
-    @modifier info {
-    }
-
-    @modifier warning {
-    }
-
-    @modifier error {
-    }
-
-    @e content {
-      display: table-cell;
-      padding: 0 8px;
-    }
-
-    @e icon {
-      display: table-cell;
-      vertical-align: middle;
-      @when big {
-      }
-    }
-
-    @e title {
-      line-height: 18px;
-      @when bold {
-        font-weight: bold;
-      }
-    }
-
-    & .el-alert__description {
-      margin: 5px 0 0 0;
-    }
-
-    @e closebtn {
-      opacity: 1;
-      position: absolute 12px 15px * *;
-      cursor: pointer;
-
-      @when customed {
-        font-style: normal;
-        top: 9px;
-      }
-    }
+@b block{
+  display:block;
+  @e elm{
+    height: 30px
   }
-
-  .el-alert-fade-enter,
-  .el-alert-fade-leave-active {
-    opacity: 0;
+  @m big{
+    font-size:38px;
+    @e elm{
+      height: 60px;
+      @m kk{
+        height: 60px
+      }
+      @e kk{
+        height: 60px
+      }
+      @b xx{
+        height: 60px;
+        @m oh{
+          height: 60px
+        }
+        @e my{
+          height: 60px
+        }
+      }
+    }
   }
 }
+
