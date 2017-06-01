@@ -11,12 +11,12 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "postcss": "^5.2.17",
-    "postcss-salad": "^2.0.0",
     "autoprefixer": "^6.3.6",
     "cssnano": "^3.10.0",
+    "postcss": "^6.0.1",
     "postcss-autoreset": "^1.2.1",
     "postcss-cssnext": "^2.11.0",
-    "postcss-nested": "^2.0.2"
+    "postcss-nested": "^2.0.2",
+    "postcss-salad": "^2.0.1"
   }
 }
