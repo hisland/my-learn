@@ -5,5 +5,5 @@ module.exports = {
 setTimeout(function() {
   module.exports = {
     any: 'other'
-  }; // 显然修改了 module.exports, 但是 外部 require 还是指向之前的对象, 因为是引用
+  } // 修改 导出对象, 这种方式很奇怪, 不应该使用吧
 }, 10);
