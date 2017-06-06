@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8' />
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
-    <style>
-    .main {
+<head>
+  <meta charset='utf-8' />
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <style>
+  .main {
     text-align: center;
     font-family: Helvetica;
-    }
+  }
 
-    #loader, #done {
+  #loader,
+  #done {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -22,14 +23,15 @@
     -o-transition: opacity 0.4s;
     -webkit-transition: opacity 0.4s;
     transition: opacity 0.4s;
-    }
+  }
 
-    #loader svg {
+  #loader svg {
     -moz-animation: rotate 2s infinite linear;
     -webkit-animation: rotate 2s infinite linear;
     animation: rotate 2s infinite linear;
-    }
-    #loader span {
+  }
+
+  #loader span {
     position: absolute;
     top: 0;
     left: 0;
@@ -40,71 +42,67 @@
     font-family: Helvetica;
     font-size: 51px;
     font-weight: bold;
-    }
+  }
 
-    #done {
+  #done {
     opacity: 0;
-    }
+  }
 
-    @-moz-keyframes rotate {
+  @-moz-keyframes rotate {
     from {
-    -moz-transform: rotate(0deg);
-    transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      transform: rotate(0deg);
     }
     to {
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      transform: rotate(360deg);
     }
-    }
-    @-webkit-keyframes rotate {
+  }
+
+  @-webkit-keyframes rotate {
     from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
     }
     to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
     }
-    }
-    @keyframes rotate {
+  }
+
+  @keyframes rotate {
     from {
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
     }
     to {
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
     }
-    }
-    </style>
-  </head>
-  <body>
+  }
+  </style>
+</head>
 
-
-    <div class="main">
-      <div id="loader">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-
-        <circle cx="50" cy="50" r="48" stroke="red" stroke-width="3" fill="#fff" stroke-dasharray="0, 100"  />
-        </svg>
-        <span>0</span>
-      </div>
-
-      <div id="done">
-        <p>Done!<br />Refresh to see the loader again!</p>
-      </div>
-
+<body>
+  <div class="main">
+    <div id="loader">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+        <circle cx="50" cy="50" r="48" stroke="red" stroke-width="3" fill="#fff" stroke-dasharray="0, 100"   />
+      </svg>
+      <span>0</span>
     </div>
-
-  </body>
-
-  <script style='text/javascript'>
-  (function() {
+    <div id="done">
+      <p>Done!
+        <br />Refresh to see the loader again!</p>
+    </div>
+  </div>
+</body>
+<script style='text/javascript'>
+(function() {
   var circle, diameter, done, finish, loader, percentage, starting, total_loading, update;
 
   window.requestAnimationFrame || (window.requestAnimationFrame = window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame);
@@ -124,22 +122,22 @@
   starting = performance.now();
 
   update = function() {
-  var progress;
-  progress = parseInt(100 * (performance.now() - starting) / total_loading);
-  circle.setAttribute("stroke-dasharray", "" + (diameter * progress / 100) + ", " + diameter);
-  percentage.innerHTML = progress;
-  if (progress >= 100) {
-  finish();
-  return false;
-  }
-  return window.requestAnimationFrame(update);
+    var progress;
+    progress = parseInt(100 * (performance.now() - starting) / total_loading);
+    circle.setAttribute("stroke-dasharray", "" + (diameter * progress / 100) + ", " + diameter);
+    percentage.innerHTML = progress;
+    if (progress >= 100) {
+      finish();
+      return false;
+    }
+    return window.requestAnimationFrame(update);
   };
 
   update();
 
-  finish = function() {
-  };
+  finish = function() {};
 
-  }).call(this);
-  </script>
+}).call(this);
+</script>
+
 </html>
