@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>test file</title>
+  <link id="aa" rel="stylesheet" href="aa.css" disabled="true">
+  <link id="bb" rel="stylesheet" href="bb.css" disabled="true">
+</head>
+<body>
+<pre>
+  通过 disabled="true" 来让 css 不生效, 但是浏览器还是加载了
+</pre>
+  <button onclick="toggleCss('aa')">toggle aa.css</button>
+  <button onclick="toggleCss('bb')">toggle bb.css</button>
+
+  <div class="wrap">hello</div>
+  <div>line after wrap</div>
+
+
+  <script>
+    function toggleCss(name){
+      document.getElementById(name).disabled = !document.getElementById(name).disabled
+    }
+  </script>
+</body>
+</html>
