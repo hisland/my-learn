@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>new document</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <style>
+      * {padding:0;margin:0; }
+
+      body{ padding:50px; }
+      .wrap{ width: 500px; height: 300px; background:#eee; overflow:auto;}
+
+      .aa{  }
+    </style>
+  </head>
+  <body>
+<pre>
+* 不需要父元素 postion
+* 同时指定 top, bottom, top生效
+* right 好像暂时没效果
+</pre>
+    <div class="wrap">
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div style="position:sticky; top: 0;">hello 03</div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div style="position:sticky; left: 0;">hello 09</div>
+      <div style="position:sticky; right: 0;">hello right</div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div style="position:sticky; top: 16px; bottom: 16px;">hello 15</div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <div> - </div>
+      <p class="aa2" style="position:sticky; bottom: 0;">hello 21</p>
+      <div> - </div>
+      <div> - </div>
+      <div style="white-space:nowrap;">
+         -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+         -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+         -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+      </div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+      <div>last</div>
+    </div>
+<pre>
+* 只在 parent 范围内 sticky, 父元素滚动了, 也跟着滚动, android联系人字母就这样
+</pre>
+    <div class="wrap">
+      <div class="wrap2" style="background:purple;color:#fff;">
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+        <div style="position:sticky; top: 0;">hello 03</div>
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+      </div>
+      <div class="wrap2" style="background:pink;">
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+        <div style="position:sticky; top: 0;">hello 03</div>
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+      </div>
+      <div class="wrap2" style="background:purple;color:#fff;">
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+        <div style="position:sticky; top: 0;">hello 03</div>
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+        <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+      </div>
+    </div>
+
+
+    <div style="position:absolute;top:0;right:0;width: 300px;height: 200px;background:#eee">
+      <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+      <div style="position:sticky; top: 0;">body 滚动我也 sticky</div>
+    </div>
+
+    <div style="float:right;margin-top:-300px;width: 300px;height: 200px;background:#eee">
+      <div> - </div><div> - </div><div> - </div><div> - </div><div> - </div>
+      <div style="position:sticky; top: 0;">body 滚动我也 sticky</div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </body>
+</html>
