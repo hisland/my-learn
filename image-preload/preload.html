@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>new document</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <style type="text/css">
+    body{padding:50px;}
+    div{border:1px solid green;padding:10px;margin: 10px;}
+    </style>
+  </head>
+  <body>
+<pre>
+* img 设置 src 属性就开始加载了, 不需要 append 到页面
+</pre>
+<div id="text"></div>
+    <script type="text/javascript">
+      window.onload = function(){
+        var tag = document.createElement('img')
+        tag.src = 'img.png'
+      }
+    </script>
+  </body>
+</html>

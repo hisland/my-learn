@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>new document</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <style type="text/css">
+    body{padding:50px;}
+    div{border:1px solid green;padding:10px;margin: 10px;}
+    </style>
+  </head>
+  <body>
+<pre>
+* script[innerText] append 同步执行
+</pre>
+<div id="text"></div>
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById('text').innerHTML += 'start' + '<br />'
+
+        var tag = document.createElement('script')
+        tag.type = 'text/javascript'
+        tag.src = 'some.js'
+        document.body.appendChild(tag)
+
+        document.getElementById('text').innerHTML += 'end' + '<br />'
+      }
+    </script>
+  </body>
+</html>
