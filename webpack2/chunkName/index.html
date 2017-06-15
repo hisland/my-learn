@@ -4,25 +4,11 @@
 <head>
   <title>new document</title>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-  <script type="text/javascript" src="./dist/bundlecmd.js"></script>
+  <script type="text/javascript" src="./dist/main.js"></script>
 </head>
 
 <body>
   <button id="aaa">aaa</button>
-  <script>
-  window.onload = function() {
-    document.getElementById('aaa').onclick = function() {
-      var head = document.getElementsByTagName('head')[0];
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.charset = 'utf-8';
-      script.async = true;
-
-      script.src = './dist/bundleamd.js';
-      head.appendChild(script);
-    }
-  }
-  </script>
 </body>
 
 </html>
