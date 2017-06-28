@@ -8,8 +8,7 @@ exports.bb = 3;
 
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ (function(module, exports) {
 
 console.log('in dd:');
