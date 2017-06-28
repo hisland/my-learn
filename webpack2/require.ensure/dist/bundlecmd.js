@@ -147,11 +147,9 @@
 /***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__.e/* require.ensure */(1).then((function(){
-  var bb = __webpack_require__(0);
-  var cc = __webpack_require__(2);
+__webpack_require__.e/* require.ensure */(1).then((function(){ // 此处 bb.js 和 cc.js 打入同一个包, 只是不会被执行
+  var cc = __webpack_require__(2); // bb.js 和 cc.js 打入同一个包, 这里执行了
 
-  console.log('in a: bb: ', bb);
   console.log('in a: cc: ', cc);
 }).bind(null, __webpack_require__)).catch(__webpack_require__.oe); //指定 name , 不同文件的都会合并到同一个文件里面, 否则会自己生成一个文件
 
