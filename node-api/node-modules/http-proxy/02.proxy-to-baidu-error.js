@@ -7,7 +7,8 @@ http
   .createServer(function(req, res) {
     console.log('9000 start', req.url)
 
-    let kk = proxy.web(req, res, { target: 'http://baidu.com' }, function(e){
+    // option 添加 changeOrigin: true 就可以了
+    let kk = proxy.web(req, res, { target: 'http://baidu.com' }, function onerror(e){
       console.log(e, 'abc')
     })
     console.log(kk)
