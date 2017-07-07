@@ -1,0 +1,37 @@
+<script>
+var proto = Object.create(HTMLElement.prototype)
+proto.createdCallback = function() {
+  this.innerHTML = '<div>Hello: ' + (this.getAttribute('name') || '?') + '</div>'
+}
+document.registerElement('say-hi', {
+  prototype: proto
+})
+</script>
+
+<template id="t">
+  <style>
+    span {
+      color: purple;
+    }
+  </style>
+  <span>I'm a shadow-element using Shadow DOM!</span>
+</template>
+
+<script>
+  (function() {
+    var importDoc = document.currentScript.ownerDocument; //指向被加载的网页
+
+    // 定义并登记<shadow-element>
+    var proto2 = Object.create(HTMLElement.prototype);
+
+    proto2.createdCallback = function() {
+      var template = importDoc.querySelector('#t');
+      console.log(template.content)
+      var clone = document.importNode(template.content, true);
+      var root = this.createShadowRoot();
+      root.appendChild(clone);
+    };
+
+    document.registerElement('shadow-element', {prototype: proto2});
+  })();
+</script>

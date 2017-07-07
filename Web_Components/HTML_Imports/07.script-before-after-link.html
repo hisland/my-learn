@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <style>
+  div {
+    color: red
+  }
+  </style>
+  <script>
+    console.log('parent 1')
+  </script>
+  <link id="sub1" rel="import" href="./comp/comp2.html">
+  <script>
+    console.log('parent 2')
+  </script>
+</head>
+
+<body>
+<pre>
+* 没有 async 标签, link 前后的脚本按顺序执行, 下面的 script-src 也是一样
+</pre>
+  <div>hello: parent</div>
+  <script>
+  </script>
+</body>
+
+</html>

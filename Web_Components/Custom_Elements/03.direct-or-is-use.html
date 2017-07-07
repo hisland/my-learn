@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <style>
+  #pp {
+    color: green
+  }
+  </style>
+</head>
+
+<body>
+  <pre>
+* 这个没啥感觉, 样式不一样可能是 css 选择器的问题
+* new 出来的是用的 is 属性
+</pre>
+  <div id="result">
+    <my-button>abc</my-button>
+    <button is="my-button">abc</button>
+  </div>
+  <script>
+  var myButton = document.registerElement('my-button', {
+    prototype: Object.create(HTMLButtonElement.prototype), // HTMLButtonElement 是重点
+    extends: 'button'
+  })
+
+  var btn = new myButton()
+  btn.innerHTML = 'new btn'
+  document.getElementById('result').appendChild(btn)
+  </script>
+</body>
+
+</html>

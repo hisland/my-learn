@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <style>
+  #pp {
+    color: green
+  }
+  </style>
+</head>
+
+<body>
+  <pre>
+* style :host 没有效果, 不清楚
+</pre>
+  <template id="profileTemplate">
+    <style>
+    :host {
+      background: #eee;
+    }
+    </style>
+    <div class="profile">
+      <div class="profile__name"></div>
+      <div class="profile__social"></div>
+    </div>
+  </template>
+  <div id="result"></div>
+  <script>
+  var template = document.getElementById('profileTemplate')
+  template.content.querySelector('.profile__name').textContent = 'baby'
+  template.content.querySelector('.profile__social').textContent = 'one more time'
+  document.getElementById('result').appendChild(document.importNode(template.content, true))
+  </script>
+</body>
+
+</html>

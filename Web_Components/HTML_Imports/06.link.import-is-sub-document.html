@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <style>
+  div {
+    color: red
+  }
+  </style>
+  <link id="sub1" rel="import" href="./comp/comp1.html">
+</head>
+
+<body>
+<pre>
+* link.import 是 import 的html的 document
+</pre>
+  <div>hello: parent</div>
+  <script>
+    var sub1 = document.getElementById('sub1')
+    console.log(sub1.import)
+  </script>
+</body>
+
+</html>

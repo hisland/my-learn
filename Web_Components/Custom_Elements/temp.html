@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <style>
+  #pp {
+    color: green
+  }
+  </style>
+</head>
+
+<body>
+  <pre>
+* 先proto.createdCallback, 再 registerElement, 否则没效果
+</pre>
+  <div id="result">
+    <my-button id="halo">abc</my-button>
+  </div>
+  <script>
+  var proto = Object.create(HTMLElement.prototype)
+  proto.createdCallback = function() {
+    console.log('createdCallback')
+  }
+  proto.attachedCallback = function() {
+    console.log('attachedCallback')
+  }
+  proto.detachedCallback = function() {
+    console.log('detachedCallback')
+  }
+  proto.attributeChangedCallback = function(attrName, oldVal, newVal) {
+    console.log('attributeChangedCallback', attrName, oldVal, newVal)
+  }
+  var myButton = document.registerElement('my-button', {
+    prototype: proto,
+  })
+
+  document.getElementById('halo').setAttribute('add', 'attr')
+  document.getElementById('halo').remove()
+  </script>
+</body>
+
+</html>

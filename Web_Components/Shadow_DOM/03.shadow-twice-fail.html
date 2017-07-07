@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+</head>
+
+<body>
+<pre>
+  * 查看控制台, 报错了
+</pre>
+
+  <div id="pp"></div>
+  <script>
+  var shadow1 = document.getElementById('pp').attachShadow({
+    mode: 'open'
+  })
+
+  shadow1.innerHTML = '<span>new text here</span>'
+  shadow1.innerHTML += '<style>span{color:red}</style>'
+
+  var shadow2 = document.getElementById('pp').attachShadow({
+    mode: 'open'
+  })
+
+  shadow2.innerHTML = '<span>new text here</span>'
+  shadow2.innerHTML += '<style>span{color:red}</style>'
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <style>
+  div {
+    color: red
+  }
+  </style>
+  <link id="sub1" rel="import" href="./comp/comp4.html">
+</head>
+
+<body>
+  <pre>
+* 导入子页面, 直接使用里面注册的 自定义标签
+</pre>
+  <div>
+    <say-hi></say-hi>
+    <say-hi name="god"></say-hi>
+  </div>
+  <div>
+    <shadow-element>
+      <div>( I'm in the light dom )</div>
+    </shadow-element>
+  </div>
+</body>
+
+</html>

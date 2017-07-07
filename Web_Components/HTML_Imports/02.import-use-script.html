@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <style>
+  div {
+    color: red
+  }
+  </style>
+</head>
+
+<body>
+  <pre>
+
+</pre>
+  <div>hello: parent</div>
+  <script>
+  var link = document.createElement('link');
+  link.rel = 'import';
+  link.href = './comp/comp1.html'
+  link.onload = function(e) {};
+  link.onerror = function(e) {};
+  document.head.appendChild(link);
+  </script>
+</body>
+
+</html>

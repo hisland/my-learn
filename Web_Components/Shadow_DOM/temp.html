@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <style>
+  #pp {
+    color: green
+  }
+  </style>
+</head>
+
+<body>
+  <div id="pp">
+    <div>halo hey!</div>
+  </div>
+  <script>
+  var shadow = document.getElementById('pp').attachShadow({
+    mode: 'open'
+  })
+
+  shadow.innerHTML = '<span>new text here</span>'
+  shadow.innerHTML += '<style>span{color:red}</style>'
+  </script>
+</body>
+
+</html>
