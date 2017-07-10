@@ -1,17 +1,4 @@
 const postcss = require('postcss')
-;(function() {
-  let processor = postcss()
-  let obj = processor.process(`
-    .wrap{
-      .box{
-        display:flex;
-      }
-    }
-  `)
-  console.log('没有任何插件, 原样输出')
-  console.log(obj.css)
-})()
-
 const autoprefixer = require('autoprefixer')
 ;(function() {
   let processor = postcss([autoprefixer])
@@ -36,7 +23,7 @@ const autoprefixer = require('autoprefixer')
       }
     }
   `)
-  console.log('使用了 autoprefixer-with-option: ')
+  console.log('使用了 autoprefixer-with-option: ', ['Last 2 versions', 'IE 8'])
   console.log(obj.css)
 })()
 
