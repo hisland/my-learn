@@ -23,9 +23,9 @@ class Horse extends Animal{
 }
 
 
-var s = new Snake('kiki');
+var ss = new Snake('kiki');
 
-var h = new Horse('bobo');
+var aa = new Horse('bobo');
 
-s.move();
-h.move();
+ss.move();
+aa.move();

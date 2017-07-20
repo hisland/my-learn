@@ -2,6 +2,6 @@ function god(): void{
   console.log(3);
 }
 
-var k = god();
+var kk = god();
 
-console.log(k);
+console.log(kk);

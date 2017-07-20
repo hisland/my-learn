@@ -6,11 +6,11 @@ interface Square extends Shape{ // 继承自 Shape
   length: number;
 }
 
-var s = <Square> {};
+var ss = <Square> {};
 
-s.color = 'red';
-s.length = 4;
-s.god = 3; // Property 'god' does not exist on type 'Square'
+ss.color = 'red';
+ss.length = 4;
+ss.god = 3; // Property 'god' does not exist on type 'Square'
 
 interface PenStroke {
   weight: number;

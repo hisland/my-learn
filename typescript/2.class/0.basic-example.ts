@@ -8,5 +8,5 @@ class Greeter{
   }
 }
 
-var g = new Greeter('god');
-g.greet();
+var gg = new Greeter('god');
+gg.greet();

@@ -1,2 +1,2 @@
-var name: string = 'he';
-name = 'dingliang';
+var halo: string = 'he';
+halo = 'dingliang';

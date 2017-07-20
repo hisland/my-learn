@@ -2,10 +2,10 @@ class Employee{
   fullName: string;
 }
 
-var e = new Employee();
-e.fullName = 'Bob Smith';
-if (e.fullName) {
-  console.log(e.fullName);
+var ee = new Employee();
+ee.fullName = 'Bob Smith';
+if (ee.fullName) {
+  console.log(ee.fullName);
 }
 
 

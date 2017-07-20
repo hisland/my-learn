@@ -1,16 +1,16 @@
-var v: any = 4;
-console.log(v);
-v = 'god';
-console.log(v);
-v = true;
-console.log(v);
+var vv: any = 4;
+console.log(vv);
+vv = 'god';
+console.log(vv);
+vv = true;
+console.log(vv);
 
 // 不指定类型, 类型是 初始化值的类型
 // 查看 http://www.typescriptlang.org/Handbook#type-inference 
-var a = 3;
-console.log(a);
-a='god'; // 这里编译报错, 但是能生成js
-console.log(a);
+var aa = 3;
+console.log(aa);
+aa='god'; // 这里编译报错, 但是能生成js
+console.log(aa);
 
 
 var list: any[] = [1, 'god', true, 'cc'];

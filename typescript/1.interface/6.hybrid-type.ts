@@ -4,14 +4,14 @@ interface Counter{
   reset(): void; // 方法签名
 }
 
-var c = <Counter>function(start){
+var cc = <Counter>function(start){
   console.log(start);
   return '';
 }
-c.interval = 3;
-c.reset = function(){
+cc.interval = 3;
+cc.reset = function(){
   console.log(this.interval);
 }
 
-c(10);
-c.reset();
+cc(10);
+cc.reset();
