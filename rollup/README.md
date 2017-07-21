@@ -1,7 +1,8 @@
 ## 一些注意点
 
 * tree-shaking 只作用于 es6
-* `NODE_MODULES`如果提供了 es6 版本, 需要在 `package.json` 里面写上 `"jsnext:main": "PATH-TO-FILE"` 区别于`NODE_MODULES`自己的`main`
+* `NODE_MODULES`如果提供了 es6 版本, 需要在 `package.json` 里面写上 `"jsnext:main": "SOME-FILE"`
+  区别于`NODE_MODULES`自己的`main`
 
 * `cjs` 依赖打入 `bundle` 会被整体打入, 不会 tree-shaking
 
