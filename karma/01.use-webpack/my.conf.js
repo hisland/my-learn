@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Mon May 02 2016 21:14:19 GMT+0800 (CST)
+// Generated on Fri Jul 21 2017 09:43:02 GMT+0800 (CST)
 
 module.exports = function(config) {
   config.set({
@@ -10,48 +10,32 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      './a.test.js',
+        'aa.test.js'
     ],
 
 
     // list of files to exclude
-    exclude: [],
+    exclude: [
+    ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './a.test.js': ['webpack', 'sourcemap']
+        'aa.test.js': ['webpack', 'sourcemap']
     },
 
-    webpack: {
-      module: {
-        preLoaders: [{
-          test: /\.js$/,
-          loader: 'isparta',
-        }]
-      }
-    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['spec', 'coverage'],
+    reporters: ['progress'],
 
-    coverageReporter: {
-      dir: './coverage',
-      reporters: [{
-        type: 'lcov',
-        subdir: '.'
-      }, {
-        type: 'text-summary'
-      }]
-    },
 
     // web server port
     port: 9876,
@@ -67,7 +51,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // start these browsers
