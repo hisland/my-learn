@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>new document</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  </head>
+  <body>
+    <pre>
+嵌套的 params, 默认是只处理一层, 下层的直接 JSON.stringify 了, 这个和实际使用可能不一样
+    </pre>
+    <script src="https://cdn.bootcss.com/axios/0.16.2/axios.js"></script>
+    <script>
+    axios.get('./some.json', {
+      params: {a:{ b:2 }}
+    }).then(function(xhr) {
+      console.log(xhr.data)
+    })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>new document</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <pre>
+    </pre>
+  <script src="https://cdn.bootcss.com/axios/0.16.2/axios.js"></script>
+  <script>
+  axios.interceptors.request.use(function(config) {
+    // Do something before request is sent
+    console.log('axios.interceptors.request', config)
+    config.params.bb = 'q'
+    return config;
+  }, function(error) {
+    // Do something with request error
+    console.log('axios.interceptors.request error: ', error)
+    return Promise.reject(error);
+  });
+
+  axios.get('some.json', {
+    params: {
+      a: {
+        b: 2
+      }
+    },
+    paramsSerializer: function(params) {
+      console.log('paramsSerializer', params)
+      params.cc = 'dd'
+      return JSON.stringify(params); // 必须返回字符串, 因为后续不再有处理, 否则自动调用 toString()
+    }
+  }).then(function(xhr) {
+    console.log('get', xhr.data)
+  })
+  </script>
+</body>
+
+</html>
