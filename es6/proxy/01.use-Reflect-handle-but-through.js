@@ -4,15 +4,15 @@ var tt = {}
 
 var pp = new Proxy(tt, {
   get: function(target, name, receiver){
-    console.log(target, name);
-    return 'some';
+    return Reflect.get(target, name, receiver);
   },
   set: function(target, name, value, receiver){
-    console.log(target, name, value);
+    return Reflect.set(target, name, value, receiver);
   }
 })
 
 pp.aa = 3;
-console.log(pp.aa);;
+
+console.log(pp.aa, tt);
 
 
