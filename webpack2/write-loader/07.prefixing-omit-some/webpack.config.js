@@ -2,10 +2,10 @@ const path = require('path')
 
 module.exports = {
   context: __dirname,
-  // entry: './dd-loader!./entry.js', // 不阻止
-  // entry: '!./dd-loader!./entry.js', // 阻止 normal
-  entry: '-!./inline-loader!./entry.js', // 阻止 normal,post
-  // entry: '!!./dd-loader!./entry.js', // 阻止 pre,normal,post
+  entry: './inline-loader!./entry.js', // 不阻止
+  // entry: '!./inline-loader!./entry.js', // 阻止 normal
+  // entry: '-!./inline-loader!./entry.js', // 阻止 normal,post
+  // entry: '!!./inline-loader!./entry.js', // 阻止 pre,normal,post
   module: {
     rules: [
       {
