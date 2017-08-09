@@ -1,0 +1,5 @@
+print(123)
+print('abc')
+print("def")
+print(True)
+print(False)
