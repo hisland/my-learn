@@ -10,9 +10,9 @@
     <script src="https://cdn.bootcss.com/axios/0.16.2/axios.js"></script>
     <script>
     var inst = axios.create({
-      baseURL: 'sub/'
+      baseURL: './sub'
     })
-    inst.get('some.json', {
+    inst.get('/some.json', {
       params: {a:{ b:2 }}
     }).then(function(xhr) {
       console.log(xhr.data)

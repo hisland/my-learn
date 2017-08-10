@@ -9,8 +9,8 @@
     </pre>
     <script src="https://cdn.bootcss.com/axios/0.16.2/axios.js"></script>
     <script>
-    axios.defaults.baseURL = 'sub/'
-    axios.get('some.json', {
+    axios.defaults.baseURL = './sub'
+    axios.get('/some.json', {
       params: {a:{ b:2 }},
       transformResponse: [function(data) {
         console.log('get transformResponse', typeof data, data)
