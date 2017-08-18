@@ -10,3 +10,5 @@ class Greeter{
 
 var gg = new Greeter('god');
 gg.greet();
+
+gg.other = 99; // 类没有定义的不行 error
