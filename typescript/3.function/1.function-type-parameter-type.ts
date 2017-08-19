@@ -1,9 +1,8 @@
-function add(x: number, y: number): number {
+function add1(x: number, y: number): number {
   return x + y;
 }
 
-// myAdd 不用指定类型, 会从=右侧推断
-var myAdd = function(x: number, y: number): number {
+var add2 = function(x: number, y: number) { // 自动推断 出 :number
   return x + y;
 };
 
@@ -20,4 +19,6 @@ var myAdd2: (baseValue: number, increment: number) => number =
 
 // 返回值类型必须有, 如果没有返回值要用void
 var myAdd3: (x: number, y: number) => number
-var myAdd4: (x: number, y: number) => void
+var myAdd4: (x: number, y: number); // 不可以这样, 必须有 =>
+var myAdd5: (x: number, y: number) => void
+var myAdd6: (x: number, y: number) => any
