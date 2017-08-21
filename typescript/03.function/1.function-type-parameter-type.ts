@@ -7,13 +7,20 @@ var add2 = function(x: number, y: number) { // 自动推断 出 :number
 };
 
 
-// 参数只需要写清楚类型, 参数名是随意的, 只是为了可读
 var myAdd1: (x: number, y: number) => number =
   function(x: number, y: number): number {
     return x + y;
   };
+
+// 参数只需要写清楚类型, 参数名是随意的, 只是为了可读
 var myAdd2: (baseValue: number, increment: number) => number =
   function(x: number, y: number): number {
+    return x + y;
+  };
+
+// 左侧指定类型后, 右侧可以不用像上面那样再写一次, 会自动推断
+var myAdd22: (baseValue: number, increment: number) => number =
+  function(x, y) {
     return x + y;
   };
 

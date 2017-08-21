@@ -7,6 +7,7 @@ function buildName(firstName: string, ...restOfName: string[]) {
 
 var employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
 
+// 函数签名如下
 var buildNameFun: (fname: string, ...rest: string[]) => string = buildName;
 
 
