@@ -6,23 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <style>
-  #pp {
-    color: green
+  .foo {
+    color: green;
+    font-size:28px;
   }
   </style>
 </head>
 
 <body>
-  <div id="pp">
+  <div class="foo">
+    <div>halo hey!</div>
+  </div>
+  <div class="foo" id="foo2">
     <div>halo hey!</div>
   </div>
   <script>
-  var shadow = document.getElementById('pp').attachShadow({
+  var shadow = document.getElementById('foo2').attachShadow({
     mode: 'open'
   })
 
-  shadow.innerHTML = '<span>new text here</span>'
-  shadow.innerHTML += '<style>span{color:red}</style>'
+  shadow.innerHTML = `
+  <style>
+    div{color:red}
+  </style>
+  <div>shadow 里面的样式不会影响外面, <br>  shadowRoot的可继承的会被下面的继承</div>
+  `
   </script>
 </body>
 
