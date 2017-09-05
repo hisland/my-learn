@@ -1,24 +1,14 @@
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/test')
 
-let person = mongoose.Schema({
-  name: String,
-  height: Number,
-})
-let fact = mongoose.Schema({
-  person: [person],
+let Dog = mongoose.model('Dog', {
+  prop1: String,
 })
 
-let Kitten = mongoose.model('fact', fact)
-
-let doc = new Kitten()
-
-doc.person.push({
-  name: 'hey'
-})
-
-console.log(doc)
-
-doc.save(function(err, doc) {
-  console.log(doc)
+Dog.create({ prop1: 'hey', prop2: 'hey2',  }, function(err) {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log('meow')
+  }
 })
