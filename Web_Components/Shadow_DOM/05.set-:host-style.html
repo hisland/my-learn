@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <style>
+  .foo {
+    color: green;
+    font-size:28px;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="foo">
+    <div>halo hey!</div>
+  </div>
+  <div class="foo" id="foo2">
+    <div>halo hey!</div>
+  </div>
+  <script>
+  var shadow = document.getElementById('foo2').attachShadow({
+    mode: 'open'
+  })
+
+  shadow.innerHTML = `
+  <style>
+    :host{background:purple}
+    div{color:red}
+  </style>
+  <div>shadow 里面的样式不会影响外面, <br>  shadowRoot的可继承的会被下面的继承</div>
+  `
+  </script>
+</body>
+
+</html>
