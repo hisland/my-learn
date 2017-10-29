@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+  .aa-enter-active {
+    animation: anim-in 1s;
+  }
+
+  .aa-leave-active {
+    animation: anim-in 1s reverse;
+  }
+
+  @keyframes anim-in {
+    0% { /* 注意这里从0开始, 不是10 */
+      opacity: 0
+    }
+    100% {
+      opacity: 1
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+      <transition-group
+        tag="div"
+        name="aa">
+        <template v-for="vv in conter">
+          <div :key="vv + '-1'" class="col_6em" :class="vv % 2 ? 'col_bg_odd' : 'col_bg_even'">单价{{vv}}</div>
+          <div :key="vv + '-2'" class="col_6em" :class="vv % 2 ? 'col_bg_odd' : 'col_bg_even'">总价{{vv}} <button @click="del(vv-1)">del</button></div>
+        </template>
+      </transition-group>
+    <button @click="list.push(conter++)">add</button>
+  </div>
+  <pre>
+    1. transition-group <strong style="color:red;"> 嵌套 template </strong>才能正常处理
+    2. 使用 index 作为 key, 会导致删除每次都是触发 <strong style="color:red;">最后一个</strong>
+  x 3. template 嵌套 transition-group <strong style="color:red;">需要 appear 才能有效果, 但是最好不这样, 用第一条规则</strong>
+  </pre>
+  <script src="./vue.min.js"></script>
+  <script>
+  var comp2 = {
+    el: '#app',
+    data: {
+      show: true,
+      conter: 1,
+      list: [0]
+    },
+    components: {},
+    methods: {
+      add(){
+        this.list.push(Math.random().toString(3))
+        this.conter++
+      },
+      del(index){
+        this.list.splice(index, 1)
+        this.conter--
+      },
+    },
+  }
+  new Vue(comp2)
+  </script>
+</body>
+
+</html>
