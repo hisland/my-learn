@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+  .aa-enter-active {
+    animation: anim-in 1s;
+  }
+
+  .aa-leave-active {
+    animation: anim-in .5s reverse;
+  }
+
+  @keyframes anim-in {
+    0% { /* 注意这里从0开始, 不是10 */
+      opacity: 0
+    }
+    100% {
+      opacity: 1
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <transition-group name="aa" tag="div">
+      <p :key="vv" v-for="(vv, index) in list">hello {{vv}} <button @click="list.splice(index, 1)">del</button></p>
+    </transition-group>
+    <button @click="list.push(conter++)">add</button>
+  </div>
+  <pre>
+    transition 用 css-animation, 会自动探测
+  </pre>
+  <script src="./vue.min.js"></script>
+  <script>
+  var comp2 = {
+    el: '#app',
+    data: {
+      show: true,
+      conter: 1,
+      list: [0]
+    },
+    components: {},
+    methods: {},
+  }
+  new Vue(comp2)
+  </script>
+</body>
+
+</html>
