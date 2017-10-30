@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+  <div id="app">
+    <div> list:
+      <div v-for="(v, index) of list">{{v}} - {{index}}</div>
+      <hr>
+      <div v-for="v of list">{{v}}</div>
+    </div>
+    <hr>
+    <hr>
+    <div> obj:
+      <div v-for="v of obj">{{v}}</div>
+      <hr>
+      <div v-for="(v, key) of obj">{{v}} - {{key}}</div>
+      <hr>
+      <div v-for="(v, key, index) of obj">{{v}} - {{key}} - {{index}}</div>
+    </div>
+    <hr>
+    <hr>
+    <div> range (范围[1-N], 跟自然数一样):
+      <div v-for="(v, index) of 3">{{v}} - index: {{index}}</div>
+      <hr>
+    </div>
+  </div>
+  <pre>
+    in 可以改成 of, 效果一样, of 更符合es6
+  </pre>
+  <script src="./vue.min.js"></script>
+
+</body>
+
+</html>
