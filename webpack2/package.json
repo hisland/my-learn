@@ -25,7 +25,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "raw-loader": "^0.5.1",
-    "webpack": "^2.6.1",
+    "webpack": "^3.4.1",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-dev-server": "^2.4.5"
   }
