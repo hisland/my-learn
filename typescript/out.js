@@ -1,20 +1,10 @@
-var Greeter = (function () {
-    function Greeter() {
-    }
-    Greeter.prototype.greet = function () {
-        if (this.greeting) {
-            return "Hello, " + this.greeting;
-        }
-        else {
-            return Greeter.standardGreeting;
-        }
-    };
-    Greeter.standardGreeting = "Hello, there";
-    return Greeter;
-})();
-var greeter1 = new Greeter(); // greeter1是实例
-console.log(greeter1.greet()); // Hello, there
-var greeterMaker = Greeter; // greeterMaker是类, greeterMaker,Greeter都指向同一个类
-greeterMaker.standardGreeting = "Hey there!";
-var greeter2 = new greeterMaker(); // greeterMaker的instance可以直接用 Greeter 指定, 两者互换
-console.log(greeter2.greet()); // Hey there!
+var aa1;
+(function (aa1) {
+    var bb = 3;
+    console.log(bb);
+    var aa2;
+    (function (aa2) {
+        var bb = 3;
+        console.log(bb);
+    })(aa2 = aa1.aa2 || (aa1.aa2 = {}));
+})(aa1 || (aa1 = {}));
