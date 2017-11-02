@@ -43,6 +43,7 @@ co(function*() {
       ordered: false, // default true
     }
   )
+  console.log(rs)
 
   // Insert multiple documents
   rs = yield db.collection('bulkWrite').find().toArray()
