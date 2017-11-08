@@ -11,17 +11,6 @@
 		legend{border:1px solid #ccc;margin:0 20px;padding:2px 5px;}
 		section{margin:10px;position:relative;background:#f3f3f3;}
 
-		.green {
-		  line-height: 1.1;
-		  border: solid limegreen;
-		}
-		.red {
-		  line-height: 1.1em;
-		  border: solid red;
-		}
-		h1 {
-		  font-size: 30px;
-		}
 		.box {
 		  width: 18em;
 		  display: inline-block;
@@ -31,18 +20,18 @@
 	</style>
 </head>
 <body>
-<div class="box green">
- <h1>Avoid unexpected results by using unitless line-height</h1>
+<div class="box" style="line-height: 1.1; border: solid limegreen;">
+ <h1 style="font-size: 30px;">Avoid unexpected results by using unitless line-height</h1>
   length and percentage line-heights have poor inheritance behavior ...
 </div>
 
-<div class="box red">
- <h1>Avoid unexpected results by using unitless line-height</h1>
+<div class="box" style="line-height: 1.1em; border: solid red;">
+ <h1 style="font-size: 30px;">Avoid unexpected results by using unitless line-height</h1>
   length and percentage line-heights have poor inheritance behavior ...
 </div>
 
-<div>red box 里面的 h1 直接继承父元素的值,没有再进行计算</div>
-<div>1.1 是相对值, 最终需要与自身的 font-size 相乘 才得到最终值, 被继承之后, 还是要与自身 font-size 相乘</div>
+<div>red box 里面的 h1 直接继承父元素的绝对值,没有再进行计算</div>
+<div>1.1 是相对值, 每个元素都要与自身的 font-size 相乘 才得到最终值, 被继承之后, 也还是要与自身 font-size 相乘</div>
 <div>1.1em 是相对自身 font-size 计算得到的绝对值, 后代继承这个 绝对值</div>
 </body>
 </html>
