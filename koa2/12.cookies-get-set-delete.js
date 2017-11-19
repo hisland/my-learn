@@ -5,7 +5,12 @@ const app = new Koa()
 const port = 9002
 
 app.use(async function(ctx, next) {
-  console.log(ctx.onerror)
+  console.log(ctx.cookies.get('hey')) // get
+  console.log(ctx.cookies.get('hey2'))
+  ctx.cookies.set('hey') // delete
+  ctx.cookies.set('hey2', 'bbq') // set
+
+  ctx.body = 'any path will get this: hello!'
 })
 
 

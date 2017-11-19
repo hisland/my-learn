@@ -4,10 +4,15 @@ const Koa = require('koa')
 const app = new Koa()
 const port = 9002
 
-app.use(async function(ctx, next) {
-  console.log(ctx.onerror)
-})
+// console.log(app.context)
 
+app.context.some = 99
+
+app.use(async function(ctx, next) {
+  console.log(ctx.__proto__ === app.context)
+  console.log(ctx.some)
+  ctx.body = 'any path will get this: hello!'
+})
 
 app.listen(port)
 console.log(`listen on: ${port}`)

@@ -5,7 +5,21 @@ const app = new Koa()
 const port = 9002
 
 app.use(async function(ctx, next) {
-  console.log(ctx.onerror)
+  ctx.state.hey = 'haha'
+
+  await next()
+
+  console.log(ctx.state)
+
+  ctx.body = 'any path will get this: hello!'
+})
+
+app.use(async function(ctx, next) {
+  console.log(ctx.state)
+
+  ctx.state.bbq = 'mike'
+
+  ctx.body = '2'
 })
 
 
