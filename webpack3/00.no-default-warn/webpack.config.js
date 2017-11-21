@@ -1,4 +1,5 @@
 module.exports = {
+  context: __dirname,
   entry: {
     bundle: './entry',
   },
