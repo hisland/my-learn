@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+  <pre>
+    extends 执行顺序, 查看控制台, 感觉跟 mixins 差不多, 只是只能集成一个, 文档讲的差异不知道如何理解
+  </pre>
+  <script src="./vue.min.js"></script>
+  <script>
+    (function() {
+      var aa = {
+        data: {
+          aa: 1,
+          bb: 2,
+        },
+        created(){
+          console.log('created aa')
+        }
+      }
+      var bb = {
+        data: {
+          aa: 3,
+          bb: 4,
+        },
+        created(){
+          console.log('created bb')
+        }
+      }
+
+      let vm = new Vue({
+        data: {
+          aa: 5,
+          bb: 6,
+        },
+        created(){
+          console.log('created vm')
+        },
+        extends: aa
+      })
+
+      console.log(vm.aa, vm.bb)
+    })();
+  </script>
+</body>
+
+</html>

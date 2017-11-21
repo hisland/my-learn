@@ -19,13 +19,27 @@
   var comp2 = {
     template: '<h1>use template</h1>',
     render(h) {
+      let vm = this
       console.log('render')
-      return h('h1', ['use render ' + this.cc]);
+      return h('div', [
+        h('h1', ['use render ' + vm.cc]),
+        h('div', [h('input', {
+          domProps: {
+            value: vm.sub2,
+          },
+          on: {
+            input: function(ee) {
+              vm.sub2 = ee.target.value
+            }
+          }
+        }), h('span', [vm.sub2])])
+      ]);
     },
     data: function() {
       console.log('init data')
       return {
-        sub1: 'sub1 data'
+        sub1: 'sub1 data',
+        sub2: 'sub2'
       };
     },
     computed: {
