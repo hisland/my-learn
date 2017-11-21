@@ -47,7 +47,10 @@ app.use(async function(ctx, next) {
   })
 })
 
-const webpackHotMiddleware = require('webpack-hot-middleware')(compiler)
+const webpackHotMiddleware = require('webpack-hot-middleware')(compiler, {
+  log: false,
+  heartbeat: 2000,
+})
 app.use(async function(ctx, next) {
   await new Promise(function(resolve, reject) {
     ctx.req.on('close', function() {
