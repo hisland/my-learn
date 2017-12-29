@@ -5,19 +5,17 @@ const assert = require('assert')
 
 co(function*() {
   // Connection URL
-  let db = yield MongoClient.connect('mongodb://localhost:27017/test')
+  const db = yield MongoClient.connect('mongodb://localhost:27017/test')
   console.log('Connected correctly to server')
 
   // Get the removes collection
-  let col = db.collection('test-update');
-  // Insert a single document
-  // let rs1 = yield col.deleteMany({a:1});
-  // let rs1 = yield col.insert([{a:99}, {a:100}, {a:101}, {a:102}]);
-  // assert.equal(1, rs1.insertedCount);
+  const col = db.collection('test-update-updateMany');
+  yield col.deleteMany();
 
-  // let rs2 = yield col.update({_id: '59f694a2a75c4277a509e0af'}, {$set:{b:2}})
-  // console.log(rs2.result)
-  // assert.equal(1, rs2.modifiedCount);
+  let rs1 = yield col.insert([{a:99}, {a:100}, {a:101}, {a:102}]);
+
+  let rs2 = yield col.update({a: 99}, {$set:{b:2}})
+  console.log(rs2.result)
 
   function* findAll(){
     let list1 = yield col.find({}).toArray()
@@ -34,9 +32,9 @@ co(function*() {
 
   // 这2行等价
   // update 好像是 mongodb v2.6 的
-  // let rs2 = yield col.update({_id: {$in: ids}}, {$set:{b:499}}, {multi:true})
+  // let rs3 = yield col.update({_id: {$in: ids}}, {$set:{b:499}}, {multi:true})
   // updateMany 好像是 mongodb v3.2 的
-  let rs2 = yield col.updateMany({_id: {$in: ids}}, {$set:{b:499}})
+  let rs3 = yield col.updateMany({_id: {$in: ids}}, {$set:{b:499}})
 
   yield findAll()
 

@@ -6,7 +6,7 @@ co(function*() {
   const db = yield MongoClient.connect('mongodb://localhost:27017/learn-mongodb')
   console.log('Connected correctly to server')
 
-  const col = db.collection('findOneAndUpdate')
+  const col = db.collection('findOneAndReplace')
 
   let rs
 
@@ -19,7 +19,7 @@ co(function*() {
   rs = yield col.find().toArray()
   console.log(1, rs)
 
-  rs = yield col.findOneAndUpdate(
+  rs = yield col.findOneAndReplace(
     { a: 1 },
     { $set: { b: 1 } } // 只有更新操作 update
   )
@@ -27,7 +27,7 @@ co(function*() {
   rs = yield col.find().toArray()
   console.log(2, rs)
 
-  rs = yield col.findOneAndUpdate(
+  rs = yield col.findOneAndReplace(
     { a: 2 },
     { xxxxx:1 } // 没有更新操作 replace
   )

@@ -4,23 +4,22 @@ const assert = require('assert')
 
 co(function*() {
   // Connection URL
-  let db = yield MongoClient.connect('mongodb://localhost:27017/learn-mongodb')
+  const db = yield MongoClient.connect('mongodb://localhost:27017/learn-mongodb')
   console.log('Connected correctly to server')
 
-  // Get the updates collection
-  let col = db.collection('updates');
+  const col = db.collection('updateOne-Many');
 
   let rs
 
   // 首先全部清空
-  yield db.collection('updates').remove()
+  yield col.remove()
 
   // Insert a single document
   rs = yield col.insertMany([{a:1}, {a:2}, {a:2}]);
   assert.equal(3, rs.insertedCount);
 
   // Insert multiple documents
-  rs = yield db.collection('updates').find().toArray()
+  rs = yield col.find().toArray()
   console.log(1, rs)
 
   // Update a single document
@@ -29,7 +28,7 @@ co(function*() {
   assert.equal(1, rs.modifiedCount);
 
   // Insert multiple documents
-  rs = yield db.collection('updates').find().toArray()
+  rs = yield col.find().toArray()
   console.log(2, rs)
 
   // Update multiple documents
@@ -38,7 +37,7 @@ co(function*() {
   assert.equal(2, rs.modifiedCount);
 
   // Insert multiple documents
-  rs = yield db.collection('updates').find().toArray()
+  rs = yield col.find().toArray()
   console.log(3, rs)
 
   // Upsert a single document 结果是 {a:3, b:3}, 如果找不到就插入
@@ -49,7 +48,7 @@ co(function*() {
   assert.equal(1, rs.upsertedCount);
 
   // Insert multiple documents
-  rs = yield db.collection('updates').find().toArray()
+  rs = yield col.find().toArray()
   console.log(4, rs)
 
   db.close();

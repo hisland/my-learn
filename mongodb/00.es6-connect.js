@@ -4,11 +4,11 @@ const assert = require('assert')
 
 co(function*() {
   // Connection URL
-  let db = yield MongoClient.connect('mongodb://localhost:27017/learn-mongodb')
+  const db = yield MongoClient.connect('mongodb://localhost:27017/learn-mongodb')
   console.log('Connected correctly to server')
 
   // Get the findAndModify collection
-  var col = db.collection('testConnect')
+  const col = db.collection('testConnect')
 
   console.log(col)
 
