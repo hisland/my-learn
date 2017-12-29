@@ -18,3 +18,4 @@ class Person {
 
 var p1 = new Person()
 console.log(Person.def());
+console.log(p1.def()); // 报错

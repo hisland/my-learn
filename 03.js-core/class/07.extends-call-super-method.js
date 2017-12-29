@@ -20,6 +20,8 @@ class Tom extends Person{
     super();
     console.log('tom');
     super.printAbc(); // 执行父的 printAbc
+    this.abc = 'bbq';
+    super.printAbc(); // 执行父的 printAbc, 打印修改后的 abc值
   }
   printAbc(){
     console.log('tom: printAbc');
