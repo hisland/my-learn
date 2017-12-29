@@ -23,7 +23,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware')(compiler, {
   // lazy: true, //请求时才编译包, 如果环境比较慢, 用这个应该好一些
 })
 app.use(async function(ctx, next) {
-  await new Promise(function(resolve, reject) {
+  let isEnd = await new Promise(function(resolve, reject) {
     webpackDevMiddleware(
       ctx.req,
       {
@@ -39,12 +39,11 @@ app.use(async function(ctx, next) {
         resolve(false)
       }
     )
-  }).then(function(isEnd) {
-    // 如果 webpack 打包没有相应的地址, 则往后面走
-    if (!isEnd) {
-      return next()
-    }
   })
+  // 如果 webpack 打包没有相应的地址, 则往后面走
+  if (!isEnd) {
+    return next()
+  }
 })
 
 const webpackHotMiddleware = require('webpack-hot-middleware')(compiler, {
@@ -52,19 +51,18 @@ const webpackHotMiddleware = require('webpack-hot-middleware')(compiler, {
   heartbeat: 2000,
 })
 app.use(async function(ctx, next) {
-  await new Promise(function(resolve, reject) {
+  let isEnd = await new Promise(function(resolve, reject) {
     ctx.req.on('close', function() {
       resolve(true)
     })
     webpackHotMiddleware(ctx.req, ctx.res, function() {
       resolve(false)
     })
-  }).then(function(isEnd) {
-    // 如果 webpack 打包没有相应的地址, 则往后面走
-    if (!isEnd) {
-      return next()
-    }
   })
+  // 如果 webpack 打包没有相应的地址, 则往后面走
+  if (!isEnd) {
+    return next()
+  }
 })
 
 // 提供静态资源
