@@ -4,6 +4,6 @@ def fab(nn):
   while a < nn:
     print(a, end=' ')
     a, b = b, a+b
-  print()
+  print('---')
 
 fab(2000)
