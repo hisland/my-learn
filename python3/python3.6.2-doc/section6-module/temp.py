@@ -1,6 +1,3 @@
-def func2():
-  """func2 doc"""
-  pass
+import builtins
 
-print(func2.__doc__)
-
+print(zip)
