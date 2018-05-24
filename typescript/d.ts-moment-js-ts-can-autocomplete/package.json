@@ -1,0 +1,9 @@
+{
+  "name": "zzz",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.22.1"
+  }
+}
