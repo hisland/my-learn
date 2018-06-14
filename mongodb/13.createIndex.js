@@ -46,12 +46,13 @@ co(function*() {
 
   console.log('start: ')
 
-  col.createIndex( { someKey: 1 } )
+  // yield col.dropIndex( { someKey: 1 } )
+  // yield col.createIndex( { someKey: 1 } )
 
   // 首先全部清空
   yield col.remove()
   const list = []
-  for(let ii=0; ii<10000; ii++){
+  for(let ii=0; ii<50000; ii++){
     list.push({ someKey: FromTo(1, 987623) })
   }
 
@@ -61,8 +62,8 @@ co(function*() {
   // Insert multiple documents
   rs = yield col.find({
     someKey: {
-      $gte: 10,
-      $lte: 90000,
+      $gte: 10000,
+      $lte: 10010,
     }
   }).toArray()
   console.log(2, rs.length)
