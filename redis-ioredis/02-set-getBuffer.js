@@ -9,3 +9,5 @@ redis.set('foo', new Buffer('buff'))
 redis.getBuffer('foo', function(err, result) {
   console.log(typeof result, result)
 })
+
+redis.quit()

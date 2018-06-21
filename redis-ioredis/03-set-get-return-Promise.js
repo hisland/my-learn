@@ -11,3 +11,5 @@ console.log(
     console.log(typeof result, result)
   })
 )
+
+redis.quit()

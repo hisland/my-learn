@@ -7,9 +7,10 @@ const redis = new Redis({
 
 ~(async function() {
   console.time('start')
-  for (let ii = 0; ii < 1000; ii++) {
+  for (let ii = 0; ii < 3000; ii++) {
     await redis.set(`foo-${ii}`, 'god')
   }
   console.timeEnd('start')
-})()
 
+  redis.quit()
+})()

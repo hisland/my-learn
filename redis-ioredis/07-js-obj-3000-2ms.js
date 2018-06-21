@@ -9,10 +9,11 @@ const redis = new Redis({
   console.time('start')
 
   const obj = {}
-  for (let ii = 0; ii < 1000; ii++) {
+  for (let ii = 0; ii < 3000; ii++) {
     obj[`foo-${ii}`] = 'god'
   }
 
   console.timeEnd('start')
-})()
 
+  redis.quit()
+})()

@@ -9,3 +9,5 @@ redis.set('foo-in-db-1', 'bar')
 redis.get('foo-in-db-1', function(err, result) {
   console.log(result)
 })
+
+redis.quit()

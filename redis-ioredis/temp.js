@@ -14,5 +14,6 @@ const redis = new Redis({
   }
 
   console.timeEnd('start')
-})()
 
+  redis.quit()
+})()
