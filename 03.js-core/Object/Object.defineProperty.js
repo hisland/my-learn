@@ -43,8 +43,8 @@ var a = {
 }
 // is equivalent to:
 Object.defineProperty(o, 'a', {
-  get: [Function: a],
-  set: [Function: a],
+  get: function() {return 'some'},
+  set: function(val) {},
   configurable: true,
   enumerable: true
 });
