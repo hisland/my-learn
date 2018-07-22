@@ -1,0 +1,5 @@
+[package]
+
+name = "cargo-test"
+version = "0.0.1"
+authors = [ "hisland@qq.com" ]
