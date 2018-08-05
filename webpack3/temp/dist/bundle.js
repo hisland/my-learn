@@ -65,16 +65,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function 中文函数() {
-  console.log(3)
-}
-
-setTimeout(function() {
-  中文函数()
-}, 10)
-
+module.exports = __webpack_require__.p + "entry-91a2ef542196fd2b847ffaeedc9227fa.js";
 
 /***/ })
 /******/ ]);

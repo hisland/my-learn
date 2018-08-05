@@ -3,32 +3,29 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 
-module.exports = [{
-  entry: {
-    bundle: './entry',
+module.exports = [
+  {
+    entry: {
+      bundle: './entry',
+    },
+    output: {
+      path: path.join(__dirname, 'dist'),
+      filename: '[name].js',
+      chunkFilename: 'chunk-[id].[name].js',
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: '[name]-[hash].[ext]',
+            },
+          },
+        },
+      ],
+    },
+    plugins: [],
   },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
-    chunkFilename: 'chunk-[id].[name].js',
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'build_template.html',
-      filename: 'aa.html',
-      title: 'hey',
-    }),
-  ],
-}, {
-  entry: {
-    bundle: './entry',
-  },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].min.js',
-    chunkFilename: 'chunk-[id].[name].js',
-  },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin()
-  ],
-}]
+]
