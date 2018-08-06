@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shared Workers basic example</title>
+  </head>
+
+  <body>
+    <h1>注意aa.html bb.html 结果末尾的计数, 2个页面共用</h1>
+
+    <div class="controls" tabindex="0">
+
+    <div>
+      <div>
+        <label for="number1">Multiply number 1: </label>
+        <input type="text" id="number1" value="0">
+      </div>
+      <div>
+        <label for="number2">Multiply number 2: </label>
+        <input type="text" id="number2" value="0">
+      </div>
+    </div>
+
+    <p class="result1">Result: </p>
+
+    <p><a href="bb.html" target="_blank">Go to second worker page</a></p>
+
+    </div>
+
+    <script src="aa.js"></script>
+  </body>
+</html>

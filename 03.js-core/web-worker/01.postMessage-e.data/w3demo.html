@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>postMessage 是可以序列化的内容</h3>
+<p>打开控制台查看输出</p>
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+<br><br>
+
+<script>
+let ww
+
+function startWorker() {
+  if (typeof Worker !== 'undefined') {
+    if (typeof ww == 'undefined') {
+      ww = new Worker('w3demo.js')
+    }
+    ww.onmessage = function(event) {
+      console.log(event.data)
+      document.getElementById('result').innerHTML = event.data.count
+    }
+  } else {
+    document.getElementById('result').innerHTML =
+      'Sorry! No Web Worker support.'
+  }
+}
+
+function stopWorker() {
+  ww.terminate()
+  ww = undefined
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>ii 在 bb.js, cc.js 都是全局变量, 提示重复定义, 就像合并一样</h3>
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+<br><br>
+
+<script>
+let ww
+
+function startWorker() {
+  if (typeof Worker !== 'undefined') {
+    if (typeof ww == 'undefined') {
+      ww = new Worker('aa.js')
+    }
+    ww.onmessage = function(event) {
+      console.log(event.data)
+      document.getElementById('result').innerHTML = event.data.count
+    }
+  } else {
+    document.getElementById('result').innerHTML =
+      'Sorry! No Web Worker support.'
+  }
+}
+
+function stopWorker() {
+  ww.terminate()
+  ww = undefined
+}
+
+</script>
+
+</body>
+</html>
