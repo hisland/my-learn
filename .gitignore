@@ -115,3 +115,7 @@ coverage/
 
 # py cache
 __pycache__/
+
+
+.sass-cache
+
