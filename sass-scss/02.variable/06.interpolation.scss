@@ -1,0 +1,10 @@
+body {
+  $bgColor: red !global;
+  $fgColor: green;
+  color: $fgColor;
+}
+
+div {
+  background: $bgColor; // red
+  color: $fgColor; // error
+}

@@ -1,0 +1,24 @@
+body {
+  color: red;
+  & {
+    background: #eee;
+  }
+  div {
+    color: blue;
+    & {
+      background: #999;
+    }
+  }
+}
+
+div {
+  a {
+    &:hover {
+      cursor: pointer;
+    }
+
+    .what & { // .what div a
+      color: blue;
+    }
+  }
+}
