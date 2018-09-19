@@ -20,7 +20,10 @@
   <script src="./vue.js"></script>
   <script>
   var comp2 = {
-    template: '<h1 :style="style" :class="cssClass">use template bb: {{bb}} dd(): {{dd()}} cc: {{cc}}</h1>',
+    template: `
+    <h1 :style="style" :class="cssClass">
+      use template bb: {{bb}} dd(): {{dd()}} cc: {{cc}}
+    </h1>`,
     data: function() {
       console.log('init data')
       return {
@@ -79,10 +82,10 @@
     },
   }
   var vm = new Vue(comp2)
-  vm.$mount('#app')
 
-  console.log('after mount, dom的修改已经可以拿到')
-  console.log(document.getElementById('app1').innerHTML)
+  console.log('11, before mount', document.getElementById('app1').innerHTML)
+  vm.$mount('#app')
+  console.log('22, after mount, dom的修改已经可以拿到', document.getElementById('app1').innerHTML)
   </script>
 </body>
 

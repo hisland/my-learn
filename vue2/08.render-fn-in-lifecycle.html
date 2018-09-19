@@ -12,7 +12,10 @@
   <div id="app">
   </div>
   <pre>
-    render函数 的执行紧接着 beforeMount-hook
+    <ul>
+      <li>有 render函数, template 就没用了</li>
+      <li>render函数 的执行紧接着 beforeMount-hook</li>
+    </ul>
   </pre>
   <script src="./vue.js"></script>
   <script>
@@ -20,7 +23,7 @@
     template: '<h1>use template</h1>',
     render(h) {
       let vm = this
-      console.log('render')
+      console.log('render: ')
       return h('div', [
         h('h1', ['use render ' + vm.cc]),
         h('div', [h('input', {

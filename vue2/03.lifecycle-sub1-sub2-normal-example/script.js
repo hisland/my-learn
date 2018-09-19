@@ -1,4 +1,4 @@
-var child_lv2 = {
+const child_lv2 = {
   template: `
     <div>
       child_lv2: {{child_lv2}}  <button @click="act">点我2</button>
@@ -7,11 +7,11 @@ var child_lv2 = {
   data: function() {
     console.log('---- init data: child_lv2')
     return {
-      child_lv2: 'child_lv2 data'
-    };
+      child_lv2: 'child_lv2 data',
+    }
   },
   methods: {
-    act(){
+    act() {
       this.child_lv2 = Math.random().toFixed(4)
     },
   },
@@ -46,7 +46,10 @@ var child_lv2 = {
     console.log('---- destroyed: child_lv2')
   },
 }
-var child_lv1 = {
+const child_lv1 = {
+  components: {
+    child_lv2: child_lv2,
+  },
   template: `
     <div>
       <div>child_lv1: {{child_lv1}} <button @click="act">点我</button></div>
@@ -54,19 +57,16 @@ var child_lv1 = {
       <child_lv2></child_lv2>
     </div>
       `,
-  components: {
-    child_lv2: child_lv2,
-  },
   methods: {
-    act(){
+    act() {
       this.child_lv1 = Math.random().toFixed(2)
     },
   },
   data: function() {
     console.log('-- init data: child_lv1')
     return {
-      child_lv1: 'child_lv1 data'
-    };
+      child_lv1: 'child_lv1 data',
+    }
   },
   beforeCreate() {
     console.log('-- beforeCreate: child_lv1')
@@ -99,12 +99,15 @@ var child_lv1 = {
     console.log('-- destroyed: child_lv1')
   },
 }
-var vm = new Vue({
+const vm = new Vue({
+  components: {
+    child_lv1: child_lv1,
+  },
   template: `
 <div>
   <button @click="destroy1">销毁第一个</button>
-  <child_lv1 ref="sub"></child_lv1>
-  <child_lv1 ref="sub"></child_lv1>
+  <child_lv1 ref="sub1"></child_lv1>
+  <child_lv1 ref="sub2"></child_lv1>
 </div>
   `,
   data: function() {
@@ -113,29 +116,24 @@ var vm = new Vue({
       aa: 'some aa',
       aa2: 'some aa',
       subActive: true,
-      cc: null,
     }
   },
   props: ['bb'],
   propsData: {
     bb: 'some bb',
   },
-  components: {
-    child_lv1: child_lv1,
-  },
   computed: {
     dd: function() {
       console.log('call: computed.dd: parent')
-      return 'some dd' + this.aa2;
+      return 'some dd' + this.aa2
     },
   },
   methods: {
     cc() {
       console.log('call: methods.cc: parent')
-      return 'cc' + Math.random()
-        .toFixed(2);
+      return 'cc' + Math.random().toFixed(2)
     },
-    destroy1(){
+    destroy1() {
       this.cc = this.$children[0]
       this.cc.$destroy()
       console.log('销毁依然能拿到 $el', this.cc.$el)
@@ -159,11 +157,13 @@ var vm = new Vue({
   },
   beforeMount() {
     console.log('beforeMount: parent')
-    console.log('ref-sub: ', this.$refs.sub)
+    console.log('ref-sub1: ', this.$refs.sub1)
+    console.log('ref-sub2: ', this.$refs.sub2)
   },
   mounted() {
     console.log('mounted: parent')
-    console.log('ref-sub: ', this.$refs.sub)
+    console.log('ref-sub1: ', this.$refs.sub1)
+    console.log('ref-sub2: ', this.$refs.sub2)
   },
   beforeUpdate() {
     console.log('beforeUpdate: parent')
@@ -186,4 +186,3 @@ var vm = new Vue({
 })
 
 vm.$mount('#app')
-

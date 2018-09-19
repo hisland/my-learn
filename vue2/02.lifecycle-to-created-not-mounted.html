@@ -20,13 +20,13 @@
     },
     methods: {
       cc() {
-        console.log('call: methods.cc')
+        console.log('method: cc')
         return 'cc';
       },
     },
     watch: {
       aa: function(newVal, oldVal) {
-        console.log(newVal, arguments, this.aa)
+        console.log('watch aa:', newVal, this.aa)
       },
     },
   })

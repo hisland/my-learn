@@ -14,18 +14,25 @@
   <script>
     (function() {
       var aa = {
-        data: {
-          aa: 1,
-          bb: 2,
+        data(){
+          console.log('data aa')
+          return {
+            aa: 'aa',
+            bb: 'aa',
+          }
         },
         created(){
           console.log('created aa')
         }
       }
       var bb = {
-        data: {
-          aa: 3,
-          bb: 4,
+        extends: aa,
+        data(){
+          console.log('data bb')
+          return {
+            bb: 'bb',
+            cc: 'bb',
+          }
         },
         created(){
           console.log('created bb')
@@ -33,17 +40,20 @@
       }
 
       let vm = new Vue({
-        data: {
-          aa: 5,
-          bb: 6,
+        extends: bb,
+        data(){
+          console.log('data cc')
+          return {
+            cc: 'cc',
+            dd: 'cc',
+          }
         },
         created(){
           console.log('created vm')
         },
-        extends: aa
       })
 
-      console.log(vm.aa, vm.bb)
+      console.log(vm.aa, vm.bb, vm.cc, vm.dd)
     })();
   </script>
 </body>

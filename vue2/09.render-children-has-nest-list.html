@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+  </style>
+</head>
+
+<body>
+  <div id="app">
+  </div>
+  <pre>
+    children有嵌套list, 不需要 ...,  展开能自动展开
+  </pre>
+  <script src="./vue.js"></script>
+  <script>
+var comp2 = {
+  render(h) {
+    let vm = this
+    return h('div', [
+      h('h3', ['aa1']),
+      h('h3', ['aa2']),
+      h('h3', ['aa3']),
+      [ // 嵌套 list
+        h('div', ['bb1']),
+        h('div', ['bb2']),
+        h('div', ['bb3']),
+        [h('strong', ['cc1']), h('strong', ['cc2']), h('strong', ['cc3'])],
+      ],
+    ])
+  },
+  data: function() {
+    return {
+      sub1: 'sub1 data',
+      sub2: 'sub2',
+    }
+  },
+}
+var vm = new Vue(comp2)
+vm.$mount('#app')
+  </script>
+</body>
+
+</html>

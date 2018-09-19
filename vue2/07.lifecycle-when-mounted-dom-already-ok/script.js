@@ -78,7 +78,6 @@ var vm = new Vue({
       aa: 'some aa',
       aa2: 'some aa',
       subActive: true,
-      cc: null,
       style: {
         color: 'red'
       },
@@ -142,4 +141,3 @@ var vm = new Vue({
 vm.$mount('#app')
 
 console.log('root mounted: ', document.getElementById('app1').innerHTML)
-

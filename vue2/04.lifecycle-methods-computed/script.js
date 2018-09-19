@@ -26,13 +26,13 @@ aa2: <input type="text" v-model="aa2" />
   },
   computed: {
     dd: function() {
-      console.log('call.computed: dd')
+      console.log('computed: dd')
       return 'some dd' + this.aa2;
     },
   },
   methods: {
     cc(){
-      console.log('call.methods: cc')
+      console.log('methods: cc')
       return 'cc' + Math.random().toFixed(2);
     },
   },
