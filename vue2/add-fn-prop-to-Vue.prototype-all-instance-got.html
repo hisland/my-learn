@@ -9,24 +9,29 @@
 <body>
   <div id="app">
     <div>{{kk}}</div>
+    <div>{{ohGod}}</div>
   </div>
   <pre>
 
   </pre>
   <script src="./vue.js"></script>
   <script>
+  Vue.prototype.$myMethod = function (methodOptions) {
+    console.log(3)
+  }
+  Vue.prototype.ohGod = 'yes i do'
+
   var instance = new Vue({
     el: '#app',
     data: {
       kk: 'cc',
       pp: 'god',
-    },
-    async mounted(){
-      console.time('aa')
-      await this.$nextTick()
-      console.timeEnd('aa')
     }
   });
+
+  console.log(instance.ohGod)
+  instance.$myMethod()
+
   </script>
 </body>
 
