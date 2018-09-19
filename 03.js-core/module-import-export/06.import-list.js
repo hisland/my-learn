@@ -1,2 +1,3 @@
-import {a} from './01.export-single.js';
+import {a, b} from './02.export-list.js';
 
+console.log(a, b)

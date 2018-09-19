@@ -27,7 +27,7 @@ from
 
 * import {var} from 'module' 不可以对var赋值,它是只读的
 * export {var}, 修改var变量的值, import 那边能获取, 它相当于读取 exports.var
-* export {var}, var是对象时, import那边都修改此对象的属性
+* export {var}, var是对象时, import那边能修改此对象的属性
 * 不可以 import {name}, * as ns from 'module', 没有这个语法
 * a.js: export {aa}
   b.js: import {aa} from './a'; export {aa};

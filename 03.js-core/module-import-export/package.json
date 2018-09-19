@@ -1,0 +1,16 @@
+{
+  "name": "module-import-export",
+  "version": "1.0.0",
+  "description": "* 现在的测试只是测试了es6的语法, 实际运行还是基于 babel 转换成了 commonjs 在运行 * 可能跟以后真正的es6实现有差异, 比如 change-other-module 在b模块修改了a模块的内容 * commonjs允许动态加载, es6模块不允许(stackoverflow上说的)",
+  "main": "01.export-single.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0"
+  }
+}
