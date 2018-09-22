@@ -14,36 +14,36 @@
   </div>
   <pre>
     用 render-fn 实现 v-model 指令
-    sub1是 reactive 的, 但是要在 data 里面<strong style="color:red;">初始化</strong>, 跟正常的使用一样
+    someVar是 reactive 的, 但是要在 data 里面<strong style="color:red;">初始化</strong>, 跟正常的使用一样
   </pre>
   <script src="./vue.js"></script>
   <script>
-  var comp2 = {
-    render(h) {
-      var self = this
-      return h('div', [
-        h('input', {
-          domProps: {
-            value: self.sub1
-          },
-          on: {
-            input: function(e) {
-              self.sub1 = e.target.value
+    var comp2 = {
+      render(h) {
+        var self = this
+        return h('div', [
+          h('input', {
+            domProps: {
+              value: self.someVar
+            },
+            on: {
+              input: function (e) {
+                self.someVar = e.target.value
+              }
             }
-          }
-        }),
-        h('span', [self.sub1])
-      ]);
-    },
-    data: function() {
-      console.log('comp: init data')
-      return {
-        sub1: 'sub1 data',
-      };
-    },
-  }
-  var vm = new Vue(comp2)
-  vm.$mount('#app')
+          }),
+          h('span', [self.someVar])
+        ]);
+      },
+      data: function () {
+        console.log('comp: init data')
+        return {
+          someVar: 'someVar data',
+        };
+      },
+    }
+    var vm = new Vue(comp2)
+    vm.$mount('#app')
   </script>
 </body>
 

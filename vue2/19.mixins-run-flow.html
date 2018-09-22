@@ -13,21 +13,21 @@
   <script src="./vue.js"></script>
   <script>
     (function() {
-      var aa = {
+      var mixina = {
         data: {
           aa: 1,
           bb: 2,
         },
-        created(){
+        created() {
           console.log('created aa')
         }
       }
-      var bb = {
+      var mixinb = {
         data: {
           aa: 3,
           bb: 4,
         },
-        created(){
+        created() {
           console.log('created bb')
         }
       }
@@ -37,13 +37,14 @@
           aa: 5,
           bb: 6,
         },
-        created(){
+        created() {
           console.log('created vm')
         },
-        mixins: [aa, bb]
+        mixins: [mixina, mixinb]
       })
 
-      console.log(vm.aa, vm.bb)
+      console.log('finalValue aa: ', vm.aa)
+      console.log('finalValue bb: ', vm.bb)
     })();
   </script>
 </body>

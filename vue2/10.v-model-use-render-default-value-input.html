@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+  </div>
+  <pre>
+    用 render-fn 实现 组件的 v-model 指令
+    接收 prop: value, 并在值变化的时候,  emit('input')
+  </pre>
+  <script src="./vue.js"></script>
+  <script>
+    var comp2 = {
+      props: ['value'],
+      render(h) {
+        var self = this
+        return h('div', [
+          h('input', {
+            domProps: {
+              value: self.value
+            },
+            on: {
+              input: function (event) {
+                console.log('child input: ', event)
+                self.$emit('input', event.target.value)
+              }
+            }
+          }),
+          h('span', [self.value])
+        ]);
+      },
+    }
+    var vm = new Vue({
+      components: { comp2 },
+      data() {
+        return { hey: 'aa' };
+      },
+      render(h) {
+        var self = this
+        return h('div', [h('comp2', {
+          props: {
+            value: self.hey
+          },
+          on: {
+            input: function (event) {
+              console.log('parent input 1: ', event)
+              self.hey = event
+            }
+          }
+        }), h('comp2', {
+          props: {
+            value: self.hey
+          },
+          on: {
+            input: function (event) {
+              console.log('parent input 2: ', event)
+              self.hey = event
+            }
+          }
+        })
+        ]);
+      },
+    })
+    vm.$mount('#app')
+  </script>
+</body>
+
+</html>

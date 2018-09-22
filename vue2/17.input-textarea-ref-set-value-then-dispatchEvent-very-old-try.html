@@ -9,6 +9,10 @@
 <body>
   <div id="app">
   </div>
+  <pre>
+    这个方式只是刚开始的测试, 实际上按 v-model 的测试就ok,
+    <strong style="color:red;">不应该这样做</strong>
+  </pre>
   <script type="text/x-template" id="temp1">
     <div style="margin:10px;border:1px solid green;padding:10px;">
       <input
@@ -19,9 +23,12 @@
         v-model="hey"
         ref="textarea"></textarea>
 
-      <button @click="save">save</button>
+      <div>some: {{some}}</div>
+      <div>hey: {{hey}}</div>
+
+      <button @click="showValue">showValue</button>
       <button @click="setRandom">setRandom</button>
-      <button @click="update">update</button>
+      <button @click="updateToModel">updateToModel</button>
     </div>
   </script>
   <script src="./vue.js"></script>
@@ -30,11 +37,11 @@
     el: '#app',
     template: '#temp1',
     data: {
-      some: '',
-      hey: '',
+      some: 'init',
+      hey: 'init',
     },
     methods: {
-      save: function() {
+      showValue: function() {
         console.log(this.some)
         console.log(this.hey)
       },
@@ -44,7 +51,7 @@
 
         console.log('点击 save 查看, model 没有更新')
       },
-      update: function() {
+      updateToModel: function() {
         this.$refs.input.dispatchEvent(new Event('input'))
         this.$refs.textarea.dispatchEvent(new Event('input'))
 

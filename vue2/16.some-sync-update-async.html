@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+  <div id="app">
+  </div>
+  <pre>
+    很多地方是同步的, updated 是异步的
+  </pre>
+  <script src="./vue.js"></script>
+  <script>
+    console.log('normal flow: 1')
+
+    let vm = new Vue({
+      data: {
+        a: 1,
+        b: 2,
+      },
+      render(h) {
+        console.log('render: ', this.a)
+        return h('div', {}, this.a);
+      },
+
+      beforeCreate() {
+        console.log('beforeCreate')
+      },
+      created() {
+        console.log('created')
+      },
+
+      beforeMount() {
+        console.log('beforeMount')
+      },
+      mounted() {
+        console.log('mounted')
+      },
+
+      beforeUpdate() {
+        console.log('beforeUpdate')
+      },
+      updated() {
+        console.log('updated')
+      },
+    })
+    console.log('normal flow: 2')
+
+    vm.$mount()
+
+    console.log('normal flow: 3')
+
+    vm.a = 'some'
+    console.log('normal flow: 4')
+
+    vm.a = 'some2'
+    console.log('normal flow: 5')
+  </script>
+</body>
+
+</html>

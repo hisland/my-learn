@@ -19,8 +19,8 @@ var child_lv1 = {
   data: function() {
     console.log('init data: child_lv1, paa from parent:', this.paa)
     return {
-      lv1_aa: this.paa
-    };
+      lv1_aa: this.paa,
+    }
   },
 }
 var vm = new Vue({
@@ -40,10 +40,10 @@ var vm = new Vue({
     child_lv1: child_lv1,
   },
   methods: {
-    handleInput(val){
+    handleInput(val) {
       console.log('parent-handleInput: ', val)
       this.aa = val
-    }
+    },
   },
   watch: {
     aa: function(newVal, oldVal) {
@@ -53,4 +53,3 @@ var vm = new Vue({
 })
 
 vm.$mount('#app')
-
