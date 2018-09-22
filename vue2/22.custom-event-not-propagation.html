@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+  <div id="app">
+    <comp1 @eva="handleInTop"></comp1>
+    <comp2 @evb="handleInTop"></comp2>
+  </div>
+  <pre>
+
+  </pre>
+  <script src="./vue.js"></script>
+  <script>
+    var comp1 = {
+      template: `
+    <div style="border:1px solid red;padding:10px;margin-bottom:10px;">
+      comp1:
+      <button @click="$emit('eva', 'eva')">eva</button>
+      <slot></slot>
+    </div>
+    `,
+    }
+    var comp2 = {
+      template: `
+    <div style="border:1px solid green;padding:10px;margin-bottom:10px;">
+      comp2:
+      <button @click="$emit('evb', 'evb')">evb</button>
+      <comp1 @eva="handleInComp2">handleInComp2</comp1>
+      <comp1>
+        <strong style="color:red;">no handle, 不会冒泡给上层 not propagation</strong>
+      </comp1>
+    </div>
+    `,
+      methods: {
+        handleInComp2(ee) {
+          console.log('handleInComp2: ', ee)
+        }
+      },
+    }
+    Vue.component('comp1', comp1)
+    Vue.component('comp2', comp2)
+
+    var instance = new Vue({
+      el: '#app',
+      data: {
+        kk: 'cc',
+        pp: 'god',
+      },
+      methods: {
+        handleInTop(ee) {
+          console.log('handleInTop: ', ee)
+        }
+      },
+      async mounted() {}
+    });
+  </script>
+</body>
+
+</html>

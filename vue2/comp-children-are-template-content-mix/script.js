@@ -7,8 +7,8 @@ var child_lv2 = {
   data: function() {
     console.log('---- init data: child_lv2')
     return {
-      child_lv2: 'child_lv2 data'
-    };
+      child_lv2: 'child_lv2 data',
+    }
   },
   beforeCreate() {
     console.log('child_lv2: beforeCreate')
@@ -55,15 +55,14 @@ var child_lv1 = {
   },
   methods: {
     act() {
-      this.child_lv1 = Math.random()
-        .toFixed(2)
+      this.child_lv1 = Math.random().toFixed(2)
     },
   },
   data: function() {
     console.log('child_lv1: init data')
     return {
-      child_lv1: 'child_lv1 data'
-    };
+      child_lv1: 'child_lv1 data',
+    }
   },
   beforeCreate() {
     console.log('child_lv1: beforeCreate')
@@ -126,14 +125,13 @@ var parent = {
   computed: {
     dd: function() {
       console.log('call: computed.dd: parent')
-      return 'some dd' + this.aa2;
+      return 'some dd' + this.aa2
     },
   },
   methods: {
     cc() {
       console.log('call: methods.cc: parent')
-      return 'cc' + Math.random()
-        .toFixed(2);
+      return 'cc' + Math.random().toFixed(2)
     },
     destroy1() {
       this.cc = this.$children[0]
@@ -199,4 +197,3 @@ var vm = new Vue({
 })
 
 vm.$mount('#app')
-

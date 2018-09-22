@@ -8,7 +8,7 @@
 
 <body>
   <div id="app">
-    <comp1 v-on="evtObj"></comp1>
+    <comp1 v-bind="some"></comp1>
   </div>
   <pre>
 
@@ -16,10 +16,10 @@
   <script src="./vue.js"></script>
   <script>
     var comp1 = {
+      props: ['kk', 'pp'],
       template: `
     <div style="border:1px solid red;padding:10px;margin-bottom:10px;">
-      <button @click="$emit('handleInTop1', 'handleInTop1')">handleInTop1</button>
-      <button @click="$emit('handleInTop2', 'handleInTop2')">handleInTop2</button>
+      comp1: {{kk}} {{pp}}
     </div>
     `,
     }
@@ -28,22 +28,12 @@
     var instance = new Vue({
       el: '#app',
       data: {
-      },
-      computed: {
-        evtObj(){
-          return {
-            handleInTop1: this.handleInTop1,
-            handleInTop2: this.handleInTop2,
-          };
+        some: {
+          kk: 'topKk',
+          pp: 'topPp',
         }
       },
       methods: {
-        handleInTop1(ee) {
-          console.log('handleInTop1: ', ee)
-        },
-        handleInTop2(ee) {
-          console.log('handleInTop2: ', ee)
-        }
       },
       async mounted() {}
     });
