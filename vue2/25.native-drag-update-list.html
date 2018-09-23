@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+    #app {
+      position: relative;
+    }
+
+    #app>div {
+      border: 1px solid red;
+      margin-bottom: 10px;
+      height: 1.5em;
+    }
+
+    #app>.hole {
+      border: 1px solid green;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <template v-for="(vv1, index1) in itemListWhenDrag">
+      <div
+        class="hole"
+        v-if="vv1.isHole"
+        :key="index1"></div>
+      <div
+        v-else
+        draggable
+        @dragstart="handledragstart($event, index1)"
+        @dragover="handledragover"
+        @dragend="handledragend"
+        @dragenter="handledragenter($event, index1)"
+        @drop="handledrop"
+        :key="index1">{{vv1.name}}</div>
+    </template>
+  </div>
+  <pre>
+
+  </pre>
+  <script src="./vue.js"></script>
+  <script>
+    var instance = new Vue({
+      el: '#app',
+      data: {
+        itemList: [{
+          name: '张三1',
+          age: 11
+        }, {
+          name: '张三2',
+          age: 12
+        }, {
+          name: '张三3',
+          age: 13
+        }, {
+          name: '张三4',
+          age: 14
+        }, ],
+        dragData: {
+          dragging: false,
+          fromElmIndex: null,
+          toElmIndex: null,
+        }
+      },
+      computed: {
+        itemListWhenDrag() {
+          const { dragging, fromElmIndex, toElmIndex } = this.dragData
+          if (dragging) {
+            const list2 = this.itemList.concat()
+            list2.splice(fromElmIndex, 1)
+            list2.splice(toElmIndex, 0, {isHole: true, age:Math.random()})
+            return list2;
+          } else {
+            return this.itemList;
+          }
+        }
+      },
+      methods: {
+        handledragstart(ee, index1) {
+          this.dragData = {
+            dragging: true,
+            fromElmIndex: index1,
+            toElmIndex: index1,
+          }
+          console.log('handledragstart: ', ee.target)
+        },
+        handledragover(ee) {
+          ee.preventDefault()
+        },
+        handledragend(ee) {
+          const { dragging, fromElmIndex, toElmIndex } = this.dragData
+          const org = this.itemList[fromElmIndex]
+          this.itemList.splice(fromElmIndex, 1)
+          this.itemList.splice(toElmIndex, 0, org)
+          this.dragData = {
+            dragging: false,
+            fromElmIndex: null,
+            toElmIndex: null,
+          }
+          console.log('handledragend: ', ee.target)
+        },
+        handledrop(ee) {
+          console.log('handledrop: ', ee.target)
+        },
+        handledragenter(ee, index1) {
+          this.dragData.toElmIndex = index1
+          console.log('handledragenter: ', ee.target)
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>
