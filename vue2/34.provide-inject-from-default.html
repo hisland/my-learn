@@ -19,19 +19,24 @@
   var comp2 = {
     template: `
   <div style="margin:10px;border:1px solid green;padding:10px;">
-    {{thing}} {{halo}}
+    hey: {{hey}}
+    what: {{what}}
+    nono: {{nono}}
   </div>
     `,
-    data: function() {
-      return {
-        thing: 'god',
-      };
+    inject: {
+      'hey': 'hey',
+      'what': {
+        from: 'some'
+      },
+      'nono': {
+        default: 'nono'
+      },
     },
-    inheritAttrs: false,
-    props: ['halo'],
+    computed: {
+    },
     methods: {},
     mounted(){
-      console.log(this.$attrs)
     },
   }
   Vue.component('comp2', comp2)
@@ -39,13 +44,12 @@
     el: '#app',
     template: `
   <div style="margin:10px;border:1px solid red;padding:10px;">
-    <comp2 halo="aa" :bb="pp"></comp2>
+    <comp2></comp2>
   </div>
     `,
-    data: {
-      pp: {
-        some: 1
-      },
+    provide: {
+      hey: 'you',
+      some: 'how',
     },
     methods: {},
   })
