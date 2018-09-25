@@ -12,31 +12,32 @@
   <script type="text/x-template" id="temp1">
     <div style="margin:10px;border:1px solid green;padding:10px;">
       <slot text="hello" :oh="thing"></slot>
-      <slot name="kk" text="hello" :oh="thing"></slot>
+      <slot name="kk"></slot>
     </div>
   </script>
   <script type="text/x-template" id="temp2">
     <div style="margin:10px;border:1px solid red;padding:10px;">
       <comp1>
-        <template scope="ss">
-          <p>default</p>
-          <p>{{ss.text}}</p>
-          <p>{{ss.oh}}</p>
+        <template slot-scope="ss">
+          <p>default slot-scope</p>
+          <p>slot-scope pass: {{ss.text}}</p>
+          <p>slot-scope pass: {{ss.oh}}</p>
           <hr>
         </template>
-        <h1>这个节点丢失了, 因为 default slot 被前一个 template 占用的, 不知道将来会不会有变化</h1>
-        <template slot="kk" scope="bb">
-          <p>kk</p>
-          <p>{{bb.text}}</p>
-          <p>{{bb.oh}}</p>
+        <h1>这个节点丢失了, 因为 default slot 被前一个 template 占用的,
+          不知道将来会不会有变化</h1>
+        <template slot="kk">
+          <p>slot kk</p>
+          <p>{{text}}</p>
+          <p>{{oh}}</p>
         </template>
       </comp1>
     </div>
   </script>
   <pre>
   组件A内的 slot 向外部传递数据, B使用组件A, B的模板里面设置A的内容C(即A的子节点),
-  C 包含带 scope 属性的 template
-  如果有多个 slot, template 的 scope 属性一一对应
+  C 包含带 slot-scope 属性的 template
+  如果有多个 slot, template 的 slot-scope 属性一一对应
   </pre>
   <script src="./vue.js"></script>
   <script>
@@ -52,7 +53,10 @@
   var comp2 = {
     el: '#app',
     template: '#temp2',
-    data: {},
+    data: {
+      text: 'text in comp2',
+      oh: 'oh in comp2',
+    },
     components: {
       comp1: comp1,
     },

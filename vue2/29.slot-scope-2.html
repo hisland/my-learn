@@ -19,55 +19,35 @@
   var comp1 = {
     template: `
   <div style="margin:10px;border:1px solid green;padding:10px;">
-    {{thing}} {{more1}} {{more2.some}}
+    <slot text="halo"></slot>
+    <slot name="pp" text="halo"></slot>
   </div>
     `,
     data: function() {
       return {
-        thing: 'comp1 thing',
+        thing: 'god',
       };
     },
-    props: ['more1', 'more2'],
     methods: {},
     mounted(){
       console.log(this)
     },
   }
-  var comp2 = {
-    template: `
-  <div style="margin:10px;border:1px solid green;padding:10px;">
-    {{thing}}
-    <comp1 v-bind="$attrs"></comp1>
-  </div>
-    `,
-    data: function() {
-      return {
-        thing: 'comp2 thing',
-      };
-    },
-    inheritAttrs: false,
-    props: ['halo'],
-    methods: {},
-    mounted(){
-      console.log(this.$attrs)
-    },
-  }
   Vue.component('comp1', comp1)
-  Vue.component('comp2', comp2)
   new Vue({
     el: '#app',
     template: `
   <div style="margin:10px;border:1px solid red;padding:10px;">
-    <comp2 halo="aa" :more1="pp" :more2="ww"></comp2>
+    <comp1>
+      <div>value in pp: {{pp}}</div>
+      <div slot="pp" slot-scope="ss">
+        value in scope ss: {{ss.text}}
+      </div>
+    </comp1>
   </div>
     `,
     data: {
-      pp: {
-        what: 'fk'
-      },
-      ww: {
-        some: 'how'
-      },
+      pp: 1,
     },
     methods: {
     },
