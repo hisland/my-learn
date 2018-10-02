@@ -11,8 +11,9 @@
   "license": "ISC",
   "devDependencies": {},
   "dependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0"
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "chokidar": "^2.0.4"
   }
 }
