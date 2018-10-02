@@ -1,52 +1,55 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<meta charset="utf-8">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-</head>
+<div id="app">
+</div>
+<pre>
+  * 查看控制台
+  * mixins array 顺序控制执行顺序
+  * 越早执行,越被覆盖
+</pre>
+<script src="./vue.js"></script>
+<script>
+  var mixina = {
+    data: {
+      aa: 'aa1',
+      bb: 'bb1',
+    },
+    created() {
+      console.log('created aa')
+    }
+  }
+  var mixinb = {
+    data: {
+      bb: 'bb2',
+      cc: 'cc2',
+    },
+    created() {
+      console.log('created bb')
+    }
+  }
 
-<body>
-  <pre>
-    mixins 执行顺序, 查看控制台
-  </pre>
-  <script src="./vue.js"></script>
-  <script>
-    (function() {
-      var mixina = {
-        data: {
-          aa: 1,
-          bb: 2,
-        },
-        created() {
-          console.log('created aa')
-        }
-      }
-      var mixinb = {
-        data: {
-          aa: 3,
-          bb: 4,
-        },
-        created() {
-          console.log('created bb')
-        }
-      }
+  let vm1 = new Vue({
+    mixins: [mixina, mixinb],
+    data: {
+      cc: 'cc3',
+      dd: 'dd3',
+    },
+    created() {
+      console.log('created cc')
+    },
+  })
+  console.log('finalValue vm1: ', vm1.aa, vm1.bb, vm1.cc, vm1.dd)
 
-      let vm = new Vue({
-        data: {
-          aa: 5,
-          bb: 6,
-        },
-        created() {
-          console.log('created vm')
-        },
-        mixins: [mixina, mixinb]
-      })
-
-      console.log('finalValue aa: ', vm.aa)
-      console.log('finalValue bb: ', vm.bb)
-    })();
-  </script>
-</body>
-
-</html>
+  let vm2 = new Vue({
+    mixins: [mixinb, mixina],
+    data: {
+      cc: 'cc3',
+      dd: 'dd3',
+    },
+    created() {
+      console.log('created cc')
+    },
+  })
+  console.log('finalValue vm2: ', vm2.aa, vm2.bb, vm2.cc, vm2.dd)
+</script>

@@ -1,0 +1,49 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+</div>
+<pre>
+* $slots.xx 是 reactive 的, 可以动态变化
+</pre>
+
+<script src="./vue.js"></script>
+<script>
+  Vue.component('comp1', {
+    template: `
+<div style="margin:10px;border:1px solid green;padding:10px;">
+  <slot name="aa" v-if="$slots.aa"></slot>
+</div>
+    `,
+    data: function () {
+      return {
+      };
+    },
+    methods: {},
+    mounted() {
+      console.log('mounted: slots: ', this.$slots)
+      console.log('mounted: scopedSlots: ', this.$scopedSlots)
+    },
+    updated() {
+      console.log('updated: slots: ', this.$slots)
+      console.log('updated: scopedSlots: ', this.$scopedSlots)
+    },
+  })
+  new Vue({
+    el: '#app',
+    template: `
+<div style="margin:10px;border:1px solid red;padding:10px;">
+  <label>
+    <input type="checkbox" v-model="hasThat" /> 显示/隐藏
+  </label>
+  <comp1>
+    <h1 slot="aa" v-if="hasThat">h1</h1>
+  </comp1>
+</div>
+    `,
+    data: {
+      hasThat: true
+    },
+    methods: {},
+  })
+</script>

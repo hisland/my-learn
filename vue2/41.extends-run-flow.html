@@ -1,0 +1,54 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+</div>
+<pre>
+  * 查看控制台
+  * 感觉跟 mixins 差不多
+  * 只是一次只能继承一个, 文档讲的差异不知道如何理解
+</pre>
+<script src="./vue.js"></script>
+<script>
+  let aa = {
+    data() {
+      console.log('data aa')
+      return {
+        aa: 'aa1',
+        bb: 'bb1',
+      }
+    },
+    created() {
+      console.log('created aa')
+    }
+  }
+  let bb = {
+    extends: aa,
+    data() {
+      console.log('data bb')
+      return {
+        bb: 'bb2',
+        cc: 'cc2',
+      }
+    },
+    created() {
+      console.log('created bb')
+    }
+  }
+
+  let vm = new Vue({
+    extends: bb,
+    data() {
+      console.log('data cc')
+      return {
+        cc: 'cc3',
+        dd: 'cc3',
+      }
+    },
+    created() {
+      console.log('created cc')
+    },
+  })
+
+  console.log(vm.aa, vm.bb, vm.cc, vm.dd)
+</script>
