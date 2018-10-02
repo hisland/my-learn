@@ -1,0 +1,47 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+</div>
+<pre>
+  * functional comp: scopedSlots 以 data 的方式向下传递
+</pre>
+<script src="./vue.js"></script>
+<script>
+  Vue.component('compa', {
+    functional: true,
+    render(h, ctx){
+      return h('div', {
+        'class': 'compa'
+      }, [
+        ctx.slots().aa,
+        // ctx.slots().bb, // not this
+        ctx.data.scopedSlots.bb({foo: 123}),
+        ctx.slots().cc,
+      ]);
+    }
+  })
+
+  let vm = new Vue({
+    el: '#app',
+  //   template: `
+  // <compa>
+  //   <div slot="aa">aa</div>
+  //   <div slot="bb" slot-scope="what">{{what.foo}}</div>
+  //   <div slot="cc">cc</div>
+  // </compa>
+  //     `,
+    render(h){
+      return h('compa', {
+        scopedSlots: {
+          bb: props=> h('div', props.foo)
+        }
+      }, [
+        h('div', {slot: 'aa'}, ['aa']),
+        // h('div', {slot: 'bb'}, ['bb']), // not this
+        h('div', {slot: 'cc'}, ['cc']),
+      ]);
+    }
+  })
+
+</script>

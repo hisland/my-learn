@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+</div>
+<pre>
+  *
+</pre>
+<script src="./vue.js"></script>
+<script>
+  let compa = {
+    functional: true,
+    el: '#app',
+    data() {
+      console.log('data compa: ', this)
+      return {
+        aa: 'aa1',
+        bb: 'bb1',
+      }
+    },
+    render(h){
+      console.log('render compa: ', this)
+      return h('div');
+    }
+  }
+  let vm = new Vue(compa)
+
+</script>

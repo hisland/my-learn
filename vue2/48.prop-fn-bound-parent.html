@@ -1,0 +1,47 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+</div>
+<pre>
+  * 父组件方法传递下来, 绑定的还是父组件, .call 也不能改变
+</pre>
+<script src="./vue.js"></script>
+<script>
+  Vue.component('compa', {
+    props: {
+      ff: Function,
+    },
+    data(){
+      return {
+        some: 'sub val'
+      }
+    },
+    template: `
+  <div>
+  </div>
+    `,
+    mounted(){
+      console.log(4, this.ff.call(this))
+    }
+  })
+
+  let vm = new Vue({
+    el: '#app',
+    data(){
+      return {
+        some: 'parent val'
+      }
+    },
+    template: `
+  <compa :ff="aa">
+  </compa>
+    `,
+    methods: {
+      aa(){
+        console.log(3, this, this.some)
+      }
+    }
+  })
+
+</script>

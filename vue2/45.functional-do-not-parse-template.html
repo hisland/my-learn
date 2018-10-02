@@ -1,0 +1,37 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+</div>
+<pre>
+  *
+</pre>
+<script src="./vue.js"></script>
+<script>
+  let compa = {
+    functional: true,
+    data() {
+      return {}
+    },
+    template: `
+  <div>
+  aa
+  </div>
+      `,
+    // render(h, ctx){
+    //   console.log('render compa: ', ctx)
+    //   console.log(ctx.slots())
+    //   console.log(ctx.scopedSlots)
+    //   return h('div');
+    // }
+  }
+  Vue.component('compa', compa)
+  let vm = new Vue({
+    el: '#app',
+    template: `
+  <compa>
+  </compa>
+      `,
+  })
+
+</script>
