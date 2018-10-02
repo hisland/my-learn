@@ -1,0 +1,51 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+</div>
+<pre>
+* scopeSlot 好像可以多次使用
+</pre>
+
+<script src="./vue.js"></script>
+<script>
+  Vue.component('comp1', {
+    template: `
+<div style="margin:10px;border:1px solid green;padding:10px;">
+  <slot name="aa" :obj="obj1"></slot>
+  <h1>没有报错, scopeSlot 好像可以多次使用</h1>
+  <slot name="aa" :obj="obj2"></slot>
+</div>
+    `,
+    data: function () {
+      return {
+        obj1: {
+          foo: 'foo',
+        },
+        obj2: {
+          foo: 'foo',
+        },
+      };
+    },
+    methods: {},
+    mounted() {
+      console.log('slots: ', this.$slots)
+      console.log('scopedSlots: ', this.$scopedSlots)
+    },
+  })
+  new Vue({
+    el: '#app',
+    template: `
+<div style="margin:10px;border:1px solid red;padding:10px;">
+  <comp1>
+    <div slot="aa" slot-scope="{ obj }">
+      <input type="text" v-model="obj.foo" />
+    </div>
+  </comp1>
+</div>
+    `,
+    data: {
+    },
+    methods: {},
+  })
+</script>

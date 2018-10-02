@@ -24,11 +24,11 @@
     methods: {},
     created(){
       this.$on('hook:mounted', function () {
-        console.log(1)
+        console.log(1, 'hook:mounted in created')
       })
     },
     mounted(){
-      console.log(2)
+      console.log(2, 'mounted')
     },
   }
   Vue.component('comp2', comp2)

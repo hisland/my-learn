@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://lib.baomitu.com/element-ui/2.4.7/theme-chalk/index.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+  </div>
+  <script src="./vue.js"></script>
+  <script src="https://lib.baomitu.com/element-ui/2.4.7/index.js"></script>
+  <script>
+  var comp1 = {
+    template: `
+<div style="margin:10px;border:1px solid green;padding:10px;">
+  <el-table :data="tableList">
+    <slot name="aa"></slot>
+  </el-table>
+</div>
+    `,
+    data: function() {
+      return {
+        tableList: [
+          {name: '张三', age: '37'},
+          {name: '李四', age: '21'},
+          {name: '王五', age: '19'},
+        ],
+      };
+    },
+    methods: {},
+    mounted(){
+    },
+  }
+  Vue.component('comp1', comp1)
+  new Vue({
+    el: '#app',
+    template: `
+<div style="margin:10px;border:1px solid red;padding:10px;">
+  <comp1>
+    <el-table-column slot="aa" label="col1" prop="name"></el-table-column>
+    <el-table-column slot="aa" label="col2" prop="age"></el-table-column>
+  </comp1>
+</div>
+    `,
+    data: {
+    },
+    methods: {},
+  })
+  </script>
+</body>
+
+</html>
