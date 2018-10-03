@@ -6,7 +6,9 @@ module.exports = {
     // }
 
     config.devtool = false
-    config.optimization.minimizer = []
+    if (config.optimization) {
+      config.optimization.minimizer = []
+    }
 
     config.entry = './main.js'
   },
