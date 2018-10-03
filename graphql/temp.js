@@ -1,6 +1,6 @@
-var { graphql, buildSchema } = require('graphql')
+const { graphql, buildSchema } = require('graphql')
 
-var schema = buildSchema(`
+const schema = buildSchema(`
 type Query {
   user: User
 }
@@ -13,11 +13,11 @@ type User {
 }
 `)
 
-var fakeDB = {
+const fakeDB = {
   name: 'hey1',
   id: 34,
 }
-var root = {
+const root = {
   user: fakeDB,
   setName(args){
     fakeDB.name = args.name

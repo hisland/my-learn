@@ -1,19 +1,19 @@
-var { graphql, buildSchema } = require('graphql')
+const { graphql, buildSchema } = require('graphql')
 
-var schema = buildSchema(`
+const schema = buildSchema(`
   type Query {
     hello1: String
     hello2: String
   }
 `)
 
-var root = {
+const root = {
   hello1: function() {
     return 'name'
   },
   hello2: 'name',
 }
-var query = `
+const query = `
 {
   hello1
   hello2

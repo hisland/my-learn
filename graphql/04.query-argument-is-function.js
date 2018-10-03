@@ -1,6 +1,6 @@
-var { graphql, buildSchema } = require('graphql')
+const { graphql, buildSchema } = require('graphql')
 
-var schema = buildSchema(`
+const schema = buildSchema(`
 type Query {
   list: [User]
   byId1(id: Int): User
@@ -12,7 +12,7 @@ type User {
 }
 `)
 
-var root = {
+const root = {
   list: [{
     name: 'hey1',
     id: 34,

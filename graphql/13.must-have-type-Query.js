@@ -1,12 +1,12 @@
-var { graphql, buildSchema } = require('graphql')
+const { graphql, buildSchema } = require('graphql')
 
-var schema = buildSchema(`
+const schema = buildSchema(`
 type Query {
   name: String
 }
 `)
 
-var root = {
+const root = {
   name: 'hey',
   id: 33,
 }

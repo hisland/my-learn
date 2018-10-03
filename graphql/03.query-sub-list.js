@@ -1,6 +1,6 @@
-var { graphql, buildSchema } = require('graphql')
+const { graphql, buildSchema } = require('graphql')
 
-var schema = buildSchema(`
+const schema = buildSchema(`
 type Query {
   me: User
 }
@@ -15,7 +15,7 @@ type User {
 }
 `)
 
-var root = {
+const root = {
   me: {
     name: 'hey',
     id: 33,
