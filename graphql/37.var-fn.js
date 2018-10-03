@@ -3,19 +3,12 @@ const { graphql, buildSchema } = require('graphql')
 const schema = buildSchema(`
   type Query {
     user: [User]
-    byAge(age: Int, hasAge: Boolean): [User]
-  }
-  type Mutation {
-    putOne(one: InputUser): User
+    byAge(age: Int): [User]
   }
   type User {
     name: String
     age: Int
     height: String
-  }
-  input InputUser {
-    name: String
-    age: Int
   }
 `)
 
@@ -40,18 +33,11 @@ const fakeDB = {
   byAge({ age }) {
     return this.user.filter(vv => vv.age === age)
   },
-  putOne({ one }){
-    this.user.push(one)
-    return one;
-  }
 }
 const query = `
 {
-  user {
+  byAge(age: 18) {
     name
-    ... {
-      age
-    }
   }
 }
 `

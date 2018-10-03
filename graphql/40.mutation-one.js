@@ -46,16 +46,15 @@ const fakeDB = {
   }
 }
 const query = `
-{
-  user {
+mutation {
+  putOne(one: {name: "aa", age: 25}) {
     name
-    ... {
-      age
-    }
+    age
   }
 }
 `
 
 graphql(schema, query, fakeDB).then(response => {
   console.log(JSON.stringify(response, null, ' '))
+  console.log(fakeDB.user)
 })

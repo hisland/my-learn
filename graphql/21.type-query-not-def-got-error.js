@@ -8,15 +8,20 @@ const schema = buildSchema(`
 `)
 
 const fakeDB = {
-  hello1: function() {
-    return 'name'
-  },
-  hello2: 'name',
+  user: {
+    name: 'hdl',
+    age: 18,
+    friends: [
+      {name: 'zs', age: 18},
+      {name: 'ls', age: 19  },
+    ]
+  }
 }
 const query = `
 {
-  hello1
-  hello2
+  user { # 上面 Query 没有定义 user
+    name
+  }
 }
 `
 

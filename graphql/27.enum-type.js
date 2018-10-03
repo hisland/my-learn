@@ -2,24 +2,24 @@ const { graphql, buildSchema } = require('graphql')
 
 const schema = buildSchema(`
   type Query {
-    hello1: String
-    hello2: String
+    user: Episode
+  }
+  enum Episode {
+    NEWHOPE
+    EMPIRE
+    JEDI
   }
 `)
 
 const fakeDB = {
-  hello1: function() {
-    return 'name'
-  },
-  hello2: 'name',
+  user: 'NEWHOPE'
 }
 const query = `
 {
-  hello1
-  hello2
+  user
 }
 `
 
 graphql(schema, query, fakeDB).then(response => {
-  console.log(response)
+  console.log(JSON.stringify(response, null, ' '))
 })

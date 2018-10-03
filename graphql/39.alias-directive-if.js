@@ -5,17 +5,10 @@ const schema = buildSchema(`
     user: [User]
     byAge(age: Int, hasAge: Boolean): [User]
   }
-  type Mutation {
-    putOne(one: InputUser): User
-  }
   type User {
     name: String
     age: Int
     height: String
-  }
-  input InputUser {
-    name: String
-    age: Int
   }
 `)
 
@@ -40,18 +33,16 @@ const fakeDB = {
   byAge({ age }) {
     return this.user.filter(vv => vv.age === age)
   },
-  putOne({ one }){
-    this.user.push(one)
-    return one;
-  }
 }
 const query = `
-{
-  user {
-    name
-    ... {
-      age
-    }
+query {
+  list2: byAge(age: 21) {
+    name @include(if: false)
+    age
+  }
+  list1: byAge(age: 19) {
+    name @include(if: true)
+    age
   }
 }
 `

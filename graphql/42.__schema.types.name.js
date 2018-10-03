@@ -47,10 +47,9 @@ const fakeDB = {
 }
 const query = `
 {
-  user {
-    name
-    ... {
-      age
+  __schema {
+    types {
+      name
     }
   }
 }

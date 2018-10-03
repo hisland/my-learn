@@ -2,21 +2,29 @@ const { graphql, buildSchema } = require('graphql')
 
 const schema = buildSchema(`
   type Query {
-    hello1: String
-    hello2: String
+    user: User
+  }
+  type User {
+    name: String
   }
 `)
 
 const fakeDB = {
-  hello1: function() {
-    return 'name'
-  },
-  hello2: 'name',
+  user: {
+    name: 'hdl',
+    age: 18,
+    friends: [
+      {name: 'zs', age: 18},
+      {name: 'ls', age: 19  },
+    ]
+  }
 }
 const query = `
 {
-  hello1
-  hello2
+  user {
+    name
+    age
+  }
 }
 `
 
