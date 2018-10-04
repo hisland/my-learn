@@ -6,6 +6,7 @@ module.exports = [
   {
     mode: 'development',
     // mode: 'production',
+    devtool: false,
     entry: {
       bundle: './entry',
     },
