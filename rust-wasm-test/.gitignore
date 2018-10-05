@@ -1,0 +1,8 @@
+/target
+**/*.rs.bk
+Cargo.lock
+dist/
+pkg/
+bin/
+node_modules/
+wasm-pack.log

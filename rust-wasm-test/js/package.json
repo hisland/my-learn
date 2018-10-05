@@ -1,0 +1,20 @@
+{
+  "name": "hey",
+  "collaborators": [
+    "hisland <hisland@qq.com>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "hey_bg.wasm",
+    "hey.js",
+    "hey.d.ts"
+  ],
+  "module": "hey.js",
+  "types": "hey.d.ts",
+  "sideEffects": "false",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
