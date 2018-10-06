@@ -1,4 +1,4 @@
-var halo: string = 'he';
+let halo: string = 'he';
 
 halo = 'bbq'
 

@@ -1,6 +1,6 @@
 interface Hello{
-  readonly god?: string; // 在普通属性末尾加个?
-  readonly please?: string;
+  readonly god: string;
+  readonly please: string;
 }
 
 let aa2: Hello = {god: '7'} // 存在的匹配, 忽略的ok

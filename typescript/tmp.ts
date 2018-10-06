@@ -1,9 +1,7 @@
-namespace aa1{
-    var bb = 3
-    console.log(bb)
-    export namespace aa2{
-        var bb = 3
-        console.log(bb)
-    }
-}
+let aa5
 
+aa5 = 3
+
+aa5 = 'a3'
+
+console.log(aa5)

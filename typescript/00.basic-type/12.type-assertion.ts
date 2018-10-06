@@ -4,5 +4,5 @@
 
 let aa1: any = 'hey'
 
-let aa2: string = (<string> aa1) // 方法一
+let aa2: string = (<string>aa1) // 方法一
 let aa3: string = aa1 as string // 方法二, JSX只能用这种

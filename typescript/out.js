@@ -1,31 +1,11 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
+var cc = function (start) {
+    console.log(start);
+    return '';
 };
-class Point {
-    constructor(x, y) {
-        this._x = x;
-        this._y = y;
-    }
-    get x() {
-        return this._x;
-    }
-    get y() {
-        return this._y;
-    }
-}
-__decorate([
-    configurable(false)
-], Point.prototype, "x", null);
-__decorate([
-    configurable(false)
-], Point.prototype, "y", null);
-function configurable(value) {
-    return function (target, propertyKey, descriptor) {
-        descriptor.configurable = value;
-    };
-}
-let aa = new Point(1, 2);
-console.log(aa.x);
+// 这2个即使没有, 也不会报错, 有点像 optional 属性
+cc.interval = 3;
+cc.reset = function () {
+    console.log(this.interval);
+};
+cc(10);
+cc.reset();

@@ -2,7 +2,7 @@ function god(): void{
   console.log(3);
 }
 
-var kk = god();
+let kk = god();
 
 console.log(kk);
 

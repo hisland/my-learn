@@ -1,1 +1,1 @@
-var height: number = 6;
+let height: number = 6;

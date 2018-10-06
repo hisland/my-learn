@@ -11,4 +11,4 @@ function aa(num: number){ // 自动推断返回值是 number | string
 }
 
 let bb = aa(3) // bb type 是  number | string
-
+console.log(bb)
