@@ -9,6 +9,8 @@ var rs1 = list.findIndex(function(value, index, orgList) {
 console.log('rs1: ', rs1)
 console.log('这个相当于 forEach, 所有跑一遍, 没有结果返回-1')
 
+console.log('\n\n')
+
 var rs2 = list.findIndex(function(value, index, orgList) {
   console.log(value, index, orgList)
   return value === 2

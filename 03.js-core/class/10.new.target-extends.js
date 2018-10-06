@@ -12,7 +12,7 @@ class Bar extends Foo {
 }
 
 let aa = new Foo()
-let bb = new Bar() // new.target 都是指向 Bar
+let bb = new Bar() // 2层调用的 new.target 都是指向 Bar
 
 console.log(aa)
 console.log(bb)

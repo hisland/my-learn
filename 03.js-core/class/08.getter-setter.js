@@ -3,9 +3,11 @@ class Foo {
     this.god = 22
   }
   get abc() {
+    console.log('--- get abc: ')
     return 'this is abc'
   }
   set abc(val) {
+    console.log('--- set abc: ')
     this.god = 'set abc'
   }
 }

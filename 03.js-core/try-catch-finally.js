@@ -42,7 +42,7 @@ console.log('\n\n------------- try return 了');
 function aa(){
   try {
     console.log('下面一行返回值了');
-    return '横断山脉';
+    return '横断山脉'; // 没有错误这里已经返回了, 后续就不再执行
   } catch (e) {
     console.log('遇到错误', e);
   } finally {

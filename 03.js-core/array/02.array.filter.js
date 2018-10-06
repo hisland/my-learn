@@ -15,4 +15,4 @@ var rs2 = list.filter(function(value, key, orgList) {
 })
 
 console.log('rs2: ', rs2)
-console.log('返回 返回值为truthy的那个 value 的数组, 所有跑一遍')
+console.log('返回 返回值为 truthy 的那个 value 的数组, 所有跑一遍')

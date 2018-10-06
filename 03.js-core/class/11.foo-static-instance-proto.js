@@ -16,10 +16,10 @@ class Bar extends Foo {
 }
 
 
-console.log(Bar.foo1)
-console.log(Bar.foo2)
+console.log('clz-fn: ', Bar.foo1)
+console.log('clz-fn: ', Bar.foo2)
 
 let bb = new Bar()
 
-console.log(bb.foo1)
-console.log(bb.foo2)
+console.log('ins-fn: ', bb.foo1)
+console.log('ins-fn: ', bb.foo2)

@@ -2,7 +2,7 @@ var god = 'me';
 
 
 console.log(`
-oh god is ${god}, 
+oh god is ${god},
   next line:
 原样输出
 
@@ -14,6 +14,8 @@ function tag(tpl, a, b){ // 插值依次传入
 }
 
 var say = 'say', halo = 'halo', obj={tt: 'may'};
+
+// 模板 tag
 var b = tag`a god, ${say} ${halo}, ${obj.tt}`;
 console.log('return from tag: ', b);
 

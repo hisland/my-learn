@@ -15,4 +15,4 @@ var rs2 = list.find(function(value, key, orgList) {
 })
 
 console.log('rs2: ', rs2)
-console.log('返回 返回值为truthy的那个 value, 找到即退出循环')
+console.log('返回 返回值为 truthy 的那个 value, 找到即退出循环')
