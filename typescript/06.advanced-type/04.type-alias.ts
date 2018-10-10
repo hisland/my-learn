@@ -1,15 +1,13 @@
-type Name = string;
-type NameResolver = () => string;
-type NameOrResolver = Name | NameResolver;
+type Name = string
+type NameResolver = () => string
+type NameOrResolver = Name | NameResolver
 function getName(n: NameOrResolver): Name {
-    if (typeof n === "string") {
-        return n;
-    }
-    else {
-        return n();
-    }
+  if (typeof n === 'string') {
+    return n
+  } else {
+    return n()
+  }
 }
-
 
 // 另一个重要区别是类型别名不能被extends和implements（自己也不能extends和implements其它类型）。
 // 因为软件中的对象应该对于扩展是开放的，但是对于修改是封闭的，你应该尽量去使用接口代替类型别名。

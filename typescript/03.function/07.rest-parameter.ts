@@ -2,12 +2,10 @@
 // rest 参数 也相当于 optional, 如果没有它也是数组,只是空数组
 
 function buildName(firstName: string, ...restOfName: string[]) {
-  return firstName + " " + restOfName.join(" ");
+  return firstName + ' ' + restOfName.join(' ')
 }
 
-var employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+let employeeName = buildName('Joseph', 'Samuel', 'Lucas', 'MacKinzie')
 
 // 函数签名如下
-var buildNameFun: (fname: string, ...rest: string[]) => string = buildName;
-
-
+let buildNameFun: (fname: string, ...rest: string[]) => string = buildName

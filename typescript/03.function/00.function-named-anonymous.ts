@@ -2,10 +2,12 @@
 
 // Named function
 function add1(x, y) {
-    return x + y;
+  return x + y
 }
 
 // Anonymous function
-let add2 = function(x, y) { return x + y; };
+let add2 = function(x, y) {
+  return x + y
+}
 
-console.log(add1(1,'3'))
+console.log(add1(1, '3'))

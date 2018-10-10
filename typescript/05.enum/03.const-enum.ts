@@ -2,10 +2,10 @@
 // 常数枚举成员在使用的地方被内联进来。 这是因为常数枚举不可能有计算成员
 
 const enum Directions {
-    Up,
-    Down,
-    Left,
-    Right
+  Up,
+  Down,
+  Left,
+  Right,
 }
 
 console.log(Directions.Up)
