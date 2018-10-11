@@ -1,4 +1,2 @@
-let aa: undefined;
-
-aa = null // 开启 --strictNullChecks 不能这样赋值
-aa = undefined
+let aa1: undefined = undefined
+let aa2: undefined = null // 开启 --strictNullChecks 不能这样赋值
