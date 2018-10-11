@@ -1,3 +1,5 @@
+// 不懂为什么
+
 declare enum Enum {
   A = 1,
   B,
