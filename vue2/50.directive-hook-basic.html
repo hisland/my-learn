@@ -1,0 +1,52 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+</div>
+<pre>
+</pre>
+<script src="./vue.js"></script>
+<script>
+let vm = new Vue({
+  el: '#app',
+  template: `
+  <div class="compa">
+    <button @click="setRandom">set</button>
+    <button @click="show=!show">toggle</button>
+    <keep-alive>
+      <h1 v-if="show" v-dom-portal>{{what}}</h1>
+    </keep-alive>
+  </div>
+  `,
+  data() {
+    return {
+      what: 'hey1',
+      show: false,
+    };
+  },
+  methods: {
+    setRandom(){
+      this.what = Math.random()
+    }
+  },
+  directives: {
+    'dom-portal': {
+      bind (el, { value }, vnode) {
+        console.log('bind', el, value)
+      },
+      inserted (el, { value }, vnode) {
+        console.log('inserted', el, value)
+      },
+      update (el, { value }) { // need to make sure children are done updating (vs. `update`)
+        console.log('update', el, value)
+      },
+      componentUpdated (el, { value }) { // need to make sure children are done updating (vs. `update`)
+        console.log('componentUpdated', el, value)
+      },
+      unbind (el, binding) {
+        console.log('unbind', el, binding)
+      }
+    }
+  }
+})
+</script>
