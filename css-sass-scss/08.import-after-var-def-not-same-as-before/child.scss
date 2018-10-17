@@ -1,0 +1,10 @@
+$--bar: 30px !default;
+$--my: red;
+
+@import "parent";
+
+body {
+  margin: $--foo;
+  padding: $--bar;
+  color: $--my;
+}

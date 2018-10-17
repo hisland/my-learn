@@ -1,0 +1,14 @@
+.foo {
+  padding: 10px;
+  color: #333;
+}
+
+.bar {
+  margin: 10px;
+}
+
+.message {
+  @extend .foo;
+  @extend .bar;
+  padding: 20px;
+}

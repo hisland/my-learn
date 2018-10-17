@@ -1,0 +1,7 @@
+$--bar: 30px !default;
+$--my: red;
+body {
+  margin: $--foo;
+  padding: $--bar;
+  color: $--my;
+}

@@ -2,12 +2,12 @@
   width: 100%;
 }
 
-article[role='main'] {
+.aa {
   float: left;
   width: 600px / 960px * 100%;
 }
 
-aside[role='complementary'] {
+.bb {
   float: right;
   width: 300px / 960px * 100%;
 }

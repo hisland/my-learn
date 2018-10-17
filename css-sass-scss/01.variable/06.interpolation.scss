@@ -1,0 +1,9 @@
+$halo: red;
+$pd: padding;
+$some: var;
+
+body {
+  color: $halo;
+  #{$pd}: 10px; // padding: 10px;
+  some-#{$some}-thing: yes; // some-var-thing: yes;
+}

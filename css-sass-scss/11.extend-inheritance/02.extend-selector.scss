@@ -1,0 +1,9 @@
+.foo {
+  padding: 10px;
+  color: #333;
+}
+
+.message {
+  @extend .foo;
+  padding: 20px;
+}
