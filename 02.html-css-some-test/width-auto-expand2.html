@@ -1,0 +1,65 @@
+<!doctype html>
+
+<style>
+  *{margin:0;padding:0;}
+  body{
+    padding:20px;
+    background:#ddd;
+  }
+
+  .outerScroll1{
+    width: 300px;
+    height: 100px;
+    background:#aaa;
+    margin-bottom:20px;
+    padding:10px;
+    overflow: auto;
+  }
+
+  .displayFlex2{
+    background:purple;
+    color:#fff;
+    padding: 10px;
+  }
+  .displayFlex3{
+    background:green;
+    color:#fff;
+    white-space: nowrap;
+  }
+
+  .inlineBlock2{
+    display: inline-block;
+    background:green;
+    color:#fff;
+    white-space: nowrap;
+  }
+</style>
+
+<div class="outerScroll1">
+  <div class="displayFlex2" style="display:flex;">
+    <div>上层容器没有撑开</div>
+    <div class="displayFlex3">横向 flex-item 宽度 会被内容撑开  横向 flex-item 宽度 会被内容撑开 横向 flex-item 宽度 会被内容撑开</div>
+  </div>
+</div>
+
+<div class="outerScroll1">
+  <div class="displayFlex2" style="display:flex;flex-direction:column;">
+    <div>上层容器没有撑开</div>
+    <div class="displayFlex3">纵向 flex-item 宽度 没有撑开  纵向 flex-item 宽度 没有撑开 纵向 flex-item 宽度 没有撑开</div>
+  </div>
+</div>
+
+<div class="outerScroll1">
+  <div class="displayFlex2" style="display:flex;flex-direction:column;">
+    <div class="displayFlex2" style="display:flex;">
+      <div>多嵌套几层也是这种规律</div>
+      <div class="displayFlex3">纵向 flex-item 宽度 没有撑开  纵向 flex-item 宽度 没有撑开 纵向 flex-item 宽度 没有撑开</div>
+    </div>
+  </div>
+</div>
+
+<div class="outerScroll1">
+  <div class="inlineBlock2">
+    <div>inlineBlock 直接被子元素的内容撑开 inlineBlock 直接被子元素的内容撑开 inlineBlock 直接被子元素的内容撑开</div>
+  </div>
+</div>
