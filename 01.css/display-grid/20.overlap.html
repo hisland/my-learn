@@ -1,0 +1,39 @@
+<!doctype html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style type="text/css">
+	*{padding:0;margin:0;}
+	body{padding:50px;}
+	.box1{
+		background: pink;
+		width: 500px;
+		height: 500px;
+    display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+  }
+	.sub1{
+		background: red;
+		grid-column: 1/3;
+		grid-row: 1/3;
+	}
+	.sub2{
+		background: green;
+		grid-column: 2/4;
+		grid-row: 2/4;
+	}
+	.sub3{
+		background: purple;
+		grid-column: 3/5;
+		grid-row: 3/5;
+	}
+</style>
+
+<pre>
+	grid-template-areas All strings must have the same number of columns
+</pre>
+
+<div class="box1">
+  <div class="sub1">aa1</div>
+  <div class="sub2">aa2</div>
+  <div class="sub3">aa3</div>
+</div>

@@ -1,0 +1,28 @@
+<!doctype html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style type="text/css">
+	*{padding:0;margin:0;}
+	body{padding:50px;}
+	.box1{
+		background: pink;
+		width: 500px;
+		height: 500px;
+    display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(4, 1fr);
+  }
+	.sub1{
+		background: red;
+		grid-column: 2/5;
+		grid-row: 1/3;
+	}
+</style>
+
+<pre>
+	grid-column 指定列的左右2根线
+	grid-row 指定行的上下2根线
+</pre>
+
+<div class="box1">
+  <div class="sub1">aa1</div>
+</div>

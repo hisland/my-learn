@@ -1,0 +1,39 @@
+<!doctype html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style type="text/css">
+	*{padding:0;margin:0;}
+	body{padding:50px;}
+	.box1{
+		background: pink;
+		width: 500px;
+		height: 500px;
+    display: grid;
+		gap: 20px 10px;
+		grid-template-columns: [first nav-start] 150px [main-start] 1fr [last];
+  	grid-template-rows: [first header-start] 50px [main-start] 1fr [footer-start] 50px [last];
+		grid-template-areas:
+			"sub1 sub2"
+			"sub3 sub4"
+			"sub5 sub6";
+  }
+	.sub1{grid-area: sub1;background: red;}
+	.sub2{grid-area: sub2;background: green;}
+	.sub3{grid-area: sub3;background: blue;}
+	.sub4{grid-area: sub4;background: yellow;}
+	.sub5{grid-area: sub5;background: purple;}
+	.sub6{grid-area: sub6;background: cyan;}
+</style>
+
+<pre>
+	gap 缩写: <'row-gap'> <'column-gap'>?
+	<a href="https://www.w3.org/TR/css-grid-1/#change-2016-grid-gap">这是替换的  grid-gap, grid-row-gap, grid-column-gap 的对应属性名</a>
+</pre>
+
+<div class="box1">
+  <div class="sub1">aa1</div>
+  <div class="sub2">aa2</div>
+  <div class="sub3">aa3</div>
+  <div class="sub4">aa4</div>
+  <div class="sub5">aa5</div>
+  <div class="sub6">aa6</div>
+</div>

@@ -1,0 +1,27 @@
+<!doctype html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style type="text/css">
+	*{padding:0;margin:0;}
+	body{padding:50px;}
+	.box1{
+		background: pink;
+		width: 500px;
+		height: 500px;
+    display: grid;
+		grid-template-columns: [line1 first] 150px [line2] 1fr [line3] 30px [line4];
+  	grid-template-rows: [first row1] 50px [row2] 1fr [row3] 50px [last];
+  }
+	.sub1{
+		background: red;
+		grid-column: line2 / line3;
+		grid-row: row2/ row3;
+	}
+</style>
+
+<pre>
+	grid-template-columns/rows 线可以指定 1+ 个名字
+</pre>
+
+<div class="box1">
+  <div class="sub1">aa1</div>
+</div>
