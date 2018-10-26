@@ -10,30 +10,31 @@
 		padding: 20px;
 	}
 	.box1{
-		background: #000;
+		background: green;
     display: grid;
-		width: 200px;
-		height: 200px;
-		padding: 1px;
-		gap: 1px;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
+		gap: 10px;
+		grid-template-columns: repeat(5, 80px);
+		grid-template-rows: repeat(5, 80px);
   }
 	.sub1{
-		background: #fff;
-		border-radius: 5px;
+		background: red;
+		grid-column: 3;
+		grid-row: 3;
+	}
+	.sub2{
+		background: purple;
+		grid-column: 4;
+		grid-row: 4;
 	}
 </style>
 
 <pre>
-	没有指定, 自动 1 个 1 个地放置 grid-item
+	感觉好像是指定 行列格子, 没有找到说明
 </pre>
 
 <div class="pp">
 	<div class="box1">
 	  <div class="sub1">aa1</div>
-	  <div class="sub1">aa1</div>
-	  <div class="sub1">aa1</div>
-	  <div class="sub1">aa1</div>
+	  <div class="sub2">aa1</div>
 	</div>
 </div>
