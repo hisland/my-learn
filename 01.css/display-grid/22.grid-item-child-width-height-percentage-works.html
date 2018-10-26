@@ -1,0 +1,37 @@
+<!doctype html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style type="text/css">
+	*{padding:0;margin:0;}
+	body{padding:50px;}
+	.box1{
+		background: pink;
+		width: 300px;
+		height: 500px;
+    display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+  }
+	.sub1{
+		background: red;
+		grid-column: 2/4;
+		grid-row: 1/3;
+		z-index: 10;
+	}
+	.sub2{
+		height: 50%;
+		width: 30%;
+		background: green;
+		margin-left: 10%;
+		margin-top: 10%;
+	}
+</style>
+
+<pre>
+	grid-item 子元素 可以使用 百分比
+</pre>
+
+<div class="box1">
+  <div class="sub1">
+  	<div class="sub2"></div>
+  </div>
+</div>
