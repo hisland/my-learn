@@ -1,7 +1,5 @@
-let aa5
+type some = 'a' | 'b'
 
-aa5 = 3
-
-aa5 = 'a3'
-
-console.log(aa5)
+interface halo {
+  some
+}
