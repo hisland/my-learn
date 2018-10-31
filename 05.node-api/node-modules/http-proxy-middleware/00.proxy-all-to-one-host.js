@@ -3,8 +3,7 @@ const http = require('http')
 
 http
   .createServer(function(req, res) {
-    console.log('req 9010: ', req.url, req.headers)
-    res.setHeader('x-back', 'foo')
+    console.log('req 9010: ', req.url, req.headers.host)
     res.writeHead(200, { 'Content-Type': 'text/plain' })
     res.write('response from 9010\n')
     res.end()
@@ -14,19 +13,14 @@ http
   })
 
 // 下面这3行等价
-const proxyInst1 = proxyMiddleware('/abc', {
-  target: 'http://localhost:9010',
-  onProxyRes(proxyRes, req, res) {
-    // proxyRes 是 proxy 收到上游传回的 http.IncomingMessage
-    console.log('http.IncomingMessage: ', proxyRes instanceof http.IncomingMessage)
-    console.log(proxyRes.headers)
-  },
-})
+const proxyInst1 = proxyMiddleware({ target: 'http://localhost:9010' })
+const proxyInst2 = proxyMiddleware('/', { target: 'http://localhost:9010' })
+const proxyInst3 = proxyMiddleware('**', { target: 'http://localhost:9010' })
 
 http
   .createServer(function(req, res) {
     console.log()
-    console.log('req 9000: ', req.url)
+    console.log('req 9000: ', req.url, req.headers.host)
     proxyInst1(req, res, function() {
       console.log('not proxy')
       res.end('hey')
