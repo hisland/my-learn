@@ -14,12 +14,11 @@
 
 <body>
   <pre>
-
-</pre>
+  * new 出来的是用的 is 属性, 获得 css 样式
+  </pre>
   <div id="result"></div>
   <script>
   var myElement = document.registerElement('user-profile', {
-    prototype: Object.create(HTMLElement.prototype),
     extends: 'h1'
   })
   var h1 = new myElement()
