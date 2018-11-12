@@ -1,6 +1,3 @@
 import Person from './foo'
 
-
-Person
-
-
+console.log(Person)
