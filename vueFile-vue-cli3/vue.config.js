@@ -12,4 +12,8 @@ module.exports = {
 
     config.entry = './main.js'
   },
+  devServer: {
+    host: 'localhost',
+    port: 8180,
+  },
 }
