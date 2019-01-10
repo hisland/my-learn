@@ -6,7 +6,7 @@ const outFile = 'out.js'
 gulp.task('default', function() {
   const watcher1 = gulp.watch('**/*.ts')
   watcher1.on('change', function(path, stats) {
-    console.log(' >>> build <<< : ', path, stats)
+    console.log('\n\n >>> build <<< : ', path, stats)
     spawn(
       `tsc`,
       [
