@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>new document</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style>
+    * { margin: 0; padding: 0; }
+    body { padding: 50px; }
+    .aa1{padding-top: 10px;background: green;width:500px;}
+    .aa2{display: flex;width:250px;background: pink;padding-top: 10px;}
+    .aa3{width:250px;background: yellowgreen;}
+    .bb{flex: 1 1 0;font-size: 16px;width:100%;}
+    .cc{flex: 0 0 80px;background: tomato;}
+    .dd{width: 100%;box-sizing: border-box;font-size: 16px;}
+  </style>
+</head>
+
+<body>
+  <div class="aa1">
+    <div class="aa3">hey1</div>
+    <div class="aa2">
+      <input class="bb" type="text" value="bb" />
+      <span class="cc">halo</span>
+    </div>
+    <div class="aa3">hey2</div>
+    <div class="aa2">
+      <div class="bb">bb</div>
+      <span class="cc">halo</span>
+    </div>
+    <div class="aa3">hey2</div>
+    <div class="aa2">
+      <div class="bb">
+        <input class="dd" type="text" value="bb" />
+      </div>
+      <span class="cc">halo</span>
+    </div>
+  </div>
+  <pre>
+    * 解决方案: 把原本作用于 input 的样式作用于放到一个 div, 让它来包裹 input
+  </pre>
+</body>
+
+</html>
