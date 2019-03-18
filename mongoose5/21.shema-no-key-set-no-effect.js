@@ -11,12 +11,8 @@ const Dog = mongoose.model('dog', schema1, 'dog')
 
 const one1 = new Dog({
   dogHair: 'black',
+  noExist1: 1,
 })
-one1.dogName = 'bik'
-
-const one2 = new Dog(one1)
-one2.dogName = 'foo'
+one1.noExist2 = 'bik'
 
 console.log(one1)
-console.log(one2)
-console.log('one1 === one2: ', one1 === one2)
