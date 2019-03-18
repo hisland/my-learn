@@ -1,0 +1,88 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+  <aa>
+
+  </aa>
+</div>
+<template id="aa">
+  <div class="aa1" v-if="qq">
+    aa1 <button @click="qq=!qq">toggle</button>
+  </div>
+  <div class="aa2" v-else>
+    aa2 <button @click="qq=!qq">toggle</button>
+  </div>
+</template>
+<template id="bb">
+  <div class="bb">
+    <slot :bb="456"></slot>
+  </div>
+</template>
+<template id="cc">
+  <div class="cc">
+    <slot :aa="123"></slot>
+  </div>
+</template>
+<pre>
+</pre>
+<!-- <script src="vue.js"></script> -->
+<script crossorigin="anonymous"
+        integrity="sha384-tJs0vlPyuG7XcysSkZ0VtWsM/uztJkUtpLwb6HzV5NSgSwGqdW61IBOBJDhbUf+K"
+        src="https://lib.baomitu.com/vue/2.6.8/vue.min.js"></script>
+<script>
+  const Demo = {
+    el: '#app',
+    data() {
+      return {
+        aa: 'aa in root'
+      };
+    },
+  }
+  const aa = {
+    template: '#aa',
+    methods: {},
+    data() {
+      return {
+        qq: false
+      };
+    },
+    created() {
+      console.log('1created', this.$scopedSlots)
+    },
+    mounted() {
+    },
+  }
+  const bb = {
+    template: '#bb',
+    methods: {},
+    created() {
+      console.log('2created', this.$scopedSlots.default)
+    },
+    mounted() {
+      let aa1 = this.$scopedSlots.default()[0]
+      let aa2 = this.$scopedSlots.default()[0]
+      console.log('2mounted', aa1 === aa2, aa1, aa2)
+    },
+  }
+  const cc = {
+    template: '#cc',
+    methods: {},
+    created() {
+      console.log('3created', this.$scopedSlots.default)
+    },
+    mounted() {
+      let aa1 = this.$scopedSlots.default()[0]
+      let aa2 = this.$scopedSlots.default()[0]
+      console.log('3mounted', aa1 === aa2, aa1, aa2)
+      // console.log(document.contains(this.$el))
+      // console.log(this.$el.parentNode.parentNode)
+      // console.log(this.$el.parentNode.parentNode.parentNode)
+      // console.log(this.$el.parentNode.parentNode.parentNode.parentNode)
+    },
+  }
+  Vue.component('aa', aa)
+  Vue.component('bb', bb)
+  Vue.component('cc', cc)
+  new Vue(Demo)
+</script>

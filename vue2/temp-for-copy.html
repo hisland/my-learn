@@ -4,25 +4,32 @@
 <div id="app">
 </div>
 <pre>
-  * data methods 使用相同名字, 报错并提示
 </pre>
 <script src="./vue.js"></script>
 <script>
-  let vm = new Vue({
-    el: '#app',
-    data(){
-      return {
-        some: 'parent val'
+let vm = new Vue({
+  el: '#app',
+  template: `
+    <input type="text" :value="WIDTH_IN" @change="setReuseConfig('WIDTH_IN', $event)" />
+  `,
+  data() {
+    return {
+      WIDTH_IN: 123,
+    };
+  },
+  methods: {
+    setReuseConfig(key, ee) {
+      this[key] = ee.target.value // 先设置一下, 不然后面值相同不会更新, 可能是 vue 内部的优化
+      const val = parseInt(ee.target.value)
+      console.log(1, key, val)
+      if (!isNaN(val) && val >= 0) {
+        console.log(2, key, val)
+        this[key] = val
+      } else {
+        console.log(3, key, val)
+        this[key] = 5
       }
     },
-    template: `
-  <div></div>
-    `,
-    methods: {
-      some(){
-        console.log(3, this, this.some)
-      }
-    }
-  })
-
+  },
+})
 </script>

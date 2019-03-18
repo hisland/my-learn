@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+  <aa></aa>
+</div>
+<template id="aa">
+  <div class="aa1" v-if="qq">
+    aa1 <button @click="qq=!qq">toggle</button>
+  </div>
+  <div class="aa2" v-else>
+    aa2 <button @click="qq=!qq">toggle</button>
+  </div>
+</template>
+<pre>
+</pre>
+<script src="vue.js"></script>
+<script>
+  const Demo = {
+    el: '#app',
+  }
+  const aa = {
+    template: '#aa',
+    methods: {},
+    data() {
+      return {
+        qq: false
+      };
+    },
+  }
+  Vue.component('aa', aa)
+  new Vue(Demo)
+</script>

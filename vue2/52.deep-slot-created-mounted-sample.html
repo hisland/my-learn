@@ -1,0 +1,66 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+  <aa>
+    <bb>
+      <cc>
+        <h1>halo</h1>
+      </cc>
+    </bb>
+  </aa>
+</div>
+<template id="aa">
+  <div class="aa">
+    <slot></slot>
+  </div>
+</template>
+<template id="bb">
+  <div class="bb">
+    <slot></slot>
+  </div>
+</template>
+<template id="cc">
+  <div class="cc">
+    <slot></slot>
+  </div>
+</template>
+<pre>
+</pre>
+<!-- <script src="vue.js"></script> -->
+<script crossorigin="anonymous"
+        integrity="sha384-tJs0vlPyuG7XcysSkZ0VtWsM/uztJkUtpLwb6HzV5NSgSwGqdW61IBOBJDhbUf+K"
+        src="https://lib.baomitu.com/vue/2.6.8/vue.min.js"></script>
+<script>
+  const Demo = {
+    el: '#app'
+  }
+  const aa = {
+    template: '#aa',
+    methods: {},
+    created() { console.log('1created', this.$slots.default) },
+    mounted() { console.log('1mounted', this.$slots.default) },
+  }
+  const bb = {
+    template: '#bb',
+    methods: {},
+    created() { console.log('2created', this.$slots.default) },
+    mounted() { console.log('2mounted', this.$slots.default) },
+  }
+  const cc = {
+    template: '#cc',
+    methods: {},
+    created() { console.log('3created', this.$slots.default) },
+    mounted() {
+      console.log('3mounted', this.$slots.default)
+      console.log(document.contains(this.$el))
+      console.log(this.$el.parentNode.parentNode)
+      console.log(this.$el.parentNode.parentNode.parentNode)
+      console.log(this.$el.parentNode.parentNode.parentNode.parentNode)
+    },
+  }
+  Vue.component('aa', aa)
+  Vue.component('bb', bb)
+  Vue.component('cc', cc)
+  new Vue(Demo)
+</script>
