@@ -5,12 +5,14 @@ module.exports = {
     //   config.devtool = false
     // }
 
-    config.devtool = false
+    // config.devtool = false
     if (config.optimization) {
-      config.optimization.minimizer = []
+      // config.optimization.minimizer = []
+      // console.log(config.optimization.splitChunks)
+      config.optimization.splitChunks.cacheGroups.common.chunks = 'all'
     }
 
-    config.entry = './main.js'
+    config.entry = './temp/main.js'
   },
   devServer: {
     host: 'localhost',

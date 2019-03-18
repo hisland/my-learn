@@ -15,12 +15,21 @@ export default {
   data() {
     return {
       val: (count += 10),
+      a: {}
     }
+  },
+  watch: {
+    'a.b.c'() {
+      console.log(33)
+    },
   },
   methods: {
     add() {
       this.val++
     },
+  },
+  mounted() {
+    window.kkk = this
   },
 }
 </script>

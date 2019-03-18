@@ -1,25 +1,32 @@
 <template>
   <div id="app">
-    <CompA>
-      <div>default</div>
-      <div slot="aa">aa</div>
-      <div slot="bb" slot-scope="what">bb {{what.foo}}</div>
-      <div slot="cc">cc</div>
-    </CompA>
+    <div>{{bbq}}</div>
+    <CompB :val="bbq">
+      <div>some</div>
+      <slot></slot>
+    </CompB>
   </div>
 </template>
 
 <script>
-const CompA = () => import(/* webpackChunkName: "CompA" */ './CompA.vue')
-
 export default {
-  components: {
-    CompA,
+  el: '#app',
+  components: {},
+  data() {
+    return {
+      bbq: '',
+    }
   },
-  name: 'app',
+  methods: {},
+  beforeCreate() {
+    console.log('app: beforeCreate', this.$slots.default)
+  },
+  created() {
+    console.log('app: created', this.$slots.default)
+  },
+  mounted() {},
 }
 </script>
 
 <style>
-
 </style>
