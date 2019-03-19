@@ -2,3 +2,5 @@
 
 let aa1: object = { a: 1 }
 console.log(aa1)
+
+export { aa1 }

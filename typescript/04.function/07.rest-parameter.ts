@@ -9,3 +9,5 @@ let employeeName = buildName('Joseph', 'Samuel', 'Lucas', 'MacKinzie')
 
 // 函数签名如下
 let buildNameFun: (fname: string, ...rest: string[]) => string = buildName
+
+export const preventVSCodeError = 1

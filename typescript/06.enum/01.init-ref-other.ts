@@ -18,3 +18,5 @@ enum Direction2 {
 
 // 查看输出
 console.log(Direction2)
+
+export const preventVSCodeError = 1

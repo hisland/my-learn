@@ -1,5 +1,10 @@
-let x = (a: number) => 0
-let y = (b: number, s: string) => 0
+function xx(a: number): number
+function xx(a: number, y: boolean): number
 
-y = x // OK
-x = y // Error
+function xx(a: number): number {
+  return 3
+}
+
+console.log(xx(3, true))
+
+export const preventVSCodeError = 1

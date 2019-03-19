@@ -11,3 +11,5 @@ let add2 = function(x, y) {
 }
 
 console.log(add1(1, '3'))
+
+export const preventVSCodeError = 1

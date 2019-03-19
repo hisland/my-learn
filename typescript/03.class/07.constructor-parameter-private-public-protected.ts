@@ -25,3 +25,15 @@ class Animal4 {
     console.log(this.name, ' moved ' + meters + 'm.')
   }
 }
+
+let aa1 = new Animal1('hey1')
+let aa2 = new Animal2('hey2')
+let aa3 = new Animal3('hey3')
+let aa4 = new Animal4('hey4')
+
+aa1.move(1)
+aa2.move(2)
+aa3.move(3)
+aa4.move(4)
+
+export { Animal1 }

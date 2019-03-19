@@ -6,3 +6,5 @@ let aa1: any = 'hey'
 
 let aa2: string = <string>aa1 // 方法一 angle-bracket syntax
 let aa3: string = aa1 as string // 方法二, as-syntax,  JSX 只能用这种
+
+export { aa1 }

@@ -22,3 +22,5 @@ class C {
 
 let aa = new C()
 aa.hey()
+
+export const preventVSCodeError = 1

@@ -9,3 +9,5 @@ console.log('1: ', a, b)
 // assignment without declaration
 ;({ a, b } = { a: 'baz', b: 101 })
 console.log('2: ', a, b)
+
+export const preventVSCodeError = 1

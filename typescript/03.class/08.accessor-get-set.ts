@@ -5,7 +5,7 @@ class Employee1 {
 let ee1 = new Employee1()
 ee1.fullName = 'Bob Smith'
 if (ee1.fullName) {
-  console.log(ee1.fullName)
+  console.log(1, ee1.fullName)
 }
 
 let passcode = 'secret passcode'
@@ -27,5 +27,7 @@ class Employee2 {
 let ee2 = new Employee2()
 ee2.fullName = 'Bob Smith'
 if (ee2.fullName) {
-  console.log(ee2.fullName)
+  console.log(2, ee2.fullName)
 }
+
+export { Employee1 }

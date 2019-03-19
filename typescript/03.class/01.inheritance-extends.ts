@@ -28,3 +28,5 @@ let aa = new Horse('bobo')
 
 ss.move()
 aa.move()
+
+export { Animal }

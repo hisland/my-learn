@@ -20,3 +20,5 @@ class Hey2 {
     console.log(3)
   }
 }
+
+export const preventVSCodeError = 1

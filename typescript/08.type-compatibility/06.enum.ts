@@ -1,5 +1,17 @@
-let x = (a: number) => 0
-let y = (b: number, s: string) => 0
+enum Status {
+  Ready,
+  Waiting,
+}
+enum Color {
+  Red,
+  Blue,
+  Green,
+}
 
-y = x // OK
-x = y // Error
+let status = Status.Ready
+
+status = 2 // OK
+
+status = Color.Green // Error
+
+export const preventVSCodeError = 1

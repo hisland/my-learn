@@ -16,3 +16,5 @@ let cardPicker = deck.createCardPicker()
 let pickedCard = cardPicker()
 
 console.log('card: ' + pickedCard.card + ' of ' + pickedCard.suit)
+
+export const preventVSCodeError = 1

@@ -1,14 +1,17 @@
-interface Hello{
-  (god: string): void; // 调用签名
+interface Hello {
+  (god: string): void // 调用签名
 }
 
-function aa(num: number){ // 自动推断返回值是 number | string
+function aa(num: number) {
+  // 自动推断返回值是 number | string
   if (num < 3) {
-    return 'hey';
+    return 'hey'
   } else {
-    return num;
+    return num
   }
 }
 
 let bb = aa(3) // bb type 是  number | string
 console.log(bb)
+
+export { Hello }

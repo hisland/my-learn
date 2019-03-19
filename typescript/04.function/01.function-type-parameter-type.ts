@@ -29,3 +29,6 @@ let myAdd3: (x: number, y: number) => number
 let myAdd5: (x: number, y: number) => void
 let myAdd6: (x: number, y: number) => any
 let myAdd4: (x: number, y: number); // 不可以这样, 必须有 =>
+
+
+export const preventVSCodeError = 1

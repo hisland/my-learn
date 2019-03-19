@@ -66,3 +66,5 @@ function findKeeper<A extends Animal, K>(a: {
 }
 
 findKeeper(Lion).nametag // typechecks!
+
+export const preventVSCodeError = 1

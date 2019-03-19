@@ -43,3 +43,5 @@ function identity5<T>(arg: T): T {
 }
 
 let myIdentity5: GenericIdentityFn2<number> = identity5 // 这个已经强制 myIdentity 只接受number
+
+export const preventVSCodeError = 1

@@ -16,3 +16,5 @@ class Hey {
     console.log(3)
   }
 }
+
+export const preventVSCodeError = 1

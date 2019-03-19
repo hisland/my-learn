@@ -9,9 +9,10 @@ aa2[1] = 'b' // ok
 aa2[3] = 'b' // error: out-of-bounds in tuple
 console.log(aa2)
 
-
 let aa3: [number, string, boolean] = [2, 'a', true]
 aa3[5] = 'b' // error: out-of-bounds in tuple
 console.log(aa3)
 
 // 越界默认为联合类型 union-type
+
+export { aa1 }

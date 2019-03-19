@@ -28,3 +28,5 @@ console.log('card: ' + pickedCard1.card + ' of ' + pickedCard1.suit)
 
 let pickedCard2 = pickCard(15)
 console.log('card: ' + pickedCard2.card + ' of ' + pickedCard2.suit)
+
+export const preventVSCodeError = 1

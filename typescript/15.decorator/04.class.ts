@@ -16,3 +16,5 @@ function sealed(constructor: Function) {
 
 let aa = new Greeter('halo')
 console.log(aa.greet())
+
+export const preventVSCodeError = 1

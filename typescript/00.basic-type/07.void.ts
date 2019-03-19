@@ -21,3 +21,5 @@ function god3(): void {
 
 let aa3 = god3()
 console.log(aa3)
+
+export { aa1 }

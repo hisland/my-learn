@@ -10,3 +10,5 @@ function greet(n: Named) {
   console.log('Hello, ' + n.name)
 }
 greet(y) // OK
+
+export const preventVSCodeError = 1

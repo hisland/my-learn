@@ -23,3 +23,5 @@ department = new AccountingDepartment() // ok to create and assign a non-abstrac
 department.printName()
 department.printMeeting()
 department.generateReports() // error: method doesn't exist on declared abstract type
+
+export { Department }

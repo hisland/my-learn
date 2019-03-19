@@ -20,3 +20,5 @@ console.log(stringNumeric.add(stringNumeric.zeroValue, 'test'))
 // Generic classes are only generic over their instance side
 // rather than their static side, so when working with classes,
 // static members can not use the class's type parameter.
+
+export const preventVSCodeError = 1

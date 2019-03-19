@@ -5,3 +5,5 @@ declare enum Enum {
   B,
   C = 2,
 }
+
+export const preventVSCodeError = 1

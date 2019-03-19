@@ -10,3 +10,5 @@ let result11 = buildName('Bob') // works correctly now, returns "Bob Smith"
 let result2 = buildName(7, undefined) // still works, also returns "Bob Smith"
 let result3 = buildName(7, 'Adams', 'Sr.') // error, too many parameters
 let result4 = buildName(7, 'Adams') // ah, just right
+
+export const preventVSCodeError = 1

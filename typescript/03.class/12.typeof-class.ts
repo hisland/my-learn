@@ -21,3 +21,5 @@ console.log(Greeter.standardGreeting) // static changed!
 // greeterMaker的instance可以直接用 Greeter 指定, 两者互换
 let greeter2: Greeter = new greeterMaker()
 console.log(greeter2.greet()) // static changed!
+
+export { Greeter }

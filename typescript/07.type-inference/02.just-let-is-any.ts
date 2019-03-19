@@ -8,3 +8,5 @@ console.log(aa1)
 
 aa1 = 'bbq'
 console.log(aa1)
+
+export const preventVSCodeError = 1

@@ -7,3 +7,5 @@ console.log(second) // outputs 2
 ;[first, second] = [second, first]
 console.log(first) // outputs 2
 console.log(second) // outputs 1
+
+export { input }

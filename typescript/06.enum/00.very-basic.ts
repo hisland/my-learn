@@ -28,3 +28,7 @@ enum Direction3 {
 }
 
 console.log(Direction3)
+console.log(Direction3.Up)
+console.log(Direction3[1])
+
+export const preventVSCodeError = 1

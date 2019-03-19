@@ -14,3 +14,5 @@ console.log(Directions.Left)
 console.log(Directions.Right)
 
 console.log(Directions) // 并没有这玩意儿 编译报错
+
+export const preventVSCodeError = 1

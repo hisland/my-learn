@@ -28,3 +28,5 @@ let result33 = buildName3('Bob', 'Adams') //ah, just right
 
 //参数顺序 require, [optional | default]
 // default 是 optional只是有默认值而已
+
+export const preventVSCodeError = 1

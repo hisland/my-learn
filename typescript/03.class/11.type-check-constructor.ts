@@ -4,8 +4,11 @@ interface ClockStatic {
 
 class Clock {
   currentTime: Date
-  constructor(h: number, m: number) {}
+  constructor(public h: number, public m: number) {}
 }
 
-var cs: ClockStatic = Clock // 接口检查类的 constructor
-var newClock: Clock = new cs(7, 30)
+const cs: ClockStatic = Clock // 接口检查类的 constructor
+const newClock: Clock = new cs(7, 30)
+console.log(newClock)
+
+export { ClockStatic }

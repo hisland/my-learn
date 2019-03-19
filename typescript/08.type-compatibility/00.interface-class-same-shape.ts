@@ -15,3 +15,5 @@ let aa2: Named = {
   name: 'wtf',
 }
 console.log(aa2)
+
+export const preventVSCodeError = 1

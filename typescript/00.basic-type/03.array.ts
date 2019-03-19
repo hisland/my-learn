@@ -7,3 +7,5 @@ let list2: Array<number> = []
 list2 = [4, 5, 6]
 
 // 数组里面只能放相同类型
+
+export { list1 }

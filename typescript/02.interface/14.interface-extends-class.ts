@@ -1,16 +1,18 @@
 class Control {
-    private state: any;
+  private state: any
 }
 
 interface SelectableControl extends Control {
-    select(): void;
+  select(): void
 }
 
 class Button extends Control {
-    select() {
-      console.log(1)
-    }
+  select() {
+    console.log(1)
+  }
 }
 
-let b1: SelectableControl = new Button
+let b1: SelectableControl = new Button()
 b1.select()
+
+export { Control }
