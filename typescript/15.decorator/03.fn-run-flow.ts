@@ -12,15 +12,19 @@ function goo() {
   }
 }
 
+console.log('1...')
 class C {
   @foo()
   @goo()
   hey() {
-    console.log('hey')
+    console.log('hello!')
   }
 }
 
+console.log('2...')
 let aa = new C()
+console.log('3...')
 aa.hey()
+console.log('4...')
 
 export const preventVSCodeError = 1
