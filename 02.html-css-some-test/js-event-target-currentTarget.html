@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <title>new document</title>
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,user-scalable=no">
+  <style>
+    body {
+      padding: 100px;
+    }
+
+    .box {
+      padding: 30px;
+    }
+
+    .box1 {
+      background-color: red;
+    }
+
+    .box2 {
+      background-color: pink;
+    }
+
+    .box3 {
+      background-color: cyan;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="box box1" @click="EchoClick">
+      <div class="box box2" @click="EchoClick">
+        <div class="box box3" @click="EchoClick">
+          halo
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1> target 是事件发生的元素, currentTarget 是事件注册的元素</h1>
+
+  <script crossorigin="anonymous"
+          integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y"
+          src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+  <script>
+    window.onload = function () {
+      new Vue({
+        el: '#app',
+        data: {
+        },
+        methods: {
+          EchoClick(ee) {
+            console.log('vue:', ee, ee.target, ee.currentTarget)
+          }
+        }
+      })
+
+      document.querySelector('.box1').onclick = function (ee) {
+        console.log('native:', ee, this)
+      }
+    }
+  </script>
+</body>
+
+</html>
