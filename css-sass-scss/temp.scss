@@ -1,0 +1,8 @@
+@mixin aa {
+  color: red;
+}
+
+.bb {
+  @include aa;
+  background: green;
+}
