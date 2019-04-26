@@ -1,0 +1,15 @@
+$--color: red;
+$--foo: blue;
+$--bar: green;
+
+.moda {
+  color1: $--color;
+
+  color2: $--foo;
+  $--foo: pink; // 局部修改, 外面不变
+  color3: $--foo; // 这里是局部新值
+
+  color4: $--bar;
+  $--bar: yellow !global; // 全局修改, 外面能得到新值
+  color5: $--bar;
+}

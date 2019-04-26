@@ -1,0 +1,9 @@
+@import 'moda';
+
+.var {
+  background: $--color;
+  color1: $--foo;
+  color2: $--bar;
+}
+
+@import 'modb';
