@@ -1,13 +1,13 @@
 module.exports = {
-  baseUrl: './',
+  publicPath: './',
   configureWebpack(config) {
     // if (config.mode === 'development') {
     //   config.devtool = false
     // }
 
-    // config.devtool = false
+    config.devtool = false
     if (config.optimization) {
-      // config.optimization.minimizer = []
+      config.optimization.minimizer = []
       // console.log(config.optimization.splitChunks)
       config.optimization.splitChunks.cacheGroups.common.chunks = 'all'
     }
