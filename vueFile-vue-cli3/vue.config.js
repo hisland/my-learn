@@ -1,5 +1,6 @@
 module.exports = {
   publicPath: './',
+  transpileDependencies: ['sum-float'],
   configureWebpack(config) {
     // if (config.mode === 'development') {
     //   config.devtool = false
