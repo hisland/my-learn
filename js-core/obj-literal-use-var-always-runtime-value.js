@@ -1,30 +1,26 @@
 // 对象字面量, 在生成的地方, 才使用变量的值
 
-var a = Math.random();
+let aa = Math.random()
 
-function bb(){
+function bb() {
   return {
-    a: a
-  };
+    aa: aa,
+  }
 }
 
-console.log(bb()); // a使用第一次的值
-a = Math.random();
-console.log(bb()); // a使用新值
-a = Math.random();
-console.log(bb()); // a使用新值2
+console.log(bb()) // aa 使用第一次的值
+aa = Math.random()
+console.log(bb()) // aa 使用新值 第1次
+aa = Math.random()
+console.log(bb()) // aa 使用新值 第2次
 
-
-
-var a = {};
-
-function bb(){
+let aa = {}
+function bb() {
   return {
-    a: a
-  };
+    aa: aa,
+  }
 }
 
-console.log(a = bb()); //
-console.log(a = bb()); //
-console.log(a = bb()); // 每次生成的时候, 都指向a的最新引用
-
+console.log((aa = bb())) //
+console.log((aa = bb())) //
+console.log((aa = bb())) // 每次生成的时候, 都指向aa的最新引用

@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
-var list = [1, 2, 'a', 'b']
+let list = [1, 2, 'a', 'b']
 
-var rs1 = list.every(function(value, key, orgList) {
+let rs1 = list.every(function(value, key, orgList) {
   console.log(value, key, orgList)
-  return true;
+  return true
 })
 
 console.log('rs1: ', rs1)
@@ -12,7 +12,7 @@ console.log('全 true, 相当于 forEach')
 
 console.log('\n\n')
 
-var rs2 = list.every(function(value, key, orgList) {
+let rs2 = list.every(function(value, key, orgList) {
   console.log(value, key, orgList)
   return value === 2
 })

@@ -1,5 +1,5 @@
-var aa = {}
-var bb = {val: 1, val2: {sub: 2}}
+let aa = {}
+let bb = { val: 1, val2: { sub: 2 } }
 
 Object.assign(aa, bb)
 

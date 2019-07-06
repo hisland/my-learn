@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-var list = [1, 2, 'a', 'b']
+let list = [1, 2, 'a', 'b']
 
-var rs1 = list.findIndex(function(value, index, orgList) {
+let rs1 = list.findIndex(function(value, index, orgList) {
   console.log(value, index, orgList)
 })
 
@@ -11,7 +11,7 @@ console.log('这个相当于 forEach, 所有跑一遍, 没有结果返回-1')
 
 console.log('\n\n')
 
-var rs2 = list.findIndex(function(value, index, orgList) {
+let rs2 = list.findIndex(function(value, index, orgList) {
   console.log(value, index, orgList)
   return value === 2
 })

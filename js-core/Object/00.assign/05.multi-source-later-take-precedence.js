@@ -1,6 +1,6 @@
-var aa = {val: {sub: 'hey'}}
-var bb = {val: 1}
-var cc = {val: 'cc'}
+let aa = { val: { sub: 'hey' } }
+let bb = { val: 1 }
+let cc = { val: 'cc' }
 
 // 其实多个就是单个的循环版本
 // 相当于循环依次合并到 aa
@@ -10,4 +10,3 @@ var cc = {val: 'cc'}
 Object.assign(aa, bb, cc)
 
 console.log(aa, bb, cc)
-
