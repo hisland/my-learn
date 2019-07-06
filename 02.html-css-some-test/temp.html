@@ -6,12 +6,75 @@
   <title>new document</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1,user-scalable=no">
+  <style>
+    body {
+      padding: 100px;
+    }
+
+    .outerWrap {
+      display: flex;
+      justify-content: center;
+      height: 100px;
+      background: rgba(0, 255, 0, .3);
+    }
+
+    .rightDownTurnBox {
+      display: flex;
+      height: 100px;
+      /* background: green; */
+
+      transform-origin: left;
+      transform: skewY(6deg);
+    }
+
+    .rightUpTurnBox {
+      display: flex;
+      /* background: purple; */
+      transform-origin: left;
+      transform: skewY(-6deg);
+    }
+
+    .box99 {
+      width: 100px;
+      height: 100px;
+      background: purple;
+    }
+
+  </style>
 </head>
 
 <body>
-  <p>
-    解决方案: 把原本作用于 input 的样式作用于放到一个 div, 让它来包裹 input
-  </p>
+  <div class="outerWrap">
+    <div class="rightDownTurnBox">
+      <div class="box99"></div>
+      <div class="rightUpTurnBox">
+        <div class="box99"></div>
+        <div class="rightUpTurnBox">
+          <div class="box99"></div>
+          <div class="rightUpTurnBox">
+            <div class="box99"></div>
+            <div class="rightDownTurnBox">
+              <div class="box99"></div>
+              <div class="rightDownTurnBox">
+                <div class="box99"></div>
+                <div class="rightDownTurnBox">
+                  <div class="box99"></div>
+                  <div class="rightDownTurnBox">
+                    <div class="box99"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    下面的文字下面的文字下面的文字下面的文字下面的文字下面的文字下面的文字
+    下面的文字下面的文字下面的文字下面的文字下面的文字下面的文字下面的文字
+    下面的文字下面的文字下面的文字下面的文字下面的文字下面的文字下面的文字
+  </div>
 </body>
 
 </html>

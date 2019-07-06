@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>title</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <style>
+    .app{ }
+    .col1{padding:10px;color:#FF3A00;}
+    .col2{padding:10px;color:#888;background:#f5f7fa;}
+    .col3{padding:10px;background:#49287c;color:#fff;}
+    .col4{padding:10px;}
+    .col5 input{padding:10px;display: block;width:100%;box-sizing: border-box;margin:5px;}
+    .col5 input{color:#888;background:#f5f7fa;}
+    .col5 .bbb{-webkit-text-fill-color:#888;}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="col1">Chrome呈现的颜色与Safari和Firefox的颜色不同</div>
+    <div class="col2">Chrome呈现的颜色与Safari和Firefox的颜色不同</div>
+    <div class="col3">Chrome呈现的颜色与Safari和Firefox的颜色不同</div>
+    <div class="col4">Chrome呈现的颜色与Safari和Firefox的颜色不同</div>
+    <div class="col5">
+      <input type="text" value="Chrome呈现的颜色与Safari和Firefox的颜色不同">
+      <input type="text" value="Chrome呈现的颜色与Safari和Firefox的颜色不同" disabled>
+      <input class="bbb" type="text" value="Chrome呈现的颜色与Safari和Firefox的颜色不同" disabled>
+    </div>
+  </div>
+
+  <pre>
+safari input disabled 的时候, 颜好诡异, 灰度值中间会跳跃, 经历 明-暗-明-暗 这样的变化
+通过 -webkit-text-fill-color 来设置 color 好像可以
+  </pre>
+
+</body>
+</html>

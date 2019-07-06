@@ -10,7 +10,7 @@ o = Object.create(null);
 
 // 对象字面量
 o = {};
-// is equivalent to:
+// 相当于下面这样:
 o = Object.create(Object.prototype);
 
 
