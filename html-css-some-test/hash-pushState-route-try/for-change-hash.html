@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>new document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div><input type="text" v-model="count1"> <button
+              @click="forward()">go</button></div>
+    <div><input type="text" v-model="count2"> <button
+              @click="backward()">back</button></div>
+  </div>
+  <pre>
+
+  </pre>
+  <script crossorigin="anonymous"
+          integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y"
+          src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          hashPath: 0,
+          count1: 1,
+          count2: 1,
+        }
+      },
+      methods: {
+        forward() {
+          for (let ii = 0; ii < this.count1; ii++) {
+            this.hashPath += 1
+            location.hash = this.hashPath
+          }
+        },
+        backward() {
+          for (let ii = 0; ii < this.count2; ii++) {
+            history.back()
+          }
+        }
+      },
+      mounted() {
+      }
+    })
+    window.onhashchange = function () {
+      console.log('onhashchange', location.hash)
+    }
+  </script>
+</body>
+
+</html>
