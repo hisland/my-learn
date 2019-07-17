@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-  <title>aa</title>
+  <title>bb</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1,user-scalable=no">
   <style>
@@ -14,6 +14,17 @@
 <body>
   <button onclick="window.close()">关闭窗口</button>
   <button onclick="history.back()">返回</button>
+  <button onclick="window.close();history.back()">同时执行</button>
+  <button onclick="tryClose()">检测 window.opener 关闭或返回</button>
+  <script>
+    function tryClose() {
+      if (window.opener) {
+        window.close()
+      } else {
+        history.back()
+      }
+    }
+  </script>
 </body>
 
 </html>
