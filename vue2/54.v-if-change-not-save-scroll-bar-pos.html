@@ -1,0 +1,75 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  .aa1 {
+    height: 100px;
+    overflow: auto;
+    border: 1px solid #eee;
+  }
+
+  .aa2 {
+    height: 100px;
+    overflow: auto;
+    border: 1px solid #eee;
+  }
+
+  .inner {
+    height: 300px;
+    width: 100px;
+    background: pink;
+  }
+
+</style>
+<div id="app">
+  <aa></aa>
+</div>
+<template id="aa">
+  <div>
+    <transition>
+      <keep-alive>
+        <bb v-if="qq" some="aa" key="1"></bb>
+        <bb v-else some="bb" key="2"></bb>
+      </keep-alive>
+    </transition>
+    <button @click="qq=!qq">toggle</button>
+  </div>
+</template>
+<template id="bb">
+  <div class="aa1">
+    <div class="inner">aa{{some}}</div>
+    <input type="text" />
+  </div>
+</template>
+<pre>
+</pre>
+<script src="vue.js"></script>
+<script>
+  const Demo = {
+    el: '#app',
+  }
+  const aa = {
+    template: '#aa',
+    methods: {},
+    data() {
+      return {
+        qq: true
+      };
+    },
+    methods: {
+    }
+  }
+  const bb = {
+    template: '#bb',
+    methods: {},
+    props: { some: null },
+    data() {
+      return {
+      };
+    },
+    methods: {
+    }
+  }
+  Vue.component('aa', aa)
+  Vue.component('bb', bb)
+  new Vue(Demo)
+</script>

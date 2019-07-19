@@ -1,0 +1,49 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app" @click="click0">
+  <aa @click.stop="click1">stopPropagation</aa>
+  <aa @click="click1">propagation</aa>
+</div>
+<pre>
+</pre>
+<script src="./vue.js"></script>
+<script>
+  let aa = {
+    data() {
+      return {
+      };
+    },
+    methods: {
+      click2(ee) {
+        console.log(2, ee, this)
+      },
+    },
+    render(h) {
+      return h('button', {
+        on: {
+          click: [this.$listeners.click, this.click2]
+        }
+      }, ['click me, 2 method called', this.$slots.default]);
+    }
+  }
+  let vm = new Vue({
+    components: {
+      aa
+    },
+    el: '#app',
+    data() {
+      return {
+      };
+    },
+    methods: {
+      click1(ee) {
+        console.log(1, ee, this)
+        // ee.stopPropagation() // 这是手动, 或者上面modifier都能阻止冒泡
+      },
+      click0(ee) {
+        console.log(0, 'fire')
+      },
+    },
+  })
+</script>
