@@ -5,8 +5,6 @@ mongoose.connect('mongodb://localhost/mongoose5', {
   useFindAndModify: false,
 })
 
-const { Schema, Types } = mongoose
-
 const schema1 = mongoose.Schema({
   dogName: { type: String, required: [true, 'my msg'] },
   dogHair: { type: String },
@@ -15,12 +13,20 @@ const schema1 = mongoose.Schema({
 const Dog = mongoose.model('dog', schema1, 'dog')
 
 ;(async function() {
-  const rs1 = new Dog({
+  const rs1 = await Dog.create({
     dogName: 'foo',
     dogHair: 'black',
     dogTail: 1,
   })
-  console.log({
-    ...rs1.toJSON()
-  })
+  console.log(rs1)
+
+  const rs2 = await Dog.findOneAndUpdate(
+    { _id: rs1._id },
+    {
+      dogName: 'foo2',
+      dogHair: 'black2',
+      dogTail: 2,
+    }
+  )
+  console.log(rs2)
 })()
