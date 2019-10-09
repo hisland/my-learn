@@ -1,6 +1,6 @@
 'use strict'
 
-var pp = new Proxy(
+const pp = new Proxy(
   function() {
     console.log('real call')
   },
@@ -14,8 +14,8 @@ var pp = new Proxy(
 )
 
 pp(1, 2, 3)
-pp.call({ a: 1 }, 1, 2, 3)
-pp.apply({ b: 1 }, [1, 2, 3])
+pp.call({ aa: 1 }, 1, 2, 3)
+pp.apply({ bb: 1 }, [1, 2, 3])
 
 // 没有处理 new 操作
-console.log(new pp(1, 2, 3))
+console.log('new: ', new pp(1, 2, 3))

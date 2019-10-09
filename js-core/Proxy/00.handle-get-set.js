@@ -1,20 +1,26 @@
 'use strict'
 
-var tt = {}
+const tt = {}
 
-var pp = new Proxy(tt, {
-  get: function(target, name, receiver){
+const pp = new Proxy(tt, {
+  get: function(target, name, receiver) {
     console.log('--- 1 newTarget is pp: ', pp === receiver)
-    console.log('get', target, name, 'arguments.length: '+arguments.length);
-    return 'some';
+    console.log('get', target, name, 'arguments.length: ' + arguments.length)
+    return 'some'
   },
-  set: function(target, name, value, receiver){
+  set: function(target, name, value, receiver) {
     console.log('--- 2 newTarget is pp: ', pp === receiver)
-    console.log('set', target, name, value, 'arguments.length: '+arguments.length);
-    return true;
-  }
+    console.log(
+      'set',
+      target,
+      name,
+      value,
+      'arguments.length: ' + arguments.length
+    )
+    return true
+  },
 })
 
-pp.aa = 3;
+pp.aa = 3
 
-console.log(pp.aa);
+console.log(pp.aa)

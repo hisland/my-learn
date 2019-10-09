@@ -1,6 +1,6 @@
 'use strict'
 
-var pp = new Proxy(
+const pp = new Proxy(
   function() {
     console.log('real call')
   },

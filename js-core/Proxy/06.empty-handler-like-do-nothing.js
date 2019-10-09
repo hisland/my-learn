@@ -1,8 +1,8 @@
 'use strict'
 
-var tt = {}
+const tt = {}
 
-var pp = new Proxy(tt, {})
+const pp = new Proxy(tt, {})
 
 pp.aa = 3
 console.log(pp.aa)

@@ -13,12 +13,12 @@
 // console.log(aa.some)
 // console.log(bb.some) // 自己的 some
 
-
 // 普通对象示例
 const aa = { some: 'on a' }
 const proxy = new Proxy(aa, {
   set: function(obj, prop, value, receiver) {
     obj[prop] = value
+    // return 3; // 这里必须返回一个 truthy值, 否则报错
   },
 })
 const myObj = Object.create(proxy)
