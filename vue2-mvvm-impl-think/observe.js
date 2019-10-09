@@ -8,7 +8,7 @@ function Observe(data) {
 let DepTarget
 function defineReactive(data, key, val) {
   const dep = new Dep()
-  Observe(val)
+  Observe(val) // 值是数组时候的劫持 push/pop/shift/unshift...
   Object.defineProperty(data, key, {
     enumerable: true,
     configurable: false,
@@ -54,7 +54,7 @@ function Watcher(vm, fnOrExp, cb) {
 }
 Watcher.prototype = {
   update() {
-    this.run()
+    this.run() // 缓冲 run
   },
   run() {
     const newVal = this.get()
