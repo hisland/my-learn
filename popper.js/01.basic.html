@@ -5,12 +5,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <style>
+    /* #app {
+      position: relative;
+      overflow: hidden;
+    } */
+
     #aa {
       margin: 50px;
       border: 1px solid red;
       width: 300px;
       height: 300px;
     }
+
     #bb {
       border: 1px solid green;
     }
@@ -26,14 +32,15 @@
   <pre>
 
   </pre>
-  <script src="https://cdn.bootcss.com/popper.js/1.14.3/umd/popper.js"></script>
+  <script
+          src="https://lib.baomitu.com/popper.js/1.15.0/umd/popper.min.js"></script>
   <script>
-  new Popper(
-    document.getElementById('aa'),
-    document.getElementById('bb'),
-    {
-      placement: 'bottom-start'
-    })
+    new Popper(
+      document.getElementById('aa'),
+      document.getElementById('bb'),
+      {
+        placement: 'bottom-start'
+      })
   </script>
 </body>
 
