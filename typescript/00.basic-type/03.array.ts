@@ -1,11 +1,16 @@
 // 元素类型后面接上[]
-let list1: number[] = []
-list1 = [4, 5, 6, 7, 8]
-
+{
+  let list: number[] = []
+  list = [4, 5, 6, 7, 8]
+  console.log(list)
+  list.push('a') // 数组里面只能放相同类型
+}
 // 数组泛型 generic array
-let list2: Array<number> = []
-list2 = [4, 5, 6]
+{
+  let list: Array<number> = []
+  list = [4, 5, 6]
+  console.log(list)
+  list.push('a') // 数组里面只能放相同类型
+}
 
-// 数组里面只能放相同类型
-
-export { list1 }
+export const preventVSCodeError = 1

@@ -16,4 +16,4 @@ console.log(aa2) // name 属性是 'hey2'
 let aa3 = new Animal3('hey3')
 console.log(aa3) // name 属性是 'some'
 
-export { Animal3 }
+export const preventVSCodeError = 1

@@ -14,4 +14,4 @@ aa2.say('halo1')
 Animal2.foo = { a: 10, b: 20 } // 运行时修改, 但是类型必须匹配
 aa2.say('halo2')
 
-export { Animal2 }
+export const preventVSCodeError = 1

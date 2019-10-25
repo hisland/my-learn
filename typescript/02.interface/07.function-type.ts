@@ -3,7 +3,7 @@ interface Hello {
 }
 
 function aa(num: number) {
-  // 自动推断返回值是 number | string
+  // 自动推断返回值是 number | 'hey'
   if (num < 3) {
     return 'hey'
   } else {
@@ -14,4 +14,4 @@ function aa(num: number) {
 let bb = aa(3) // bb type 是  number | string
 console.log(bb)
 
-export { Hello }
+export const preventVSCodeError = 1

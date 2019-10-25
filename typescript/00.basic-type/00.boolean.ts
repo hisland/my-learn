@@ -1,4 +1,10 @@
-let isDone1: boolean = false
-let isDone2: boolean = true
+{
+  let isDone: boolean = false
+  console.log(isDone)
+}
+{
+  let isDone: boolean = true
+  console.log(isDone)
+}
 
-export { isDone1 }
+export const preventVSCodeError = 1

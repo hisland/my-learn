@@ -30,4 +30,4 @@ if (ee2.fullName) {
   console.log(2, ee2.fullName)
 }
 
-export { Employee1 }
+export const preventVSCodeError = 1

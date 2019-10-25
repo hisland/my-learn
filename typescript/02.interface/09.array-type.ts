@@ -31,4 +31,4 @@ var k2: Array<number>
 var k3: Array<Dictionary2>
 var k4: Array<{ x: number; y: number }>
 
-export { StringArray1 }
+export const preventVSCodeError = 1

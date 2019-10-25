@@ -8,4 +8,4 @@ console.log(second) // outputs 2
 console.log(first) // outputs 2
 console.log(second) // outputs 1
 
-export { input }
+export const preventVSCodeError = 1

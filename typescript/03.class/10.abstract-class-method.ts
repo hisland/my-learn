@@ -24,4 +24,4 @@ department.printName()
 department.printMeeting()
 department.generateReports() // error: method doesn't exist on declared abstract type
 
-export { Department }
+export const preventVSCodeError = 1

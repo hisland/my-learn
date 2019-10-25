@@ -19,4 +19,4 @@ let rr = new Rhino()
 rr.showName()
 console.log(rr.name) // 这里不能访问
 
-export { Animal }
+export const preventVSCodeError = 1

@@ -13,4 +13,4 @@ gg.greet()
 
 gg.other = 99 // 类没有定义的不行 error
 
-export { Greeter }
+export const preventVSCodeError = 1

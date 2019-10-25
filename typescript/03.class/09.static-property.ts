@@ -22,4 +22,4 @@ Grid.origin = { x: 3, y: 3 }
 let grid3 = new Grid(5)
 console.log(grid3.calculateDistenceFromOrigin({ x: 10, y: 10 }))
 
-export { Grid }
+export const preventVSCodeError = 1

@@ -15,4 +15,4 @@ class Animal {
 let ss = new Animal('kiki')
 ss.move()
 
-export { Animal }
+export const preventVSCodeError = 1

@@ -12,4 +12,4 @@ aa2.god = 'a' // error
 let aa3: ReadonlyArray<number> = [1, 2, 3]
 aa3[0] = 4 // error
 
-export { Hello }
+export const preventVSCodeError = 1

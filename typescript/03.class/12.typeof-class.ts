@@ -22,4 +22,4 @@ console.log(Greeter.standardGreeting) // static changed!
 let greeter2: Greeter = new greeterMaker()
 console.log(greeter2.greet()) // static changed!
 
-export { Greeter }
+export const preventVSCodeError = 1

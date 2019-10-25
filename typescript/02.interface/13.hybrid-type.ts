@@ -19,4 +19,4 @@ cc.reset = function() {
 cc(10)
 cc.reset()
 
-export { Counter }
+export const preventVSCodeError = 1

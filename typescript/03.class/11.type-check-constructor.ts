@@ -11,4 +11,4 @@ const cs: ClockStatic = Clock // 接口检查类的 constructor
 const newClock: Clock = new cs(7, 30)
 console.log(newClock)
 
-export { ClockStatic }
+export const preventVSCodeError = 1

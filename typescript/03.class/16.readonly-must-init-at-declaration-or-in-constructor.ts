@@ -12,4 +12,4 @@ console.log(aa2.foo1) // undefined
 console.log(aa2.foo2) // 99
 console.log(aa2.foo3) // 3
 
-export { Animal2 }
+export const preventVSCodeError = 1

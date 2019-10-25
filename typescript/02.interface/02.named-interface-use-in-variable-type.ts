@@ -7,4 +7,4 @@ let aa2: Hello = { god: 5 } // god 属性 类型不对
 let aa3: Hello = { god: '5' } // ok
 let aa4: Hello = { god: '5', other: 'haha' } // 多余的属性不行
 
-export { Hello }
+export const preventVSCodeError = 1

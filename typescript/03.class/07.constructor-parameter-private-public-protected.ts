@@ -36,4 +36,4 @@ aa2.move(2)
 aa3.move(3)
 aa4.move(4)
 
-export { Animal1 }
+export const preventVSCodeError = 1

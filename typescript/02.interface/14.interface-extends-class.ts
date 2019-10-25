@@ -15,4 +15,4 @@ class Button extends Control {
 let b1: SelectableControl = new Button()
 b1.select()
 
-export { Control }
+export const preventVSCodeError = 1

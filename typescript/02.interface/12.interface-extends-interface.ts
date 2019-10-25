@@ -35,4 +35,4 @@ s2.weight = 5
 // s3.color = 'red';
 // s3.weight = 5;
 
-export { Shape }
+export const preventVSCodeError = 1

@@ -34,4 +34,4 @@ var cs: ClockStatic = Clock3 // 这样才可以, 让cs表示一个类
 var newClock = new cs(7, 30)
 var newClock = new Clock3(7, 30) // Clock3, cs 使用效果一样
 
-export { Clock3 }
+export const preventVSCodeError = 1

@@ -1,36 +1,126 @@
-enum Color1 {
-  Red,
-  Green,
-  Blue,
-} // 编号默认从 0 开始
+{
+  enum Color {
+    Red,
+    Green,
+    Blue,
+  } // 编号默认从 0 开始
 
-let aa1: Color1 = Color1.Green
-console.log(aa1) // 1
+  {
+    let aa: Color = Color.Green
+    console.log(aa) // 1
+  }
 
-enum Color2 {
-  Red = 1,
-  Green,
-  Blue,
-} // 从 1 开始
-let aa2: Color2 = Color2.Green
-console.log(aa2) // 2
+  console.log(Color)
+}
 
-enum Color3 {
-  Red = 1,
-  Green = 2,
-  Blue = 4,
-} // 每个有自己的值
-let aa3: Color3 = Color3.Blue
-console.log(aa3) // 4
+{
+  enum Color {
+    Red = 1,
+    Green,
+    Blue,
+  } // 从 1 开始
 
-let aa4: string = Color3[4] // value 反向得到 key
-console.log(aa4) // Blue
+  {
+    let aa: Color = Color.Green
+    console.log(aa) // 2
+  }
+  console.log(Color)
+}
 
-console.log(Color3) // 查看输出, 是一个key,value都作为key的map
+{
+  enum Color {
+    Red = 33,
+    Green = 55,
+    Blue,
+  }
 
-console.log(Color3[5]) // undefined
+  {
+    let aa: Color = Color.Green
+    console.log(aa) // 2
+  }
+  console.log(Color)
+}
 
-// key 必须是关键字, value 必须是 数字, 下面的会报错
-// enum Color4 { Red = 'Blue', 3 = 'Green', Blue = 4 };
+{
+  enum Color {
+    Red = 33,
+    Green = 33, // 这样也可以, 和上面有差异
+    Blue,
+  }
 
-export { aa1 }
+  {
+    let aa: Color = Color.Green
+    console.log(aa) // 2
+  }
+  console.log(Color)
+}
+
+{
+  enum Color {
+    Red,
+    Green,
+    Blue,
+  }
+
+  {
+    let aa: typeof Color = Color
+    console.log(aa) // 2
+    console.log(Color === aa)
+  }
+  console.log(Color)
+}
+
+{
+  enum Color {
+    Red = 1,
+    Green = 2,
+    Blue = 4,
+  }
+
+  {
+    let aa: Color = Color.Blue
+    console.log(aa) // 4
+  }
+  {
+    let aa: string = Color[4] // value 反向得到 key, 同值则得到最后一个定义的
+    console.log(aa) // Blue
+  }
+  console.log(Color) // 查看输出, 是一个key,value都作为key的map
+  console.log(Color[5]) // undefined
+}
+
+{
+  enum Color {
+    Red = 'Green',
+    Green = 'Blue',
+    Blue = 'Red',
+  }
+  {
+    let aa: Color = Color.Blue
+    console.log(aa) // Red
+  }
+  {
+    let aa: string = Color['Green'] // key存在, value则不能反查
+    console.log(aa) // Blue
+  }
+  console.log(Color) // 查看输出, 是一个key,value都作为key的map
+}
+
+{
+  enum Color {
+    Red,
+    Green,
+    Blue,
+  }
+  console.log(Color) // 查看输出, 是一个key,value都作为key的map
+}
+
+// {
+//   enum Color {
+//     Red = 'Blue',
+//     3 = 'Green', // key 不能是数字
+//     Blue = 4,
+//   }
+// }
+
+export const preventVSCodeError = 1

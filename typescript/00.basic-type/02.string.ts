@@ -1,6 +1,10 @@
-let halo1: string = 'he'
-let halo2: string = 'he'
+{
+  let halo: string = 'he'
+  console.log(halo)
+}
+{
+  let halo: string = 'dl'
+  console.log(halo)
+}
 
-// halo = 3 // error
-
-export { halo1 }
+export const preventVSCodeError = 1

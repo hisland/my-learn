@@ -29,4 +29,4 @@ let aa = new Horse('bobo')
 ss.move()
 aa.move()
 
-export { Animal }
+export const preventVSCodeError = 1
