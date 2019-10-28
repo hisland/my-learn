@@ -7,4 +7,4 @@ function xx(a: number): number {
 
 console.log(xx(3, true))
 
-export const preventVSCodeError = 1
+// export const preventVSCodeError = 1
