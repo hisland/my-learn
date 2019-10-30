@@ -1,11 +1,11 @@
 'use strict'
 
-var foo = ['one', 'two', 'three']
+const foo = ['one', 'two', 'three']
 {
   // without destructuring
-  var one = foo[0]
-  var two = foo[1]
-  var three = foo[2]
+  const one = foo[0]
+  const two = foo[1]
+  const three = foo[2]
 
   console.log(one)
   console.log(two)
@@ -13,7 +13,7 @@ var foo = ['one', 'two', 'three']
 }
 {
   // with destructuring ES6
-  var [one, two, three] = foo
+  const [one, two, three] = foo
 
   console.log(one)
   console.log(two)
