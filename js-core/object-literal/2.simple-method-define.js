@@ -1,17 +1,17 @@
 // 方法简写
 
-var o = {
+const o = {
   method() {
-    return "Hello!";
-  }
-};
+    return 'Hello!'
+  },
+}
 
 // 等同于
 
-var o = {
+const o = {
   method: function() {
-    return "Hello!";
-  }
-};
+    return 'Hello!'
+  },
+}
 
-console.log(o.method());
+console.log(o.method())

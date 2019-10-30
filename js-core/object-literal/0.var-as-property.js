@@ -1,21 +1,20 @@
 // 变量直接作为属性
 
-var foo = 'bar';
-var baz = {foo};
-console.log(baz); // {foo: "bar"}
+const foo = 'bar'
+const baz = { foo }
+console.log(baz) // {foo: "bar"}
 
 // 等同于
-var baz = {foo: foo};
-
+const baz = { foo: foo }
 
 function f(x, y) {
-  return {x, y}; // 返回对象
+  return { x, y } // 返回对象
 }
 
 // 等同于
 
 function f(x, y) {
-  return {x: x, y: y};
+  return { x: x, y: y }
 }
 
-console.log(f(1, 2)); // Object {x: 1, y: 2}
+console.log(f(1, 2)) // Object {x: 1, y: 2}

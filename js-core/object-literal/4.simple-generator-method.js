@@ -1,10 +1,10 @@
 // generator 简写
 
-var obj = {
-  * m(){
-    yield 'hello world';
-  }
+const obj = {
+  *m() {
+    yield 'hello world'
+  },
 }
 
-var it = obj.m();
-console.log(it.next());
+const it = obj.m()
+console.log(it.next())

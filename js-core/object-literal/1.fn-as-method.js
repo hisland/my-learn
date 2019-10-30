@@ -1,11 +1,11 @@
 // 函数直接作为方法
 
-function aa(){
-  console.log('aa');
+function aa() {
+  console.log('aa')
 }
 
-var b = {
-  aa
-};
+const b = {
+  aa,
+}
 
-b.aa();
+b.aa()

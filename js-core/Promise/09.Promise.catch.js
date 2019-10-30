@@ -2,12 +2,12 @@
 // 相当于 promise().then(undefined, fn(){})
 
 var p1 = new Promise(function(resolve, reject) {
-  resolve("成功");
-});
+  resolve('成功')
+})
 
 p1.then(function(value) {
-  console.log(value); // "成功!"
-  throw "哦，不!";
+  console.log(value) // "成功!"
+  throw '哦，不!'
 }).catch(function(e) {
-  console.log(e); // "哦，不!"
-});
+  console.log(e) // "哦，不!"
+})

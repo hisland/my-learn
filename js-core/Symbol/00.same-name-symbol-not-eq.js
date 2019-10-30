@@ -1,4 +1,3 @@
-
 var ss1 = Symbol('abc')
 console.log(ss1)
 
