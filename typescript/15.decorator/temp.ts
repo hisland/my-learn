@@ -29,3 +29,5 @@ function configurable(value: boolean) {
 
 let aa = new Point(1, 2)
 console.log(aa.x)
+
+export const preventVSCodeError = 1

@@ -21,4 +21,6 @@ console.log(stringNumeric.add(stringNumeric.zeroValue, 'test'))
 // rather than their static side, so when working with classes,
 // static members can not use the class's type parameter.
 
+// 只在实例侧有效, 静态侧无效
+
 export const preventVSCodeError = 1

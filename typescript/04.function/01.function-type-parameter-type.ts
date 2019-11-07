@@ -18,7 +18,7 @@ let myAdd2: (baseValue: number, increment: number) => number =
     return x + y;
   };
 
-// 左侧指定类型后, 右侧可以不用像上面那样再写一次, 会自动推断
+// 函数指定类型后, 函数实现可以不用像上面那样再写一次, 会自动推断
 let myAdd22: (baseValue: number, increment: number) => number =
   function(x, y) {
     return x + y;

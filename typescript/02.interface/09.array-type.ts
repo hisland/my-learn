@@ -2,14 +2,14 @@ interface StringArray1 {
   [index: number]: string // 数字索引是我们正常使用的数组
 }
 
-var aa: StringArray2
+let aa: StringArray1
 aa = ['hello', 'god']
 
 interface Dictionary1 {
   [index: string]: string // 字符串索引是我们的对象,只是对象属性的值类型都一样
 }
 
-var bb: Dictionary1
+let bb: Dictionary1
 bb = { a: '1', b: '2' }
 
 console.log(bb)
@@ -26,9 +26,9 @@ interface Dictionary2 {
 
 // 其实用范型更好
 
-var k1: Array<string>
-var k2: Array<number>
-var k3: Array<Dictionary2>
-var k4: Array<{ x: number; y: number }>
+let k1: Array<string>
+let k2: Array<number>
+let k3: Array<Dictionary2>
+let k4: Array<{ x: number; y: number }>
 
 export const preventVSCodeError = 1

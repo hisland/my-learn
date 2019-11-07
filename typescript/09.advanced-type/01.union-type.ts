@@ -15,23 +15,36 @@ type ii3 = ii1 | ii2
 let aa1: ii3 = {
   foo: 'god',
 }
+console.log(aa1)
 
-// 满足 ii1
+// 满足 ii1 即可
 let aa2: ii3 = {
   foo: 'god',
   bar: 3,
 }
+console.log(aa2)
 
-// 满足 ii2
+// 满足 ii2 即可
 let aa3: ii3 = {
   foo: 'god',
   say: true,
 }
+console.log(aa3)
 
+// 相当于 ii1 & ii2
 let aa4: ii3 = {
   foo: 'god',
   bar: 3,
   say: true,
 }
+console.log(aa4)
+
+let aa5: ii3 = {
+  foo: 'god',
+  bar: 3,
+  say: true,
+  more: 'more', // 多余的属性
+}
+console.log(aa5)
 
 export const preventVSCodeError = 1
