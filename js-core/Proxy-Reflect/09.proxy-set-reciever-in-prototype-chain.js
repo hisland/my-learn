@@ -1,19 +1,19 @@
 'use strict'
 
-const tt = { some: 1 }
+const orgObj = { some: 1 }
 
-const pp = new Proxy(tt, {
+const proxySelf = new Proxy(orgObj, {
   set: function(target, name, value, receiver) {
-    console.log(receiver)
-    console.log('bb: ', receiver === bb)
-    console.log('pp: ', receiver === pp)
-    console.log('tt: ', receiver === tt)
-    console.log('-----')
+    console.log('   target: ', orgObj === target)
+    console.log('   orgObj: ', receiver === orgObj)
+    console.log('proxySelf: ', receiver === proxySelf)
+    console.log(' prosySub: ', receiver === prosySub)
+    console.log()
     return true
   },
 })
 
-const bb = Object.create(pp)
+const prosySub = Object.create(proxySelf)
 
-bb.aa = 1
-pp.aa = 1
+proxySelf.aa = 1
+prosySub.aa = 1

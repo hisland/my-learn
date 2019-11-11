@@ -1,21 +1,22 @@
 'use strict'
 
-const tt = { some: 1, cc: 'org cc' }
+const orgObj = { some: 1, cc: 'org cc' }
 
-const pp = new Proxy(tt, {
+const proxySelf = new Proxy(orgObj, {
   get: function(target, name, receiver) {
     console.log(receiver.cc)
-    console.log('bb: ', receiver === bb)
-    console.log('pp: ', receiver === pp)
-    console.log('tt: ', receiver === tt)
-    console.log('-----')
+    console.log('   target: ', orgObj === target)
+    console.log('   orgObj: ', receiver === orgObj)
+    console.log('proxySelf: ', receiver === proxySelf)
+    console.log(' prosySub: ', receiver === prosySub)
+    console.log()
     return true
   },
 })
 
-const bb = Object.create(pp)
+const prosySub = Object.create(proxySelf)
 
-bb.cc = 'cc'
-
-console.log(bb.aa)
-// console.log(pp.aa) // 此时 receiver 是 pp, 会导致无限递归
+prosySub.cc = 'cc'
+console.log(prosySub.aa)
+// proxySelf.cc = 'cc'
+// console.log(proxySelf.aa) // 此时 receiver 是 proxySelf, 会导致无限 get cc 属性
