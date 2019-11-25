@@ -2,18 +2,19 @@ const Ajv = require('ajv')
 const ajv = new Ajv() // options can be passed, e.g. {allErrors: true}
 const validate = ajv.compile({
   properties: {
-    productId: {
-      description: 'The unique identifier for a product',
-      type: 'integer',
+    foo: {
+      type: 'array',
+      items: {
+        type: 'integer',
+      },
     },
   },
-  required: ['productId'],
 })
 const valid = validate({
-  productId: 'a',
+  foo: [1, 'a'],
 })
 
-console.log(valid)
-if (!valid) {
+{
+  console.log(valid)
   console.log(validate.errors)
 }

@@ -15,7 +15,7 @@ const valid = validate({
   foo: [1, 2, 1],
 })
 
-console.log(valid)
-if (!valid) {
+{
+  console.log(valid)
   console.log(validate.errors)
 }

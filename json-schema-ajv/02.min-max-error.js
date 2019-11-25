@@ -11,11 +11,33 @@ const validate = ajv.compile({
   },
   required: ['productId'],
 })
-const valid = validate({
-  productId: -1,
-})
 
-console.log(valid)
-if (!valid) {
+{
+  console.log(`\n 1 less than`)
+  const valid = validate({
+    productId: -1,
+  })
+
+  console.log(valid)
+  console.log(validate.errors)
+}
+
+{
+  console.log(`\n 2 more than`)
+  const valid = validate({
+    productId: 11,
+  })
+
+  console.log(valid)
+  console.log(validate.errors)
+}
+
+{
+  console.log(`\n 3 ok`)
+  const valid = validate({
+    productId: 9,
+  })
+
+  console.log(valid)
   console.log(validate.errors)
 }

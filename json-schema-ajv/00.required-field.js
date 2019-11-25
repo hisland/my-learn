@@ -9,10 +9,23 @@ const validate = ajv.compile({
   },
   required: ['productId'],
 })
-const valid = validate({
-})
+{
+  console.log(`\n 1 required`)
+  const valid = validate({})
+  console.log(valid)
+  console.log(validate.errors)
+}
 
-console.log(valid)
-if (!valid) {
+{
+  console.log(`\n 2 ok`)
+  const valid = validate({ productId: 3 })
+  console.log(valid)
+  console.log(validate.errors)
+}
+
+{
+  console.log(`\n 3 type error`)
+  const valid = validate({ productId: 'halo' })
+  console.log(valid)
   console.log(validate.errors)
 }
