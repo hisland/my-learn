@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <title>Insert title here</title>
+  <script>
+    function setADDomainUser(text) {
+      alert(text) //域账户名
+    }
+
+
+  </script>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #loginADFrame {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- <iframe id="loginADFrame" src="http://nohost/some-path"></iframe> -->
+  <iframe id="loginADFrame" src="http://localhost/Desktop/learn"></iframe>
+  <!-- <iframe id="loginADFrame" src="http://10.80.1.128:9898/IframeAD.aspx?toUrl=/gateway/base"></iframe> -->
+
+  <script>
+    var ifr = document.getElementById('loginADFrame')
+    ifr.onerror = function (ee) {
+      console.log('error', ee)
+    }
+    ifr.onload = function (ee) {
+      console.log('load', ee)
+      console.log('load', ifr.contentDocument) // 跨域打不开是 null
+      console.log('load', ifr.contentDocument) // 能打开能取到 ifr.contentDocument.title
+    }
+  </script>
+</body>
+
+</html>
