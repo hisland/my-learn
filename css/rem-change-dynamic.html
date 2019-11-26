@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>new document</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		body {
+			padding: 50px;
+		}
+
+		.rem1 {
+			font-size: 1rem;
+		}
+
+		.rem2 {
+			font-size: 2rem;
+		}
+
+		.rem3 {
+			font-size: 3rem;
+		}
+
+		.box {
+			line-height: 1;
+			background: pink;
+			margin: 3px;
+		}
+
+	</style>
+	<script>
+		function setRem(size) {
+			document.documentElement.style.fontSize = size
+		}
+	</script>
+</head>
+
+<body>
+	<div>
+		<button onclick="setRem('12px')">set 12px</button>
+		<button onclick="setRem('14px')">set 14px</button>
+		<button onclick="setRem('16px')">set 16px</button>
+		<button onclick="setRem('18px')">set 18px</button>
+		<button onclick="setRem('20px')">set 20px</button>
+	</div>
+	<div>
+		<div class="box rem1">我是文本</div>
+		<div class="box rem2">我是文本</div>
+		<div class="box rem3">我是文本</div>
+	</div>
+</body>
+
+</html>

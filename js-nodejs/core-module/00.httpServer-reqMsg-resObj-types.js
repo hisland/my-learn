@@ -11,6 +11,8 @@ http
       resObj instanceof http.ServerResponse
     )
 
+    console.log(reqMsg.headers)
+
     resObj.writeHead(200, { 'Content-Type': 'text/plain' })
     resObj.write('response from 9020\n')
     resObj.end()
