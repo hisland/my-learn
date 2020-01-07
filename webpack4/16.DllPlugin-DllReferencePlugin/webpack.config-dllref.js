@@ -16,8 +16,13 @@ module.exports = {
   plugins: [
     new webpack.DllReferencePlugin({
       context: __dirname,
-      scope: 'newName',
-      manifest: require('./dll-manifest/dll-aa-manifest.json'),
+      scope: 'newName1',
+      manifest: require('./dist/dll-manifest/dll-aa-manifest.json'),
+    }),
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      scope: 'newName2',
+      manifest: require('./dist/dll-manifest/dll-bb-manifest.json'),
     }),
   ],
 }

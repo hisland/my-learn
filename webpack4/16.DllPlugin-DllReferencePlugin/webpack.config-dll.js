@@ -7,8 +7,8 @@ module.exports = {
   mode: 'development',
   devtool: false,
   entry: {
-    aa: ['./src/aa3.js', './src/dll1.js'], // 必须是 array
-    bb: ['./src/bb3.js', './src/dll2.js'], // 必须是 array
+    aa: ['./src/cc1.js', './src/pkg1/dll1.js'], // 必须是 array
+    bb: ['./src/cc2.js', './src/pkg2/dll2.js'], // 必须是 array
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -19,7 +19,7 @@ module.exports = {
     new webpack.DllPlugin({
       context: __dirname,
       name: 'dll_[name]_[hash]', // 注意需要和  output.library 一致
-      path: path.join(__dirname, 'dll-manifest/dll-[name]-manifest.json'),
+      path: path.join(__dirname, 'dist/dll-manifest/dll-[name]-manifest.json'),
     }),
   ],
 }
