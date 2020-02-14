@@ -33,7 +33,9 @@
         src="https://lib.baomitu.com/vue/2.6.8/vue.min.js"></script>
 <script>
   const Demo = {
-    el: '#app'
+    el: '#app',
+    created() { console.log('0created', this.$slots.default) },
+    mounted() { console.log('0mounted', this.$slots.default) },
   }
   const aa = {
     template: '#aa',

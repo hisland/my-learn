@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+
+<div id="app">
+  <cc></cc>
+</div>
+<template id="aa">
+  <div>
+    <div>aa pre</div>
+    inj: {{halo}}
+    <d1>
+      <div>d1 pre</div>
+      <slot></slot>
+      <div>d1 post</div>
+    </d1>
+    <div>aa post</div>
+  </div>
+</template>
+<template id="bb">
+  <div>
+    val: <slot></slot>
+    inj: {{halo}}
+  </div>
+</template>
+<template id="cc">
+  <div>
+    <input type="text" v-model="mm.foo">
+    my: {{mm.foo}}
+    <aa>
+      <bb>1</bb>
+      <bb>2</bb>
+    </aa>
+  </div>
+</template>
+<template id="d1">
+  <div>
+    <slot></slot>
+  </div>
+</template>
+<script src="vue.js"></script>
+<script>
+  let aa = {
+    template: '#aa',
+    inject: ['halo'],
+    data() {
+      return {}
+    },
+  }
+  let bb = {
+    template: '#bb',
+    inject: ['halo'],
+    data() {
+      return {}
+    },
+  }
+  let cc = {
+    template: '#cc',
+    provide() {
+      return {
+        halo: this.mm,
+      }
+    },
+    data() {
+      return {
+        mm: { foo: 'foo' }
+      }
+    },
+  }
+  let d1 = {
+    template: '#d1',
+    data() {
+      return {}
+    },
+  }
+  Vue.component('aa', aa)
+  Vue.component('bb', bb)
+  Vue.component('cc', cc)
+  Vue.component('d1', d1)
+  let vm = new Vue({ el: '#app', })
+</script>

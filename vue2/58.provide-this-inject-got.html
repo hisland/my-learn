@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+
+<div id="app">
+  <aa></aa>
+</div>
+<template id="aa">
+  <div>
+    <div>aa pre</div>
+    <bb></bb>
+    <div>aa post</div>
+  </div>
+</template>
+<template id="bb">
+  <div>
+    <div>bb pre</div>
+    <div>inj: {{foo.a1}}</div>
+    <div>bb post</div>
+  </div>
+</template>
+<script src="vue.js"></script>
+<script>
+  let aa = {
+    template: '#aa',
+    provide() {
+      console.log(1, this)
+      return {
+        foo: this,
+      }
+    },
+    data() {
+      return { a1: 'a1' }
+    },
+  }
+  let bb = {
+    template: '#bb',
+    inject: ['foo'],
+    data() {
+      return {}
+    },
+    mounted() {
+      console.log(2, this.foo.a1)
+    }
+  }
+  Vue.component('aa', aa)
+  Vue.component('bb', bb)
+  let vm = new Vue({ el: '#app', })
+</script>
