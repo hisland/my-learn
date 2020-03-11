@@ -1,5 +1,5 @@
 $--foo: 10px; // child not-def
-$--bar: 20px; // child default
+$--bar: 20px; // child default, use here
 $--my: blue; // child override
 
 @import "child";

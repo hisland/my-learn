@@ -1,5 +1,5 @@
-$--bar: 30px !default;
-$--my: red;
+$--bar: 30px !default; // 如果 $--bar 没有定义才用这个值
+$--my: red; // 外部定义的 $--my 被我覆盖了
 
 div {
   margin: $--foo;

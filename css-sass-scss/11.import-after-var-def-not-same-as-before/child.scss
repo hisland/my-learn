@@ -1,6 +1,7 @@
 $--bar: 30px !default;
 $--my: red;
 
+// 覆盖前面定义的变量, 除非是 !default
 @import "parent";
 
 body {

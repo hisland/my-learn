@@ -1,6 +1,6 @@
 执行 `sass --no-source-map in-dir:out-dir`
 
-全部 **正常打包**
+全部 **正常打包**, _开头的文件不会打包
 
 all.css **var 出现 3 次**
 

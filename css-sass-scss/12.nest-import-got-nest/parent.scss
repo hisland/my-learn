@@ -3,5 +3,5 @@ $--bar: 20px;
 $--my: blue;
 
 body{
-  @import "child";
+  @import "child"; // 规则会嵌套在 外层标签(body)里面
 }
