@@ -108,6 +108,7 @@ target/
 # js modules
 bower_components
 node_modules
+package-lock.json
 
 # other
 catalina.base_IS_UNDEFINED
