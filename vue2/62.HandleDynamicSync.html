@@ -1,0 +1,62 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+  <aa v-model="mm" :aa.sync="aa" :bb.sync="bb" :cc.sync="cc">
+  </aa>
+</div>
+<template id="aa">
+  <div class="aa">
+    <button @click="handle()">click</button>
+  </div>
+</template>
+<pre>
+</pre>
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<script>
+  const Demo = {
+    el: '#app',
+    data() {
+      return {
+        mm: '',
+        aa: '',
+        bb: '',
+        cc: '',
+      };
+    }
+  }
+  const aa = {
+    template: '#aa',
+    data() {
+      return {
+        count: 1
+      };
+    },
+    methods: {
+      HandleDynamicSync(rawObj) {
+        const prefix = 'update:'
+        const all_events = Object.keys(this.$listeners)
+        const dynamic_sync = all_events.filter(vv1 => vv1.indexOf(prefix) === 0)
+        for (const one of dynamic_sync) {
+          const key = one.replace(prefix, '')
+          this.$emit(one, rawObj[key])
+        }
+      },
+      handle() {
+        this.count++
+        this.HandleDynamicSync({
+          aa: this.count + 1,
+          bb: this.count + 2,
+          cc: this.count + 3
+        })
+      }
+    },
+    created() {
+      console.log(this.$listeners)
+    }
+  }
+  Vue.component('aa', aa)
+  new Vue(Demo)
+</script>
