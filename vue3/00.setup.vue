@@ -1,8 +1,9 @@
 <template>
-  <div>{{halo}} aa</div>
-  <div>{{halo}} bb</div>
   <div>
-    <button @click="add()">click</button>
+    <div>{{halo}}</div>
+    <div>
+      <button @click="add()">click</button>
+    </div>
   </div>
 </template>
 <script>
