@@ -1,0 +1,63 @@
+<style>
+  .box {
+    border: 1px solid #999;
+    padding: 3px;
+    margin: 3px;
+    padding-left: 10px;
+  }
+
+</style>
+<div id="app">
+  <button @click="loop()">loop</button>
+  <aa>
+    <template v-slot:[name]="prop">
+      <div>content 1 {{prop}}</div>
+    </template>
+  </aa>
+</div>
+<template id="aa">
+  <div class="box">
+    <slot name="ss1" some="lv1"></slot>
+    <div class="box">aa 1</div>
+    <div class="box">
+      <div class="box">aa2 1</div>
+      <slot name="ss2" some="lv2"></slot>
+      <div class="box">aa2 1</div>
+      <div class="box">
+        <slot name="ss3" some="lv3"></slot>
+      </div>
+    </div>
+    <div class="box">aa 2</div>
+  </div>
+</template>
+
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<script>
+  const Demo = {
+    el: '#app',
+    data() {
+      return {
+        count: 1,
+      };
+    },
+    computed: {
+      name() {
+        return 'ss' + this.count;
+      }
+    },
+    methods: {
+      loop() {
+        if (this.count >= 3) {
+          this.count = 1
+        } else {
+          this.count++
+        }
+      }
+    }
+  }
+  const aa = { template: '#aa', }
+  Vue.component('aa', aa)
+  new Vue(Demo)
+</script>

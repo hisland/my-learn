@@ -1,0 +1,47 @@
+<style>
+  .box {
+    border: 1px solid #999;
+    padding: 3px;
+    margin: 3px;
+    padding-left: 10px;
+  }
+
+</style>
+<div id="app">
+  <aa>
+    <template v-slot:ss1="prop">
+      <div>content 1 {{prop}}</div>
+    </template>
+    <template v-slot:ss2="prop">
+      <div>content 2 {{prop}}</div>
+    </template>
+    <template v-slot:ss3="prop">
+      <div>content 3 {{prop}}</div>
+    </template>
+  </aa>
+</div>
+<template id="aa">
+  <div class="box">
+    <slot name="ss1" some="lv1"></slot>
+    <div class="box">aa 1</div>
+    <div class="box">
+      <div class="box">aa2 1</div>
+      <slot name="ss2" some="lv2"></slot>
+      <div class="box">aa2 1</div>
+      <div class="box">
+        <slot name="ss3" some="lv3"></slot>
+      </div>
+    </div>
+    <div class="box">aa 2</div>
+  </div>
+</template>
+
+<script crossorigin="anonymous"
+  integrity="sha384-tJs0vlPyuG7XcysSkZ0VtWsM/uztJkUtpLwb6HzV5NSgSwGqdW61IBOBJDhbUf+K"
+  src="https://lib.baomitu.com/vue/2.6.8/vue.min.js"></script>
+<script>
+  const Demo = { el: '#app', }
+  const aa = { template: '#aa', }
+  Vue.component('aa', aa)
+  new Vue(Demo)
+</script>
