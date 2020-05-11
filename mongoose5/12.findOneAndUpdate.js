@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 mongoose.Promise = Promise
-mongoose.connect('mongodb://localhost/mongoose5', {
+mongoose.connect('mongodb://localhost/mongoose5-learn', {
   useNewUrlParser: true,
   useFindAndModify: false,
 })
@@ -12,7 +12,7 @@ const schema1 = mongoose.Schema({
 })
 const Dog = mongoose.model('dog', schema1, 'dog')
 
-;(async function() {
+;(async function () {
   const rs1 = await Dog.create({
     dogName: 'foo',
     dogHair: 'black',

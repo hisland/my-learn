@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const { Schema } = mongoose
 
-console.log('ObjectId', mongoose.ObjectId === mongoose.Schema.Types.ObjectId)
-console.log('Mixed', mongoose.Mixed === mongoose.Schema.Types.Mixed)
+console.log('ObjectId', mongoose.ObjectId === mongoose.Schema.Types.ObjectId) // true
+console.log('Mixed', mongoose.Mixed === mongoose.Schema.Types.Mixed) // true
 
 // js 原始对象
 // console.log(Boolean)

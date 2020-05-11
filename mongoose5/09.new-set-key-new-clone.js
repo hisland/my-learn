@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
 mongoose.Promise = Promise
-mongoose.connect('mongodb://localhost/mongoose5', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/mongoose5-learn', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 
 const schema1 = mongoose.Schema({
   dogName: { type: String, required: [true, 'my msg'] },
