@@ -5,10 +5,10 @@ const app = new Koa()
 const port = 9002
 
 app.use(async function(ctx, next) {
-  // ctx.body = null
-  // ctx.body = {a:1, b:2}
-  // ctx.body = new Buffer([56, 57])
-  ctx.body = 'any path will get this: hello!'
+  // ctx.body = null // 204 no content
+  // ctx.body = {a:1, b:2} // application/json
+  // ctx.body = new Buffer([56, 57]) // application/octet-stream
+  ctx.body = 'string' // text/plain
 })
 
 

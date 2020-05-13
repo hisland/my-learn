@@ -6,9 +6,9 @@ const port = 9002
 
 app.use(function(ctx, next) { // next 只能调用一次
   console.log(1)
-  next() // 结果不变
+  next()
   ctx.body = 'any path will get this: hello!'
-  // next() // 结果是下面的 2
+  // next() // 多次调用报错
 })
 
 app.use(function(ctx, next) { // 需要前置 middleware 调用 next 才能到达这一步
@@ -18,4 +18,3 @@ app.use(function(ctx, next) { // 需要前置 middleware 调用 next 才能到�
 
 app.listen(port)
 console.log(`listen on: ${port}`)
-

@@ -4,18 +4,20 @@ const Koa = require('koa')
 const app = new Koa()
 const port = 9002
 
+// ctx.state 是跨 中间件 的 状态命名空间
+
 app.use(async function(ctx, next) {
   ctx.state.hey = 'haha'
 
   await next()
 
-  console.log(ctx.state)
+  console.log(11, ctx.state)
 
   ctx.body = 'any path will get this: hello!'
 })
 
 app.use(async function(ctx, next) {
-  console.log(ctx.state)
+  console.log(22, ctx.state)
 
   ctx.state.bbq = 'mike'
 

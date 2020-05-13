@@ -6,16 +6,14 @@ const port = 9002
 
 app.use(function(ctx, next) { // next 只能调用一次
   console.log(1)
-  // next() // 结果不变
   ctx.body = 'any path will get this: hello!'
-  next() // 结果是下面的 2
+  next()
 })
 
 app.use(function(ctx, next) { // 需要前置 middleware 调用 next 才能到达这一步
   console.log(2)
-  ctx.body = '2'
+  ctx.body = '2' // 覆盖掉上面的 body
 })
 
 app.listen(port)
 console.log(`listen on: ${port}`)
-

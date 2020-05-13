@@ -5,7 +5,7 @@ const app = new Koa()
 const port = 9002
 
 app.use(async function(ctx, next) {
-  console.log(ctx.app === app)
+  console.log(ctx.app === app) // true
 
   ctx.body = 'any path will get this: hello!'
 })

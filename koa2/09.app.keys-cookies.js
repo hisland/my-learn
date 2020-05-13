@@ -4,7 +4,9 @@ const Koa = require('koa')
 const app = new Koa()
 const port = 9002
 
-app.keys = ['im a newer secret', 'i like turtle'];
+// 查看 https://github.com/crypto-utils/keygrip
+// keys 是 密码列表, 新->旧
+app.keys = ['im secret1', 'im secret2'];
 
 app.use(async function(ctx, next) {
   ctx.cookies.set('hey', 'bbq')

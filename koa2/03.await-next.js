@@ -7,6 +7,7 @@ const port = 9002
 app.use(async function(ctx, next) {
   console.log(1)
   await next() // 等待下方的 500ms 完成
+  console.log(3)
   ctx.body = 'any path will get this: hello!'
 })
 

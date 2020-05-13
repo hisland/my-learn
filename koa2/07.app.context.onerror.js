@@ -14,11 +14,10 @@ app.on('error', function(err) {
   console.log(err)
 })
 
-app.context.onerror = function(err) {
-  console.log('god')
-  this.res.end('hey')
+app.context.onerror = function(err) { // 此函数处理了上面的 throw
+  console.log('god', err)
+  this.res.end('hey') // 这里正常响应了
 }
 
 app.listen(port)
 console.log(`listen on: ${port}`)
-

@@ -5,18 +5,18 @@ const app = new Koa()
 const port = 9002
 
 app.use(async function(ctx, next) {
-  console.log(ctx.url)
-  console.log(ctx.originalUrl)
+  console.log('1. url:', ctx.url)
+  console.log('1. originalUrl:', ctx.originalUrl)
 
-  ctx.url = '/hey'
+  ctx.url = '/hey' // 用于 url rewirte
 
   await next()
 
   ctx.body = 'any path will get this: hello!'
 })
 app.use(async function(ctx, next) {
-  console.log(ctx.url)
-  console.log(ctx.originalUrl)
+  console.log('2. url: ', ctx.url)
+  console.log('2. originalUrl: ', ctx.originalUrl)
 
   ctx.body = 'any path will get this: hello!'
 })

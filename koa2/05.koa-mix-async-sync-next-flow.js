@@ -14,7 +14,7 @@ app.use(function(ctx, next) {
   next();
   let ms = new Date - start;
   ctx.set('X-Response-Time', ms + 'ms')
-  console.log(2, 'done');
+  console.log(2, 'done'); // 这里已经完成返回了, 是 404
 });
 
 app.use(async (ctx, next) => {
@@ -22,6 +22,7 @@ app.use(async (ctx, next) => {
   let start = new Date;
   await new Promise(function(resolve, reject) {
     setTimeout(function() {
+      console.log('3.1 in timeout');
       resolve()
     }, 500);
   })
@@ -33,11 +34,10 @@ app.use(async (ctx, next) => {
 });
 
 app.use((ctx, next) => {
-  ctx.body = "hello World!";
+  ctx.body = "hello World!"; // 得不到这个结果了, 因为上面已经返回了
   console.log(5);
 });
 
 
 app.listen(port)
 console.log(`listen on: ${port}`)
-

@@ -5,7 +5,7 @@ const app = new Koa()
 const port = 9002
 
 // console.log(app.context)
-
+// app.context 是所有 ctx 的 prototype
 app.context.some = 99
 
 app.use(async function(ctx, next) {
