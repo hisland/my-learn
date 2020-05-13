@@ -11,7 +11,7 @@ module.exports = {
     bb: ['./src/cc2.js', './src/pkg2/dll2.js'], // 必须是 array
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist/dll'),
     filename: 'dll-[name].js',
     library: 'dll_[name]_[hash]',
   },
@@ -19,7 +19,7 @@ module.exports = {
     new webpack.DllPlugin({
       context: __dirname,
       name: 'dll_[name]_[hash]', // 注意需要和  output.library 一致
-      path: path.join(__dirname, 'dist/dll-manifest/dll-[name]-manifest.json'),
+      path: path.join(__dirname, 'dist/dll/dll-[name]-manifest.json'),
     }),
   ],
 }
