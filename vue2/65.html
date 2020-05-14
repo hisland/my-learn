@@ -1,0 +1,46 @@
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<style>
+  .TabRoot {}
+
+  .TabHead {}
+
+  .TabBody {}
+
+</style>
+<div id="app">
+  <my-tabs>
+    <my-tab-item>
+      tab 1
+    </my-tab-item>
+    <my-tab-item>
+      tab 2
+    </my-tab-item>
+  </my-tabs>
+</div>
+<template id="tabs">
+  <div class="TabRoot">
+    <div class="TabHead">
+      what's head?
+    </div>
+    <div class="TabBody">
+      <slot></slot>
+    </div>
+  </div>
+</template>
+<template id="tab-item">
+  <div class="tab-item-content">
+    <slot></slot>
+  </div>
+</template>
+<script>
+  const Demo = { el: '#app', }
+  Vue.component('my-tabs', {
+    template: '#tabs',
+  })
+  Vue.component('my-tab-item', {
+    template: '#tab-item',
+  })
+  new Vue(Demo)
+</script>
