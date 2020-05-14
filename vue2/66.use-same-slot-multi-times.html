@@ -1,0 +1,32 @@
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<style>
+  .box {
+    border: 1px solid #999;
+    padding: 3px;
+    margin: 3px;
+    padding-left: 10px;
+  }
+
+</style>
+<div id="app">
+  <aa>
+    <template v-slot="prop">
+      this {{prop}} yes
+    </template>
+  </aa>
+</div>
+<template id="aa">
+  <div class="box">
+    <div style="padding:20px;">
+      <slot some="lv1"></slot>
+    </div>
+    <slot some="lv2"></slot>
+  </div>
+</template>
+<script>
+  const Demo = { el: '#app', }
+  Vue.component('aa', { template: '#aa', })
+  new Vue(Demo)
+</script>
