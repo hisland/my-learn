@@ -11,10 +11,10 @@
 </style>
 <div id="app">
   <my-tabs>
-    <my-tab-item>
+    <my-tab-item head="tab1">
       tab 1
     </my-tab-item>
-    <my-tab-item>
+    <my-tab-item head="tab2">
       tab 2
     </my-tab-item>
   </my-tabs>
@@ -22,7 +22,7 @@
 <template id="tabs">
   <div class="TabRoot">
     <div class="TabHead">
-      what's head?
+      <div v-for="(vv1, index1) in headList" :key="index1">{{vv1}}</div>
     </div>
     <div class="TabBody">
       <slot></slot>
@@ -38,9 +38,20 @@
   const Demo = { el: '#app', }
   Vue.component('my-tabs', {
     template: '#tabs',
+    data() {
+      return {
+        headList: [],
+      };
+    },
+    mounted() {
+      this.headList = this.$children.map(vv => {
+        return vv.head;
+      })
+    },
   })
   Vue.component('my-tab-item', {
     template: '#tab-item',
+    props: { head: String }
   })
   new Vue(Demo)
 </script>
