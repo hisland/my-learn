@@ -11,10 +11,16 @@
 </style>
 <div id="app">
   <my-tabs>
-    <my-tab-item head="tab1">
+    <my-tab-item>
+      <template v-slot:head="prop">
+        <span>tab1 {{prop.some}}</span>
+      </template>
       tab 1
     </my-tab-item>
-    <my-tab-item head="tab2">
+    <my-tab-item>
+      <template v-slot:head="prop">
+        <span>tab2 {{prop.some}}</span>
+      </template>
       tab 2
     </my-tab-item>
   </my-tabs>
@@ -22,7 +28,7 @@
 <template id="tabs">
   <div class="TabRoot">
     <div class="TabHead">
-      <div v-for="(vv1, index1) in headList" :key="index1">{{vv1}}</div>
+      <render-slot-list :list="headList"></render-slot-list>
     </div>
     <div class="TabBody">
       <slot></slot>
@@ -45,13 +51,19 @@
     },
     mounted() {
       this.headList = this.$children.map(vv => {
-        return vv.head;
+        return vv.$scopedSlots.head;
       })
     },
   })
   Vue.component('my-tab-item', {
     template: '#tab-item',
-    props: { head: String }
+  })
+  // 因为没有办法在上面模板标签里面注入 slot 内容, 借助这个函数式组件来注入
+  Vue.component('render-slot-list', {
+    functional: true,
+    render(h, { props }) {
+      return h('div', props.list.map(fn => fn({ some: 'vv' })));
+    }
   })
   new Vue(Demo)
 </script>
