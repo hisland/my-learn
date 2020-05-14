@@ -1,43 +1,36 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <style>
-
-  </style>
-</head>
-
-<body>
-  <div id="app">
-    <comp2>
-      <p>child content1</p>
-      <p>child content2</p>
-      <p slot="other">child content3</p>
-    </comp2>
-  </div>
-  <pre>
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<div id="app">
+  <comp2>
+    <p>child content1</p>
+    <p>child content2</p>
+    <p slot="other">child content3</p>
+  </comp2>
+</div>
+<pre>
   functional: true, 函数化组件
   <strong style="color:red;">template 不起作用</strong>
   <strong style="color:red;">data 也不起作用</strong>
   直接执行 render, this 指向 window, render 第二个参数是 context
   </pre>
-  <script src="./vue.js"></script>
-  <script>
+<script>
   var comp2 = {
     functional: true,
     // template: '<h1>hello</h1>',
     render(h, context) {
-      console.log('comp: render', this)
+      console.log('comp: render this is window', this)
       console.log('comp: render-context', context)
-      console.log('comp: context.slots', context.slots())
-      var self = this
+      console.log('comp: context.$slots', context.$slots)
+      console.log('comp: context.slots is fn', context.slots)
+      console.log('comp: context.slots()', context.slots())
+      console.log('comp: context.children', context.children)
+      console.log('comp: context.scopedSlots', context.scopedSlots)
       return h('div', [
         context.slots().default
       ]);
     },
-    data: function() {
+    data: function () {
       console.log('comp: init data')
       return {
         sub1: 'sub1 data',
@@ -47,7 +40,4 @@
   Vue.component('comp2', comp2)
   var vm = new Vue()
   vm.$mount('#app')
-  </script>
-</body>
-
-</html>
+</script>
