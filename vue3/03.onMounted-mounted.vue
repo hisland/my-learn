@@ -1,33 +1,31 @@
 <template>
   <div>{{halo}} aa</div>
-  <div>{{say}} bb</div>
-  <div>{{come}} bb</div>
+  <div>{{halo}} bb</div>
   <div>
     <button @click="add()">click</button>
   </div>
 </template>
 <script>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 export default {
   setup() {
     const halo = ref(98)
-    const say = computed(() => {
-      return halo.value + ' yes'
+
+    onMounted(() => {
+      console.log(33)
     })
+
     return {
       halo,
-      say,
     }
-  },
-  computed: {
-    come() {
-      return this.halo + ' come'
-    },
   },
   methods: {
     add() {
       this.halo++
     },
+  },
+  mounted() {
+    console.log(44)
   },
 }
 </script>
