@@ -1,0 +1,58 @@
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<style>
+  .box {
+    border: 1px solid #999;
+    padding: 3px;
+    margin: 3px;
+    padding-left: 10px;
+  }
+
+</style>
+<pre>
+  * 注意 html 模板, 标签名/属性名 都只能是小写的
+  * 方法传入子组件的 props, 子组件里面调用的时候 this 还是指向父组件
+</pre>
+<div id="app">
+  <div>
+    {{foo}}
+  </div>
+  <aa :on-show="DoSome">
+  </aa>
+</div>
+<template id="aa">
+  <div class="box">
+    <button @click="DoClick()">call</button>
+  </div>
+</template>
+<script>
+  const Demo = {
+    el: '#app',
+    data() {
+      return {
+        foo: 1
+      };
+    },
+    methods: {
+      DoSome() {
+        console.log(33)
+        console.log(this.foo)
+        console.log(44)
+        return 'value to pass down';
+      }
+    }
+  }
+  Vue.component('aa', {
+    template: '#aa',
+    props: {
+      onShow: Function
+    },
+    methods: {
+      DoClick() {
+        console.log(this.onShow())
+      }
+    }
+  })
+  new Vue(Demo)
+</script>
