@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>title</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,user-scalable=no">
+  <style>
+    .app {
+      position: absolute;
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+  </style>
+  <script>
+    window.onload = function () {
+      const el = document.querySelector('.app')
+      el.addEventListener('touchstart', function () {
+        const top = el.scrollTop
+        const totalScroll = el.scrollHeight
+        const currentScroll = top + el.offsetHeight
+        if (top === 0) {
+          el.scrollTop = 1
+        } else if (currentScroll === totalScroll) {
+          el.scrollTop = top - 1
+        }
+      })
+      el.addEventListener('touchmove', function (evt) {
+        if (el.offsetHeight < el.scrollHeight) {
+          evt._isScroller = true
+        }
+      })
+
+      document.body.addEventListener('touchmove', function (evt) {
+        const el = document.getElementById('console')
+        // const str = JSON.stringify({
+        //   target: ee.target
+        // }, null, '  ')
+        el.innerHTML = evt._isScroller
+        if (!evt._isScroller) {
+          evt.preventDefault()
+        }
+      }, { passive: false } // 这个必须才能阻止
+      )
+    }
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      padding: 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <pre id="console"></pre>
+    <div class="box">01 内容内容</div>
+    <div class="box">02 内容内容</div>
+    <div class="box">03 内容内容</div>
+    <div class="box">04 内容内容</div>
+    <div class="box">05 内容内容</div>
+    <div class="box">06 内容内容</div>
+    <div class="box">07 内容内容</div>
+    <div class="box">08 内容内容</div>
+    <div class="box">09 内容内容</div>
+    <div class="box">10 内容内容</div>
+    <div class="box">11 内容内容</div>
+    <div class="box">12 内容内容</div>
+    <div class="box">13 内容内容</div>
+    <div class="box">14 内容内容</div>
+    <div class="box">15 内容内容</div>
+    <div class="box">16 内容内容</div>
+    <div class="box">17 内容内容</div>
+    <div class="box">18 内容内容</div>
+    <div class="box">19 内容内容</div>
+    <div class="box">20 内容内容</div>
+    <div class="box">21 内容内容</div>
+    <div class="box">22 内容内容</div>
+    <div class="box">23 内容内容</div>
+    <div class="box">24 内容内容</div>
+    <div class="box">25 内容内容</div>
+    <div class="box">26 内容内容</div>
+    <div class="box">27 内容内容</div>
+    <div class="box">28 内容内容</div>
+    <div class="box">29 内容内容</div>
+    <div class="box">30 内容内容</div>
+    <div class="box">31 内容内容</div>
+    <div class="box">32 内容内容</div>
+    <div class="box">33 内容内容</div>
+    <div class="box">34 内容内容</div>
+    <div class="box">35 内容内容</div>
+    <div class="box">36 内容内容</div>
+    <div class="box">37 内容内容</div>
+    <div class="box">38 内容内容</div>
+    <div class="box">39 内容内容</div>
+    <div class="box">40 内容内容</div>
+    <div class="box">41 内容内容</div>
+    <div class="box">42 内容内容</div>
+    <div class="box">43 内容内容</div>
+    <div class="box">44 内容内容</div>
+    <div class="box">45 内容内容</div>
+    <div class="box">46 内容内容</div>
+    <div class="box">47 内容内容</div>
+    <div class="box">48 内容内容</div>
+    <div class="box">49 内容内容</div>
+    <div class="box">50 内容内容</div>
+    <div class="box">51 内容内容</div>
+    <div class="box">52 内容内容</div>
+    <div class="box">53 内容内容</div>
+    <div class="box">54 内容内容</div>
+    <div class="box">55 内容内容</div>
+    <div class="box">56 内容内容</div>
+    <div class="box">57 内容内容</div>
+    <div class="box">58 内容内容</div>
+    <div class="box">59 内容内容</div>
+    <div class="box">60 内容内容</div>
+    <div class="box">61 内容内容</div>
+    <div class="box">62 内容内容</div>
+    <div class="box">63 内容内容</div>
+    <div class="box">64 内容内容</div>
+    <div class="box">65 内容内容</div>
+    <div class="box">66 内容内容</div>
+    <div class="box">67 内容内容</div>
+    <div class="box">68 内容内容</div>
+    <div class="box">69 内容内容</div>
+    <div class="box">70 内容内容</div>
+    <div class="box">71 内容内容</div>
+    <div class="box">72 内容内容</div>
+    <div class="box">73 内容内容</div>
+    <div class="box">74 内容内容</div>
+    <div class="box">75 内容内容</div>
+  </div>
+</body>
+
+</html>
