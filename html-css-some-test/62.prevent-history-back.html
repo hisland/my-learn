@@ -1,0 +1,137 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+  content="width=device-width,initial-scale=1.0,user-scalable=no">
+<title>new document</title>
+
+<style>
+  .quit-confirm {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .8)
+  }
+
+</style>
+
+<div id="app">
+  <div class="quit-confirm" v-if="askQuit">
+    <div>退出?</div>
+    <div>
+      <button @click="Confirm()">退出</button>
+      <button @click="Cancel()">停留</button>
+    </div>
+  </div>
+  <div><input type="text" v-model="count1"> <button
+      @click="forward()">go</button></div>
+  <div><input type="text" v-model="count2"> <button
+      @click="backward()">back</button></div>
+</div>
+<pre id="log"></pre>
+<script crossorigin="anonymous"
+  integrity="sha384-8t+aLluUVnn5SPPG/NbeZCH6TWIvaXIm/gDbutRvtEeElzxxWaZN+G/ZIEdI/f+y"
+  src="https://lib.baomitu.com/vue/2.6.10/vue.min.js"></script>
+<script>
+  function log() {
+    let rs = []
+    for (const vv of Object.values(arguments)) {
+      if (typeof vv === 'object') {
+        rs.push('<span>' + JSON.stringify(vv) + '</span>')
+      } else {
+        rs.push('<span>' + vv + '</span>')
+      }
+    }
+    document.getElementById('log').innerHTML += `<div>` + rs.join(' - ') + `</div>`
+  }
+  const RouteUtil = {
+    data: {
+      isWeixin: false,
+      willQuit: false
+    },
+    ask() {
+    },
+    close() {
+      if (this.isWeixin) {
+        WeixinJSBridge.call('closeWindow');
+      } else {
+        this.willQuit = true
+        history.back()
+      }
+    },
+    push(data, title, url) {
+      log('push', data, title, url)
+      if (data) {
+        document.title = title
+        history.pushState({
+          foo: "page" + url
+        }, title, url);
+      } else {
+        history.pushState({ blank: true }, '')
+      }
+    },
+    init() {
+      if (history.state === null) {
+        RouteUtil.push()
+      }
+
+      document.addEventListener('WeixinJSBridgeReady', () => { this.isWeixin = true }, false);
+      window.addEventListener('popstate', (ee) => {
+        const { state } = ee
+        log('popstate', state)
+        if (state === null) {
+          if (this.willQuit) {
+            history.back()
+            window.close()
+          } else {
+            this.ask()
+            this.push()
+          }
+        } else {
+
+        }
+      })
+    }
+  }
+  RouteUtil.init()
+
+
+  const vm = new Vue({
+    el: '#app',
+    data() {
+      return {
+        hashPath: 0,
+        count1: 1,
+        count2: 1,
+        askQuit: false,
+      }
+    },
+    methods: {
+      forward() {
+        for (let ii = 0; ii < this.count1; ii++) {
+          this.hashPath += 1
+          RouteUtil.push({
+            foo: "page" + this.hashPath
+          }, "page1", this.hashPath);
+        }
+      },
+      backward() {
+        for (let ii = 0; ii < this.count2; ii++) {
+          history.back()
+        }
+      },
+      Confirm() {
+        RouteUtil.close()
+      },
+      Cancel() {
+        this.askQuit = false
+      },
+    },
+    mounted() {
+      RouteUtil.ask = () => {
+        this.askQuit = true
+      }
+    }
+  })
+</script>
