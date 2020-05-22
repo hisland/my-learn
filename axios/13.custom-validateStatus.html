@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>new document</title>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-</head>
-
-<body>
-  <pre>
-    </pre>
-  <script src="axios.js"></script>
-  <script>
+<pre>
+</pre>
+<script crossorigin="anonymous"
+  integrity="sha384-n1p+NckrH3jg+8KyXCEJPsETONv97bIEaeeov6+LkuLxo6xLmitGBeADhAOlMYa0"
+  src="https://lib.baomitu.com/axios/0.19.2/axios.js"></script>
+<script>
   // axios.interceptors.response.use(function(xhr) {
   //   // Do something with response data
   //   console.log('axios.interceptors.response', xhr)
@@ -28,12 +21,9 @@
     },
     validateStatus: function validateStatus(status) {
       return true; // 让 所的 status 都走正常路线
-      return status >= 200 && status < 300; // default
+      // return status >= 200 && status < 300; // default
     }
-  }).then(function(xhr) {
+  }).then(function (xhr) {
     console.log('get', xhr.data)
   })
-  </script>
-</body>
-
-</html>
+</script>

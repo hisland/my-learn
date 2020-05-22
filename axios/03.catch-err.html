@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>new document</title>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-  </head>
-  <body>
-    <script src="https://cdn.bootcss.com/axios/0.16.2/axios.js"></script>
-    <script>
-    axios.get('./some.jso1n').then(function(xhr) {
-      console.log(xhr.data)
-    }).catch(function(err) {
-      console.log('got err:', err)
-    })
-    </script>
-  </body>
-</html>
+<script crossorigin="anonymous"
+  integrity="sha384-n1p+NckrH3jg+8KyXCEJPsETONv97bIEaeeov6+LkuLxo6xLmitGBeADhAOlMYa0"
+  src="https://lib.baomitu.com/axios/0.19.2/axios.js"></script>
+<script>
+  axios.get('./some.jso1n').then(function (xhr) {
+    console.log(1, xhr.data)
+  }).catch(function (err) {
+    console.log(2, 'got err:', err)
+  })
+</script>
