@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+    .aa-enter-active {
+      animation: anim-in 1s;
+    }
+
+    .aa-leave-active {
+      animation: anim-out 1s;
+    }
+
+    @keyframes anim-in {
+      0% {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes anim-out {
+      0% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+    }
+
+    .wrap {
+      padding-left: 50px;
+      height: 30px;
+    }
+
+    .wrap button {
+      position: absolute;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="comp = 'comp1'">comp1</button>
+    <button @click="comp = 'comp2'">comp2</button>
+    <hr>
+    <div class="wrap">
+      <transition name="aa">
+        <component :is="comp"></component>
+      </transition>
+    </div>
+  </div>
+  <pre>
+    * transition 可以检测 component is 的切换
+  </pre>
+  <script crossorigin="anonymous"
+    integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+    src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+  <script>
+    var comp2 = {
+      el: '#app',
+      data: {
+        comp: 'comp1'
+      },
+      components: {
+        'comp1': {
+          template: '<button>aaa</button>',
+        },
+        'comp2': {
+          template: '<button>bbb</button>',
+        },
+      },
+      methods: {
+      },
+    }
+    new Vue(comp2)
+  </script>
+</body>
+
+</html>

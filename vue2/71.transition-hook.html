@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style>
+    .aa-enter-active {
+      animation: anim-in 1s;
+    }
+
+    .aa-leave-active {
+      animation: anim-out 1s;
+    }
+
+    @keyframes anim-in {
+      0% {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes anim-out {
+      0% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <transition type="animation" name="aa" @before-enter="beforeEnter"
+      @enter="enter" @after-enter="afterEnter" @enter-cancelled="enterCancelled"
+      @before-leave="beforeLeave" @leave="leave" @after-leave="afterLeave"
+      @leave-cancelled="leaveCancelled">
+      <p v-if="show">hello</p>
+    </transition>
+    <button @click="show = !show">toggle</button>
+  </div>
+  <pre>
+    transition 可以设置各阶段的hook
+  </pre>
+  <script crossorigin="anonymous"
+    integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+    src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+  <script>
+    var comp2 = {
+      el: '#app',
+      data: {
+        show: true
+      },
+      components: {},
+      methods: {
+        beforeEnter(el) {
+          console.log('beforeEnter', el)
+        },
+        enter(el, done) {
+          console.log('enter', el)
+          setTimeout(function () {
+            done(false)
+          }, 1500);
+        },
+        afterEnter(el) {
+          console.log('afterEnter', el)
+        },
+        enterCancelled(el) {
+          console.log('enterCancelled', el)
+        },
+
+        beforeLeave(el) {
+          console.log('beforeLeave', el)
+        },
+        leave(el, done) {
+          console.log('leave', el)
+          setTimeout(function () {
+            done(false)
+          }, 1500);
+        },
+        afterLeave(el) {
+          console.log('afterLeave', el)
+        },
+        leaveCancelled(el) {
+          console.log('leaveCancelled', el)
+        },
+      },
+    }
+    new Vue(comp2)
+  </script>
+</body>
+
+</html>
