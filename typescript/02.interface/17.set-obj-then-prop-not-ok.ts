@@ -13,7 +13,17 @@ interface Hello {
   let foo: any = {}
   foo.foo = 'yes'
   foo.bar = 'god'
-  const obj: Hello = foo // any 与任何类型兼容, 并且后面把属性补上了, 不过通常不要这样用
+  const obj1: Hello = foo // any 与任何类型兼容, 并且后面把属性补上了, 不过通常不要这样用
+  console.log(obj1)
+
+  const obj2 = <Hello>foo // 强制转换, 与下面差不多
+  console.log(obj2)
+}
+
+{
+  const obj = <Hello>{} // 将对象字面量 强制转换成 Hello, 后面把属性补上 ok
+  obj.foo = 'yes'
+  obj.bar = 'god'
   console.log(obj)
 }
 

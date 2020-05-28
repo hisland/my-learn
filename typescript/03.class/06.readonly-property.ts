@@ -1,8 +1,8 @@
 class Octopus {
   readonly name: string
-  readonly numberOfLegs: number = 8 // 只读属性必须在声明时或构造函数里被初始化
+  readonly numberOfLegs: number = 8 // 只读属性 必须在声明时初始化
   constructor(theName: string) {
-    this.name = theName // 只读属性必须在声明时或构造函数里被初始化
+    this.name = theName // 或构造函数里被初始化, 只有这 2 种方法
   }
 }
 let dad = new Octopus('Man with the 8 strong legs')

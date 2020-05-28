@@ -2,8 +2,10 @@
 
 let suits = ['hearts', 'spades', 'clubs', 'diamonds']
 
+// 2 个 重载
 function pickCard(x: { suit: string; card: number }[]): number
 function pickCard(x: number): { suit: string; card: number }
+// 具体实现, 必须紧跟上面 2 个重载
 function pickCard(x): any {
   // Check to see if we're working with an object/array
   // if so, they gave us the deck and we'll pick the card

@@ -1,3 +1,5 @@
+// constructor 参数列表, 带 private/public/protected 会自动生成 对应的修饰符的实例属性
+
 class Animal1 {
   constructor(private name: string) {} // 会自动内部生成private name属性
   move(meters: number) {
@@ -8,7 +10,7 @@ class Animal1 {
 class Animal2 {
   constructor(name: string) {}
   move(meters: number) {
-    console.log(this.name, ' moved ' + meters + 'm.') // 提示没有定义name属性
+    console.log(this.name, ' moved ' + meters + 'm.') // 提示没有定义name属性, 需要手工指定
   }
 }
 

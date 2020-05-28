@@ -2,7 +2,7 @@ function add1(x: number, y: number): number {
   return x + y;
 }
 
-let add2 = function(x: number, y: number) { // 自动推断 出 :number
+let add2 = function(x: number, y: number) { // 自动推断 返回类型 number
   return x + y;
 };
 
@@ -28,7 +28,7 @@ let myAdd22: (baseValue: number, increment: number) => number =
 let myAdd3: (x: number, y: number) => number
 let myAdd5: (x: number, y: number) => void
 let myAdd6: (x: number, y: number) => any
-let myAdd4: (x: number, y: number); // 不可以这样, 必须有 =>
+let myAdd4: (x: number, y: number); // 不可以这样
 
 
 export const preventVSCodeError = 1

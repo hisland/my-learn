@@ -1,5 +1,5 @@
 interface Hello {
-  (god: string): void // 调用签名
+  (god: number): number | string // 调用签名
 }
 
 function aa(num: number) {
@@ -11,7 +11,9 @@ function aa(num: number) {
   }
 }
 
-let bb = aa(3) // bb type 是  number | string
+let Fn: Hello = aa // 函数类型
+
+let bb = Fn(3) // bb type 是  number | string
 console.log(bb)
 
 export const preventVSCodeError = 1
