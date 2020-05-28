@@ -1,10 +1,10 @@
-let o = {
-  a: 'foo',
-  b: 12,
-  c: 'bar',
+let oo = {
+  aa: 'foo',
+  bb: 12,
+  cc: 'bar',
 }
 
-let { a: newName1, b: newName2 } = o
+let { aa: newName1, bb: newName2 } = oo
 
 console.log('newName1: ', newName1)
 console.log('newName2: ', newName2)

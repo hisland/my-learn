@@ -7,7 +7,7 @@ console.log(aa1)
 
 {
   let aa2: void
-  aa2 = null // 正常可以这样, 开启 --strictNullChecks 则不行
+  // aa2 = null // 正常可以这样, 开启 --strictNullChecks 则不行
   aa2 = undefined // 始终可以接收 undefined
 }
 

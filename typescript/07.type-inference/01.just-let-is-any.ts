@@ -1,4 +1,4 @@
-let aa1
+let aa1 // 没有初始化, 则识别为 any
 
 aa1 = 3
 console.log(aa1)

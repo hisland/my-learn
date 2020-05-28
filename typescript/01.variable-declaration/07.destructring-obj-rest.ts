@@ -1,12 +1,12 @@
-let o = {
-  a: 'foo',
-  b: 12,
-  c: 'bar',
+let oo = {
+  aa: 'foo',
+  bb: 12,
+  cc: 'bar',
 }
 
-let { a, ...passthrough } = o
+let { aa, ...passthrough } = oo
 
-console.log('a: ', a)
+console.log('aa: ', aa)
 console.log('passthrough: ', passthrough)
 
 export const preventVSCodeError = 1

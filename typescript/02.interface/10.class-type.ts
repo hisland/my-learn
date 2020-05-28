@@ -5,7 +5,7 @@ class Clock3 {
   }
 }
 
-let newClock: Clock3 = new Clock3(7, 30) // Clock3, cs 使用效果一样
+let newClock: Clock3 = new Clock3(7, 30)
 console.log(newClock)
 
 export const preventVSCodeError = 1

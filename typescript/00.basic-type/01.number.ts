@@ -22,5 +22,9 @@
   let height: number = 0o6 // octal
   console.log(height)
 }
+{
+  let height = 123 // 自动推导
+  console.log(height)
+}
 
 export const preventVSCodeError = 1

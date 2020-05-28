@@ -2,13 +2,13 @@ interface Named {
   name: string
 }
 
-let x: Named
+let xx: Named
 // y's inferred type is { name: string; location: string; }
-let y = { name: 'Alice', location: 'Seattle' }
+let yy = { name: 'Alice', location: 'Seattle' }
 
-function greet(n: Named) {
-  console.log('Hello, ' + n.name)
+function greet(nn: Named) {
+  console.log('Hello, ' + nn.name)
 }
-greet(y) // OK
+greet(yy) // OK
 
 export const preventVSCodeError = 1

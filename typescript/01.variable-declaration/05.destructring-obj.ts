@@ -1,13 +1,13 @@
-let o = {
-  a: 'foo',
-  b: 12,
-  c: 'bar',
+let oo = {
+  aa: 'foo',
+  bb: 12,
+  cc: 'bar',
 }
-let { a, b } = o
-console.log('1: ', a, b)
+let { aa, bb } = oo
+console.log('1: ', aa, bb)
 
 // assignment without declaration
-;({ a, b } = { a: 'baz', b: 101 })
-console.log('2: ', a, b)
+;({ aa, bb } = { aa: 'baz', bb: 101 })
+console.log('2: ', aa, bb)
 
 export const preventVSCodeError = 1

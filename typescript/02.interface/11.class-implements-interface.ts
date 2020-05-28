@@ -30,8 +30,8 @@ class Clock3 {
   constructor(h: number, m: number) {}
 }
 
-var cs: ClockStatic = Clock3 // 这样才可以, 让cs表示一个类
-var newClock = new cs(7, 30)
-var newClock = new Clock3(7, 30) // Clock3, cs 使用效果一样
+let cs: ClockStatic = Clock3 // 这样才可以, 让cs表示一个类
+let newClock1 = new cs(7, 30)
+let newClock2 = new Clock3(7, 30) // Clock3, cs 使用效果一样
 
 export const preventVSCodeError = 1

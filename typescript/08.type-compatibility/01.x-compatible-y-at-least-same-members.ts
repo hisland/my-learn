@@ -2,9 +2,9 @@ interface Named {
   name: string
 }
 
-let x: Named
+let xx: Named
 // y's inferred type is { name: string; location: string; }
-let y = { name: 'Alice', location: 'Seattle' }
-x = y // ok
+let yy = { name: 'Alice', location: 'Seattle' }
+xx = yy // ok
 
 export const preventVSCodeError = 1
