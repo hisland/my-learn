@@ -20,16 +20,25 @@ type Tree<T> = {
   right: Tree<T>
 }
 
-type LinkedList<T> = T & { next: LinkedList<T> }
+type LinkedList<T> = T & { next: LinkedList<T> | null }
 interface Person {
   name: string
 }
 
-let people: LinkedList<Person>
+let people: LinkedList<Person> = {
+  name: 'hdl1',
+  next: {
+    name: 'hdl2',
+    next: {
+      name: 'hdl3',
+      next: null,
+    },
+  },
+}
 let s1 = people.name
-let s2 = people.next.name
-let s3 = people.next.next.name
-let s4 = people.next.next.next.name
+let s2 = people.next?.name
+let s3 = people.next?.next?.name
+let s4 = people.next?.next?.next?.name
 
 type Yikes = Array<Yikes> // error
 
