@@ -8,7 +8,7 @@
   // aa.pop() // Error: Property 'pop' does not exist on type 'StringArray1'
 
   // 数字索引虽然相当于数组, 但是缺少数组该有的行为
-  // 其实用范型更好
+  // 其实用范型就行了, 有数组的各种方法
 
   let k1: Array<string> = ['some', 'more']
   k1.pop()
