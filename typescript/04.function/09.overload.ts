@@ -2,7 +2,7 @@
 
 let suits = ['hearts', 'spades', 'clubs', 'diamonds']
 
-// 2 个 重载
+// 2 个 重载签名
 function pickCard(x: { suit: string; card: number }[]): number
 function pickCard(x: number): { suit: string; card: number }
 // 具体实现, 必须紧跟上面 2 个重载

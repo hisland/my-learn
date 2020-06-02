@@ -115,12 +115,22 @@
   console.log(Color) // 查看输出, 是一个key,value都作为key的map
 }
 
-// {
-//   enum Color {
-//     Red = 'Blue',
-//     3 = 'Green', // key 不能是数字
-//     Blue = 4,
-//   }
-// }
+{
+  enum Color {
+    Red = 'Blue',
+    3 = 'Green', // key 不能是数字
+    Blue = 4,
+  }
+}
+
+{
+  // const enum 不会生成真实的对象, 下面的值直接展开了
+  const enum Color {
+    Red = 'Blue',
+    Blue = 4,
+  }
+
+  console.log(Color.Red) // 这里直接展开成 'Blue' 了
+}
 
 export const preventVSCodeError = 1

@@ -5,6 +5,9 @@
 {
   let aa: [number] = [2]
   console.log(aa)
+  aa[0] = 99
+  // aa[0] = 'str'
+  // aa[1] = 100
   // aa[3] = undefined // Error: Tuple type '[number]' of length '1' has no element at index '3'
 }
 

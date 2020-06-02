@@ -1,5 +1,5 @@
 function pluck<T, K extends keyof T>(o: T, names: K[]): T[K][] {
-  return names.map(n => o[n])
+  return names.map((n) => o[n])
 }
 
 interface Person {
@@ -21,5 +21,21 @@ interface Dictionary<T> {
 }
 let keys: keyof Dictionary<number> // index signature 必须是 string | number
 let value: Dictionary<number>['foo'] // number
+
+// https://www.typescriptlang.org/docs/handbook/advanced-types.html#index-types-and-index-signatures
+{
+  interface Foo {
+    [key: string]: boolean
+    more: boolean
+  }
+  type KEYS = keyof Foo // 字符串索引必须有 string | number, 没有 more? 因为 string 已经兼容了吗
+}
+{
+  interface Foo {
+    [key: number]: boolean
+    more: boolean
+  }
+  type KEYS = keyof Foo // 数字索引 number | 'more'
+}
 
 export const preventVSCodeError = 1

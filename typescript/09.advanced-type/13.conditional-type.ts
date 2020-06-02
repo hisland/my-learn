@@ -1,6 +1,6 @@
 export const preventVSCodeError = 1
 
-interface Foo {
+interface Foo1 {
   addr: string
   title: string
   money: number
@@ -10,13 +10,13 @@ interface Sub {
   addr: string
 }
 
-interface What extends Foo {
+interface Foo2 extends Foo1 {
   name: string
 }
 
-interface Hey extends What {
+interface Foo3 extends Foo2 {
   name: string
 }
 
-type a1 = Sub extends Foo ? string : number // number
-type a2 = Hey extends Foo ? string : number // string
+type a1 = Sub extends Foo1 ? string : number // number
+type a2 = Foo3 extends Foo1 ? string : number // string

@@ -58,3 +58,27 @@ type ThreeStringProps = Record<'prop1' | 'prop2' | 'prop3', string>
   // 混合上述操作
   type PersonNullable8 = { -readonly [P in keyof Person]-?: Person[P] }
 }
+
+{
+  interface Person {
+    readonly addr: string
+    name: string
+    age: number
+    height?: number
+  }
+
+  // 这个语法是固定的
+  type PersonNullable1 = { [P in keyof Person]: Person[P] }
+
+  // type PersonNullable2 = {
+  //   [P in keyof Person]: Person[P];
+  //   name: string; // 这样是不行的, 没有这个语法
+  // }
+
+  // 要实现增加 name 属性, 用 &
+  type PersonNullable3 = {
+    [P in keyof Person]: Person[P]
+  } & {
+    name: string
+  }
+}

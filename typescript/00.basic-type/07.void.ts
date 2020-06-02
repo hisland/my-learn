@@ -1,6 +1,11 @@
+function god0(): void {
+  console.log(3)
+  // 函数默认就是返回的 undefined
+}
+
 function god1(): void {
   console.log(3)
-  return undefined // 函数默认就是返回的 undefined
+  return undefined // 明确返回 undefined
 }
 let aa1 = god1()
 console.log(aa1)

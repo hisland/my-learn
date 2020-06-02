@@ -13,14 +13,13 @@
   }
 
   type Props = keyof Person
-  type Props2 = keyof Props
 
   let ss1: Props = 'name'
   let ss2: Props = 33
 }
 
 {
-  // 有 数字类型索引是 // number , 这里只有 number
+  // 有 数字类型索, 这里只有 number
   interface Person {
     [index: number]: string
   }
@@ -65,13 +64,13 @@
 }
 
 {
-  // 混合 字符串索引
+  // 混合 字符串索引, string | number, 不像数字还有 其它属性的 union
   interface Person {
     [index: string]: string
     name: string
   }
 
-  type Props = keyof Person // string | number, 不清楚为什么
+  type Props = keyof Person
 
   let ss1: Props = 'name'
   let ss2: Props = 'not exist'
