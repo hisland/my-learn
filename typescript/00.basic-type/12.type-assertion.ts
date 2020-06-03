@@ -18,4 +18,21 @@ let aa1: any = 'hey'
   console.log(aa3)
 }
 
+{
+  // angle-bracket syntax 在 JSX 里面会产生这种混淆, 所以只支持 as 语法
+  let foo = <string>bar
+  </string>
+}
+
+{
+  function handler1(event: Event) {
+    let element = event as HTMLElement; // Error: Neither 'Event' nor type 'HTMLElement' is assignable to the other
+  }
+  function handler2(event: Event) {
+    let element1 = event as unknown as HTMLElement; // 双转
+    let element2 = event as any as HTMLElement; // 双转
+    let element3 = event as any as unknown as HTMLElement; // 3转 ???
+  }
+}
+
 export const preventVSCodeError = 1
