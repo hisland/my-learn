@@ -4,14 +4,14 @@ class Animal {
 }
 
 class Size extends Animal {
-  foo: string
+  foo: string = 'foo'
 }
 
-let aa: Animal = new Animal('foo', 2)
-let ss: Size = new Size('bar', 3)
+let pp: Animal = new Animal('foo', 2)
+let sub: Size = new Size('bar', 3)
 
 // Private and protected members in a class affect their compatibility
-aa = ss // OK
-ss = aa // Error
+pp = sub // OK
+sub = pp // Error
 
 export const preventVSCodeError = 1

@@ -1,13 +1,17 @@
 class Animal {
   static foo = 1
   feet: number
-  constructor(name: string, numFeet: number) {}
+  constructor(name: string, numFeet: number) {
+    this.feet = numFeet
+  }
 }
 
 class Size {
   static foo = 'bar'
   feet: number
-  constructor(numFeet: number) {}
+  constructor(numFeet: number) {
+    this.feet = numFeet
+  }
 }
 
 let aa: Animal = new Animal('foo', 2)

@@ -1,11 +1,15 @@
 class Animal {
   private feet: number
-  constructor(name: string, numFeet: number) {}
+  constructor(name: string, numFeet: number) {
+    this.feet = numFeet
+  }
 }
 
 class Size {
   private feet: number
-  constructor(numFeet: number) {}
+  constructor(numFeet: number) {
+    this.feet = numFeet
+  }
 }
 
 let aa: Animal = new Animal('foo', 2)
