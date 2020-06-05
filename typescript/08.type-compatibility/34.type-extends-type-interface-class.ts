@@ -257,3 +257,24 @@ export const preventVSCodeError = 1
     let obj1: CLZ1 = {} as IF1
   }
 }
+
+{
+  // 完全一样
+  interface IF1 {
+    name: string
+  }
+  interface IF2 {
+    name: string
+  }
+
+  {
+    // "yes"
+    type T01 = IF1 extends IF2 ? 'yes' : 'no'
+    let obj1: IF2 = {} as IF1
+  }
+  {
+    // "yes"
+    type T01 = IF2 extends IF1 ? 'yes' : 'no'
+    let obj1: IF1 = {} as IF2
+  }
+}

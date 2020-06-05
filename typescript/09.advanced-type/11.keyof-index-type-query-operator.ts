@@ -1,6 +1,6 @@
 // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html
 // 这里有添加说明
-// keyof T 实际上是 string | number | symbol 的子集
+// keyof T 实际上是 'string-literal' | string | number | symbol 的子集
 
 {
   // https://www.typescriptlang.org/docs/handbook/advanced-types.html#index-types-and-index-signatures
