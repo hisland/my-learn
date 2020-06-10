@@ -152,6 +152,7 @@ class C1 {
   let foo_10: any = 'any'
   let foo_11: unknown = 'some'
   let foo_12: never = 'abc' as never
+  let foo_13: unknown[] = []
 
   let foo1: unknown = 'unknown'
 
@@ -168,6 +169,7 @@ class C1 {
   foo1 = foo_10
   foo1 = foo_11
   foo1 = foo_12 // never 可以赋值给 string, 这里不行是因为 foo_11 没有初始化
+  foo1 = foo_13
 }
 {
   let foo_01 = 123
@@ -182,6 +184,7 @@ class C1 {
   let foo_10: any = 'any'
   let foo_11: unknown = 'some'
   let foo_12: never = 'abc' as never
+  let foo_13: unknown[] = []
 
   let foo1: unknown = 'unknown'
 
@@ -198,4 +201,5 @@ class C1 {
   foo_10 = foo1 // unknown 可以赋值给 any
   foo_11 = foo1 // unknown 可以赋值给 unknown
   foo_12 = foo1
+  foo_13 = foo1
 }

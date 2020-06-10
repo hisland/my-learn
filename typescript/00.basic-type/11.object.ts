@@ -51,12 +51,49 @@ console.log(aa1)
 }
 
 {
-  // [] 和 object 感觉像是一样的?
-  let aa1: [] = []
-  let aa2: object = aa1 // [] -> object ok
+  // {} 和 object 感觉像是一样的?
+  let aa1: {} = {}
+  let aa2: object = {}
+  let aa3 = {}
 
-  let aa3: object = ['hdl']
-  let aa4: [] = aa3 // object -> [] no
+  aa1 = aa2 // object -> {} ok
+  aa2 = aa1 // {} -> object ok
+
+  aa3 = aa2 // object -> {} ok
+  aa2 = aa3 // {} -> object ok
+
+  aa1 = aa3 // object -> {} ok
+  aa3 = aa1 // {} -> object ok
+
+  // 并不是通用对象, 而是没有属性的空对象的感觉
+  aa1.foo = 3
+  aa2.foo = 3
+  aa3.foo = 3
+}
+
+{
+  // [] 和 object
+  let aa1: [] = []
+  let aa2: object = {}
+
+  aa1 = aa2 // object -> [] no
+  aa2 = aa1 // [] -> object ok
+
+  let aa3: object = ['hdl'] // 即使值是 [], 但是 aa3 声明是 object
+  let aa4: [] = aa3
+}
+
+{
+  let aa1: [] = []
+  aa1.push(33) // 这里意思是 Array<never>
+  aa1.push('str')
+  aa1.push(33 as never)
+  aa1.push('str' as never)
+
+  let aa2: [] = []
+  let aa3: Array<never> = []
+  aa2 = aa3 // 但是显示指定的 Array<never>, 又不能赋值给 []
+  aa3 = aa2
 }
 
 {
@@ -72,6 +109,7 @@ console.log(aa1)
   let foo_10: any = 'any'
   let foo_11: unknown = 'some'
   let foo_12: never = 'abc' as never
+  let foo_13: unknown[] = []
 
   let foo1: object = { yes: 2 }
 
@@ -88,6 +126,7 @@ console.log(aa1)
   foo1 = foo_10 // any 可以赋值给 object
   foo1 = foo_11
   foo1 = foo_12 // never 可以赋值给 object
+  foo1 = foo_13
 }
 {
   let foo_01 = 123
@@ -102,6 +141,7 @@ console.log(aa1)
   let foo_10: any = 'any'
   let foo_11: unknown = 'some'
   let foo_12: never = 'abc' as never
+  let foo_13: unknown[] = []
 
   let foo1: object = { yes: 2 }
 
@@ -117,7 +157,8 @@ console.log(aa1)
   foo_09 = foo1
   foo_10 = foo1 // object 可以赋值给 any
   foo_11 = foo1 // object 可以赋值给 unknown
-  foo_12 = foo1 // never 可以赋值给 string, 这里不行是因为 foo_11 没有初始化
+  foo_12 = foo1
+  foo_13 = foo1
 }
 
 export const preventVSCodeError = 1

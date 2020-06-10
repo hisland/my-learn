@@ -24,6 +24,7 @@ function god0(): void {
   let foo_10: any = 'any'
   let foo_11: unknown = 'some'
   let foo_12: never = 'abc' as never
+  let foo_13: unknown[] = []
 
   let foo1: undefined = undefined
 
@@ -40,6 +41,7 @@ function god0(): void {
   foo1 = foo_10 // any 可以赋值给 undefined
   foo1 = foo_11
   foo1 = foo_12 // never 可以赋值给 undefined
+  foo1 = foo_13
 }
 {
   let foo_01 = 123
@@ -54,6 +56,7 @@ function god0(): void {
   let foo_10: any = 'any'
   let foo_11: unknown = 'some'
   let foo_12: never = 'abc' as never
+  let foo_13: unknown[] = []
 
   let foo1: undefined = undefined
 
@@ -70,6 +73,7 @@ function god0(): void {
   foo_10 = foo1 // undefined 可以赋值给 any
   foo_11 = foo1 // undefined 可以赋值给 unknown
   foo_12 = foo1
+  foo_13 = foo1
 }
 
 export const preventVSCodeError = 1
