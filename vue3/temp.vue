@@ -1,16 +1,16 @@
 <template>
-  <div>{{halo}} aa</div>
-  <div>{{say}} bb</div>
-  <div>{{come}} bb</div>
+  <div>aa: {{halo}}</div>
+  <div>aa: {{say}}</div>
+  <div>aa: {{come}}</div>
   <div>
     <button @click="add()">click</button>
   </div>
 </template>
-<script>
-import { ref, onMounted, computed } from 'vue'
+<script lang="ts">
+import { Ref, ref, onMounted, computed } from 'vue'
 export default {
   setup() {
-    const halo = ref(98)
+    const halo: Ref<string> = ref('god')
     const say = computed(() => {
       return halo.value + ' yes'
     })
@@ -26,7 +26,9 @@ export default {
   },
   methods: {
     add() {
-      this.halo++
+      this.halo = Math.random()
+        .toString(32)
+        .substr(2, 3)
     },
   },
 }
