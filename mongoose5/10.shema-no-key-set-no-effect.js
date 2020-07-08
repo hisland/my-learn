@@ -5,7 +5,7 @@ mongoose.connect('mongodb://localhost/mongoose5-learn', {
   useUnifiedTopology: true,
 })
 
-const schema1 = mongoose.Schema({
+const schema1 = new mongoose.Schema({
   dogName: { type: String, required: [true, 'my msg'] },
   dogHair: { type: String },
   dogTail: { type: Number },

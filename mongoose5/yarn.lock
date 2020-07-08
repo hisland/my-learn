@@ -57,10 +57,10 @@ memory-pager@^1.0.2:
   resolved "https://registry.npm.taobao.org/memory-pager/download/memory-pager-1.5.0.tgz#d8751655d22d384682741c972f2c3d6dfa3e66b5"
   integrity sha1-2HUWVdItOEaCdByXLyw9bfo+ZrU=
 
-mongodb@3.5.7:
-  version "3.5.7"
-  resolved "https://registry.npm.taobao.org/mongodb/download/mongodb-3.5.7.tgz?cache=0&sync_timestamp=1588164048028&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmongodb%2Fdownload%2Fmongodb-3.5.7.tgz#6dcfff3bdbf67a53263dcca1647c265eea1d065d"
-  integrity sha1-bc//O9v2elMmPcyhZHwmXuodBl0=
+mongodb@3.5.9:
+  version "3.5.9"
+  resolved "http://192.168.1.179:4873/mongodb/-/mongodb-3.5.9.tgz#799b72be8110b7e71a882bb7ce0d84d05429f772"
+  integrity sha512-vXHBY1CsGYcEPoVWhwgxIBeWqP3dSu9RuRDsoLRPTITrcrgm1f0Ubu1xqF9ozMwv53agmEiZm0YGo+7WL3Nbug==
   dependencies:
     bl "^2.2.0"
     bson "^1.1.4"
@@ -75,20 +75,20 @@ mongoose-legacy-pluralize@1.0.2:
   resolved "http://registry.npm.taobao.org/mongoose-legacy-pluralize/download/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
   integrity sha1-O6n5H6UHtRhtOZ+0CFS/8Y+1Y+Q=
 
-mongoose@^5.9.13:
-  version "5.9.13"
-  resolved "https://registry.npm.taobao.org/mongoose/download/mongoose-5.9.13.tgz#fa4af761a0b1d10471daa23aafcc775b04b6db42"
-  integrity sha1-+kr3YaCx0QRx2qI6r8x3WwS220I=
+mongoose@^5.9.22:
+  version "5.9.22"
+  resolved "http://192.168.1.179:4873/mongoose/-/mongoose-5.9.22.tgz#4f1542f037a552b43f547ebfc72ddaf9f88c5ecf"
+  integrity sha512-nwH2LwrGN/jR0Qi8TqSog0MWZRtxdpQxVFcPNjs+CUyCMaxKqFJYrkPILTPKPMMzwrAv1cCQqrvoLl+ggklvbg==
   dependencies:
     bson "^1.1.4"
     kareem "2.3.1"
-    mongodb "3.5.7"
+    mongodb "3.5.9"
     mongoose-legacy-pluralize "1.0.2"
     mpath "0.7.0"
     mquery "3.2.2"
     ms "2.1.2"
     regexp-clone "1.0.0"
-    safe-buffer "5.1.2"
+    safe-buffer "5.2.1"
     sift "7.0.1"
     sliced "1.0.1"
 
@@ -158,6 +158,11 @@ safe-buffer@5.1.2, safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "http://registry.npm.taobao.org/safe-buffer/download/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
   integrity sha1-mR7GnSluAxN0fVm9/St0XDX4go0=
+
+safe-buffer@5.2.1:
+  version "5.2.1"
+  resolved "http://192.168.1.179:4873/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
+  integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
 
 safe-buffer@^5.1.1:
   version "5.2.0"

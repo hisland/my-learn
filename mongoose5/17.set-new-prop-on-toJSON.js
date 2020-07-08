@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost/mongoose5-learn', {
 
 const { Schema } = mongoose
 
-const schema_dog = mongoose.Schema({
+const schema_dog = new mongoose.Schema({
   dogName: { type: String, required: [true, 'my msg'] },
   dogHair: { type: String },
   dogTail: { type: Number },
@@ -16,7 +16,7 @@ const schema_dog = mongoose.Schema({
 })
 const Dog = mongoose.model('dog', schema_dog, 'dog')
 
-const schema_home = mongoose.Schema({
+const schema_home = new mongoose.Schema({
   name: { type: String },
 })
 const Home = mongoose.model('home', schema_home, 'home')

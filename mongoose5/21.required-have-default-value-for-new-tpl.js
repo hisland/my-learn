@@ -5,7 +5,7 @@ mongoose.connect('mongodb://localhost/mongoose5-learn', {
   useUnifiedTopology: true,
 })
 
-const SchemaDef = mongoose.Schema({
+const SchemaDef = new mongoose.Schema({
   dogName: { type: String, required: [true, '名字必填'] },
   dogAge: { type: Number, required: [true, '年龄必填'] },
 })
@@ -16,7 +16,7 @@ obj1._id = null
 console.log(obj1)
 
 {
-  const SchemaDef = mongoose.Schema({
+  const SchemaDef = new mongoose.Schema({
     dogName: { type: String, required: [true, '名字必填'], default: '' },
     dogAge: { type: Number, required: [true, '年龄必填'], default: null }, // 不确定就用 null
   })
