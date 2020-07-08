@@ -26,11 +26,11 @@ mongoose.connect('mongodb://localhost/mongoose5-learn', {
   console.log(22, c1, c2)
 
   // Object.assign(c1, c2)
-  c1.test1 = c2.test1
-  c1.test2 = c2.test2
+  c1.test1 = c2.test1 // 修改值
+  c1.test2 = c2.test2 // 修改值
   // c1._id = c2._id // 这样不行
   console.log(22, c1, c2)
-  await c1.save()
+  await c1.save() // 保存修改
 
   // await c1.save()
   // c1._id = '33'
