@@ -4,7 +4,7 @@ const child_lv2 = {
       child_lv2: {{child_lv2}}  <button @click="act">点我2</button>
     </div>
       `,
-  data: function() {
+  data: function () {
     console.log('---- init data: child_lv2')
     return {
       child_lv2: 'child_lv2 data',
@@ -16,13 +16,13 @@ const child_lv2 = {
     },
   },
   beforeCreate() {
-    console.log('---- beforeCreate: child_lv2')
+    console.log('---- beforeCreate: child_lv2', this)
   },
   created() {
-    console.log('---- created: child_lv2')
+    console.log('---- created: child_lv2', this)
   },
   beforeMount() {
-    console.log('---- beforeMount: child_lv2')
+    console.log('---- beforeMount: child_lv2', this)
   },
   mounted() {
     console.log('---- mounted: child_lv2')
@@ -62,7 +62,7 @@ const child_lv1 = {
       this.child_lv1 = Math.random().toFixed(2)
     },
   },
-  data: function() {
+  data: function () {
     console.log('-- init data: child_lv1')
     return {
       child_lv1: 'child_lv1 data',
@@ -110,7 +110,7 @@ const vm = new Vue({
   <child_lv1 ref="sub2"></child_lv1>
 </div>
   `,
-  data: function() {
+  data: function () {
     console.log('init data: parent')
     return {
       aa: 'some aa',
@@ -123,7 +123,7 @@ const vm = new Vue({
     bb: 'some bb',
   },
   computed: {
-    dd: function() {
+    dd: function () {
       console.log('call: computed.dd: parent')
       return 'some dd' + this.aa2
     },
@@ -145,18 +145,18 @@ const vm = new Vue({
     // },
   },
   watch: {
-    aa: function(newVal, oldVal) {
+    aa: function (newVal, oldVal) {
       console.log(newVal, arguments, this.aa)
     },
   },
   beforeCreate() {
-    console.log('beforeCreate: parent')
+    console.log('beforeCreate: parent', this)
   },
   created() {
-    console.log('created: parent')
+    console.log('created: parent', this)
   },
   beforeMount() {
-    console.log('beforeMount: parent')
+    console.log('beforeMount: parent', this)
     console.log('ref-sub1: ', this.$refs.sub1)
     console.log('ref-sub2: ', this.$refs.sub2)
   },

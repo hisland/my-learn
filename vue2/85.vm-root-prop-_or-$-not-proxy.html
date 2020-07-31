@@ -1,0 +1,43 @@
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<style>
+  .box {
+    border: 1px solid #999;
+    padding: 3px;
+    margin: 3px;
+    padding-left: 10px;
+  }
+
+</style>
+<pre>
+  * 没有 vm.$bar, 因为 $ 开头, 可以用 vm.$data.$bar
+</pre>
+<div id="app">
+  <div>
+    {{foo}}
+  </div>
+</div>
+<script>
+  function User() {
+    this.$name = 'hdl'
+  }
+  User.prototype.height = 3
+  User.prototype.say = function () {
+    console.log('yes')
+  }
+  const aa1 = new User()
+  const aa2 = new User()
+  const Demo = {
+    el: '#app',
+    data() {
+      return {
+        foo: aa1,
+        $bar: aa2
+      };
+    },
+    methods: {
+    }
+  }
+  window.kkk = new Vue(Demo)
+</script>

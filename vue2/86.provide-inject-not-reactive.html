@@ -1,0 +1,64 @@
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<pre>
+  * 没有 vm.$bar, 因为 $ 开头, 可以用 vm.$data.$bar
+</pre>
+<div id="app">
+  <pp1></pp1>
+</div>
+<template id="pp1">
+  <div>
+    <div>pp1</div>
+    <div>
+      <button @click="set1()">变化嵌套属性, reactive</button>
+      <button @click="set2()">修改 foo, 下级得不到</button>
+    </div>
+    <div>{{foo}}</div>
+    <pp2></pp2>
+  </div>
+</template>
+<template id="pp2">
+  <div>
+    <div>pp2</div>
+    <div>{{some}}</div>
+  </div>
+</template>
+<script>
+  Vue.component('pp1', {
+    template: '#pp1',
+    data() {
+      return {
+        foo: {
+          some: 'value',
+          say: 3,
+        },
+      }
+    },
+    provide() {
+      return {
+        some: this.foo,
+      }
+    },
+    methods: {
+      set1() {
+        this.foo.some = Math.random().toString(36)
+      },
+      set2() {
+        this.foo = { god: Math.random().toString(36) }
+      },
+    },
+  })
+  Vue.component('pp2', {
+    template: '#pp2',
+    inject: ['some'],
+    data() {
+      return {}
+    },
+    methods: {},
+  })
+
+  window.kkk = new Vue({
+    el: '#app',
+  })
+</script>

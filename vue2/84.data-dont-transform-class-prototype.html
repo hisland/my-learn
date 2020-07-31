@@ -1,0 +1,51 @@
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<style>
+  .box {
+    border: 1px solid #999;
+    padding: 3px;
+    margin: 3px;
+    padding-left: 10px;
+  }
+
+</style>
+<pre>
+  * class, 原型上的方法 没有转换成 getter/setter
+  * class, 原型上的暂时没有属性
+  * class, 原型上的属性 是 get/set
+</pre>
+<div id="app">
+  <div>
+    {{foo}}
+  </div>
+</div>
+<script>
+  class User {
+    constructor() {
+      this.name = 'hdl2'
+      this._height = 99
+    }
+    get height() {
+      return this._height;
+    }
+    set height(val) {
+      this._height = val
+    }
+    say() {
+      console.log('yes')
+    }
+  }
+  const aa1 = new User()
+  const Demo = {
+    el: '#app',
+    data() {
+      return {
+        foo: aa1
+      };
+    },
+    methods: {
+    }
+  }
+  window.kkk = new Vue(Demo)
+</script>
