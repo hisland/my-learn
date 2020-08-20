@@ -1,0 +1,50 @@
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<pre>
+  * 动态属性名
+</pre>
+<div id="app">
+  <button @click="set1()">切换</button>
+  <pp1 :[kk]="val"></pp1>
+</div>
+<template id="pp1">
+  <div>
+    <div>1 foo: {{foo}}</div>
+    <div>2 bar: {{bar}}</div>
+  </div>
+</template>
+<script>
+  Vue.component('pp1', {
+    template: '#pp1',
+    data() {
+      return {}
+    },
+    props: {
+      foo: String,
+      bar: String,
+    },
+    watch: {
+      foo(newVal) { console.log('change foo', newVal); },
+      bar(newVal) { console.log('change bar', newVal); },
+    },
+    methods: {
+    },
+  })
+
+  window.kkk = new Vue({
+    el: '#app',
+    data() {
+      return {
+        kk: 'foo',
+        val: '123',
+      }
+    },
+    methods: {
+      set1() {
+        this.kk = this.kk === 'foo' ? 'bar' : 'foo'
+        this.val = Math.random().toString(36)
+      },
+    },
+  })
+</script>

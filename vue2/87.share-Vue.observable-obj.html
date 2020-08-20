@@ -1,0 +1,66 @@
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<pre>
+  * Vue.observable 外部生成, 多个组件共享
+</pre>
+<div id="app">
+  <pp1></pp1>
+  <pp2></pp2>
+</div>
+<template id="pp1">
+  <div>
+    <div>aa.some: {{aa.some}}</div>
+    <div>aa.foo: {{aa.foo}}</div>
+    <div>
+      <button @click="set1()">变化嵌套属性, reactive</button>
+    </div>
+  </div>
+</template>
+<template id="pp2">
+  <div>
+    <div>bb.some: {{bb.some}}</div>
+    <div>bb.foo: {{bb.foo}}</div>
+    <div>
+      <button @click="set1()">变化嵌套属性, reactive</button>
+    </div>
+  </div>
+</template>
+<script>
+  const obj = Vue.observable({
+    some: '1',
+    foo: 2,
+  })
+  Vue.component('pp1', {
+    template: '#pp1',
+    data() {
+      return {
+        aa: obj,
+      }
+    },
+    methods: {
+      set1() {
+        this.aa.some = 'set by aa: ' + Math.random().toString(36)
+        this.aa.foo = 'set by aa: ' + Math.random().toString(36)
+      },
+    },
+  })
+  Vue.component('pp2', {
+    template: '#pp2',
+    data() {
+      return {
+        bb: obj,
+      }
+    },
+    methods: {
+      set1() {
+        this.bb.some = 'set by bb: ' + Math.random().toString(36)
+        this.bb.foo = 'set by bb: ' + Math.random().toString(36)
+      },
+    },
+  })
+
+  window.kkk = new Vue({
+    el: '#app',
+  })
+</script>

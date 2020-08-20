@@ -1,0 +1,29 @@
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<pre>
+  * 动态事件名, 切换的时候之前的事件会注销掉
+</pre>
+<div id="app">
+  <button @click="set1()">切换 {{evt}}</button>
+
+  <div @[evt]="DoAct" style="background:pink">操作区域 {{evt}}</div>
+</div>
+<script>
+  window.kkk = new Vue({
+    el: '#app',
+    data() {
+      return {
+        evt: 'click',
+      }
+    },
+    methods: {
+      set1() {
+        this.evt = this.evt === 'click' ? 'dblclick' : 'click'
+      },
+      DoAct() {
+        console.log(this.evt)
+      },
+    },
+  })
+</script>
