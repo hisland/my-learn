@@ -2,11 +2,13 @@
 <meta charset="utf-8">
 
 <div id="app">
+  <pre>
+    * v-if 会导致组件/节点 销毁重建, 所以是完整的 bind->unbind 过程
+  </pre>
   <div class="compa">
-    <button @click="setRandom">set</button>
-    <button @click="show=!show">toggle</button>
+    <button @click="show=!show">toggle {{show}}</button>
 
-    <h1 v-if="show" v-sample>{{what}}</h1>
+    <div v-if="show" v-sample></div>
   </div>
 </div>
 <pre>
@@ -41,6 +43,7 @@
         },
         componentUpdated(el, binding, vnode, oldVnode) { // need to make sure children are done updating (vs. `update`)
           console.log('componentUpdated', el, binding, vnode, oldVnode)
+          el.setAttribute('aa', binding.value)
         },
         unbind(el, binding, vnode, oldVnode) {
           console.log('unbind', el, binding, vnode, oldVnode)

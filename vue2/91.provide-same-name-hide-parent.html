@@ -1,0 +1,74 @@
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<pre>
+  * 动态属性名
+  * 切换后, 之前的名字的值会变成 undefined, 子组件能 watch 到
+</pre>
+<div id="app">
+  <button @click="set1()">切换</button>
+  <div>0 kk: {{kk}}</div>
+  <pp1></pp1>
+</div>
+<template id="pp1">
+  <div style="padding:10px;background:pink;">
+    <button @click="set2()">切换</button>
+    <div>1 kk: {{kk}}</div>
+    <div>1 foo: {{foo}}</div>
+    <pp2></pp2>
+  </div>
+</template>
+<template id="pp2">
+  <div style="padding:20px;background:purple;">
+    <div>2 kk: {{kk}}</div>
+    <div>2 foo: {{foo}}</div>
+  </div>
+</template>
+<script>
+  Vue.component('pp1', {
+    template: '#pp1',
+    data() {
+      return {
+        foo: 'foo',
+      }
+    },
+    inject: ['kk'],
+    provide() {
+      return {
+        kk: this.foo
+      };
+    },
+    methods: {
+      set2() {
+        this.foo = 'foo' + Math.random().toString(36)
+      }
+    }
+  })
+  Vue.component('pp2', {
+    template: '#pp2',
+    data() {
+      return {
+      }
+    },
+    inject: ['kk', 'foo'],
+  })
+
+  window.kkk = new Vue({
+    el: '#app',
+    data() {
+      return {
+        kk: 'kk',
+      }
+    },
+    provide() {
+      return {
+        kk: this.kk
+      };
+    },
+    methods: {
+      set1() {
+        this.kk = 'kk' + Math.random().toString(36)
+      }
+    }
+  })
+</script>

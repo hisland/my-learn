@@ -2,11 +2,13 @@
 <meta charset="utf-8">
 
 <div id="app">
+  <pre>
+    * directive 所在节点下有用到 data 的时候, data 变化会触发 update->componentUpdated
+  </pre>
   <div class="compa">
     <button @click="setRandom">set</button>
-    <button @click="show=!show">toggle</button>
 
-    <h1 v-if="show" v-sample>{{what}}</h1>
+    <div v-if="show" v-sample>{{what}}</div>
   </div>
 </div>
 <pre>
@@ -20,7 +22,7 @@
     data() {
       return {
         what: 'hey1',
-        show: false,
+        show: true,
       };
     },
     methods: {
@@ -41,6 +43,7 @@
         },
         componentUpdated(el, binding, vnode, oldVnode) { // need to make sure children are done updating (vs. `update`)
           console.log('componentUpdated', el, binding, vnode, oldVnode)
+          el.setAttribute('aa', binding.value)
         },
         unbind(el, binding, vnode, oldVnode) {
           console.log('unbind', el, binding, vnode, oldVnode)

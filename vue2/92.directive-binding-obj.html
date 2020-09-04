@@ -1,0 +1,44 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<div id="app">
+  <div class="compa">
+    <button @click="setRandom">set</button>
+    <button @click="show=!show">toggle</button>
+
+    <h1 v-if="show" v-sample:[what].aa.bb="what">{{what}}</h1>
+  </div>
+</div>
+<pre>
+</pre>
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<script>
+  let vm = new Vue({
+    el: '#app',
+    data() {
+      return {
+        what: 'hey1',
+        show: false,
+      };
+    },
+    methods: {
+      setRandom() {
+        this.what = Math.random()
+      }
+    },
+    directives: {
+      sample(el, binding, vnode) {
+        var s = JSON.stringify
+        el.innerHTML =
+          'name: ' + s(binding.name) + '<br>' +
+          'value: ' + s(binding.value) + '<br>' +
+          'expression: ' + s(binding.expression) + '<br>' +
+          'argument: ' + s(binding.arg) + '<br>' +
+          'modifiers: ' + s(binding.modifiers) + '<br>' +
+          'vnode keys: ' + Object.keys(vnode).join(', ')
+      }
+    }
+  })
+</script>
