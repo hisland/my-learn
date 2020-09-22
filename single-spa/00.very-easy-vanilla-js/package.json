@@ -1,0 +1,15 @@
+{
+  "name": "easy1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "single-spa.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "single-spa": "^5.6.0"
+  }
+}
