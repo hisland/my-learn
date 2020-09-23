@@ -9,10 +9,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "webpack": "^5.0.0-beta.22"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
+    "webpack": "^5.0.0-beta.22",
     "webpack-cli": "^3.3.12"
   }
 }
