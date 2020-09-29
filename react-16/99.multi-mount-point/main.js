@@ -9,4 +9,4 @@ class Welcome2 extends React.Component {
 }
 
 ReactDOM.render(<Welcome1 name="func" />, document.getElementById('root1'))
-ReactDOM.render(<Welcome1 name="class" />, document.getElementById('root2'))
+ReactDOM.render(<Welcome2 name="class" />, document.getElementById('root2'))

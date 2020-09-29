@@ -4,22 +4,23 @@ const e = React.createElement
 
 class LikeButton extends React.Component {
   constructor(props) {
+    console.log('run constructor')
+
     super(props)
-    this.state = { liked: false }
+    this.state = { value: 'first' }
   }
 
   render() {
-    if (this.state.liked) {
-      return 'You liked this.'
-    }
-
+    console.log('run render every time')
     return e(
       'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Like'
+      { onClick: () => this.setState({ value: Math.random().toString(36) }) },
+      'Like: ' + this.state.value
     )
   }
 }
 
 const domContainer = document.querySelector('#like_button_container')
 ReactDOM.render(e(LikeButton), domContainer)
+
+console.log('code after')
