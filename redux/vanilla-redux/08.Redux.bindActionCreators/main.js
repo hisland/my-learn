@@ -60,17 +60,29 @@ function visibilityFilter(state = VisibilityFilters.SHOW_ALL, action) {
   }
 }
 
-// // Redux.combineReducers does this
-// function combineReducers(state = {}, action) {
-//   return {
-//     visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-//     todos: todos(state.todos, action),
-//   }
-// }
-
 const todoApp = Redux.combineReducers({
   visibilityFilter,
   todos,
 })
 
-console.log(todoApp)
+const store1 = Redux.createStore(todoApp)
+console.log('app: ', store1, store1.getState())
+
+const unsubscribe = store1.subscribe(() =>
+  console.log('subscribe:', JSON.stringify(store1.getState()))
+)
+
+const bounds = Redux.bindActionCreators(
+  {
+    addTodo,
+    toggleTodo,
+    setVisibilityFilter,
+  },
+  store1.dispatch
+)
+
+bounds.addTodo('some1')
+bounds.addTodo('some2')
+bounds.toggleTodo(1)
+
+unsubscribe()
