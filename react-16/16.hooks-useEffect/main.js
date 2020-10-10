@@ -5,17 +5,17 @@ function Example() {
 
   const [count, setCount] = useState(0)
 
+  console.log('before useEffect')
+
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
     console.log('run useEffect')
 
     // Update the document title using the browser API
     document.title = `You clicked ${count} times`
-
-    return () => {
-      console.log('clean useEffect')
-    }
   })
+
+  console.log('after useEffect')
 
   return (
     <div>

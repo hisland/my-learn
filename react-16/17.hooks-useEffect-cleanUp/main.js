@@ -7,10 +7,24 @@ function Example() {
 
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
-    console.log('run useEffect')
+    console.log('run useEffect 1')
 
     // Update the document title using the browser API
-    document.title = `You clicked ${count} times`
+    document.title = `You clicked ${count} times 1`
+
+    return () => {
+      console.log('clean useEffect 1')
+    }
+  })
+  useEffect(() => {
+    console.log('run useEffect 2')
+
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times 2`
+
+    return () => {
+      console.log('clean useEffect 2')
+    }
   })
 
   return (
