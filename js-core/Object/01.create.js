@@ -1,16 +1,18 @@
 'use strict'
 // Object.create(proto[, propertiesObject])
 
-let oo
+{
+  // create an object with null as prototype
+  // 这个纯对象没有 toString 等基本方法
+  const oo1 = Object.create(null)
+}
 
-// create an object with null as prototype
-// 这个纯对象没有 toString 等基本方法
-oo = Object.create(null)
-
-// 对象字面量
-oo = {}
-// 相当于下面这样:
-oo = Object.create(Object.prototype)
+{
+  // 对象字面量
+  const oo1 = {}
+  // 相当于下面这样:
+  const oo2 = Object.create(Object.prototype)
+}
 
 let pp = {
   a: 1,

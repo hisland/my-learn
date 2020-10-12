@@ -7,13 +7,13 @@ oh god is ${god},
 
 `) // 支持直接多行
 
-function tag1(tpl, aa, bb) {
+function tag1(tpl, aa, bb, cc) {
   // 插值依次传入
   console.log(arguments)
-  console.log(tpl, aa, bb)
+  console.log(tpl, aa, bb, cc)
   return 33
 }
-function tag2(tpl, aa, bb) {
+function tag2(tpl, aa, bb, cc) {
   // 插值依次传入
   // console.log(arguments)
   console.log('tpl:', tpl)
@@ -32,8 +32,8 @@ console.log(``)
 const bb2 = tag2`a god, \n ${say} 1 ${halo}, 2 ${obj.tt}`
 console.log('return from tag: ', bb2)
 
-console.log(``)
-console.log(`oh god is ${god}, not is ${not}`) // god 在相应作用域有值被解析了, not报错
+console.log(`----------`)
+// console.log(`oh god is ${god}, not is ${not}`) // god 在相应作用域有值被解析了, not报错
 
 function passthru1(literals) {
   let result = ''
