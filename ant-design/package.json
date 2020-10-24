@@ -1,0 +1,17 @@
+{
+  "name": "ant-design-test",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "antd": "4.5.2",
+    "@pika/react": "16.13.1",
+    "@pika/react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "vite": "^1.0.0-rc.1",
+    "vite-plugin-react": "^3.0.0"
+  }
+}
