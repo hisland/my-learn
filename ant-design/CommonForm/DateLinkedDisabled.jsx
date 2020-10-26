@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-filename-extension */
+
 import React from 'react'
 import { DatePicker } from 'antd'
 
@@ -21,15 +23,14 @@ export function SetDisabledDate(form, compareOp, thatKey) {
 
 function GenComp(form, compareOp, thatKey) {
   return function DatePickerHoc(props) {
-    const style = props.style
-      ? { ...props.style, width: '100%' }
-      : { width: '100%' }
+    const { style } = props
+    const mergedStyle = style ? { ...style, width: '100%' } : { width: '100%' }
     return (
       <DatePicker
         {...props}
-        style={style}
+        style={mergedStyle}
         disabledDate={SetDisabledDate(form, compareOp, thatKey)}
-      ></DatePicker>
+      />
     )
   }
 }

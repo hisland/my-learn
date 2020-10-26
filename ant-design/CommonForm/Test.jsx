@@ -21,7 +21,7 @@ const FormItem = Form.Item
 
 import { hasOwnProperty } from './util'
 import { RowColLayout } from './RowColLayout.jsx'
-import { GenDateCompPair } from './DateLinkDisabled.jsx'
+import { GenDateCompPair } from './DateLinkedDisabled.jsx'
 
 function CommonForm({ props }) {
   console.log('CommonForm rerender')
@@ -61,7 +61,12 @@ function CommonForm({ props }) {
   const [FromDate, ToDate] = GenDateCompPair(form, 'fromDate', 'toDate')
 
   return (
-    <Form form={form} onValuesChange={onValuesChange}>
+    <Form
+      form={form}
+      onValuesChange={onValuesChange}
+      labelCol={{ span: 8 }}
+      wrapperCol={{ span: 16 }}
+    >
       <RowColLayout>
         <FormItem label="useDate" name="useDate">
           <Select>
