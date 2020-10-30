@@ -1,5 +1,3 @@
-const store = Redux.createStore()
-
 /*
  * action types
  */
