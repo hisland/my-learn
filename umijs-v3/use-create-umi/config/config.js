@@ -5,7 +5,9 @@ export default {
   treeShaking: true,
   // asset是模块名，可以根据自己的模块调整。
   mountElementId: 'asset',
+  history: 'hash',
   hash: true,
+  publicPath: './',
   // 删掉 routes, 会按约定式来, 保留则按配置来
   routes,
   plugins: [
