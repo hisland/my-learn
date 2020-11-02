@@ -13,6 +13,10 @@ const App = connect(function mapStateToPros(state, ownProps) {
 })(function App(props) {
   return (
     <div>
+      <h2>
+        mapStateToPros, 返回的结果对象的 key 变成 props.xxx, 能读取 redux
+        里面的内容了
+      </h2>
       <div>{props.visibilityFilter}</div>
       <div>{props.some1}</div>
       <div>{props.some2}</div>

@@ -29,6 +29,7 @@ const App = connect(
 )(function App(props) {
   return (
     <div>
+      <h2>mapDispatchToProps, 将 action 变成 props.xxx() 被组件调用</h2>
       <div>{props.visibilityFilter}</div>
       <div>{props.some1}</div>
       <div>{props.some2}</div>

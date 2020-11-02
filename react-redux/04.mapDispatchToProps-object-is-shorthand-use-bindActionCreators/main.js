@@ -20,6 +20,7 @@ const App = connect(
 )(function App(props) {
   return (
     <div>
+      <h2>这个是 mapDispatchToProps 简便写法, 复用了 action creators</h2>
       <div>{props.visibilityFilter}</div>
       <div>{props.some1}</div>
       <div>{props.some2}</div>

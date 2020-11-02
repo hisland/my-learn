@@ -31,6 +31,7 @@ const App = connect(
 )(function App(props) {
   return (
     <div>
+      <h2>mergeProps 处理同名属性的覆盖问题, 默认顺序如代码里面所示</h2>
       <div>{props.visibilityFilter}</div>
       <div>{props.some1}</div>
       <div>{props.some2}</div>

@@ -15,6 +15,7 @@ const App = connect(function mapStateToPros(state, ownProps) {
       {({ store }) => {
         return (
           <div>
+            <h2>可以直接使用 store, 暂时不清楚该干嘛</h2>
             <div>{props.visibilityFilter}</div>
             <div>
               list:{' '}
