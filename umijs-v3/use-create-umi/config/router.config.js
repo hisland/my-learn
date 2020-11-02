@@ -19,6 +19,10 @@ export default [
         path: '/kkk/kkk',
         component: '../pages/kkk/kkk',
       },
+      {
+        path: '/sss/sss',
+        component: '../pages/sss/sss',
+      },
     ],
   },
 ];
