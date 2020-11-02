@@ -1,10 +1,7 @@
 import { connect } from 'dva';
 
-console.log(connect);
-
 export default connect(state => {
   console.log('connect pages/index', state);
-  console.log(state);
   const { foo } = state;
   return {
     foo,

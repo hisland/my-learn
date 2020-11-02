@@ -15,6 +15,10 @@ export default [
         path: '/',
         component: '../pages/index',
       },
+      {
+        path: '/kkk/kkk',
+        component: '../pages/kkk/kkk',
+      },
     ],
   },
 ];

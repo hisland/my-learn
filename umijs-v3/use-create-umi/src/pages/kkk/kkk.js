@@ -1,21 +1,20 @@
-import styles from './foo.css';
 import { connect } from 'dva';
 
 export default connect(state => {
-  console.log('connect pages/foo', state);
-  const { foo } = state;
+  console.log('connect pages/kkk', state);
+  const { kkk } = state;
   return {
-    foo,
+    kkk,
   };
 })(function(props) {
-  console.log('render pages/foo');
+  console.log('render pages/kkk');
   const { dispatch } = props;
   return (
-    <div className={styles.normal}>
-      <h1>Page foo2</h1>
+    <div>
+      <h1>Page kkk</h1>
       <div>
-        {'foo'}
-        {props.foo.map((vv, index) => (
+        {'kkk'}
+        {props.kkk && props.kkk.map((vv, index) => (
           <span key={index} style={{ background: 'green', margin: '3px' }}>
             {vv}
           </span>
@@ -24,7 +23,7 @@ export default connect(state => {
       <div>
         <button
           onClick={() => {
-            dispatch({ type: 'foo/add', payload: '123' });
+            dispatch({ type: 'kkk/add', payload: '123' });
           }}
         >
           put
