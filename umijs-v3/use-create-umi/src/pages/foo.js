@@ -27,7 +27,19 @@ export default connect(state => {
             dispatch({ type: 'foo/add', payload: '123' });
           }}
         >
-          put
+          add
+        </button>
+        <button
+          onClick={() => {
+            dispatch({
+              type: 'foo/delayAdd',
+              payload: Math.random()
+                .toString(36)
+                .substr(2, 5),
+            });
+          }}
+        >
+          delayAdd
         </button>
       </div>
     </div>
