@@ -1,25 +1,13 @@
+import routes from './router.config.js';
+
 // ref: https://umijs.org/config/
 export default {
   treeShaking: true,
   // asset是模块名，可以根据自己的模块调整。
   mountElementId: 'asset',
   hash: true,
-  routes: [
-    {
-      path: '/',
-      component: '../layouts/index',
-      routes: [
-        {
-          path: '/foo',
-          component: './foo',
-        },
-        {
-          path: '/',
-          component: '../pages/index',
-        },
-      ],
-    },
-  ],
+  // 删掉 routes, 会按约定式来, 保留则按配置来
+  routes,
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [

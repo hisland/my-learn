@@ -1,17 +1,55 @@
-import styles from './index.css';
+import { connect } from 'dva';
 
-export default function() {
+console.log(connect);
+
+export default connect(state => {
+  console.log('connect pages/index', state);
+  console.log(state);
+  const { foo } = state;
+  return {
+    foo,
+    'god/say': state['god/say'],
+  };
+})(function(props) {
+  console.log('render pages/index', props);
+  const { dispatch } = props;
   return (
-    <div className={styles.normal}>
-      <div className={styles.welcome} />
-      <ul className={styles.list}>
-        <li>To get started, edit <code>src/pages/index.js</code> and save to reload.</li>
-        <li>
-          <a href="https://umijs.org/guide/getting-started.html">
-            Getting Started
-          </a>
-        </li>
-      </ul>
+    <div>
+      <div>这是 pages/index3</div>
+      <div>
+        {'foo'}
+        {props.foo.map((vv, index) => (
+          <span key={index} style={{ background: 'green', margin: '3px' }}>
+            {vv}
+          </span>
+        ))}
+      </div>
+      <div>
+        <button
+          onClick={() => {
+            dispatch({ type: 'foo/add', payload: '123' });
+          }}
+        >
+          put
+        </button>
+      </div>
+      <div>
+        {'god/say'}
+        {props['god/say'].map((vv, index) => (
+          <span key={index} style={{ background: 'green', margin: '3px' }}>
+            {vv}
+          </span>
+        ))}
+      </div>
+      <div>
+        <button
+          onClick={() => {
+            dispatch({ type: 'god/say/add', payload: '123' });
+          }}
+        >
+          put
+        </button>
+      </div>
     </div>
   );
-}
+});
