@@ -8,5 +8,14 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [{ path: '/', component: '@/pages/index' }],
+  routes: [
+    {
+      path: '/',
+      component: '@/layouts/layout.js',
+      routes: [
+        { path: '/', component: '@/pages/index.js' },
+        { path: '/hello', component: '@/pages/hello/hello.js' },
+      ],
+    },
+  ],
 });
