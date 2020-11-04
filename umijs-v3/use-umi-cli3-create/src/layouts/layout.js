@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'umi';
+import { Link, history } from 'umi';
 
 export default function(props) {
+  console.log('layout render', props);
   return (
     <div>
       <ul>
@@ -15,10 +16,22 @@ export default function(props) {
           <Link to="/mike">mike</Link>
         </li>
         <li>
-          <Link to="/say">say</Link>
+          <button
+            onClick={() => {
+              props.history.push('/say');
+            }}
+          >
+            say
+          </button>
         </li>
         <li>
-          <Link to="/scss">scss</Link>
+          <button
+            onClick={() => {
+              history.push('/scss');
+            }}
+          >
+            scss
+          </button>
         </li>
       </ul>
       <div>{props.children}</div>
