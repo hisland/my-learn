@@ -11,6 +11,9 @@ export default function(props) {
         <li>
           <Link to="/hello">hello</Link>
         </li>
+        <li>
+          <Link to="/mike">mike</Link>
+        </li>
       </ul>
       <div>{props.children}</div>
     </div>

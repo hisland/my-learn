@@ -1,4 +1,5 @@
 export default {
+  namespace: 'hello',
   state: [],
   reducers: {
     add(state, { payload }) {

@@ -16,7 +16,10 @@ export default connect(state => {
       <div>
         {'noNamespace'}
         {props.noNamespace.map((vv, index) => (
-          <span key={index} style={{ background: 'green', margin: '3px' }}>
+          <span
+            key={index}
+            style={{ background: 'pink', margin: '3px', padding: '3px' }}
+          >
             {vv}
           </span>
         ))}
@@ -24,7 +27,7 @@ export default connect(state => {
       <div>
         <button
           onClick={() => {
-            dispatch({ type: 'noNamespace/add', payload: '123' });
+            dispatch({ type: 'noNamespace/add', payload: 'home' });
           }}
         >
           put

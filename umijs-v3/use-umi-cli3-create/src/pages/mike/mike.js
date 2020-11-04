@@ -2,26 +2,26 @@ import React from 'react';
 import { connect } from 'dva';
 
 export default connect(state => {
-  console.log('connect pages/hello', state);
-  const { noNamespace } = state;
+  console.log('connect pages/mike', state);
+  const { mike } = state;
   const { hello } = state;
   return {
-    noNamespace,
+    mike,
     hello,
   };
 })(props => {
-  console.log('render pages/hello', props);
+  console.log('render pages/mike', props);
   const { dispatch } = props;
   return (
     <div>
-      <h1>Page hello</h1>
+      <h1>Page mike</h1>
       <div>
         <div>
-          {'noNamespace'}
-          {props.noNamespace.map((vv, index) => (
+          {'mike'}
+          {props.mike.map((vv, index) => (
             <span
               key={index}
-              style={{ background: 'cyan', margin: '3px', padding: '3px' }}
+              style={{ background: 'lime', margin: '3px', padding: '3px' }}
             >
               {vv}
             </span>
@@ -30,7 +30,7 @@ export default connect(state => {
         <div>
           <button
             onClick={() => {
-              dispatch({ type: 'noNamespace/add', payload: 'hello' });
+              dispatch({ type: 'mike/add', payload: 'mike' });
             }}
           >
             put
@@ -43,7 +43,7 @@ export default connect(state => {
           {props.hello.map((vv, index) => (
             <span
               key={index}
-              style={{ background: 'cyan', margin: '3px', padding: '3px' }}
+              style={{ background: 'lime', margin: '3px', padding: '3px' }}
             >
               {vv}
             </span>
@@ -52,7 +52,7 @@ export default connect(state => {
         <div>
           <button
             onClick={() => {
-              dispatch({ type: 'hello/add', payload: 'hello' });
+              dispatch({ type: 'hello/add', payload: 'mike' });
             }}
           >
             put

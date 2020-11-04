@@ -15,6 +15,7 @@ export default defineConfig({
       routes: [
         { path: '/', component: '@/pages/index.js' },
         { path: '/hello', component: '@/pages/hello/hello.js' },
+        { path: '/mike', component: '@/pages/mike/mike.js' },
       ],
     },
   ],
