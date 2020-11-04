@@ -18,6 +18,7 @@ export default defineConfig({
         { path: '/hello', component: '@/pages/hello/hello.js' },
         { path: '/mike', component: '@/pages/mike/mike.js' },
         { path: '/say', component: '@/pages/say/say.js' },
+        { path: '/scss', component: '@/pages/scss/scss.js' },
       ],
     },
   ],

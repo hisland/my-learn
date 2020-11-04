@@ -17,6 +17,9 @@ export default function(props) {
         <li>
           <Link to="/say">say</Link>
         </li>
+        <li>
+          <Link to="/scss">scss</Link>
+        </li>
       </ul>
       <div>{props.children}</div>
     </div>
