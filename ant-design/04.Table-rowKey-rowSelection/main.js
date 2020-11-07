@@ -6,6 +6,8 @@ const { Table } = antd
 const { useState } = React
 
 function App() {
+  console.log('App render')
+
   const dataSource = [
     {
       otherKey: '1',
