@@ -16,7 +16,7 @@ import { Form } from 'antd'
 const { Group: CheckboxGroup } = Checkbox
 
 import { genUidFactory } from './util.js'
-import { genTriggerMap, genRunSerie } from './util.js'
+import { genDepArray, genTriggerMap, genRunSerie } from './util.js'
 import { RowColLayout } from './RowColLayout.jsx'
 import HocDatePicker from './HocDatePicker.jsx'
 
@@ -40,11 +40,15 @@ export default function FormRender({ formDef }) {
 
   const depMap = new Map()
   for (const item of formDef.items) {
-    const { hocRules, hocComputed, name } = item
-    if (hocRules || hocComputed) {
-      const list1 = hocRules ? hocRules[0].split(/, */) : []
-      const list2 = hocComputed ? hocComputed[0].split(/, */) : []
-      depMap.set(name, new Set(list1.concat(list2)))
+    const { hocRules, hocComputed, hocChild, name } = item
+    for (const arr of [hocRules, hocComputed, hocChild]) {
+      if (Array.isArray(arr)) {
+        if (!depMap.has(name)) depMap.set(name, new Set())
+        const depSet = depMap.get(name)
+        for (const key of genDepArray(arr[0])) {
+          depSet.add(key)
+        }
+      }
     }
   }
   const triggerMap = genTriggerMap(depMap)
@@ -114,7 +118,7 @@ function HocFormItem({
   console.log('HocFormItem render')
 
   const getDepValues = (depStr) => {
-    return depStr.split(/, */).map((key) => form.getFieldValue(key))
+    return genDepArray(depStr).map((key) => form.getFieldValue(key))
   }
 
   // 这里使用 useState, 主要是触发 Form.Item re-render, 否则其实可以像 hocComputed 那样直接赋值

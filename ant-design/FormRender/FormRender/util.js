@@ -3,6 +3,10 @@ export function genUidFactory(prefix = 'tmp-key') {
   return () => `${prefix}-${uidCount++}`
 }
 
+export function genDepArray(depStr) {
+  return depStr.split(/, */)
+}
+
 export function genTriggerMap(depMap) {
   const triggerMap = new Map()
   for (const [computedKey, depSet] of depMap) {
@@ -25,22 +29,22 @@ export function genTriggerMap(depMap) {
   return triggerMap
 }
 
-export function genRunSerie(name, triggerMap) {
+export function genRunSerie(beginName, triggerMap) {
   const runSerie = new Set()
   const deep = (triggerName) => {
     for (const depName of triggerMap.get(triggerName)) {
-      if (runSerie.has(depName)) continue
+      if (runSerie.has(depName) || depName === beginName) continue
       runSerie.add(depName)
       if (triggerMap.has(depName)) {
         deep(depName)
       }
     }
   }
-  triggerMap.has(name) && deep(name)
+  triggerMap.has(beginName) && deep(beginName)
   return runSerie
 }
 
-export function checkCycleDep(depMap) {
+export function checkCycleDep(depMap, throwError = false) {
   for (const [computedKey, depSet] of depMap) {
     innerDeep(depSet, [computedKey])
   }
@@ -48,7 +52,12 @@ export function checkCycleDep(depMap) {
     for (const depKey of depSet) {
       if (prevArray.includes(depKey)) {
         prevArray.push(depKey)
-        throw Error(`检测到循环依赖 ${prevArray.join('->')}`)
+        if (throwError) {
+          throw Error(`检测到循环依赖 ${prevArray.join('->')}`)
+        } else {
+          console.log(`检测到循环依赖 ${prevArray.join('->')}`)
+          return
+        }
       }
       if (depMap.has(depKey)) {
         innerDeep(depMap.get(depKey), [...prevArray, depKey])
