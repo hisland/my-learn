@@ -136,11 +136,30 @@ export default function ContractInfo(props) {
       {
         name: 'payAmountTax',
         label: '计划付款税额',
+        hocComputed: [
+          'payAmountWithTax, taxRate',
+          ([payAmountWithTax, taxRate]) => {
+            console.log('leaseLifeMonth', payAmountWithTax, taxRate)
+            return 1
+          },
+        ],
         hocChild: { hocType: 'InputNumber', precision: 2 },
       },
       {
         name: 'payAmountNoTax',
         label: '计划付款额不含税',
+        hocComputed: [
+          'payAmountWithTax, taxRate,payAmountNoTax',
+          ([payAmountWithTax, taxRate, payAmountNoTax]) => {
+            console.log(
+              'leaseLifeMonth',
+              payAmountWithTax,
+              taxRate,
+              payAmountNoTax
+            )
+            return 1
+          },
+        ],
         hocChild: { hocType: 'InputNumber', precision: 2, disabled: true },
       },
       {

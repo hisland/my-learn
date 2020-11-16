@@ -49,32 +49,33 @@ export default function LeaseRecognition(props) {
             { value: true, label: '是' },
             { value: false, label: '否' },
           ],
-          onChange: (value, option) => {
-            console.log(value, formDef1.refForm.getFieldValue('leaseTermSign'))
-          },
         },
       },
       {
         name: 'leaseBeginDate',
         label: '租赁日期从',
-        dependencies: ['leaseTermSign'],
-        rules: [
-          (form) => ({
-            required: form.getFieldValue('leaseTermSign'),
-            message: '请选择',
-          }),
+        hocRules: [
+          'leaseTermSign',
+          ([leaseTermSign]) => {
+            return {
+              resetState: false,
+              newRules: [{ required: leaseTermSign, message: '请选择' }],
+            }
+          },
         ],
         hocChild: { hocType: 'HocDatePicker', hocLt: 'leaseEndDate' },
       },
       {
         name: 'leaseEndDate',
         label: '租赁日期至',
-        dependencies: ['leaseTermSign'],
-        rules: [
-          (form) => ({
-            required: form.getFieldValue('leaseTermSign'),
-            message: '请选择',
-          }),
+        hocRules: [
+          'leaseTermSign',
+          ([leaseTermSign]) => {
+            return {
+              resetState: false,
+              newRules: [{ required: leaseTermSign, message: '请选择' }],
+            }
+          },
         ],
         hocChild: { hocType: 'HocDatePicker', hocGt: 'leaseBeginDate' },
       },
@@ -85,7 +86,9 @@ export default function LeaseRecognition(props) {
           'leaseBeginDate, leaseEndDate',
           ([leaseBeginDate, leaseEndDate]) => {
             console.log('leaseLifeMonth', leaseBeginDate, leaseEndDate)
-            return 1
+            return moment
+              .duration(moment(leaseEndDate) - moment(leaseBeginDate))
+              .asDays()
           },
         ],
         hocChild: { hocType: 'InputNumber', disabled: true },
@@ -105,19 +108,41 @@ export default function LeaseRecognition(props) {
       {
         name: 'assetName',
         label: '资产名称',
-        rules: [{ required: true, message: '请输入' }],
+        hocRules: [
+          'leaseAssetSign',
+          ([leaseAssetSign]) => {
+            return {
+              resetState: false,
+              newRules: [{ required: leaseAssetSign, message: '请选择' }],
+            }
+          },
+        ],
         hocChild: { hocType: 'Input' },
       },
       {
         name: 'assetCategoryId',
         label: '租赁资产类别',
-        rules: [{ required: true, message: '请选择' }],
+        hocRules: [
+          'leaseAssetSign',
+          ([leaseAssetSign]) => {
+            return {
+              resetState: false,
+              newRules: [{ required: leaseAssetSign, message: '请选择' }],
+            }
+          },
+        ],
         hocChild: { hocType: 'Lov' },
       },
       {
         name: 'leaseContractSign',
         label: '租赁合同',
         rules: [{ required: true, message: '请选择' }],
+        hocComputed: [
+          'leaseTermSign, leaseAssetSign',
+          ([leaseTermSign, leaseAssetSign]) => {
+            return leaseTermSign && leaseAssetSign
+          },
+        ],
         hocChild: {
           disabled: true,
           hocType: 'Select',
@@ -177,7 +202,7 @@ export default function LeaseRecognition(props) {
     ],
   }
 
-  window.kkk1 = formDef1
+  window.kkk_LeaseRecognition = formDef1
 
   function TestOther1() {
     formDef1.refForm.submit()
@@ -193,14 +218,14 @@ export default function LeaseRecognition(props) {
         <FormRender formDef={formDef1}></FormRender>
       </div>
       <div className={ss.box}>
-        <Button onClick={TestOther1}>触发Form1</Button>
+        <Button onClick={TestOther1}>提交Form</Button>
         <Button
           onClick={() => {
             // isRequired = !isRequired
             setRequired(!isRequired)
           }}
         >
-          toggle
+          re-render
         </Button>
       </div>
     </div>

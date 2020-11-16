@@ -9,8 +9,25 @@ function bindComputedDefine(obj, defineObj) {
     depMap.set(computedKey, depSet)
   }
   checkCycleDep(depMap)
-  console.log(depMap)
+  console.log('depMap', depMap)
 
+  const triggerMap = genTriggerMap(depMap)
+
+  console.log('triggerMap', triggerMap)
+  const obj2 = new Proxy(obj, {
+    set: function (target, name, value, receiver) {
+      const rs = Reflect.set(target, name, value, receiver)
+      if (depMap.has(name)) {
+        console.log(`${name} 是自动算计的, 直接赋值可能导致错误结果`)
+      }
+      tryRunDep(obj, name, triggerMap, depMap, fnMap)
+      return rs
+    },
+  })
+  return obj2
+}
+
+function genTriggerMap(depMap) {
   const triggerMap = new Map()
   for (const [computedKey, depSet] of depMap) {
     loopDep: for (const depKey of depSet) {
@@ -29,19 +46,7 @@ function bindComputedDefine(obj, defineObj) {
       }
     }
   }
-
-  console.log(triggerMap)
-  const obj2 = new Proxy(obj, {
-    set: function (target, name, value, receiver) {
-      const rs = Reflect.set(target, name, value, receiver)
-      if (depMap.has(name)) {
-        console.log(`${name} 是自动算计的, 直接赋值可能导致错误结果`)
-      }
-      tryRunDep(obj, name, triggerMap, depMap, fnMap)
-      return rs
-    },
-  })
-  return obj2
+  return triggerMap
 }
 
 function checkCycleDep(depMap) {
@@ -61,11 +66,9 @@ function checkCycleDep(depMap) {
   }
 }
 
-function tryRunDep(obj, name, triggerMap, depMap, fnMap) {
-  if (!triggerMap.has(name)) return
+function genRunSerie(name, triggerMap) {
   const runSerie = new Set()
-  deep(name)
-  function deep(triggerName) {
+  const deep = (triggerName) => {
     for (const depName of triggerMap.get(triggerName)) {
       if (runSerie.has(depName)) continue
       runSerie.add(depName)
@@ -74,7 +77,13 @@ function tryRunDep(obj, name, triggerMap, depMap, fnMap) {
       }
     }
   }
-  console.log(runSerie)
+  triggerMap.has(name) && deep(name)
+  return runSerie
+}
+
+function tryRunDep(obj, name, triggerMap, depMap, fnMap) {
+  const runSerie = genRunSerie(name, triggerMap)
+  console.log('runSerie', runSerie)
   for (const computedKey of runSerie) {
     const depSet = depMap.get(computedKey)
     const genValueFn = fnMap.get(computedKey)
@@ -101,25 +110,25 @@ const obj1 = {
   money3: 0,
 }
 const computedDefine = {
-  value4: [
-    'value1, value2, value3',
-    function ([value1, value2, value3]) {
-      return value1 + value2 + value3
-    },
-  ],
-  value2: [
-    'value1',
-    function ([value1]) {
-      return value1 * 9
-    },
-  ],
+  // value2: [
+  //   'value1',
+  //   function ([value1]) {
+  //     return value1 * 9
+  //   },
+  // ],
   value3: [
-    'value2',
-    function ([value2]) {
-      return value2 + 1
+    'value1, value2',
+    function ([value1, value2]) {
+      return (value1 * value2) / 100
+    },
+  ],
+  value4: [
+    'value3',
+    function ([value3]) {
+      return value3*3
     },
   ],
 }
 const proxied = bindComputedDefine(obj1, computedDefine)
-proxied.value1 = 3
+proxied.value1 = 10
 console.log(obj1)

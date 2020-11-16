@@ -5,13 +5,16 @@ import 'antd/dist/antd.css'
 
 import ContractInfo from './ContractInfo.jsx'
 import LeaseRecognition from './LeaseRecognition.jsx'
+import LinkRuleComputed from './LinkRuleComputed.jsx'
+
 
 function App() {
   console.log('App render')
   return (
     <div>
-      <ContractInfo></ContractInfo>
-      {/* <LeaseRecognition></LeaseRecognition> */}
+      {/* <ContractInfo></ContractInfo> */}
+      <LeaseRecognition></LeaseRecognition>
+      {/* <LinkRuleComputed></LinkRuleComputed> */}
     </div>
   )
 }

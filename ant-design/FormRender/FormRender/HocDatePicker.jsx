@@ -8,7 +8,7 @@ export default function HocDatePicker(props) {
     if (value === null) {
       props.onChange(value)
     } else {
-      props.onChange(value.format())
+      props.onChange(value.startOf('date').format())
     }
   }
   const mergedProps = {
