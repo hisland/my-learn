@@ -23,14 +23,35 @@ function App() {
   const [form] = Form.useForm()
   window.kkk = form
   const onValuesChange = (changedValues, allValues) => {
-    console.log('22', changedValues, allValues)
+    console.log('onValuesChange', changedValues, allValues)
+    console.log(
+      'onValuesChange before:',
+      JSON.stringify(form.getFieldsValue(), null, ' ')
+    )
+    form.setFieldsValue({
+      aa: 3,
+      bb: 4,
+      cc: 5,
+    })
+    console.log(
+      'onValuesChange after:',
+      JSON.stringify(form.getFieldsValue(), null, ' ')
+    )
   }
   const Show = () => {
-    console.log('values', form.getFieldsValue())
+    console.log('values:', JSON.stringify(form.getFieldsValue(), null, ' '))
+  }
+  function onChange(value) {
+    console.log('values:', JSON.stringify(form.getFieldsValue(), null, ' '))
   }
   return (
     <div>
-      <div>Form.useForm</div>
+      <ul>
+        <li>
+          v4 的 setFieldsValue 是同步执行的, onValuesChange 里面直接
+          setFieldsValue, 立即更新
+        </li>
+      </ul>
       <div style={{ width: '500px' }}>
         <Form
           form={form}
@@ -39,15 +60,15 @@ function App() {
           wrapperCol={{ span: 16 }}
         >
           <FormItem label="属性" name="aa">
-            <Input></Input>
+            <Input onChange={onChange}></Input>
           </FormItem>
           <FormItem label="身高属性比较长长长" name="bb">
             <Input></Input>
           </FormItem>
           <FormItem label="cc" name="cc">
-            <InputNumber></InputNumber>
+            <InputNumber onChange={onChange}></InputNumber>
           </FormItem>
-          <FormItem label="dd" colon={false}>
+          <FormItem wrapperCol={{ offset: 8, span: 16 }}>
             <Button onClick={Show}>显示</Button>
             <Button htmlType="submit">提交</Button>
           </FormItem>
@@ -56,6 +77,7 @@ function App() {
     </div>
   )
 }
+
 function LabelFixWidth(label = '', width = '80px') {
   return <div style={{ width }}>{label}</div>
 }
