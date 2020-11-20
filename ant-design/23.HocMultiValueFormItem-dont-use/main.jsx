@@ -38,6 +38,10 @@ function App() {
     <div>
       <ul>
         <li>勉强能用, 只是不能触发 Form 的 onValuesChange</li>
+        <li>
+          必须要 form.getFieldsValue(true) 才能取得全部值, 因为没有 FormItem
+          创建 Field
+        </li>
       </ul>
       <div style={{ width: '500px' }}>
         <Form
