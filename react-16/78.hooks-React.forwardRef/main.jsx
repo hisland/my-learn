@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom'
 
 function App(props) {
   console.log('App render')
-  let subEl
+  let subEl1
+  let subEl2
 
   function show() {
-    console.log(subEl)
+    console.log(subEl1)
+    console.log(subEl2)
   }
 
   return (
@@ -17,7 +19,8 @@ function App(props) {
       </ul>
 
       <div style={{ border: '1px solid pink', margin: '10px' }}>
-        <Sub1 ref={(el) => (subEl = el)}></Sub1>
+        <Sub1 ref={(el) => (subEl1 = el)}></Sub1>
+        <Sub2 ref={(el) => (subEl2 = el)}></Sub2>
 
         <button onClick={show}>show myRef</button>
       </div>
@@ -26,10 +29,20 @@ function App(props) {
 }
 
 const Sub1 = React.forwardRef((props, ref) => {
-  console.log('Sub1 render', props)
+  console.log('Sub1 render', props, ref)
   return (
     <div>
       <div>Sub1</div>
+      <button ref={ref}>btn</button>
+    </div>
+  )
+})
+
+const Sub2 = React.forwardRef(function (props, ref) {
+  console.log('Sub2 render', props, ref)
+  return (
+    <div>
+      <div>Sub2</div>
       <button ref={ref}>btn</button>
     </div>
   )
