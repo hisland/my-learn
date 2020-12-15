@@ -1,8 +1,8 @@
-var Redis = require('ioredis')
-var redis = new Redis()
+const Redis = require('ioredis')
+const redis = new Redis()
 
 redis.set('foo', 'bar')
-redis.get('foo', function(err, result) {
+redis.get('foo', function (err, result) {
   console.log(result)
 })
 

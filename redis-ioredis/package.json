@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "ioredis": "^3.2.2",
-    "mongodb": "^3.0.10"
+    "ioredis": "^4.19.4",
+    "mongodb": "^3.6.3"
   }
 }
