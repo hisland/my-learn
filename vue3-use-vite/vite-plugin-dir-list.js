@@ -4,7 +4,9 @@ const fs = require('fs')
 function genDirListHtml(list) {
   return `
   <style>
-  a{line-height: 1.8em;}
+  body{margin:0}
+  ul{margin:0}
+  a{line-height: 1.5em;}
   a:hover{color:darkcyan}
   </style>
   <ul>

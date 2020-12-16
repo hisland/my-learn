@@ -1,10 +1,9 @@
-function k() {
-  'use strict';
-  v = 1; // 报错，v未声明
-  　　
-  for (i = 0; i < 2; i++) {
+function kk() {
+  'use strict'
+  vv = 1 // 报错，vv未声明
+  for (ii = 0; ii < 2; ii++) {
     // 报错，i未声明
   }
 }
 
-k();
+kk()

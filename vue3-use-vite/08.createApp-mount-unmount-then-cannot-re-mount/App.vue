@@ -3,6 +3,7 @@
     <button @click="toggle1()">切换aa</button>
     <div>createApp 只能 mount -> unmount</div>
     <div>createApp 不能 mount -> unmount -> mount</div>
+    <div>如果需要, 调整逻辑让每次都初始化一个新的 App 来 mount, 而不是尝试 mount 已经 unmount 的</div>
   </div>
 
   <div class="sub-app1"></div>

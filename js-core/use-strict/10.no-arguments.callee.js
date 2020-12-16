@@ -1,5 +1,5 @@
-"use strict";　　
-var f = function() {
-  return arguments.callee;
-};　　
-f(); // 报错
+'use strict'
+const ff = function () {
+  return arguments.callee
+}
+ff() // 报错

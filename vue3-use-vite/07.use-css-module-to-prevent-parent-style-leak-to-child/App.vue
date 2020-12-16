@@ -19,5 +19,7 @@ export default {
 <style scoped lang="scss">
 .wrap {
   padding: 10px;
+  border: 1px solid red;
+  margin-bottom: 10px;
 }
 </style>

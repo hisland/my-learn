@@ -1,9 +1,8 @@
-"use strict";
+'use strict'
 
-　　
-var o = {};　　
-Object.defineProperty(o, "v", {
+const oo = {}
+Object.defineProperty(oo, 'vv', {
   value: 1,
-  writable: false
-});　　
-o.v = 2; // 报错
+  writable: false,
+})
+oo.vv = 2 // 报错

@@ -1,6 +1,8 @@
 <template>
-  <div>{{halo}} aa</div>
-  <div>{{halo}} bb</div>
+  <div>{{ halo }} aa</div>
+  <div>{{ halo }} bb</div>
+  <div>setup-onMounted 先触发</div>
+  <div>option-mounted 后触发</div>
   <div>
     <button @click="add()">click</button>
   </div>
@@ -12,7 +14,7 @@ export default {
     const halo = ref(98)
 
     onMounted(() => {
-      console.log(33)
+      console.log(33, 'setup-onMounted')
     })
 
     return {
@@ -25,7 +27,7 @@ export default {
     },
   },
   mounted() {
-    console.log(44)
+    console.log(44, 'option-mounted')
   },
 }
 </script>

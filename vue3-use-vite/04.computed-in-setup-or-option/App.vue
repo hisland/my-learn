@@ -1,7 +1,7 @@
 <template>
-  <div>{{halo}} aa</div>
-  <div>{{say}} bb</div>
-  <div>{{come}} bb</div>
+  <div>{{ halo }} aa</div>
+  <div>{{ say }} bb</div>
+  <div>{{ come }} bb</div>
   <div>
     <button @click="add()">click</button>
   </div>
@@ -12,7 +12,7 @@ export default {
   setup() {
     const halo = ref(98)
     const say = computed(() => {
-      return halo.value + ' yes'
+      return halo.value + ' setup-computed'
     })
     return {
       halo,
@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     come() {
-      return this.halo + ' come'
+      return this.halo + ' option-computed'
     },
   },
   methods: {

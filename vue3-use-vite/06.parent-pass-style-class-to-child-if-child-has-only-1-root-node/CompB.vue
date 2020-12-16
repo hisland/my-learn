@@ -1,6 +1,7 @@
 <template>
-  <div>{{halo}} multi root node aa</div>
-  <div>{{halo}} multi root node bb</div>
+  <div>多个根节点不能自动获得 class style</div>
+  <div>{{ halo }} multi root node aa</div>
+  <div>{{ halo }} multi root node bb</div>
   <div>
     multi root node cc
     <button @click="add()">click</button>

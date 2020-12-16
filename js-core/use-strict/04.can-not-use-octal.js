@@ -1,2 +1,2 @@
-"use strict";　　
-var n = 0100; // 语法错误
+'use strict'
+const nn = 0100 // 语法错误

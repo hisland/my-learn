@@ -1,5 +1,5 @@
-"use strict";　　
-var o = {　　　　
-  p: 1,
-  p: 2　　
-}; // 语法错误
+'use strict'
+const oo = {
+  pp: 1,
+  pp: 2,
+} // 语法错误

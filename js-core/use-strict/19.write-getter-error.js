@@ -1,9 +1,8 @@
-"use strict";
+'use strict'
 
-　　
-var o = {
-  get v() {
-    return 1;
-  }　　
-};　　
-o.v = 2; // 报错
+const oo = {
+  get vv() {
+    return 1
+  },
+}
+oo.vv = 2 // 报错

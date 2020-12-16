@@ -1,13 +1,12 @@
-"use strict";　　
-var x = 3;　　
-console.log('x is ', x);
-delete x; // 语法错误
-console.log('x is ', x);
-　　
-var o = Object.create(null, {
-  'x': {　　　　　　
+'use strict'
+const xx = 3
+console.log('xx is ', xx)
+delete xx // 语法错误
+console.log('xx is ', xx)
+const oo = Object.create(null, {
+  xx: {
     value: 1,
-    　　　　　　configurable: true　　
-  }
-});　　
-delete o.x; // 删除成功
+    configurable: true,
+  },
+})
+delete oo.xx // 删除成功

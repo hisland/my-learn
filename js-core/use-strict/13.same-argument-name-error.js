@@ -1,5 +1,5 @@
-"use strict";　　
-function f(a, a, b) { // 语法错误
-  　　　　
-  return;　　
+'use strict'
+function ff(aa, aa, bb) {
+  // 语法错误
+  return
 }

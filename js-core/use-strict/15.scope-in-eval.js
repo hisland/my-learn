@@ -5,7 +5,7 @@
 // 严格模式下，eval语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于eval内部。
 　　
 "use strict";　　
-var x = 2;　　
-console.info(eval("var x = 5; x")); // 5
+var xx = 2;　　
+console.info(eval("var xx = 5; xx")); // 5
 　　
-console.info(x); // 2
+console.info(xx); // 2

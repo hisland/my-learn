@@ -1,15 +1,13 @@
-var x = 3;　　
-console.log('x is ', x);
-delete x; // 语法错误
-console.log('x is ', x);
-　　
-var o = Object.create(null, {
-  'x': {　　　　　　
+const xx = 3
+console.log('x is ', xx)
+delete xx // 语法错误
+console.log('x is ', xx)
+const oo = Object.create(null, {
+  xx: {
     value: 1,
-    　　　　　　configurable: true　　
-  }
-});　　
-
-console.log('o.x is ', o.x);
-delete o.x; // 删除成功
-console.log('o.x is ', o.x);
+    configurable: true,
+  },
+})
+console.log('o.x is ', oo.xx)
+delete oo.xx // 删除成功
+console.log('o.x is ', oo.xx)

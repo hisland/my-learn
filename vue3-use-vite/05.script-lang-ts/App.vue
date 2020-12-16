@@ -1,7 +1,7 @@
 <template>
-  <div>aa: {{halo}}</div>
-  <div>aa: {{say}}</div>
-  <div>aa: {{come}}</div>
+  <div>aa: {{ halo }}</div>
+  <div>aa: {{ say }}</div>
+  <div>aa: {{ come }}</div>
   <div>
     <button @click="add()">click</button>
   </div>
@@ -10,7 +10,7 @@
 import { Ref, ref, onMounted, computed } from 'vue'
 export default {
   setup() {
-    const halo: Ref<string> = ref('god')
+    const halo = ref('god')
     const say = computed(() => {
       return halo.value + ' yes'
     })
@@ -26,9 +26,7 @@ export default {
   },
   methods: {
     add() {
-      this.halo = Math.random()
-        .toString(32)
-        .substr(2, 3)
+      this.halo = Math.random().toString(32).substr(2, 3)
     },
   },
 }
