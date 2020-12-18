@@ -31,12 +31,12 @@ export default function ContractInfo(props) {
       return {}
     },
     hocGenResultValue(values) {},
-    refForm: null, // 界面渲染之后, 会自动把 form 引用挂在这里, 后续可以 formDef.refForm.xxx
-    form: {
+    hocFormRef: null, // 界面渲染之后, 会自动把 form 引用挂在这里, 后续可以 formDef.hocFormRef.xxx
+    moreProps: {
       labelCol: { span: 8 },
       wrapperCol: { span: 16 },
     },
-    itemSpan: 24,
+    itemDefaultSpan: 24,
     items: [
       {
         name: 'planPaymentDate',
@@ -73,12 +73,27 @@ export default function ContractInfo(props) {
       {
         name: 'payAmountTax',
         label: '计划付款税额',
+        hocComputed: [
+          'payAmountWithTax, taxRate',
+          ([payAmountWithTax, taxRate]) => {
+            console.log('payAmountTax deps:', payAmountWithTax, taxRate)
+            const rs = payAmountWithTax - payAmountWithTax / (1 + taxRate / 100)
+            return isNaN(rs) ? null : rs.toFixed(2) - 0
+          },
+        ],
         hocChild: { hocType: 'InputNumber', precision: 2 },
       },
       {
         name: 'payAmountNoTax',
         label: '计划付款额不含税',
-        rules: [{ required: false, message: '请选择' }],
+        hocComputed: [
+          'payAmountWithTax, payAmountTax',
+          ([payAmountWithTax, payAmountTax]) => {
+            console.log('payAmountTax deps:', payAmountWithTax, payAmountTax)
+            const rs = payAmountWithTax - payAmountTax
+            return isNaN(rs) ? null : rs
+          },
+        ],
         hocChild: { hocType: 'InputNumber', precision: 2, disabled: true },
       },
       {
@@ -94,12 +109,12 @@ export default function ContractInfo(props) {
       return {}
     },
     hocGenResultValue(values) {},
-    refForm: null, // 界面渲染之后, 会自动把 form 引用挂在这里, 后续可以 formDef.refForm.xxx
-    form: {
+    hocFormRef: null, // 界面渲染之后, 会自动把 form 引用挂在这里, 后续可以 formDef.hocFormRef.xxx
+    moreProps: {
       labelCol: { span: 8 },
       wrapperCol: { span: 16 },
     },
-    itemSpan: 24,
+    itemDefaultSpan: 24,
     items: [
       {
         name: 'planPaymentDate',
@@ -139,8 +154,9 @@ export default function ContractInfo(props) {
         hocComputed: [
           'payAmountWithTax, taxRate',
           ([payAmountWithTax, taxRate]) => {
-            console.log('leaseLifeMonth', payAmountWithTax, taxRate)
-            return 1
+            console.log('payAmountTax deps:', payAmountWithTax, taxRate)
+            const rs = payAmountWithTax - payAmountWithTax / (1 + taxRate / 100)
+            return isNaN(rs) ? null : rs.toFixed(2) - 0
           },
         ],
         hocChild: { hocType: 'InputNumber', precision: 2 },
@@ -149,15 +165,11 @@ export default function ContractInfo(props) {
         name: 'payAmountNoTax',
         label: '计划付款额不含税',
         hocComputed: [
-          'payAmountWithTax, taxRate,payAmountNoTax',
-          ([payAmountWithTax, taxRate, payAmountNoTax]) => {
-            console.log(
-              'leaseLifeMonth',
-              payAmountWithTax,
-              taxRate,
-              payAmountNoTax
-            )
-            return 1
+          'payAmountWithTax, payAmountTax',
+          ([payAmountWithTax, payAmountTax]) => {
+            console.log('payAmountTax deps:', payAmountWithTax, payAmountTax)
+            const rs = payAmountWithTax - payAmountTax
+            return isNaN(rs) ? null : rs
           },
         ],
         hocChild: { hocType: 'InputNumber', precision: 2, disabled: true },
@@ -172,10 +184,10 @@ export default function ContractInfo(props) {
   window.kkk1 = formDef1
 
   function TestOther1() {
-    formDef1.refForm.submit()
+    formDef1.hocFormRef.submit()
   }
   function TestOther2() {
-    formDef2.refForm.submit()
+    formDef2.hocFormRef.submit()
   }
   function TestShowProps(props) {
     console.log(props)

@@ -30,10 +30,24 @@ export default function LeaseRecognition(props) {
   const formDef1 = {
     hocOnChange() {},
     hocGenInitialValue() {
-      return {}
+      // return {}
+      return {
+        leaseTermSign: true,
+        leaseBeginDate: '2020-11-01T00:00:00+08:00',
+        leaseEndDate: '2020-11-30T00:00:00+08:00',
+        leaseLifeMonth: 29,
+        leaseAssetSign: true,
+        assetName: '123',
+        leaseContractSign: true,
+        assetArea: 1,
+        assetQuantity: 1,
+        leaseWithTax: 35,
+        leaseNoTax: 34,
+        leaseTax: 33,
+      }
     },
     hocGenResultValue(values) {},
-    refForm: null, // 界面渲染之后, 会自动把 form 引用挂在这里, 后续可以 formDef.refForm.xxx
+    hocFormRef: null, // 界面渲染之后, 会自动把 form 引用挂在这里, 后续可以 formDef.hocFormRef.xxx
     form: {
       labelCol: { span: 8 },
       wrapperCol: { span: 16 },
@@ -127,7 +141,8 @@ export default function LeaseRecognition(props) {
           ([leaseAssetSign]) => {
             return {
               resetState: false,
-              newRules: [{ required: leaseAssetSign, message: '请选择' }],
+              newRules: [{ required: false, message: '请选择' }],
+              // newRules: [{ required: leaseAssetSign, message: '请选择' }],
             }
           },
         ],
@@ -161,19 +176,39 @@ export default function LeaseRecognition(props) {
       {
         name: 'assetArea',
         label: '租赁资产面积',
-        rules: [{ required: true, message: '请输入' }],
+        hocRules: [
+          'leaseContractSign,assetQuantity',
+          ([leaseContractSign, assetQuantity]) => {
+            console.log('aa', leaseContractSign, assetQuantity)
+            const required = !(leaseContractSign && assetQuantity)
+            return {
+              resetState: required === false,
+              newRules: [{ required, message: '租赁资产面积/数量 必填一项' }],
+            }
+          },
+        ],
         hocChild: { hocType: 'InputNumber', precision: 2 },
       },
       {
         name: 'assetQuantity',
         label: '租赁资产数量',
-        rules: [{ required: true, message: '请输入' }],
+        hocRules: [
+          'leaseContractSign, assetArea',
+          ([leaseContractSign, assetArea]) => {
+            console.log('bb', leaseContractSign, assetArea)
+            const required = !(leaseContractSign && assetArea)
+            return {
+              resetState: required === false,
+              newRules: [{ required, message: '租赁资产面积/数量 必填一项' }],
+            }
+          },
+        ],
         hocChild: { hocType: 'InputNumber' },
       },
       {
         name: 'assetUnit',
         label: '租赁资产单位',
-        rules: [{ required: true, message: '请选择' }],
+        rules: [{ required: false, message: '请选择' }],
         hocChild: {
           hocType: 'ValueListSelect',
           code: 'ASSET_ENTITY_MEASURE_UNIT',
@@ -205,7 +240,7 @@ export default function LeaseRecognition(props) {
   window.kkk_LeaseRecognition = formDef1
 
   function TestOther1() {
-    formDef1.refForm.submit()
+    formDef1.hocFormRef.submit()
   }
   function TestShowProps(props) {
     console.log(props)

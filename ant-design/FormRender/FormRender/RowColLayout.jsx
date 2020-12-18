@@ -7,12 +7,12 @@ import { Row, Col } from 'antd'
 const SPAN_MAX = 24
 const SPAN_DEFAULT = 8
 
-export function ItemsToRows(items, itemSpan) {
+export function ItemsToRows(items, itemDefaultSpan) {
   let nowRow = []
   const rsRows = [nowRow]
   let spanCount = 0
   for (const [hocSpan, item] of items) {
-    const nowSpan = hocSpan || itemSpan || SPAN_DEFAULT
+    const nowSpan = hocSpan || itemDefaultSpan || SPAN_DEFAULT
     const toSpan = spanCount + nowSpan
     if (toSpan > SPAN_MAX) {
       nowRow = [[nowSpan, item]]
@@ -26,8 +26,8 @@ export function ItemsToRows(items, itemSpan) {
   return rsRows
 }
 
-export function RowColLayout({ children, itemSpan }) {
-  const rows = ItemsToRows(children, itemSpan)
+export function RowColLayout({ children, itemDefaultSpan }) {
+  const rows = ItemsToRows(children, itemDefaultSpan)
   return rows.map((row, index1) => (
     <Row key={index1}>
       {row.map(([span, item], index2) => (

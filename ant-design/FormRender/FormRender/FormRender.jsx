@@ -24,7 +24,7 @@ export default function FormRender({ formDef }) {
   console.log('FormRender render')
 
   const [form] = Form.useForm()
-  formDef.refForm = form
+  formDef.hocFormRef = form
 
   const initialValues = formDef.hocGenInitialValue()
 
@@ -78,7 +78,7 @@ export default function FormRender({ formDef }) {
   const genItemKey = genUidFactory('form-item')
   return (
     <Form
-      {...formDef.form}
+      {...formDef.moreProps}
       form={form}
       initialValues={initialValues}
       onFinish={onFinish}

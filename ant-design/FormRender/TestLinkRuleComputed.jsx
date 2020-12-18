@@ -17,7 +17,7 @@ export default function SwitchDisabled(props) {
       }
     },
     hocGenResultValue(values) {},
-    refForm: null, // 界面渲染之后, 会自动把 form 引用挂在这里, 后续可以 formDef.refForm.xxx
+    hocFormRef: null, // 界面渲染之后, 会自动把 form 引用挂在这里, 后续可以 formDef.hocFormRef.xxx
     form: {
       labelCol: { span: 8 },
       wrapperCol: { span: 16 },
@@ -107,7 +107,7 @@ export default function SwitchDisabled(props) {
   window.kkk_LinkRuleComputed = formDef1
 
   function TestOther1() {
-    formDef1.refForm.submit()
+    formDef1.hocFormRef.submit()
   }
 
   return (

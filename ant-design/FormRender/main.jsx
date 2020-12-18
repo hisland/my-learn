@@ -3,24 +3,19 @@ import ReactDOM from 'react-dom'
 
 import 'antd/dist/antd.css'
 
-import ContractInfo from './ContractInfo.jsx'
-import LeaseRecognition from './LeaseRecognition.jsx'
-import LinkRuleComputed from './LinkRuleComputed.jsx'
-
+import TestContractInfo from './TestContractInfo.jsx'
+import TestLeaseRecognition from './TestLeaseRecognition.jsx'
+import TestLinkRuleComputed from './TestLinkRuleComputed.jsx'
 
 function App() {
   console.log('App render')
   return (
     <div>
-      {/* <ContractInfo></ContractInfo> */}
-      <LeaseRecognition></LeaseRecognition>
-      {/* <LinkRuleComputed></LinkRuleComputed> */}
+      <TestContractInfo></TestContractInfo>
+      {/* <TestLeaseRecognition></TestLeaseRecognition> */}
+      {/* <TestLinkRuleComputed></TestLinkRuleComputed> */}
     </div>
   )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
-
-if (import.meta.hot) {
-  import.meta.hot.accept()
-}
