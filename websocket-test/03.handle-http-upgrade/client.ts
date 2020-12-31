@@ -1,6 +1,6 @@
 import WebSocket from 'ws'
 
-const socket = new WebSocket('ws://localhost:12321')
+const socket = new WebSocket('ws://localhost:12321', 'my-protocol')
 
 socket.addEventListener('open', function ({ target }) {
   console.log('client open1')
