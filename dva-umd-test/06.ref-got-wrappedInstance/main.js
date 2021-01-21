@@ -10,18 +10,35 @@ class Parent extends React.Component {
   constructor(props) {
     super(props)
     console.log('Parent:  constructor', props)
-    this.state = {}
+    this.state = {
+      show: true,
+    }
   }
   render() {
     console.log('Parent: render')
     return (
       <div>
-        <Home
-          ref={(ref) => {
-            console.log(ref.wrappedInstance) // wrappedInstance 就是实际包裹的那个组件实例
-            this.thatRef = ref.wrappedInstance
-          }}
-        ></Home>
+        <div>
+          <button
+            onClick={() => {
+              this.setState({ show: !this.state.show })
+            }}
+          >
+            toggle
+          </button>
+        </div>
+        {this.state.show && (
+          <Home
+            ref={(ref) => {
+              // 注意 ref 在 umount 的时候是 null
+              console.log(ref)
+              if (ref) {
+                console.log(ref.wrappedInstance) // wrappedInstance 就是实际包裹的那个组件实例
+                this.thatRef = ref.wrappedInstance
+              }
+            }}
+          ></Home>
+        )}
       </div>
     )
   }
