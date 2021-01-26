@@ -9,12 +9,14 @@ class App extends React.Component {
   }
 
   setFoo = () => {
-    console.log('before foo: ', this.state.foo)
-    this.setState({ foo: this.state.foo + 1 })
-    console.log('after foo: ', this.state.foo)
-    this.setState({ bar: this.state.foo + 1 })
-    console.log('after foo: ', this.state.foo)
-    console.log('after bar: ', this.state.bar)
+    console.log('before: ', this.state.foo)
+    this.setState({ foo: this.state.foo + 1 }, () => {
+      console.log('after 2: ', this.state.foo)
+    })
+    this.setState({ bar: this.state.foo + 1 }, () => {
+      console.log('after 2: ', this.state.foo)
+    })
+    console.log('after 1: ', this.state.foo)
 
     setTimeout(() => {
       console.log('after 100ms: ', this.state)
@@ -28,10 +30,7 @@ class App extends React.Component {
     return (
       <div>
         <ul>
-          <li>多次 setState 结果合并, 只触发一次 render</li>
-          <li>
-            并且 setState 之后不会立即反应 this.state, 此时取的还是上一次的状态
-          </li>
+          <li>setState 的 callback 在 render 之后触发</li>
         </ul>
 
         <div style={{ border: '1px solid pink', margin: '10px' }}>
