@@ -1,11 +1,16 @@
-// @ts-check
-const reactPlugin = require('vite-plugin-react')
-const dirListPlugin = require('./vite-plugin-dir-list.js')
+import reactRefresh from '@vitejs/plugin-react-refresh'
+import dirListPlugin from './vite2-plugin-dir-list.js'
 
-const config = {
-  port: 9001,
-  jsx: 'react',
-  plugins: [reactPlugin, dirListPlugin],
+/**
+ * https://vitejs.dev/config/
+ * @type { import('vite').UserConfig }
+ */
+export default {
+  esbuild: {
+    target: 'es2020',
+  },
+  server: {
+    port: 9001,
+  },
+  plugins: [reactRefresh(), dirListPlugin()],
 }
-
-module.exports = config

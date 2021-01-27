@@ -5,17 +5,16 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "vite": "^1.0.0-rc.9",
-    "vite-plugin-react": "^3.0.2"
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "dependencies": {
-    "@pika/react": "^16.13.1",
-    "@pika/react-dom": "^16.13.1"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-class-properties": "^7.12.1",
+    "@vitejs/plugin-react-refresh": "^1.1.0",
+    "vite": "^2.0.0-beta.50"
   }
 }
