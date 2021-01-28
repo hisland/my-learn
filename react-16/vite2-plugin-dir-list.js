@@ -26,7 +26,9 @@ export default function dirListPlugin() {
 
           const hasIndex = list1.some((vv) => vv.name === 'index.html')
           if (hasIndex) {
-            res.end(fs.readFileSync(path.join(pwd, 'index.html'), 'utf8'))
+            res.writeHead(301, { Location: 'index.html' })
+            res.end()
+            // res.end(fs.readFileSync(path.join(pwd, 'index.html'), 'utf8'))
           } else {
             const list2 = list1.map((file) => {
               if (file.isDirectory()) {
