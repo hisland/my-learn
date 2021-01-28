@@ -27,7 +27,7 @@ class App extends Component {
       <div>
         <div>some.obj: {this.state.some.obj}</div>
         <div>
-          <button onClick={this.setSame}>setSame</button>
+          <button onClick={this.setSame}>setSame, 其实是新对象, 只是结构和值一模一样</button>
           <button onClick={this.setNew}>setNew</button>
         </div>
       </div>

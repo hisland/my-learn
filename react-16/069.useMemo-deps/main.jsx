@@ -22,7 +22,10 @@ function App(props) {
   }
   const getMemoFoo1 = useMemo(() => {
     console.log('run useMemo 1')
-    return () => foo1
+    return () => {
+      console.log('run useMemo 1 fn')
+      return foo1
+    }
   }, [foo1])
   const getMemoFoo2 = useMemo(() => {
     console.log('run useMemo 2')
@@ -33,6 +36,9 @@ function App(props) {
     <div>
       <ul>
         <li>useMemo deps 没变化, 它就不执行</li>
+        <li>没有 deps, 相当于普通函数</li>
+        <li>空 deps [], 只第一次计算</li>
+        <li>deps 的取值作用与 useEffect 是一致的</li>
       </ul>
       <div>
         <button onClick={Inc1}>Inc1</button>

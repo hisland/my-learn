@@ -17,7 +17,7 @@ function App() {
     <div>
       <div>that.foo: {that.foo}</div>
       <div>
-        <button onClick={setSame}>setSame</button>
+        <button onClick={setSame}>setSame, 相同引用, 不触发</button>
         <button onClick={setNew}>setNew</button>
       </div>
     </div>

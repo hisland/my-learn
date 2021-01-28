@@ -25,6 +25,7 @@ function App(props) {
   const getCallbackFoo1 = useCallback(() => {
     console.log('run useCallback')
     return foo1
+    // return foo2 // 如果是 foo2, 没有指定在依赖列表里面, 会产生很难预测的结果
   }, [foo1])
 
   if (prevCallback === getCallbackFoo1) {
@@ -46,6 +47,11 @@ function App(props) {
           useCallback 缓存函数的引用, 使子组件可以根据引用来判断变化 比如:
           shouldComponentUpdate, React.memo
         </li>
+        <li>如果没有 useCallback, 只是嵌套函数, 则每次都是新的函数</li>
+        <li>useCallback 相当于 class 的实例方法</li>
+        <li>不指定依赖数组, 跟不使用 useCallback 的普通函数没区别, 每次新建</li>
+        <li>指定空依赖[], useCallback 会保持第一次的值不变</li>
+        <li>deps 的取值作用与 useEffect 是一致的</li>
       </ul>
       <div>
         <button onClick={Inc1}>Inc1 子组件 render</button>
@@ -58,8 +64,8 @@ function App(props) {
 
         <Sub1 onChange={getCallbackFoo1}></Sub1>
 
-        <div>{JSON.stringify(foo1)}</div>
-        <div>{JSON.stringify(foo2)}</div>
+        <div>foo1: {foo1}</div>
+        <div>foo2: {foo2}</div>
       </div>
     </div>
   )
