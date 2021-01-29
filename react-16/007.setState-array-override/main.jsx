@@ -1,3 +1,6 @@
+import React, { Component, PureComponent } from 'react'
+import ReactDOM from 'react-dom'
+
 class Clock extends React.Component {
   constructor(props) {
     super(props)
@@ -38,7 +41,7 @@ class Clock extends React.Component {
             set2
           </button>
         </div>
-        <h1>Hello, {this.state.arr.join(',')}!</h1>
+        <h1>Hello, {this.state.arr.join('--')}!</h1>
       </div>
     )
   }

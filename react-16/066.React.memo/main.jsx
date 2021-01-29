@@ -57,16 +57,16 @@ function Sub1(props) {
 }
 
 const Sub2 = React.memo(Sub1, (prevProps, nextProps) => {
-  console.log('memo 2', prevProps, nextProps)
+  console.log('memo compare 1', prevProps, nextProps)
   return true
 })
 const Sub3 = React.memo(Sub1, (prevProps, nextProps) => {
-  console.log('memo 3', prevProps, nextProps)
+  console.log('memo compare 2', prevProps, nextProps)
   return false
 })
 const Sub4 = React.memo(Sub1, (prevProps, nextProps) => {
   const rs = prevProps.foo % 2 !== nextProps.foo % 3
-  console.log('memo 4', rs, prevProps, nextProps)
+  console.log('memo compare 3', rs, prevProps, nextProps)
   return rs
 })
 
