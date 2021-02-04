@@ -10,10 +10,12 @@ function test() {
 }
 
 function test2() {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     doSomething(function cb(good) {
       if (good) resolve()
       else reject()
     })
   })
 }
+
+test()

@@ -66,4 +66,4 @@ aa.then(function(rs) {
   })
   .then(function(rs) {
     console.log('ok: ', rs)
-  }) // 一直没有处理, 错误好似被忽略了
+  }) // 一直没有处理, 作为全局一场被抛出了
