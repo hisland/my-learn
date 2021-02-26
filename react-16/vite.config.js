@@ -13,4 +13,7 @@ export default {
     port: 9001,
   },
   plugins: [reactRefresh(), dirListPlugin()],
+  optimizeDeps: {
+    entries: [],
+  },
 }

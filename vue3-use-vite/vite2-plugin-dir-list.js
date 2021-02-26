@@ -18,17 +18,16 @@ export default function dirListPlugin() {
     configureServer({ app }) {
       app.use((req, res, next) => {
         const { url } = req
-        if (url.endsWith('/')) {
-          const pwd = path.join(__dirname, url)
-          const list1 = fs.readdirSync(pwd, {
+        const try_pwd = path.join(__dirname, url)
+        if (fs.existsSync(try_pwd) && fs.statSync(try_pwd).isDirectory()) {
+          const list1 = fs.readdirSync(try_pwd, {
             withFileTypes: true,
           })
 
           const hasIndex = list1.some((vv) => vv.name === 'index.html')
           if (hasIndex) {
-            res.writeHead(301, { Location: 'index.html' })
+            res.writeHead(301, { Location: path.join(url, 'index.html') })
             res.end()
-            // res.end(fs.readFileSync(path.join(pwd, 'index.html'), 'utf8'))
           } else {
             const list2 = list1.map((file) => {
               if (file.isDirectory()) {

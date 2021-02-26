@@ -1,13 +1,13 @@
 <template>
   <div>
     <div>Sub1</div>
-    <div>使用函数监听 props.aa: {{ aa }}</div>
-    <div>toRef 包装一下 props.bb: {{ bb }}</div>
+    <div>props 是 reactive 对象 aa: {{ aa }} bb: {{ bb }}</div>
+    <div>监听或者computed, 可以用 toRef, 例如: {{ val_dep_aa }}</div>
   </div>
 </template>
 <script lang="ts">
 import { ref, toRef, onMounted, computed, watch } from 'vue'
-import { getCurrentInstance } from 'vue'
+import { isReactive, getCurrentInstance } from 'vue'
 import { Ref, SetupContext } from 'vue'
 
 export default {
@@ -16,16 +16,18 @@ export default {
     bb: Number,
   },
   setup(props, { attrs, slots, emit, expose }) {
-    watch(
-      () => props.aa,
-      (val, oldVal) => {
-        console.log('props.aa changed', val, oldVal)
-      }
-    )
+    console.log('props 是 reactive 对象', isReactive(props))
     watch(toRef(props, 'bb'), (val, oldVal) => {
       console.log('props.bb changed', val, oldVal)
     })
-    return {}
+
+    const val_dep_aa = computed(() => {
+      return toRef(props, 'aa').value + ' hello'
+    })
+
+    return {
+      val_dep_aa,
+    }
   },
 }
 </script>
