@@ -7,7 +7,7 @@ app.use(function (req, res, next) {
   res.write('1-before\n')
   next() // 不调用则不会进入下一个 use
   res.write('1-after\n')
-  res.end()
+  res.end('some thing\n')
 })
 
 app.use(function (req, res, next) {
