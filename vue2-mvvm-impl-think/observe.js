@@ -2,10 +2,10 @@ function Observe(data) {
   if (!data || typeof data !== 'object') {
     return
   }
-  Object.keys(data).forEach(key => defineReactive(data, key, data[key]))
+  Object.keys(data).forEach((key) => defineReactive(data, key, data[key]))
 }
 
-let DepTarget
+let DepCollectTarget
 function defineReactive(data, key, val) {
   const dep = new Dep()
   Observe(val) // 值是数组时候的劫持 push/pop/shift/unshift...
@@ -13,7 +13,7 @@ function defineReactive(data, key, val) {
     enumerable: true,
     configurable: false,
     get() {
-      DepTarget && dep.addSub(DepTarget)
+      DepCollectTarget && dep.addSub(DepCollectTarget)
       return val
     },
     set(newVal) {
@@ -34,8 +34,8 @@ Dep.prototype = {
     this.subs.push(sub)
   },
   notify() {
+    // // 不知道为什么 for-of 会导致无限循环
     // for (const sub of this.subs) {
-    //   // 不知道为什么 for-of 会导致无限循环
     //   console.log(111)
     //   sub.update()
     // }
@@ -45,9 +45,9 @@ Dep.prototype = {
   },
 }
 
-function Watcher(vm, fnOrExp, cb) {
+function Watcher(vm, keyOrfnOrExp, cb) {
   this.vm = vm
-  this.fnOrExp = fnOrExp
+  this.keyOrfnOrExp = keyOrfnOrExp
   this.cb = cb
 
   this.value = this.get()
@@ -65,9 +65,9 @@ Watcher.prototype = {
     }
   },
   get() {
-    DepTarget = this
-    const value = this.vm[this.fnOrExp]
-    DepTarget = null
+    DepCollectTarget = this
+    const value = this.vm[this.keyOrfnOrExp] // 这里判断怎么读取 value
+    DepCollectTarget = null
     return value
   },
 }

@@ -6,9 +6,10 @@ function MVVM($options) {
 
   Observe(data)
 
-  Object.keys(data).forEach(key => this._proxy(key))
+  Object.keys(data).forEach((key) => this._proxy(key))
 }
 MVVM.prototype = {
+  // proxy vm.xxx -> data.xxx
   _proxy(key) {
     const me = this
     Object.defineProperty(me, key, {
