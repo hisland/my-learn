@@ -84,13 +84,13 @@ function App() {
 
           <FormItem wrapperCol={{ offset: 8, span: 16 }}>
             <Button onClick={getFieldsValue}>
-              getFieldsValue 只能拿到 FormItem 指定了 name 的对象
+              getFieldsValue 只能拿到 FormItem 指定了 item-name 的对象
             </Button>
             <Button onClick={getFieldsValueStore}>
-              getFieldsValue(true) 拿到需要的整个对象
+              getFieldsValue(true) 拿到init/item-name的整个对象
             </Button>
             <Button onClick={getFieldValue}>
-              getFieldValue 能拿到 init/item-name指定,以及额外添加的
+              getFieldValue: 指定 name, 能拿到 init/item-name指定,以及额外添加的任意属性值
             </Button>
             <Button onClick={SetValue}>额外添加属性</Button>
             <Button htmlType="submit">提交</Button>
