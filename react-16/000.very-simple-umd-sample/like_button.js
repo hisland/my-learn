@@ -1,6 +1,6 @@
 'use strict'
 
-const e = React.createElement
+const createElement = React.createElement
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class LikeButton extends React.Component {
 
   render() {
     console.log('run render every time')
-    return e(
+    return createElement(
       'button',
       { onClick: () => this.setState({ value: Math.random().toString(36) }) },
       'Like: ' + this.state.value
@@ -21,6 +21,6 @@ class LikeButton extends React.Component {
 }
 
 const domContainer = document.querySelector('#like_button_container')
-ReactDOM.render(e(LikeButton), domContainer)
+ReactDOM.render(createElement(LikeButton), domContainer)
 
 console.log('code after')

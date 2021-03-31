@@ -12,6 +12,7 @@ function App(props) {
 
   function That(aa, bb, cc) {
     console.log('That', aa, bb, cc)
+    return 'some thing: ' + aa
   }
 
   return (
@@ -19,6 +20,7 @@ function App(props) {
       <ul>
         <li>prop 可以是任何东西, 所以可以是函数</li>
         <li>children 实际也是 prop, 所以也可以是函数</li>
+        <li>children 需要组件内部正确使用</li>
       </ul>
       <div>
         <button onClick={Inc}>Inc {foo}</button>
@@ -28,6 +30,11 @@ function App(props) {
         <Sub foo={foo} bar={That}>
           {That}
         </Sub>
+        <Sub foo={foo} bar={That}>
+          {() => {
+            return 'other things'
+          }}
+        </Sub>
       </div>
     </div>
   )
@@ -35,9 +42,11 @@ function App(props) {
 
 function Sub(props) {
   console.log('Sub', props)
-  props.children('children', 2, 3)
+  const child = props.children('children', 2, 3)
   props.bar('bar', 4, 5)
-  return <div>aa</div>
+  return (
+    <div style={{ border: '1px solid purple', margin: '10px' }}>{child}</div>
+  )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))

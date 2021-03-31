@@ -1,8 +1,10 @@
 function UserGreeting(props) {
+  console.log('UserGreeting: ', UserGreeting)
   return <h1>Welcome back!</h1>
 }
 
 function GuestGreeting(props) {
+  console.log('GuestGreeting: ', GuestGreeting)
   return null
 }
 
