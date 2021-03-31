@@ -1,11 +1,11 @@
-// @ts-check
-const reactPlugin = require('vite-plugin-react')
-const dirListPlugin = require('./vite-plugin-dir-list.js')
+import { defineConfig } from 'vite'
+import reactRefresh from '@vitejs/plugin-react-refresh'
+import dirListPlugin from './vite2-plugin-dir-list.js'
 
-const config = {
-  port: 9527,
-  jsx: 'react',
-  plugins: [reactPlugin, dirListPlugin],
-}
-
-module.exports = config
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [reactRefresh(), dirListPlugin()],
+  optimizeDeps: {
+    entries: [],
+  },
+})
