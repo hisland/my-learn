@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 
 class App extends React.Component {
@@ -22,7 +22,7 @@ class App extends React.Component {
     return (
       <div>
         <ul>
-          <li>div 上的 key 变化会导致子组件重新初始化</li>
+          <li>App setState, 有 div 带 key 属性, 子孙组件完整的销毁重建</li>
         </ul>
 
         <div
@@ -54,14 +54,33 @@ class Sub1 extends React.Component {
 
     return (
       <div>
+        <ul>
+          <li>Sub1 setState, 无key属性, 子孙组件只是 re-render</li>
+        </ul>
+
         <div style={{ border: '1px solid pink', margin: '10px' }}>
           <div>Sub1: {this.state.myBar}</div>
           <div>Sub1: {foo}</div>
           <button onClick={this.setAnyThing}>setFoo</button>
+
+          <Sub2></Sub2>
         </div>
       </div>
     )
   }
+}
+
+function Sub2() {
+  console.log('Sub2 render')
+
+  const [count, setCount] = useState(0)
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
