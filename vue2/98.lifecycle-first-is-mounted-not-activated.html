@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+  <div id="app"></div>
+  <pre>
+
+  </pre>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      beforeCreate() {
+        console.log('---- beforeCreate: App')
+      },
+      created() {
+        console.log('---- created: App')
+      },
+      beforeMount() {
+        console.log('---- beforeMount: App')
+      },
+      mounted() {
+        console.log('---- mounted: App')
+      },
+      beforeUpdate() {
+        console.log('---- beforeUpdate: App')
+      },
+      updated() {
+        console.log('---- updated: App')
+      },
+      activated() {
+        console.log('---- activated: App')
+      },
+      deactivated() {
+        console.log('---- deactivated: App')
+      },
+      beforeDestroy() {
+        console.log('---- beforeDestroy: App')
+      },
+      destroyed() {
+        console.log('---- destroyed: App')
+      },
+    })
+  </script>
+</body>
+
+</html>

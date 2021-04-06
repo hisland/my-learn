@@ -1,0 +1,103 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  .border {
+    border: 1px solid #333;
+  }
+
+  .wrap {
+    width: 300px;
+    height: 300px;
+    background: #eee;
+    overflow: scroll;
+    position: relative;
+  }
+
+  .blank {
+    width: 1000px;
+    height: 1000px;
+  }
+
+  .pos1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    overflow: scroll;
+  }
+
+  .pos2 {
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    width: 200px;
+    height: 200px;
+    overflow: scroll;
+  }
+
+</style>
+<div id="app">
+  <pre>
+    * v-if 会导致组件/节点 销毁重建, 所以是完整的 bind->unbind 过程
+  </pre>
+  <div class="compa">
+    <button @click="show=!show">toggle {{show}}</button>
+
+    <keep-alive>
+      <aa v-if="show" v-sample>12</aa>
+    </keep-alive>
+  </div>
+</div>
+<pre>
+</pre>
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<script>
+  let vm = new Vue({
+    el: '#app',
+    data() {
+      return {
+        what: 'hey1',
+        show: false,
+      };
+    },
+    methods: {
+      setRandom() {
+        this.what = Math.random()
+      }
+    },
+    components: {
+      aa: {
+        template: `<h1 class="wrap border">h1 11
+          <div class="blank">
+          <div class="blank"></div>
+            <div class="pos1 border"><div class="blank">p1</div></div>
+            <div class="pos2 border"><div class="blank">p2</div></div>
+          </div>
+        </h1>`
+      },
+      bb: {
+        template: `<h2 class="wrap">h2 22
+          <div class="blank"></div>
+        </h2>`
+      },
+    },
+    directives: {
+      'sample': {
+        bind(el, binding, vnode, oldVnode) {
+          console.log('bind 1', el.aa)
+          el.aa = Math.random().toString(36)
+          console.log('bind 1', el.aa)
+        },
+        inserted(el, binding, vnode, oldVnode) {
+          console.log('inserted', el, binding, vnode, oldVnode)
+        },
+        unbind(el, binding, vnode, oldVnode) {
+          console.log('unbind', el, binding, vnode, oldVnode)
+        }
+      }
+    }
+  })
+</script>
