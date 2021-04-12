@@ -20,7 +20,7 @@ class App extends React.Component {
       <div>
         <ul>
           <li>
-            Sub1 setState, 并且触发了父组件的 prop 修改, 最终只 render 一次
+            在 UNSAFE_componentWillUpdate 里 setState, 会无限触发render
           </li>
         </ul>
 
@@ -45,7 +45,7 @@ class Sub1 extends React.Component {
 
   UNSAFE_componentWillUpdate() {
     console.log('Sub1 UNSAFE_componentWillUpdate')
-    this.setState({ myBar: this.state.myBar + 10 }) // 这个会出发不断刷新
+    this.setState({ myBar: this.state.myBar + 10 }) // 这个会触发不断刷新
   }
 
   setFoo = () => {

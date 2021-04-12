@@ -20,12 +20,13 @@ class App extends React.Component {
       <div>
         <ul>
           <li>
-            Sub1 setState, 并且触发了父组件的 prop 修改, 最终只 render 一次
+            在 UNSAFE_componentWillReceiveProps 里, 组件的状态还没有变,
+            如果同时有 setState 和 props 变化, 此时的 this.state 也还是没变
           </li>
         </ul>
 
         <div style={{ border: '1px solid pink', margin: '10px' }}>
-          <div>App: {foo}</div>
+          <div>App foo: {foo}</div>
           <Sub1 foo={this.state.foo} setFoo={this.setFoo}></Sub1>
         </div>
       </div>
@@ -47,15 +48,15 @@ class Sub1 extends React.Component {
     console.log(
       'Sub1 UNSAFE_componentWillReceiveProps',
       nextProps,
-      this.state.myBar // 这里 myBar 还没有变
+      this.state.myBar // UNSAFE_componentWillReceiveProps 内 this.state 是变化之前的
     )
-    this.setState({ myBar: this.state.myBar + 10 }) // 所以最终只看到这个结果
+    this.setState({ myBar: this.state.myBar + 10 }) // 所以这个结果不会基于下面的进行累加, 而是直接抛弃了下面的 setState
   }
 
   setFoo = () => {
-    console.log('Sub1 setFoo', this.state.myBar) // 这里 myBar 还没有变
-    this.setState({ myBar: this.state.myBar + 3 })
-    this.props.setFoo()
+    console.log('Sub1 setFoo', this.state.myBar)
+    this.setState({ myBar: this.state.myBar + 3 }) // 会等待异步更新
+    this.props.setFoo() // 同时触发 props 更新
   }
 
   render() {
@@ -65,8 +66,8 @@ class Sub1 extends React.Component {
     return (
       <div>
         <div style={{ border: '1px solid pink', margin: '10px' }}>
-          <div>Sub1: {this.state.myBar}</div>
-          <div>Sub1: {foo}</div>
+          <div>Sub1 myBar: {this.state.myBar}</div>
+          <div>Sub1 foo: {foo}</div>
           <button onClick={this.setFoo}>setFoo</button>
         </div>
       </div>
