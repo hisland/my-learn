@@ -1,0 +1,45 @@
+<!doctype html>
+<meta charset="utf-8">
+<div id="app">
+  <pre>
+    * $set 不能设置 vm 本身
+  </pre>
+  <div>
+    <div>obj1.aa: {{obj1.aa}}</div>
+  </div>
+  <div>
+    <button @click="setRandom">setRandom</button>
+    <button @click="delRandom">delRandom</button>
+  </div>
+</div>
+<pre>
+</pre>
+<script src="https://lib.baomitu.com/vue/2.6.10/vue.js"></script>
+<script>
+  let vm = new Vue({
+    el: '#app',
+    data() {
+      return {
+        obj1: {},
+      };
+    },
+    watch: {
+      'obj1.aa.bb': {
+        handler(val) {
+          console.log(val)
+        },
+        immediate: true
+      }
+    },
+    methods: {
+      setRandom() {
+        this.$set(this.obj1, 'aa', {
+          bb: Math.random()
+        })
+      },
+      delRandom() {
+        this.$set(this.obj1, 'aa', null)
+      }
+    },
+  })
+</script>

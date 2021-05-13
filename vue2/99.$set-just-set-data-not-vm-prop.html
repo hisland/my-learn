@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8">
+<div id="app">
+  <pre>
+    * $set 不能设置 vm 本身
+  </pre>
+  <div>
+    <div>what: {{what}}</div>
+    <div>obj1.kk: {{obj1.kk}}</div>
+    <div>some: {{some}}</div>
+  </div>
+  <div>
+    <button @click="setRandom">setRandom</button>
+  </div>
+</div>
+<pre>
+</pre>
+<script src="https://lib.baomitu.com/vue/2.6.10/vue.js"></script>
+<script>
+  let vm = new Vue({
+    el: '#app',
+    data() {
+      return {
+        what: 'hey1',
+        obj1: {},
+      };
+    },
+    methods: {
+      setRandom() {
+        this.what = Math.random() // 自动代理了 data 的赋值操作
+        this.$set(this.obj1, 'kk', Math.random()) // 可以设置 data 对象的子属性
+        this.$set(this, 'some', Math.random()) // 不能设置到 vm 本身
+      }
+    },
+  })
+</script>
