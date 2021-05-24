@@ -1,0 +1,76 @@
+<script crossorigin="anonymous"
+  integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+  src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+<pre>
+  * data 函数里面可以得到 inject/prop 传入的值
+</pre>
+<div id="app">
+  <button @click="setkk()">setkk</button>
+  <div>0 kk: {{kk}}</div>
+  <sub1></sub1>
+</div>
+<template id="sub1">
+  <div style="padding:10px;background:pink;">
+    <button @click="setfoo()">setfoo</button>
+    <div>1 kk: {{kk}}</div>
+    <div>1 foo: {{foo}}</div>
+    <sub2></sub2>
+  </div>
+</template>
+<template id="sub2">
+  <div style="padding:20px;background:purple;">
+    <div>2 kk: {{kk}}</div>
+    <div>2 foo: {{foo}}</div>
+  </div>
+</template>
+<script>
+  Vue.component('sub1', {
+    template: '#sub1',
+    data() {
+      return {
+        foo: 'init foo',
+      }
+    },
+    inject: ['kk'],
+    provide() {
+      return {
+        foo: this.foo
+      };
+    },
+    methods: {
+      setfoo() {
+        this.foo = 'foo' + Math.random().toString(36)
+      }
+    }
+  })
+  Vue.component('sub2', {
+    template: '#sub2',
+    data() {
+      debugger
+      console.log('sub2 data this.kk: ', this.kk)
+      console.log('sub2 data this.foo: ', this.foo)
+      return {
+      }
+    },
+    inject: ['kk', 'foo'],
+  })
+
+  window.kkk = new Vue({
+    el: '#app',
+    data() {
+      return {
+        kk: 'init kk',
+      }
+    },
+    provide() {
+      return {
+        kk: this.kk
+      };
+    },
+    methods: {
+      setkk() {
+        this.kk = 'kk' + Math.random().toString(36)
+      }
+    }
+  })
+</script>
