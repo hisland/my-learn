@@ -15,8 +15,8 @@ function genDirListHtml(list) {
 export default function dirListPlugin() {
   return {
     name: 'vite2-plugin-dir-list',
-    configureServer({ app }) {
-      app.use((req, res, next) => {
+    configureServer({ middlewares }) {
+      middlewares.use((req, res, next) => {
         const { url } = req
         if (url.endsWith('/')) {
           const pwd = path.join(__dirname, url)
