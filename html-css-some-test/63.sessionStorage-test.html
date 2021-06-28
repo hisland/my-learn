@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>sessionStorage 储存的内容, 新开浏览器 tab 都不会共用</li>
+    <li>复制页签会复制过来, 但是修改不会再同步回被复制的页签</li>
+  </ul>
+  <script>
+    const aa = sessionStorage.getItem('hello')
+    console.log(aa)
+
+    function do_set() {
+      sessionStorage.setItem('hello', 'hello' + Math.random())
+    }
+  </script>
+
+  <button onclick="do_set()">set</button>
+</body>
+
+</html>

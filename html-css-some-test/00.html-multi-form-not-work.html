@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    form {
+      border: 1px solid red;
+      padding: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <form name="aa" action="11">
+    <div>
+      <input type="text" name="aa">
+    </div>
+    <div>
+      <input type="text" name="bb">
+    </div>
+    <div>
+      <button type="submit">提交</button>
+    </div>
+
+    <div>下面是另一个 form 的, 直接被浏览器去掉了</div>
+    <form name="bb" action="22">
+      <div>
+        <input type="text" name="aa">
+      </div>
+      <div>
+        <input type="text" name="bb">
+      </div>
+      <div>
+        <button type="submit">提交</button>
+      </div>
+    </form>
+  </form>
+
+  <script>
+    for (const form of document.getElementsByTagName('form')) {
+      form.onsubmit = function DoSubmit(ee) {
+        event.preventDefault();
+        console.log(form.name, ee)
+      }
+    }
+  </script>
+</body>
+
+</html>
