@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "build": "esbuild main.jsx --bundle --outfile=out2.js"
+  }
+}
