@@ -1,0 +1,1 @@
+class App extends React.Component{render(){return React.createElement("div",null,"hello")}}ReactDOM.render(React.createElement(App,null),document.getElementById("app"));function hello(){console.log(1)}
