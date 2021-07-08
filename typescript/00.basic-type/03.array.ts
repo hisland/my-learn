@@ -89,7 +89,7 @@
 
   let foo1: string[] = []
 
-  // 其它类型 -> Array
+  // Array -> 其它类型
   foo_01 = foo1
   foo_02 = foo1
   foo_03 = foo1

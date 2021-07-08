@@ -47,7 +47,7 @@ let aa2: null = null // 只能自己赋值给自己
 
   let foo1: null = null
 
-  // 其它类型 -> null
+  // null -> 其它类型
   foo_01 = foo1
   foo_02 = foo1
   foo_03 = foo1

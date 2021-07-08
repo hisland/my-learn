@@ -85,7 +85,7 @@
 
   let foo1: any = 'some'
 
-  // 其它类型 -> any
+  // any -> 其它类型
   foo_01 = foo1
   foo_02 = foo1
   foo_03 = foo1

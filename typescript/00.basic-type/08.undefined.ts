@@ -60,7 +60,7 @@ function god0(): void {
 
   let foo1: undefined = undefined
 
-  // 其它类型 -> undefined
+  // undefined -> 其它类型
   foo_01 = foo1
   foo_02 = foo1
   foo_03 = foo1

@@ -80,7 +80,7 @@
 
   let foo1: number = 789
 
-  // 其它类型 -> number
+  // number -> 其它类型
   foo_01 = foo1 // number 可以赋值给 number
   foo_02 = foo1
   foo_03 = foo1

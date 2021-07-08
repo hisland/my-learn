@@ -76,7 +76,7 @@ console.log(aa3)
 
   let foo1: void = undefined
 
-  // 其它类型 -> void
+  // void -> 其它类型
   foo_01 = foo1
   foo_02 = foo1
   foo_03 = foo1

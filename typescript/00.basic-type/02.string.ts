@@ -67,7 +67,7 @@
 
   let foo1: string = 'xyz'
 
-  // 其它类型 -> string
+  // string -> 其它类型
   foo_01 = foo1
   foo_02 = foo1 // string 可以赋值给 string
   foo_03 = foo1
