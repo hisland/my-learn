@@ -3,10 +3,11 @@ const { spawn } = require('child_process')
 
 const outFile = './z-out/main-tmp'
 
-gulp.task('default', function() {
+gulp.task('default', function () {
   const watcher1 = gulp.watch('**/*.rs')
-  watcher1.on('change', function(path, stats) {
-    console.log(' >>> build <<< : ', path, stats)
+  watcher1.on('change', function (path, stats) {
+    // console.log(' >>> build <<< : ', path, stats)
+    console.log(' >>> build <<< : ', path)
     spawn(`rustc`, ['-o', outFile, path], { stdio: 'inherit' })
     // .on(
     //   'exit',
@@ -19,8 +20,9 @@ gulp.task('default', function() {
   })
 
   const watcher2 = gulp.watch(outFile)
-  watcher2.on('change', function(path, stats) {
-    console.log(' >>> run <<< : ', path, stats)
+  watcher2.on('change', function (path, stats) {
+    // console.log(' >>> run <<< : ', path, stats)
+    console.log(' >>> run <<< : ', path)
     spawn(outFile, { stdio: 'inherit' })
     // .on(
     //   'exit',

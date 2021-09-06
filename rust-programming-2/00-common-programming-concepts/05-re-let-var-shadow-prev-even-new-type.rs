@@ -1,8 +1,11 @@
 fn main() {
     let foo = 3;
+    print!("{:?}", foo);
+
     let foo = foo + 4;
     let bar = 3;
-    let bar = true;
+    print!("{:?}-{:?}", foo, bar);
 
-    print!("{:?} {:?}", foo, bar);
+    let bar = true;
+    print!("{:?}-{:?}", foo, bar);
 }

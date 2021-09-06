@@ -1,13 +1,16 @@
 fn main() {
     let decimal = 98_222;
-    let hex = 0xff_ff;
-    let octal = 0o77_77;
-    let binary = 0b1111_0000;
-    let byte = b'A';
-
     println!("Decimal: {}", decimal);
+
+    let hex = 0xff_ff;
     println!("Hex: {}", hex);
+
+    let octal = 0o77_77;
     println!("Octal: {}", octal);
+
+    let binary = 0b1111_0000;
     println!("Binary: {}", binary);
+
+    let byte = b'A';
     println!("Byte (u8 only): {}", byte);
 }

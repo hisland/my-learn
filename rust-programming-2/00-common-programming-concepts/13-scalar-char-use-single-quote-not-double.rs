@@ -1,7 +1,7 @@
 fn main() {
     let f1 = 'A';
-    let f2 = 'b';
-
     println!("{}", f1);
+
+    let f2: char = 'b';
     println!("{}", f2);
 }
