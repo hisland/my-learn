@@ -21,15 +21,8 @@ struct Rect {
 }
 
 impl Rect {
+    // 这个方法有多个参数
     fn can_hold(&self, other: &Rect) -> bool {
         self.width > other.width && self.height > other.height
-    }
-
-    // 关联函数, 第一个参数不是 &self
-    fn square(size: u32) -> Rect {
-        Rect {
-            width: size,
-            height: size,
-        }
     }
 }

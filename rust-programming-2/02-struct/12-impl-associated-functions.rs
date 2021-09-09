@@ -1,12 +1,6 @@
 fn main() {
-    let r1 = Rect {
-        width: 12,
-        height: 12,
-    };
-    let r2 = Rect {
-        width: 8,
-        height: 8,
-    };
+    let r1 = Rect::square(10); // 使用关联函数
+    let r2 = Rect::square(8);
     let r3 = Rect {
         width: 13,
         height: 8,
