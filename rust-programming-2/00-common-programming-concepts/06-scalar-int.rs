@@ -11,6 +11,12 @@ fn main() {
     let i64: i64 = 3;
     println!("64-bit: {}", i64);
 
+    let i128: i128 = 3;
+    println!("128-bit: {}", i128);
+
+    // the isize and usize types depend on the kind of computer your program is running on:
+    // 64 bits if you’re on a 64-bit architecture and
+    // 32 bits if you’re on a 32-bit architecture
     let isize: isize = 3;
     println!("arch: {}", isize);
 
@@ -25,6 +31,9 @@ fn main() {
 
     let u64: u64 = 3;
     println!("64-bit: {}", u64);
+
+    let u128: u128 = 3;
+    println!("128-bit: {}", u128);
 
     let usize: usize = 3;
     println!("arch: {}", usize);

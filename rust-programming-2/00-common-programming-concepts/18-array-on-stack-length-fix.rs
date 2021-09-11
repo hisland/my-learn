@@ -4,7 +4,7 @@ fn main() {
 
     let kk = arr[3]; // 越界访问, 报错
 
-    println!("{}", aa);
-    println!("{}", bb);
-    println!("{}", cc);
+    println!("{:?}", aa);
+    println!("{:?}", bb);
+    println!("{:?}", cc);
 }

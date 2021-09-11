@@ -1,6 +1,6 @@
 fn main() {
-    // const foo = 1; // provide a type for the item: `FOO: i32`
-    const FOO: u32 = 1;
+    const FOO1 = 1; // const 必须提供类型, 像下面一行
+    const FOO2: u32 = 1;
 
-    print!("{:?}", FOO);
+    print!("{:?}", FOO2);
 }
