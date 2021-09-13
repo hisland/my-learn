@@ -9,6 +9,7 @@ fn main() {
     h1.insert(s2, 20);
 
     let v1 = h1.get(&String::from("Blue"));
-
     println!("{:?}", v1);
+    let v2 = h1.get(&String::from("That"));
+    println!("{:?}", v2);
 }

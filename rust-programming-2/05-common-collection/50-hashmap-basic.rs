@@ -5,4 +5,6 @@ fn main() {
 
     s1.insert(String::from("Blue"), 10);
     s1.insert(String::from("Yellow"), 20);
+
+    println!("{:?}", s1);
 }

@@ -3,7 +3,7 @@ fn main() {
     let s2 = String::from("bob");
     let s3 = String::from("!");
 
-    let s4 = format!("{} {} {}", s1, s2, s3);
+    let s4 = format!("{}-{}-{}", s1, s2, s3);
 
     println!("{:?}", s4);
 

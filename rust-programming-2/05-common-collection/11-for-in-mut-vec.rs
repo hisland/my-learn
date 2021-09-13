@@ -4,9 +4,10 @@ fn main() {
     vv1.push(22);
     vv1.push(33);
 
+    // 可修改借用
     for ii in &mut vv1 {
-    // for ii in vv1 { // this moved, error
-        *ii = *ii + 100
+        // *ii 解引用
+        *ii += 100; // 跟这个等价 *ii = *ii + 100
     }
 
     println!("{:?}", vv1);

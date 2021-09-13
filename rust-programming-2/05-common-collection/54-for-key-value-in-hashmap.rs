@@ -9,6 +9,6 @@ fn main() {
     h1.insert(s2, 20);
 
     for (kk, vv) in &h1 {
-        println!("{}: {}", kk, vv);
+        println!("for-in: {}: {}", kk, vv);
     }
 }

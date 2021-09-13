@@ -4,6 +4,6 @@ fn main() {
     vv1.push(22);
     vv1.push(33);
 
-    // println!("{:?}", &vv1[100]); // error
-    println!("{:?}", vv1.get(101)); // None
+    // println!("{:?}", &vv1[100]); // panic 崩溃, 越界了
+    println!("{:?}", vv1.get(101)); // 越界取得 None
 }

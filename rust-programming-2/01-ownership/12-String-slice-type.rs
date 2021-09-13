@@ -8,14 +8,14 @@ fn main() {
 }
 
 // String slice 的类型写法是 &str
-fn first_word(str: &String) -> &str {
-    let bytes = str.as_bytes();
+fn first_word(ss: &String) -> &str {
+    let bytes = ss.as_bytes();
 
     for (ii, &item) in bytes.iter().enumerate() {
         if item == b' ' {
-            return &str[0..ii];
+            return &ss[0..ii];
         }
     }
 
-    &str[..]
+    &ss[..]
 }
