@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    // "rootDir": ".", // 会把当前目录结构输出到 out
+    // "outDir": "out1",
+    "rootDir": "src", // 会把 src 目录结构输出到 out
+    "outDir": "out2"
+
+    // 查看 2 种输出结果
+  }
+}

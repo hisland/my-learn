@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "rootDirs": ["src1", "src2"],
+    "outDir": "out"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "out"
+  },
+  "include": ["*.ts"],
+  // exclude 会在 include/files 之后进行匹配, 并且必须是完全没有被使用的文件才会被排除
+  // dd.ts 因为被 cc.ts 导入, 所以还在
+  // ee.ts 因为没有被任何其它文件使用, 所以最终被排除了
+  "exclude": ["dd.ts", "ee.ts"]
+}

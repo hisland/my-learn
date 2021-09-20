@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "outFile": "out.js",
+    "module": "System"
+  }
+}
