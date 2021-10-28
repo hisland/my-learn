@@ -1,0 +1,48 @@
+<!doctype html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style type="text/css">
+	* {
+		padding: 0;
+		margin: 0;
+	}
+
+	body {
+		padding: 50px;
+	}
+
+	.pp {
+		background: pink;
+		width: 500px;
+		height: 500px;
+		padding: 20px;
+	}
+
+	.box1 {
+		background: #000;
+		display: grid;
+		width: 200px;
+		height: 200px;
+		padding: 10px;
+		gap: 10px;
+		grid-auto-columns: 50px;
+	}
+
+	.sub1 {
+		background: #fff;
+		border-radius: 5px;
+	}
+
+</style>
+
+<pre>
+	没有指定, 自动 1 个 1 个地放置 grid-item
+</pre>
+
+<div class="pp">
+	<div class="box1">
+		<div class="sub1">aa1</div>
+		<div class="sub1">aa1</div>
+		<div class="sub1">aa1</div>
+		<div class="sub1">aa1</div>
+	</div>
+</div>

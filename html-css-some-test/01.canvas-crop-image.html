@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,user-scalable=no">
+  <title>title</title>
+  <script>
+    window.onload = function () {
+      const image = new Image()
+      const canvas = document.getElementById('canvas')
+      const ctx = canvas.getContext('2d');
+
+      const canvas2 = document.createElement('canvas')
+      canvas2.width = 200
+      canvas2.height = 190
+      const ctx2 = canvas2.getContext('2d');
+
+      image.src = './01.canvas-crop-image.jpeg';
+
+      // image.addEventListener('load', () => {
+      // 	ctx.drawImage(image,
+      // 		70, 20,   // Start at 70/20 pixels from the left and the top of the image (crop),
+      // 		50, 50,   // "Get" a `50 * 50` (w * h) area from the source image (crop),
+      // 		0, 0,     // Place the result at 0, 0 in the canvas,
+      // 		100, 100); // With as width / height: 100 * 100 (scale)
+      // });
+      image.addEventListener('load', () => {
+        console.log(image)
+        ctx.drawImage(image,
+          550, 950,
+          400, 380,
+          0, 0,
+          200, 190);
+
+        canvas.toBlob(blob => {
+          console.log(blob)
+        })
+
+        ctx2.drawImage(image,
+          550, 950,
+          400, 380,
+          0, 0,
+          200, 190);
+
+        canvas2.toBlob(blob => {
+          console.log(blob)
+
+          const file2 = new File([blob], 'aa.png', { type: "image/png" })
+
+          document.body.appendChild(canvas2)
+        })
+      });
+    }
+  </script>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="200" height="190"></canvas>
+</body>
+
+</html>
