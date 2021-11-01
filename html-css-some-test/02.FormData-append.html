@@ -1,0 +1,25 @@
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<h4>使用 vite 打开此页面, 保存自动刷新</h4>
+<script>
+  {
+    const dd = new FormData()
+
+    // append(name, value) value 只能是 字符串 或者 Blob(包含File)
+    dd.append('some', 1)
+    dd.append('some', 2)
+
+    dd.append('key2[0]', 21)
+    dd.append('key2[1]', 22)
+
+    dd.append('arr', [1, 2, 3]) // toString 了
+
+    dd.append('obj', { aa: 1, bb: 2 }) // toString 了
+
+    dd.append('file', new File(['abc'], 'ff.txt'))
+
+    fetch('/api/post', {
+      method: 'POST',
+      body: dd,
+    })
+  }
+</script>
