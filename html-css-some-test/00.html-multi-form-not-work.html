@@ -27,7 +27,7 @@
       <button type="submit">提交</button>
     </div>
 
-    <div>下面是另一个 form 的, 直接被浏览器去掉了</div>
+    <div>下面是另一个 form bb 的, 直接被浏览器去掉了, 内部的 输入框被归到上级 aa 里面</div>
     <form name="bb" action="22">
       <div>
         <input type="text" name="aa">
@@ -43,6 +43,7 @@
 
   <script>
     for (const form of document.getElementsByTagName('form')) {
+      console.log('count', 'only one form tag')
       form.onsubmit = function DoSubmit(ee) {
         event.preventDefault();
         console.log(form.name, ee)

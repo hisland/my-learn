@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .aa {
+      padding: 30px;
+      width: 800px;
+    }
+
+    .bb {
+      padding: 1px;
+      background: #09469f;
+      overflow: hidden;
+    }
+
+    .bb img {
+      height: 70px;
+      border: none;
+      display: block;
+      overflow: hidden;
+    }
+
+    .cc {
+      padding: 1px;
+      margin-top: 10px;
+      height: 70px;
+      background: #09469f url("huafa_img1.jpg") left center / contain no-repeat;
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      -moz-print-color-adjust: exact;
+      -ms-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 8mm;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="aa">
+    <div class="bb">
+      <img src="huafa_img1.jpg"></img>
+    </div>
+    <div class="cc">
+    </div>
+  </div>
+</body>
+
+</html>
