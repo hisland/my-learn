@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    check_and_refresh()
+    function check_and_refresh() {
+      const date_new = Date.now()
+      const date_new_str = `_wx_dont_cache_rnd=${date_new}`
+      const { search } = location
+      const mm = search.match(/_wx_dont_cache_rnd=(\d{13})/)
+      if (mm) {
+        const [, date_old_str] = mm
+        const date_old = new Date(date_old_str - 0)
+        const diff = date_new - date_old
+        const diff_sec = Math.floor(diff / 1000)
+        // 大于 12 小时刷新
+        if (diff_sec > 60 * 60 * 12) {
+          location.search = search.replace(/_wx_dont_cache_rnd=\d{13}/, date_new_str)
+        }
+      } else {
+        if (search.length) {
+          location.search += '&' + date_new_str
+        } else {
+          location.search = date_new_str
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
