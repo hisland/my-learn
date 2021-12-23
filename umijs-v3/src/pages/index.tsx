@@ -22,6 +22,9 @@ export default function IndexPage() {
         <li>
           <Link to="/mike">Link to /mike</Link>
         </li>
+        <li>
+          <Link to="/antd">Link to /antd</Link>
+        </li>
       </ul>
     </div>
   );

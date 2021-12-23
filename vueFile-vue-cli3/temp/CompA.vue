@@ -1,10 +1,7 @@
 <template>
   <div class="compa">
-    <h1>compa</h1>
-    <div>
-      <button @click="add">add</button>
-    </div>
-    <div>a: {{val}}</div>
+    <slot v-if="$scopedSlots.hi" name="hi" hi="hdl2"></slot>
+    <span v-else>hi2</span>
   </div>
 </template>
 
@@ -14,6 +11,7 @@ export default {
   components: {},
   data() {
     return {
+      list: ['a', 'b'],
       val: (count += 10),
     }
   },
@@ -21,6 +19,9 @@ export default {
     add() {
       this.val++
     },
+  },
+  mounted() {
+    console.log('compa: mounted', this.$slots, this.$scopedSlots)
   },
 }
 </script>

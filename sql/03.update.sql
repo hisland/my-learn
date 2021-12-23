@@ -1,5 +1,13 @@
 -- 设置所有列为相同值
-update some set one = 'god';
+UPDATE
+    some
+SET
+    one = 'god';
 
 -- 设置指定条件列
-update some set one = 'halo' where two = 5;
+UPDATE
+    some
+SET
+    one = 'halo'
+WHERE
+    two = 5;

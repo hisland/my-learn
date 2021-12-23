@@ -22,12 +22,12 @@ class CommonFormUse extends Component {
       items: [
         {
           name: 'leaseTermSign',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '明确租赁期限',
             rules: [{ required: true, message: '请选择' }],
           },
           type: 'Select',
-          typeOptions: { placeholder: '请选择' },
+          typeAttrs: { placeholder: '请选择' },
           optionList: [
             { label: '显示1', value: 'val1' },
             { label: '显示2', value: 'val2' },
@@ -36,12 +36,12 @@ class CommonFormUse extends Component {
         },
         {
           name: 'leaseBeginDate',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '租赁日期从',
             rules: [{ required: true, message: '请选择' }],
           },
           type: 'DatePicker',
-          typeOptions: {
+          typeAttrs: {
             precision: 2,
             style: { width: '100%' },
             placeholder: '请选择',
@@ -50,12 +50,12 @@ class CommonFormUse extends Component {
         },
         {
           name: 'leaseEndDate',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '租赁日期至',
             rules: [{ required: true, message: '请选择' }],
           },
           type: 'DatePicker',
-          typeOptions: {
+          typeAttrs: {
             precision: 2,
             style: { width: '100%' },
             placeholder: '请选择',
@@ -65,24 +65,24 @@ class CommonFormUse extends Component {
 
         {
           name: 'leaseLifeMonth',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '租赁期限（月）',
             rules: [],
           },
           type: 'Input',
-          typeOptions: {
+          typeAttrs: {
             placeholder: '请输入',
             disabled: true,
           },
         },
         {
           name: 'leaseAssetSign',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '识别租赁资产',
             rules: [{ required: true, message: '请选择' }],
           },
           type: 'Select',
-          typeOptions: { placeholder: '请选择' },
+          typeAttrs: { placeholder: '请选择' },
           optionList: [
             { label: '是', value: 'val1' },
             { label: '否', value: 'val2' },
@@ -90,46 +90,46 @@ class CommonFormUse extends Component {
         },
         {
           name: 'assetName',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '资产名称',
             rules: [],
           },
           type: 'Input',
-          typeOptions: {
+          typeAttrs: {
             placeholder: '请输入',
           },
         },
 
         {
           name: 'assetCategoryId',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '租赁资产类别',
             rules: [],
           },
           type: 'Input',
-          typeOptions: {
+          typeAttrs: {
             placeholder: '请输入',
           },
         },
         {
           name: 'assetPosition',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '资产位置',
             rules: [],
           },
           type: 'Input',
-          typeOptions: {
+          typeAttrs: {
             placeholder: '请输入',
           },
         },
         {
           name: 'assetArea',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '租赁资产面积',
             rules: [],
           },
           type: 'InputNumber',
-          typeOptions: {
+          typeAttrs: {
             style: { width: '100%' },
             placeholder: '请输入',
           },
@@ -137,24 +137,24 @@ class CommonFormUse extends Component {
 
         {
           name: 'assetQuantity',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '租赁资产数量',
             rules: [],
           },
           type: 'InputNumber',
-          typeOptions: {
+          typeAttrs: {
             style: { width: '100%' },
             placeholder: '请输入',
           },
         },
         {
           name: 'assetUnit',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '租赁资产单位',
             rules: [{ required: true, message: '请选择' }],
           },
           type: 'Select',
-          typeOptions: { placeholder: '请选择' },
+          typeAttrs: { placeholder: '请选择' },
           optionList: [
             { label: '单位1', value: 'val1' },
             { label: '单位2', value: 'val2' },
@@ -164,12 +164,12 @@ class CommonFormUse extends Component {
 
         {
           name: 'leaseContractSign',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '租赁合同',
             rules: [{ required: true, message: '请选择' }],
           },
           type: 'Select',
-          typeOptions: { placeholder: '请选择' },
+          typeAttrs: { placeholder: '请选择' },
           optionList: [
             { label: '合同1', value: 'val1' },
             { label: '合同2', value: 'val2' },
@@ -179,12 +179,12 @@ class CommonFormUse extends Component {
 
         {
           name: 'amount',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '合同金额含税',
             rules: [],
           },
           type: 'InputNumber',
-          typeOptions: {
+          typeAttrs: {
             style: { width: '100%' },
             placeholder: '请输入',
             precision: 2,
@@ -193,12 +193,12 @@ class CommonFormUse extends Component {
         },
         {
           name: 'amountNoTax',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '合同金额不含税',
             rules: [],
           },
           type: 'InputNumber',
-          typeOptions: {
+          typeAttrs: {
             style: { width: '100%' },
             placeholder: '请输入',
             precision: 2,
@@ -207,12 +207,12 @@ class CommonFormUse extends Component {
         },
         {
           name: 'amountTax',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '合同税额',
             rules: [],
           },
           type: 'InputNumber',
-          typeOptions: {
+          typeAttrs: {
             style: { width: '100%' },
             placeholder: '请输入',
             precision: 2,
@@ -223,14 +223,14 @@ class CommonFormUse extends Component {
         {
           span: 16,
           name: 'memo',
-          FormItemOptions: {
+          FormItemAttrs: {
             label: '备注',
             rules: [],
             labelCol: { span: 4 },
             wrapperCol: { span: 20 },
           },
           type: 'TextArea',
-          typeOptions: {
+          typeAttrs: {
             style: { width: '200%' },
             placeholder: '请输入',
           },
@@ -251,7 +251,7 @@ class CommonFormUse extends Component {
     return (
       <EditForm
         obj={this.state.obj}
-        FormOptions={{}}
+        FormAttrs={{}}
         onValuesChange={this.onValuesChange}
         items={this.state.items}
         // rows={this.state.rows}

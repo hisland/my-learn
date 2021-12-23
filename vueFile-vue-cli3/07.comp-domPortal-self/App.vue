@@ -1,22 +1,36 @@
 <template>
   <div id="app">
-    <CompA></CompA>
-    <hr />
-    <pre>
-      * 子元素不要使用 v-if, 可以用 v-show
-      * dom-portal 自身可以用 v-if
-    </pre>
+    <div>
+      <button @click="toggle()">show {{show}}</button>
+    </div>
+    <CompB v-if="show"></CompB>
   </div>
 </template>
 
 <script>
 const CompA = () => import(/* webpackChunkName: "CompA" */ './CompA.vue')
+const CompB = () => import(/* webpackChunkName: "CompB" */ './CompB.vue')
 
 export default {
+  el: '#app',
   components: {
     CompA,
+    CompB,
   },
   name: 'app',
+  data() {
+    return {
+      show: true,
+    }
+  },
+  methods: {
+    toggle() {
+      this.show = false
+      this.$nextTick(() => {
+        this.show = true
+      })
+    },
+  },
 }
 </script>
 

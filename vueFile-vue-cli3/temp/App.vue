@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <div>{{bbq}}</div>
-    <CompB :val="bbq">
-      <div>some</div>
-      <slot></slot>
-    </CompB>
+    <div>
+      <input type="text" v-model="bbq" />
+      <span>{{ bbq }}</span>
+    </div>
+    <CompA>
+      <template v-slot:hi="{ hi }">
+        <div>hi: {{ hi }} {{ hello(2) }}</div>
+      </template>
+    </CompA>
   </div>
 </template>
 
@@ -14,19 +18,22 @@ export default {
   components: {},
   data() {
     return {
-      bbq: '',
+      bbq: 'say ya',
     }
   },
-  methods: {},
+  methods: {
+    hello(num) {
+      console.log('hello', num)
+    },
+  },
   beforeCreate() {
-    console.log('app: beforeCreate', this.$slots.default)
+    console.log('app: beforeCreate', this.$slots)
   },
   created() {
-    console.log('app: created', this.$slots.default)
+    console.log('app: created', this.$slots)
   },
   mounted() {},
 }
 </script>
 
-<style>
-</style>
+<style></style>

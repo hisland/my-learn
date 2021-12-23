@@ -1,14 +1,9 @@
-use std::collections::HashMap;
-
 fn main() {
-    let text = "hello world wonderful world";
+    let str1 = String::from("god");
 
-    let mut map = HashMap::new();
+    str1 = 33;
+}
 
-    for word in text.split_whitespace() {
-        let count = map.entry(word).or_insert(0);
-        *count += 1;
-    }
-
-    println!("{:?}", map);
+fn area(t: God) -> Rect {
+    yes()
 }

@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <style>
-    body{margin:0;padding:0;}
-    .aa{width: 500px;height: 150px;background:#eee;margin-bottom:10px;}
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      float: left;
+      margin: 10px;
+      width: 350px;
+      height: 350px;
+
+    }
+
+    .tip {
+      font-size: 12px;
+    }
+
+    .aa {
+      width: 300px;
+      height: 300px;
+      background: #eee;
+      margin-bottom: 10px;
+    }
+
+    .svg {
+      background-color: #ddd;
+    }
+
   </style>
 </head>
+
 <body>
-  <div class="aa">
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <line
-        x1="50px"
-        y1="50px"
-        x2="70px"
-        y2="70px"
-        stroke="red" />
-    </svg>
-  </div>
-  <div class="aa">
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <line
-        x1="50px"
-        y1="50px"
-        x2="70px"
-        y2="70px"
-        stroke="red" />
-    </svg>
-  </div>
-  <div class="aa">
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <line
-        x1="50px"
-        y1="50px"
-        x2="70px"
-        y2="70px"
-        stroke="red" />
-      <line
-        x1="60px"
-        y1="60px"
-        x2="80px"
-        y2="80px"
-        stroke="green" />
-    </svg>
+  <div class="box">
+    <div class="tip">pattern 平铺 2 次</div>
+    <div class="aa">
+      <svg class="svg" width="100%" height="100%">
+        <defs>
+          <pattern id="glass-dash" width="30" height="30"
+            patternUnits="userSpaceOnUse">
+            <path d="M 15 10 L 10 15" fill="none" stroke="gray"
+              stroke-width="1" />
+            <path d="M 20 10 L 10 20" fill="none" stroke="gray"
+              stroke-width="1" />
+            <path d="M 20 15 L 15 20" fill="none" stroke="gray"
+              stroke-width="1" />
+          </pattern>
+          <pattern id="glass-block" width="60" height="60"
+            patternUnits="userSpaceOnUse">
+            <rect width="30" height="30" fill="url(#glass-dash)" />
+            <rect transform="translate(30, 30)" width="30" height="30"
+              fill="url(#glass-dash)" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#glass-block)" />
+      </svg>
+
+    </div>
   </div>
 </body>
+
 </html>

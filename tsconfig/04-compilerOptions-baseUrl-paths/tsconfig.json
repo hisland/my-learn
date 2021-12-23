@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./", // 指定之后, 模块可以 'dir/file' 的方式, 不需要 ./ ../ 这种方式开头
     "paths": {
-      "cc": ["bb"]
+      "cc": ["bb"] // 指定路径别名, import 'cc' 即是 import 'bb'
     },
     "outDir": "out"
   }

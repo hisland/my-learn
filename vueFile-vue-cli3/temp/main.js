@@ -4,8 +4,8 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-Vue.component('CompB', () =>
-  import(/* webpackChunkName: "CompCommonD" */ './CompB.vue')
+Vue.component('CompA', () =>
+  import(/* webpackChunkName: "CommonCompA" */ './CompA.vue')
 )
 
 new Vue(App)

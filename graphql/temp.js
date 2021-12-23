@@ -1,8 +1,12 @@
 const { graphql, buildSchema } = require('graphql')
 
 const schema = buildSchema(`
+  schema {
+    query: Query
+    mutation: Mutation
+  }
   type Query {
-    user: [User]
+    user(name: String!): [User]
     byAge(age: Int, hasAge: Boolean): [User]
   }
   type Mutation {
@@ -12,6 +16,11 @@ const schema = buildSchema(`
     name: String
     age: Int
     height: String
+    school: School
+  }
+  type School {
+    name: String
+    addr: String
   }
   input InputUser {
     name: String
@@ -20,37 +29,41 @@ const schema = buildSchema(`
 `)
 
 const fakeDB = {
-  user: [
+  userList: [
     {
       name: 'hdl',
       age: 18,
       height: '170cm',
-    },
-    {
-      name: 'zs',
-      age: 19,
-      height: '170cm',
-    },
-    {
-      name: 'ls',
-      age: 21,
-      height: '170cm',
+      school: '1',
     },
   ],
-  byAge({ age }) {
-    return this.user.filter(vv => vv.age === age)
+  schoolList: [{ name: '1', addr: '1a' }],
+  user({ name }) {
+    return this.userList.filter(vv => vv.name === name)
   },
-  putOne({ one }){
-    this.user.push(one)
-    return one;
-  }
+  byAge({ age }) {
+    return this.userList.filter(vv => vv.age === age)
+  },
+  putOne({ one }) {
+    this.userList.push(one)
+    return one
+  },
+  school(query) {
+    console.log(11, query)
+    return one
+  },
+  School(query) {
+    console.log(11, query)
+    return one
+  },
 }
 const query = `
-{
-  user {
+query {
+  user(name: "hdl") {
     name
-    ... {
-      age
+    school {
+      name
+      addr
     }
   }
 }

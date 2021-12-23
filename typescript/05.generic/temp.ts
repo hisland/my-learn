@@ -1,81 +1,168 @@
-// type UnwrapRef<T> = {
-//   cRef: T extends ComputedRef<infer V> ? UnwrapRef<V> : T
-//   ref: T extends Ref<infer V> ? UnwrapRef<V> : T
-//   array: T extends Array<infer V> ? Array<UnwrapRef<V>> : T
-//   object: { [K in keyof T]: UnwrapRef<T[K]> }
-// }[T extends ComputedRef<any>
-//   ? 'cRef'
-//   : T extends Ref
-//     ? 'ref'
-//     : T extends Array<any>
-//       ? 'array'
-//       : T extends Function | CollectionTypes
-//         ? 'ref' // bail out on types that shouldn't be unwrapped
-//         : T extends object ? 'object' : 'ref']
-
-// function isRef(r: any): r is Ref {
-//   return 'abc'
-// }
-// interface Ref<T = any> {
-//   _isRef: true
-//   value: T
-// }
-
-// const aa = isRef(3)
-// console.log(aa)
-
-// const aa: Ref<number> = {
-//   _isRef: true,
-//   value: 3,
-// }
-// console.log(aa)
-
-// type oo = {
-//   nRef: number
-//   sRef: string
-// }
-
-// type aa = oo.nRef
-
-// let yes: aa = 3
-// console.log(yes)
-
-class Bird {
-  fly() {
-    console.log('fly')
-  }
-  layEggs() {
-    console.log('layEggs')
-  }
-}
-
-class Fish {
-  swim() {
-    console.log('swim')
-  }
-  layEggs() {
-    console.log('layEggs')
-  }
-}
-
-function getSmallPet(): Fish | Bird {
-  return Math.random() < 0.5 ? new Fish() : new Bird()
-}
-
-let pet = getSmallPet()
-
-// 使用类型断言, 但是太过冗余繁杂
-if ((<Fish>pet).swim) {
-  ;(<Fish>pet).swim()
-} else {
-  ;(<Bird>pet).fly()
-}
-
-// 使用类型断言, 但是太过冗余繁杂, as 方式
-if ((pet as Fish).swim) {
-  ;(pet as Fish).swim()
-} else {
-  ;(pet as Bird).fly()
-}
-
 export const preventVSCodeError = 1
+
+{
+  interface Ref<T = any> {
+    value: T
+  }
+
+  type F1<T> = T extends Ref ? T : Ref<null>
+
+  type f1 = F1<Ref<string>>
+  type f2 = F1<string>
+}
+
+type Foo<T = string> = {
+  name: string
+  next: T
+}
+
+{
+  type F2 = Foo<number> extends Foo ? number : string
+  type F4 = Foo<number> extends Foo<string> ? number : string
+
+  type F3 = Foo<number> extends Foo<number> ? number : string
+  type F5 = Foo<number> extends Foo<any> ? number : string
+  type F6 = Foo<any> extends Foo<number> ? number : string
+}
+
+{
+  type F2 = number extends Foo ? number : string
+  type F4 = number extends string ? number : string
+
+  type F3 = number extends number ? number : string
+  type F5 = number extends any ? number : string
+  type F6 = any extends number ? number : string
+}
+
+{
+  type T1<U, K> = U extends K ? 'yes' : 'no'
+
+  type t1 = T1<Array<string>, object>
+}
+
+// type T2 = (number extends any) ? number : string
+// type T3 = (any extends number) ? number : string
+
+// type T4 = (Foo<number> extends Foo<number>) ? number : string
+// type T5 = (Foo<number> extends Foo<any>) ? number : string
+// type T6 = (Foo<any> extends Foo<number>) ? number : string
+
+{
+  {
+    type F1 = number extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = string extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = boolean extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = null extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = undefined extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = never extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = void extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = never extends any ? 'yes' : 'no'
+  }
+}
+
+{
+  let aa1: any = 33
+  aa1 = 33
+  aa1 = 'str'
+  aa1 = true
+  aa1 = null
+  aa1 = undefined
+}
+
+{
+  let aa1: any = 33
+  let aa2: number = aa1
+  let aa3: string = aa1
+  let aa4: boolean = aa1
+  let aa5: null = aa1
+  let aa6: undefined = aa1
+  let aa7: never = aa1
+  let aa8: unknown = aa1
+  let aa9: void = aa1
+}
+
+{
+  let aa1: any = 33
+  let aa2: number = aa1
+  let aa3: string = aa1
+  let aa4: boolean = aa1
+  let aa5: null = aa1
+  let aa6: never = aa1
+  let aa7: unknown = aa1
+  let aa8: void = aa1
+}
+
+{
+  let aa1: any = 33
+  let aa2: number = aa1
+  let aa3: string = aa1
+  let aa4: boolean = aa1
+  let aa5: null = aa1
+  let aa6: never = aa1
+  let aa7: unknown = aa1
+  let aa8: void = aa1
+
+  {
+    type F1 = string extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = boolean extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = null extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = undefined extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = never extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = void extends any ? 'yes' : 'no'
+  }
+  {
+    type F1 = any extends never ? 'yes' : 'no'
+  }
+  {
+    type F1 = unknown extends any ? 'yes' : 'no'
+  }
+}
+
+{
+  type T1 = string[]
+  type KEYS = keyof T1
+  type T2 = T1[number]
+}
+
+{
+  type T1 = Array<string>
+  type KEYS = keyof T1
+  type T2 = T1[number]
+}
+
+{
+  type T1 = number[]
+  type T2 = T1[number]
+
+  type BoxedValue<T> = { value: T }
+  type BoxedArray<T> = { array: T[] }
+  type Boxed<T> = T extends any[] ? BoxedArray<T[number]> : BoxedValue<T>
+
+  type T20 = Boxed<string> // BoxedValue<string>;
+  type T21 = Boxed<number[]> // BoxedArray<number>;
+  type T22 = Boxed<string | number[]> // BoxedValue<string> | BoxedArray<number>;
+}

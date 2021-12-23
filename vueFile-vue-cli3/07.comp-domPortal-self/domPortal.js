@@ -6,6 +6,7 @@ export default {
     },
   },
   render(h) {
+    console.log('domPortal render')
     return h('div', [this.$slots.default])
   },
   mounted() {
@@ -23,6 +24,8 @@ export default {
       return node instanceof window.Node ? node : document.querySelector(node)
     },
     doMove() {
+      this.$el.setAttribute('aa', Math.random())
+      console.log(this.$el)
       this.getTarget(this.moveTo).appendChild(this.$el)
     },
   },
