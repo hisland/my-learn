@@ -1,3 +1,8 @@
 -- 删除所有行
 DELETE FROM
-    some;
+    TMP_TABLE;
+
+SELECT
+    *
+FROM
+    TMP_TABLE;

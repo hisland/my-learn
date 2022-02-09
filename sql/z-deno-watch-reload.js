@@ -1,6 +1,6 @@
 // deno run -A z-deno-watch-reload.js
 
-import { dirname, basename } from 'https://deno.land/std@0.119.0/path/mod.ts'
+import { dirname, basename, relative } from 'https://deno.land/std@0.119.0/path/mod.ts'
 
 const __filepath = new URL('', import.meta.url).pathname
 // console.log('__filepath: ', __filepath)
@@ -22,13 +22,16 @@ const run = debounce((event) => {
 
   const filename = basename(path)
   // console.log('filename: ', filename)
+  const relative_file = relative(__dirname, path)
+  // console.log('relative_file: ', relative_file)
 
-  console.log(`\n${COUNT++} reload ${filename}: `)
+  console.log(`\n${COUNT++} reload ${relative_file}: \n`)
   Deno.run({
     cmd: [
       `sqlite3`, // run sqlite3
       `halo.db`,
-      `.read ${filename}`,
+      `.headers on`,
+      `.read ${relative_file}`,
     ],
   })
 }, 100)
