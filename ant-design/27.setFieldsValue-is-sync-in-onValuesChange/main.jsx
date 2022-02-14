@@ -39,10 +39,21 @@ function App() {
     )
   }
   const Show = () => {
-    console.log('values:', JSON.stringify(form.getFieldsValue(), null, ' '))
+    console.log(
+      'Show all values:',
+      JSON.stringify(form.getFieldsValue(true), null, ' ')
+    )
   }
-  function onChange(value) {
-    console.log('values:', JSON.stringify(form.getFieldsValue(), null, ' '))
+  function onInputChange(value) {
+    console.log(
+      'onInputChange values:',
+      value,
+      'all values',
+      JSON.stringify(form.getFieldsValue(true), null, ' ')
+    )
+  }
+  function SetNoneDefField() {
+    form.setFieldsValue({ dd: 'god' })
   }
   return (
     <div>
@@ -59,17 +70,20 @@ function App() {
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
         >
-          <FormItem label="属性" name="aa">
-            <Input onChange={onChange}></Input>
+          <FormItem label="属性" name="aa" initialValue="some aa">
+            <Input onChange={onInputChange}></Input>
           </FormItem>
           <FormItem label="身高属性比较长长长" name="bb">
             <Input></Input>
           </FormItem>
           <FormItem label="cc" name="cc">
-            <InputNumber onChange={onChange}></InputNumber>
+            <InputNumber onChange={onInputChange}></InputNumber>
           </FormItem>
           <FormItem wrapperCol={{ offset: 8, span: 16 }}>
             <Button onClick={Show}>显示</Button>
+            <Button onClick={SetNoneDefField}>
+              设置 没有FormItem的dd 不报错
+            </Button>
             <Button htmlType="submit">提交</Button>
           </FormItem>
         </Form>
