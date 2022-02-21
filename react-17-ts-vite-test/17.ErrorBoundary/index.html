@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<pre>
+  注意
+
+  错误边界无法捕获以下场景中产生的错误：
+
+  事件处理（了解更多）
+  异步代码（例如 setTimeout 或 requestAnimationFrame 回调函数）
+  服务端渲染
+  它自身抛出来的错误（并非它的子组件）
+  </pre>
+
+<div id="root"></div>
+<script>
+  if (window.global === undefined) {
+    window.global = window;
+  }
+</script>
+<script
+  src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
+
+<script src="main.jsx" type="module"></script>
