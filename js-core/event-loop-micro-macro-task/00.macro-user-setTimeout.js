@@ -1,15 +1,15 @@
-console.log('sync 1-1')
+console.log('sync 1')
 
 setTimeout(function () {
-  console.log('setTimeout 1-1')
+  console.log('setTimeout 3')
 })
 setTimeout(function () {
-  console.log('setTimeout 1-2')
-  console.log('sync 2-1')
+  console.log('setTimeout 4')
+  console.log('sync 5')
   setTimeout(function () {
-    console.log('setTimeout 2-1')
+    console.log('setTimeout 7')
   })
-  console.log('sync 2-2')
+  console.log('sync 6')
 })
 
-console.log('sync 1-2')
+console.log('sync 2')
