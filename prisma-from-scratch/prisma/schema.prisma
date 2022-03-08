@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int    @id @default(autoincrement())
+  user_name String
+  real_name String
+}
+
+model Bank {
+  id              Int     @id @default(autoincrement())
+  bank_name       String  @unique
+  bank_short_name String  @unique
+  score_good      String?
+}
+
+model Card {
+  id             Int      @id @default(autoincrement())
+  bank_id        Int
+  user_id        Int
+  card_no        String
+  card_type      String
+  card_nick_name String?
+  bill_date      Int?
+  due_type       String
+  due_date_fixed Int?
+  due_date_after Int?
+  total_limit    Int      @default(0)
+  enabled        Boolean  @default(true)
+  create_time    DateTime @default(now())
+}
+
+model Bill {
+  id          Int      @id @default(autoincrement())
+  auto_amount Int      @default(0)
+  set_amount  Int      @default(0)
+  set_time    DateTime @default(now())
+  set_user_id Int
+  card_id     Int
+  bill_year   Int
+  bill_month  Int
+  bill_time   DateTime
+  due_time    DateTime
+  done_time   DateTime
+  done_by     Int
+}
+
+model Take {
+  id        Int      @id @default(autoincrement())
+  card_id   Int
+  bill_id   Int
+  amount    Int
+  take_time DateTime
+}
+
+model Fenqi {
+  id          Int      @id @default(autoincrement())
+  name        String
+  card_id     Int
+  per_month   Int
+  per_amount  Int
+  start_time  DateTime
+  repay_date  Int
+  done_count  Int
+  total_count Int
+}
+
+model FenqiDetail {
+  id        Int      @id @default(autoincrement())
+  card_id   Int
+  fenqi_id  Int
+  due_time  DateTime
+  done_time DateTime
+  index     Int
+  remark    String
+}
