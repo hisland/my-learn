@@ -10,20 +10,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model user {
   id        Int    @id @default(autoincrement())
   user_name String
   real_name String
 }
 
-model Bank {
+model bank {
   id              Int     @id @default(autoincrement())
   bank_name       String  @unique
   bank_short_name String  @unique
   score_good      String?
 }
 
-model Card {
+model card {
   id             Int      @id @default(autoincrement())
   bank_id        Int
   user_id        Int
@@ -39,7 +39,7 @@ model Card {
   create_time    DateTime @default(now())
 }
 
-model Bill {
+model bill {
   id          Int      @id @default(autoincrement())
   auto_amount Int      @default(0)
   set_amount  Int      @default(0)
@@ -54,7 +54,7 @@ model Bill {
   done_by     Int
 }
 
-model Take {
+model take {
   id        Int      @id @default(autoincrement())
   card_id   Int
   bill_id   Int
@@ -62,7 +62,7 @@ model Take {
   take_time DateTime
 }
 
-model Fenqi {
+model fenqi {
   id          Int      @id @default(autoincrement())
   name        String
   card_id     Int
@@ -74,7 +74,7 @@ model Fenqi {
   total_count Int
 }
 
-model FenqiDetail {
+model fenqi_detail {
   id        Int      @id @default(autoincrement())
   card_id   Int
   fenqi_id  Int
