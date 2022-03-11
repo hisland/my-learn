@@ -12,6 +12,11 @@ class App extends Component {
       foo: 1,
     }
   }
+  addFoo = () => {
+    this.setState({
+      foo: this.state.foo + 1,
+    })
+  }
   componentDidMount() {
     console.log('App componentDidMount')
   }
@@ -23,10 +28,14 @@ class App extends Component {
     const { state, props } = this
     return (
       <div>
+        <div>
+          <button onClick={this.addFoo}>addFoo</button>
+        </div>
+        <div>render -> prevRefCallback(null)? -> refCallback</div>
         <Sub1
-          ref={(ref) => {
-            this.sub1 = ref
-            console.log('App got sub1 ref')
+          ref={(sub1) => {
+            this.sub1 = sub1
+            console.log('App got sub1 ref', sub1)
           }}
         ></Sub1>
       </div>
