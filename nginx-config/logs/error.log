@@ -1,0 +1,102 @@
+2021/11/21 12:09:30 [notice] 26700#0: signal process started
+2021/11/21 12:09:35 [notice] 26701#0: *62 "^/(.*)" matches "/aa", client: 127.0.0.1, server: , request: "GET /aa HTTP/1.1", host: "localhost:9999"
+2021/11/21 12:09:35 [notice] 26701#0: *62 rewritten data: "/rs-aa", args: "", client: 127.0.0.1, server: , request: "GET /aa HTTP/1.1", host: "localhost:9999"
+2021/11/21 12:11:54 [notice] 26930#0: signal process started
+2021/11/21 12:11:57 [notice] 26931#0: *63 "^/(.*)" matches "/aa", client: 127.0.0.1, server: , request: "GET /aa HTTP/1.1", host: "localhost:9999"
+2021/11/21 12:11:57 [notice] 26931#0: *63 rewritten redirect: "/rs-aa", client: 127.0.0.1, server: , request: "GET /aa HTTP/1.1", host: "localhost:9999"
+2021/11/21 12:35:31 [notice] 26931#0: *64 "^/(.*)" matches "/aa", client: 127.0.0.1, server: , request: "GET /aa HTTP/1.1", host: "localhost:9999"
+2021/11/21 12:35:31 [notice] 26931#0: *64 rewritten redirect: "/rs-aa", client: 127.0.0.1, server: , request: "GET /aa HTTP/1.1", host: "localhost:9999"
+2021/11/21 12:35:35 [notice] 26931#0: *65 "^/(.*)" matches "/aa", client: 127.0.0.1, server: , request: "GET /aa HTTP/1.1", host: "localhost:9999"
+2021/11/21 12:35:35 [notice] 26931#0: *65 rewritten redirect: "/rs-aa", client: 127.0.0.1, server: , request: "GET /aa HTTP/1.1", host: "localhost:9999"
+2021/11/21 12:37:23 [notice] 27425#0: signal process started
+2021/11/21 12:37:26 [notice] 27426#0: *66 "^/(.*)" matches "/aa", client: 127.0.0.1, server: , request: "GET /aa HTTP/1.1", host: "localhost:9999"
+2021/11/21 12:37:26 [notice] 27426#0: *66 rewritten redirect: "/rs-aa", client: 127.0.0.1, server: , request: "GET /aa HTTP/1.1", host: "localhost:9999"
+2021/11/21 12:51:07 [notice] 27642#0: signal process started
+2021/11/21 12:51:20 [notice] 27697#0: signal process started
+2021/11/21 12:51:25 [notice] 27747#0: signal process started
+2021/11/21 12:51:30 [notice] 27797#0: signal process started
+2021/11/21 12:54:02 [notice] 27931#0: signal process started
+2021/11/21 12:54:12 [notice] 27981#0: signal process started
+2021/11/21 12:54:22 [notice] 27994#0: signal process started
+2022/04/08 16:13:32 [notice] 16059#0: signal process started
+2022/04/08 16:13:32 [alert] 16059#0: kill(71, 1) failed (1: Operation not permitted)
+2022/04/08 16:14:09 [notice] 16119#0: signal process started
+2022/04/08 16:14:09 [error] 16119#0: open() "/usr/local/var/run/nginx.pid" failed (2: No such file or directory)
+2022/04/08 16:14:15 [notice] 16168#0: signal process started
+2022/04/08 16:14:15 [error] 16168#0: open() "/usr/local/var/run/nginx.pid" failed (2: No such file or directory)
+2022/04/08 16:14:35 [notice] 16342#0: signal process started
+2022/04/08 16:14:35 [error] 16342#0: open() "/usr/local/var/run/nginx.pid" failed (2: No such file or directory)
+2022/04/08 16:15:58 [error] 16492#0: *1 open() "/Users/hisland/zzz/nginx-config-test/tmp/pages/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: sitea, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8030", referrer: "http://localhost:8030/"
+2022/04/08 16:16:05 [notice] 16641#0: signal process started
+2022/04/08 16:16:11 [notice] 16654#0: signal process started
+2022/04/08 16:16:15 [error] 16655#0: *3 open() "/Users/hisland/zzz/nginx-config-test/tmp/pages/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: sitea, request: "GET /favicon.ico HTTP/1.1", host: "sitea:8030", referrer: "http://sitea:8030/"
+2022/04/08 16:16:34 [notice] 16668#0: signal process started
+2022/04/08 16:16:56 [notice] 16692#0: signal process started
+2022/04/08 16:18:26 [notice] 16741#0: signal process started
+2022/04/08 16:18:27 [notice] 16746#0: signal process started
+2022/04/08 16:19:37 [notice] 16822#0: signal process started
+2022/04/08 16:24:02 [notice] 16889#0: signal process started
+2022/04/08 16:24:54 [notice] 16921#0: signal process started
+2022/04/08 16:29:53 [error] 16922#0: *24 open() "/Users/hisland/zzz/nginx-config-test/tmp/pages/favicon.ico" failed (2: No such file or directory), client: 192.168.3.55, server: sitea, request: "GET /favicon.ico HTTP/1.1", host: "sitea:8030"
+2022/04/08 16:29:55 [error] 16922#0: *24 open() "/Users/hisland/zzz/nginx-config-test/tmp/pages/favicon.ico" failed (2: No such file or directory), client: 192.168.3.55, server: sitea, request: "GET /favicon.ico HTTP/1.1", host: "sitea:8030"
+2022/04/08 16:30:46 [notice] 17029#0: signal process started
+2022/04/08 16:32:52 [notice] 17084#0: signal process started
+2022/04/08 16:32:53 [notice] 17087#0: signal process started
+2022/04/08 16:42:19 [notice] 17203#0: signal process started
+2022/04/08 16:49:42 [notice] 17660#0: signal process started
+2022/04/08 16:49:46 [notice] 17671#0: signal process started
+2022/04/08 16:50:18 [notice] 17686#0: signal process started
+2022/04/08 16:50:49 [notice] 17700#0: signal process started
+2022/04/08 16:50:50 [notice] 17703#0: signal process started
+2022/04/08 16:50:58 [notice] 17720#0: signal process started
+2022/04/08 16:51:40 [notice] 17763#0: signal process started
+2022/04/08 16:54:19 [notice] 17811#0: signal process started
+2022/04/08 16:54:20 [notice] 17814#0: signal process started
+2022/04/08 17:00:37 [notice] 18080#0: signal process started
+2022/04/08 17:01:34 [error] 18081#0: *61 open() "/Users/hisland/zzz/nginx-config-test/tmp/pages/favicon.ico" failed (2: No such file or directory), client: 192.168.3.55, server: siteb, request: "GET /favicon.ico HTTP/1.1", host: "siteb:8030"
+2022/04/08 17:01:36 [error] 18081#0: *61 open() "/Users/hisland/zzz/nginx-config-test/tmp/pages/favicon.ico" failed (2: No such file or directory), client: 192.168.3.55, server: siteb, request: "GET /favicon.ico HTTP/1.1", host: "siteb:8030"
+2022/04/08 17:07:52 [notice] 18230#0: signal process started
+2022/04/08 17:08:30 [notice] 18251#0: signal process started
+2022/04/08 17:08:43 [notice] 18261#0: signal process started
+2022/04/08 17:16:38 [notice] 18418#0: signal process started
+2022/04/08 17:16:40 [notice] 18422#0: signal process started
+2022/04/08 17:16:56 [notice] 18432#0: signal process started
+2022/04/08 17:20:18 [notice] 18466#0: signal process started
+2022/04/08 17:20:31 [notice] 18481#0: signal process started
+2022/04/08 17:21:23 [notice] 18496#0: signal process started
+2022/04/08 17:21:24 [notice] 18500#0: signal process started
+2022/04/08 17:22:32 [notice] 18530#0: signal process started
+2022/04/08 17:23:22 [error] 18531#0: *89 open() "/Users/hisland/zzz/nginx-config-test/tmp/pages/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: sitea, request: "GET /favicon.ico HTTP/1.1", host: "sitea:8030", referrer: "http://sitea:8030/page1-1.html"
+2022/04/08 17:24:16 [notice] 18547#0: signal process started
+2022/04/08 17:24:16 [notice] 18550#0: signal process started
+2022/04/08 17:24:29 [error] 18551#0: *92 open() "/Users/hisland/zzz/nginx-config-test/tmp/pages/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: sitea, request: "GET /favicon.ico HTTP/1.1", host: "sitea:8030", referrer: "http://sitea:8030/page1-1.html"
+2022/04/08 17:24:49 [notice] 18571#0: signal process started
+2022/04/08 17:24:56 [error] 18572#0: *95 open() "/Users/hisland/zzz/nginx-config-test/tmp/pages/favicon.ico" failed (2: No such file or directory), client: 127.0.0.1, server: sitea, request: "GET /favicon.ico HTTP/1.1", host: "sitea:8030", referrer: "http://sitea:8030/page1-1.html"
+2022/04/08 17:26:57 [notice] 18605#0: signal process started
+2022/04/08 17:30:46 [notice] 18680#0: signal process started
+2022/04/08 17:42:29 [notice] 19407#0: signal process started
+2022/04/08 17:42:29 [error] 19407#0: open() "/usr/local/var/run/nginx.pid" failed (2: No such file or directory)
+2022/04/08 17:43:18 [notice] 19526#0: signal process started
+2022/04/08 17:45:21 [emerg] 19650#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:45:21 [emerg] 19650#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:45:21 [emerg] 19650#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:45:21 [emerg] 19650#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:45:21 [emerg] 19650#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:45:21 [emerg] 19650#0: still could not bind()
+2022/04/08 17:46:11 [emerg] 19840#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:46:11 [emerg] 19840#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:46:11 [emerg] 19840#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:46:11 [emerg] 19840#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:46:11 [emerg] 19840#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:46:29 [notice] 20016#0: signal process started
+2022/04/08 17:48:03 [emerg] 20084#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:48:03 [emerg] 20084#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:48:03 [emerg] 20084#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:52:16 [emerg] 20603#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:52:16 [emerg] 20603#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:52:16 [emerg] 20603#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:52:16 [emerg] 20603#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 17:52:16 [emerg] 20603#0: bind() to 0.0.0.0:8030 failed (48: Address already in use)
+2022/04/08 18:08:55 [notice] 21929#0: signal process started
+2022/04/08 18:09:09 [notice] 21981#0: signal process started
+2022/04/08 18:10:18 [notice] 22381#0: signal process started

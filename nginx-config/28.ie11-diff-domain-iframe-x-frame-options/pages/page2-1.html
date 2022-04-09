@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>page2-1</div>
+  <iframe src="http://siteb:8030/page2-2.html" width="300"
+    height="300"></iframe>
+  <script>
+    function genBtn(fileName) {
+      var btn = document.createElement('button')
+      btn.innerHTML = fileName
+      btn.onclick = function () {
+        var downloadURL = 'http://siteb:8030/files/' + fileName
+        var iframe = document.createElement('iframe')
+        iframe.src = downloadURL
+        // iframe.contentWindow.location.replace(downloadURL)
+        document.body.appendChild(iframe)
+        // setTimeout(function () {
+        //   document.body.removeChild(iframe)
+        // }, 500)
+      }
+      document.body.appendChild(btn)
+    }
+    window.onload = function () {
+      // console.log('page2-1 onload')
+      genBtn('aa.zip')
+      genBtn('bb.jpeg')
+      genBtn('cc.png')
+      genBtn('dd.xlsx')
+    }
+  </script>
+</body>
+
+</html>

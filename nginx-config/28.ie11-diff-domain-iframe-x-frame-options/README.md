@@ -1,0 +1,1 @@
+- 先修改 `/etc/hosts` 使可正常访问 `sitea` `siteb` 到当前这个目录
