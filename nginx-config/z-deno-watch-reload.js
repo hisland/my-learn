@@ -1,5 +1,15 @@
 const __dirname = new URL('.', import.meta.url).pathname
-const pp = `${__dirname}/tmp`
+const [dirName = 'tmp'] = Deno.args
+
+try {
+  Deno.statSync(dirName)
+} catch (error) {
+  console.log(`${dirName} 不是合法目录`)
+  Deno.exit()
+}
+
+const pp = `${__dirname}${dirName}`
+console.log(`listen: ${pp}`)
 
 let count = 1
 
@@ -43,7 +53,7 @@ globalThis.addEventListener('load', async function () {
 
   doRun(true)
 
-  const watcher = Deno.watchFs('tmp/nginx.conf')
+  const watcher = Deno.watchFs(`${pp}/nginx.conf`)
   for await (const event of watcher) {
     run()
   }
