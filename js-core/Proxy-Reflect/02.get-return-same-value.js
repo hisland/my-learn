@@ -3,12 +3,12 @@
 const tt = {}
 
 const pp = new Proxy(tt, {
-  get: function(target, name, receiver) {
+  get: function (target, name, receiver) {
     return 33
   },
 })
 
-console.log(pp.aa) // 全部被 get 处理
-console.log(pp.bb) // 全部被 get 处理
-console.log(pp.cc) // 全部被 get 处理
-console.log(pp.dd) // 全部被 get 处理
+console.log(pp.aa) // get 返回相同值
+console.log(pp.bb) // get 返回相同值
+console.log(pp.cc) // get 返回相同值
+console.log(pp.dd) // get 返回相同值

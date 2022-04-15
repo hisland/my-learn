@@ -1,14 +1,14 @@
 'use strict'
 
 const pp = new Proxy(
-  function() {
+  function () {
     console.log('real call')
   },
   {
-    construct: function(target, args, newTarget) {
-      console.log(args)
+    construct: function (target, args, newTarget) {
+      console.log('construct:', args)
       console.log('--- newTarget is pp: ', pp === newTarget)
-      return { bb: 'q' }
+      return { bb: 'q' } // 并没有真正使用 target
     },
   }
 )

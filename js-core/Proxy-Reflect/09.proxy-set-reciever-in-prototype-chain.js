@@ -3,7 +3,7 @@
 const orgObj = { some: 1 }
 
 const proxySelf = new Proxy(orgObj, {
-  set: function(target, name, value, receiver) {
+  set: function (target, name, value, receiver) {
     console.log('   target: ', orgObj === target)
     console.log('   orgObj: ', receiver === orgObj)
     console.log('proxySelf: ', receiver === proxySelf)
@@ -15,5 +15,5 @@ const proxySelf = new Proxy(orgObj, {
 
 const prosySub = Object.create(proxySelf)
 
-proxySelf.aa = 1
-prosySub.aa = 1
+proxySelf.aa = 1 // receiver 是 proxySelf
+prosySub.aa = 1 // receiver 是 prosySub
