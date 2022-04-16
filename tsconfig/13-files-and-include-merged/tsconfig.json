@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "outDir": "out"
+  },
+  "files": ["src1/bb.ts"],
+  "include": ["src2"]
+}

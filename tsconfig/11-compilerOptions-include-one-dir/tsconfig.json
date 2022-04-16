@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "outDir": "out"
+  },
+  "include": ["src1"] // out 里面是 src1 里面的文件, 是因为 rootDir 是计算出来的公共路径
+}

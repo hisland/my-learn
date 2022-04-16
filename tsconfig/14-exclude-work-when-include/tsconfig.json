@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outDir": "out"
+  },
+  "files": ["src1/bb.ts"],
+  "include": ["src2"],
+  "exclude": ["**/ee.ts"] // 文档讲 exclude 是在 resolve include 的时候起作用
+}
