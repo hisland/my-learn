@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "outDir": "out", // 有 outFile, outDir 好像没用了
+    "outFile": "out.js"
+  }
+}
