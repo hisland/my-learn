@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    // "outDir": "out1"
+  },
+  "files": ["./src1/sub/ee.ts"] // 这里覆盖了 extends 里面的 files, 并不是合并
+}

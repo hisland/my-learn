@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "outDir": "out2"
+  },
+  "files": ["./src1/aa.ts"]
+}

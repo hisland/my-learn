@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    // "outDir": "out",
+    "outFile": "out.js",
+    "module": "AMD",
+    "paths": {
+      "ee": ["../src2/sub/ee.ts"], // 文件匹配
+      "sub/*": ["../src2/sub/*"], // 路径匹配
+    }
+  },
+  "files": ["./aa.ts"]
+}
