@@ -8,9 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "moment": "^2.29.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "vite-plugin-dir-list": "^1.0.3"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",
