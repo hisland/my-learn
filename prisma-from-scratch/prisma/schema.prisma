@@ -28,8 +28,8 @@ model card {
   bank_id        Int
   user_id        Int
   card_no        String
-  card_type      String
   card_nick_name String?
+  can_take       Boolean  @default(true)
   bill_date      Int?
   due_type       String
   due_date_fixed Int?
@@ -40,26 +40,26 @@ model card {
 }
 
 model bill {
-  id          Int      @id @default(autoincrement())
-  auto_amount Int      @default(0)
-  set_amount  Int      @default(0)
-  set_time    DateTime @default(now())
-  set_user_id Int
+  id          Int       @id @default(autoincrement())
   card_id     Int
+  auto_amount Int       @default(0)
+  set_amount  Int       @default(0)
+  set_time    DateTime  @default(now())
+  set_by      Int
   bill_year   Int
   bill_month  Int
   bill_time   DateTime
   due_time    DateTime
-  done_time   DateTime
-  done_by     Int
+  done_time   DateTime?
 }
 
 model take {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   card_id   Int
   bill_id   Int
   amount    Int
   take_time DateTime
+  done_time DateTime?
 }
 
 model fenqi {
@@ -75,11 +75,11 @@ model fenqi {
 }
 
 model fenqi_detail {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   card_id   Int
   fenqi_id  Int
   due_time  DateTime
-  done_time DateTime
+  done_time DateTime?
   index     Int
   remark    String
 }
