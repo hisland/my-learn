@@ -8,9 +8,9 @@
   },
   "dependencies": {
     "@ant-design/compatible": "^1.1.0",
-    "antd": "^4.18.6",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
+    "antd": "^4.20.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "vite-plugin-dir-list": "^1.0.3"
   },
   "devDependencies": {
