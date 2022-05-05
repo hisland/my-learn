@@ -9,12 +9,18 @@ class App extends Component {
     console.log('App constructor')
     super(props)
     this.state = {
+      show: true,
       foo: 1,
     }
   }
   addFoo = () => {
     this.setState({
       foo: this.state.foo + 1,
+    })
+  }
+  toggleSub1 = () => {
+    this.setState({
+      show: !this.state.show,
     })
   }
   componentDidMount() {
@@ -30,14 +36,27 @@ class App extends Component {
       <div>
         <div>
           <button onClick={this.addFoo}>addFoo</button>
+          <button onClick={this.toggleSub1}>
+            Toggle Sub1 {state.show ? 'true' : 'false'}
+          </button>
         </div>
-        <div>render -> prevRefCallback(null)? -> refCallback</div>
-        <Sub1
-          ref={(sub1) => {
-            this.sub1 = sub1
-            console.log('App got sub1 ref', sub1)
-          }}
-        ></Sub1>
+        <ul>
+          <li>ref 函数在更新的时候, 会先得到 null, 立即再得到本次的 ref</li>
+          <li>组件消失的时候, 得到 null</li>
+          <li>
+            每次 render
+            执行顺序是refCallback(node)-&gt;prevRefCallback(null),refCallback(node)-&gt;prevRefCallback(null),refCallback(node)-prevRefCallback(null)
+          </li>
+        </ul>
+        <div>render -&gt; prevRefCallback(null)? -&gt; refCallback</div>
+        {state.show && (
+          <Sub1
+            ref={(sub1) => {
+              this.sub1 = sub1
+              console.log('App got sub1 ref', state.foo, sub1)
+            }}
+          ></Sub1>
+        )}
       </div>
     )
   }
