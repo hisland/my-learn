@@ -37,11 +37,16 @@ const run = debounce((event) => {
   console.log(`\n${COUNT++} reload ${relative_file}: \n`)
   Deno.run({
     cmd: [
-      `sqlite3`, // run sqlite3
-      `halo.db`,
-      `.headers on`,
-      `.read ${relative_file}`,
+      `/Applications/Postgres.app/Contents/Versions/13/bin/psql`,
+      `-p5432`,
+      `-d`,
+      `postgres`,
+      `-f`,
+      relative_file,
     ],
+    env: {
+      PGOPTIONS: '--search_path=learn_sql'
+    }
   })
 }, 100)
 
