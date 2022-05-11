@@ -1,6 +1,7 @@
 // deno run -A z-deno-watch-reload.js
 
-import { dirname, basename, relative } from 'https://deno.land/std@0.119.0/path/mod.ts'
+import * as Colors from 'https://deno.land/std@0.138.0/fmt/colors.ts'
+import { dirname, basename, relative } from 'https://deno.land/std@0.138.0/path/mod.ts'
 
 const __filepath = new URL('', import.meta.url).pathname
 // console.log('__filepath: ', __filepath)
@@ -34,7 +35,7 @@ const run = debounce((event) => {
     }
   }
 
-  console.log(`\n${COUNT++} reload ${relative_file}: \n`)
+  console.log(`\n${Colors.red('[' + (COUNT++) + '] reload')} ${relative_file}: \n`)
   Deno.run({
     cmd: [
       `/Applications/Postgres.app/Contents/Versions/13/bin/psql`,
