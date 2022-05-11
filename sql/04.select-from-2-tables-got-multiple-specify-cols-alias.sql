@@ -27,7 +27,7 @@ VALUES
     (3, '170cm');
 
 SELECT
-    TMP_TABLE1.col1 col11,
+    TMP_TABLE1.col1 col11, -- table 没有别名, 这里就用全名
     TMP_TABLE1.col2 col12,
     TMP_TABLE2.col1 col21,
     TMP_TABLE2.col2 col22

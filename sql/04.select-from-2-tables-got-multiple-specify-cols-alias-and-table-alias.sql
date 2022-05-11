@@ -27,10 +27,10 @@ VALUES
     (3, '170cm');
 
 SELECT
-    t1.col1 col11,
-    t1.col2 col12,
-    t2.col1 col21,
-    t2.col2 col22
+    t1.col1 id,
+    t1.col2 name,
+    t2.col1 id2,
+    t2.col2 height
 FROM
-    TMP_TABLE1 t1,
+    TMP_TABLE1 t1, -- 立即给 table 一个别名, 上面已经在使用
     TMP_TABLE2 t2;

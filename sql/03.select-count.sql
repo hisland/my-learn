@@ -22,7 +22,7 @@ VALUES
 SELECT
     count(*),
     count(one),
-    count(two),
-    count(three)
+    count(two), --NULL排除
+    count(three) --NULL排除
 FROM
     TMP_JOIN1;

@@ -17,7 +17,7 @@ VALUES
 
 SELECT
     col3,
-    col3 som1,
-    col3 AS some2
+    col3 som1, -- 不使用 as
+    col3 AS some2 -- 使用 as
 FROM
     TMP_TABLE1;

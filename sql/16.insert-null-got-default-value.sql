@@ -6,10 +6,10 @@ CREATE TABLE TMP_TABLE1 (
     three VARCHAR(20)
 );
 
--- NULL 在这里相当于占位符
 INSERT INTO
     TMP_TABLE1
 VALUES
+    -- NULL 在这里相当于占位符
     (NULL, 'A1-1', 'A1-2'),
     (NULL, 'A2-1', 'A2-2'),
     (NULL, 'A3-1', 'A3-2');

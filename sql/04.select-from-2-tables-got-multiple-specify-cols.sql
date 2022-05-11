@@ -27,9 +27,9 @@ VALUES
     (3, '170cm');
 
 SELECT
-    TMP_TABLE1.col1,
+    TMP_TABLE1.col1, -- 没有指定别名, 就用原来的名字
     TMP_TABLE1.col2,
-    TMP_TABLE2.col1,
+    TMP_TABLE2.col1, -- 这里不同 table 有相同列, 名字一样了
     TMP_TABLE2.col2
 FROM
     TMP_TABLE1,

@@ -16,6 +16,11 @@ UPDATE
 SET
     one = 'god';
 
+SELECT
+    *
+FROM
+    TMP_TABLE;
+
 -- 设置指定条件列
 UPDATE
     TMP_TABLE

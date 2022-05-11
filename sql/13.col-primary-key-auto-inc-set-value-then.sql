@@ -9,7 +9,7 @@ VALUES
     (3),
     (7),
     (112),
-    (NULL);
+    (NULL); -- 自动变成 113
 
 SELECT
     *

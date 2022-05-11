@@ -20,6 +20,9 @@ VALUES
 SELECT
     sum(one),
     sum(two),
-    sum(three)
+    sum(three),
+    one,
+    two,
+    three
 FROM
     TMP_JOIN1;

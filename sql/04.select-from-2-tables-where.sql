@@ -36,4 +36,4 @@ FROM
     TMP_TABLE2 t2
 WHERE
     t1.col2 = '张三'
-    AND t2.col2 = '170cm';
+    AND t2.col2 = '170cm'; -- 1x1 结果还是1行
