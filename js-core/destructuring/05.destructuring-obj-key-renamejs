@@ -1,0 +1,9 @@
+console.log('解构默认值')
+
+const cc = {
+  kk: 1,
+}
+const { des = 'default value', kk: newVal } = cc
+console.log('des: ', des)
+// console.log('kk: ', kk)
+console.log('newVal: ', newVal) // kk 并没有产生, 只产生了 newVal 变量
