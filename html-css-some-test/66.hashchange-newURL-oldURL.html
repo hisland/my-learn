@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .aa {
+      color: red
+    }
+
+    :global .aa {
+      color: green;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="aa">
+    <a href="#hash1">#hash1</a>
+    <a href="#hash2">#hash2</a>
+  </div>
+  <script>
+    window.onload = function () {
+      window.addEventListener('hashchange', function handleChangeRouter(ee) {
+        console.log('ee: ', ee);
+        console.log('ee.newURL: ', ee.newURL);
+        console.log('ee.oldURL: ', ee.oldURL);
+      });
+    }
+  </script>
+</body>
+
+</html>
