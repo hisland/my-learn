@@ -10,12 +10,38 @@ function aa(bb) {
 // console.log(aa.apply(null, [3]))
 // console.log(aa.call(null, 3))
 
-const t1 = new Date()
-for (let ii = 0; ii < 100000000; ii++) {
-  const arr = [ii]
-  // aa(arr[0])
-  // aa.call(null, arr[0])
-  // aa.apply(null, arr)
+{
+  const t1 = new Date()
+  for (let ii = 0; ii < 100000000; ii++) {
+    const arr = [ii]
+    aa(arr[0])
+    // aa.call(null, arr[0])
+    // aa.apply(null, arr)
+  }
+  const t2 = new Date()
+  console.log('normal', t2 - t1)
 }
-const t2 = new Date()
-console.log(t2 - t1)
+
+{
+  const t1 = new Date()
+  for (let ii = 0; ii < 100000000; ii++) {
+    const arr = [ii]
+    // aa(arr[0])
+    aa.call(null, arr[0])
+    // aa.apply(null, arr)
+  }
+  const t2 = new Date()
+  console.log('call', t2 - t1)
+}
+
+{
+  const t1 = new Date()
+  for (let ii = 0; ii < 100000000; ii++) {
+    const arr = [ii]
+    // aa(arr[0])
+    // aa.call(null, arr[0])
+    aa.apply(null, arr)
+  }
+  const t2 = new Date()
+  console.log('apply', t2 - t1)
+}
