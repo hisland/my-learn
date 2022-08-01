@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import React, { Component } from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import PropTypes from 'prop-types'
 
 const SomeContext = React.createContext('cyan')
@@ -24,6 +24,7 @@ class App extends Component {
         <SomeContext.Provider value={state.color1}>
           <FooContext.Provider value={state.color2}>
             <Sub1></Sub1>
+            <Sub2></Sub2>
           </FooContext.Provider>
         </SomeContext.Provider>
       </div>
@@ -34,20 +35,38 @@ class App extends Component {
 function Sub1(props) {
   console.log('Sub1 render', props)
   return (
-    <SomeContext.Consumer>
-      {(some) => (
-        <FooContext.Consumer>
-          {(foo) => (
-            <div>
-              <div>这里能同时读取到 2 个 context</div>
+    <div style={{ border: '1px solid red', margin: '10px' }}>
+      <SomeContext.Consumer>
+        {(some) => (
+          <FooContext.Consumer>
+            {(foo) => (
               <div>
-                some: {some} foo: {foo}
+                <div>这里能同时读取到 2 个 context, 使用 Context.Consumer</div>
+                <div>
+                  some: {some} foo: {foo}
+                </div>
               </div>
-            </div>
-          )}
-        </FooContext.Consumer>
-      )}
-    </SomeContext.Consumer>
+            )}
+          </FooContext.Consumer>
+        )}
+      </SomeContext.Consumer>
+    </div>
+  )
+}
+
+function Sub2(props) {
+  console.log('Sub2 render', props)
+  const some = useContext(SomeContext)
+  const foo = useContext(FooContext)
+  return (
+    <div style={{ border: '1px solid green', margin: '10px' }}>
+      <div>
+        <div>这里能同时读取到 2 个 context, 使用 useContext</div>
+        <div>
+          some: {some} foo: {foo}
+        </div>
+      </div>
+    </div>
   )
 }
 
