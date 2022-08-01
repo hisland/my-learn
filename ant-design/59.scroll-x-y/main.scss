@@ -1,0 +1,28 @@
+.react-resizable {
+  position: relative;
+  background-clip: padding-box;
+
+  > .react-resizable-handle {
+    position: absolute;
+    right: -5px;
+    bottom: 0;
+    z-index: 1;
+    width: 10px;
+    height: 100%;
+    cursor: col-resize;
+    background: pink;
+  }
+}
+
+.ant-table-bordered .ant-table-thead>tr>th,
+.ant-table-bordered .ant-table-tbody .ant-table-row td,
+.ant-table .ant-table-thead>tr>th,
+.ant-table .ant-table-tbody .ant-table-row td {
+  overflow     : hidden;
+  text-overflow: ellipsis;
+  white-space  : nowrap;
+}
+
+body{
+  padding: 50px;
+}
