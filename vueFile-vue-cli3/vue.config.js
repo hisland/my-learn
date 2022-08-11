@@ -13,7 +13,7 @@ module.exports = {
       config.optimization.splitChunks.cacheGroups.common.chunks = 'all'
     }
 
-    config.entry = './temp/main.js'
+    config.entry = './12/main.js'
   },
   devServer: {
     host: 'localhost',

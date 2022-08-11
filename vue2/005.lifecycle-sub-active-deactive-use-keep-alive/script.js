@@ -24,6 +24,7 @@ var vm = new Vue({
     </div>
       `,
       data: function() {
+        console.log('data: sub 在 keep-alive 里面才有效果')
         return {
           sub1: 'sub1 data'
         };
