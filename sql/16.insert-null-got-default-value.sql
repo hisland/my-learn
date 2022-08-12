@@ -18,3 +18,6 @@ SELECT
     *
 FROM
     TMP_TABLE1;
+
+-- pg 报错
+-- sqlite 自增了

@@ -40,4 +40,7 @@ FROM
     RIGHT JOIN -- 有些也叫 RIGHT OUTER JOIN 右连接 右外连接
     CLASS c ON s.class_id = c.id;
 
+-- pg 支持
 -- sqlite 不支持
+
+-- 返回结果是, 右侧全有

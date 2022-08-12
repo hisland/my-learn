@@ -6,3 +6,6 @@ INSERT INTO
     INSERT_NOT_NULL
 VALUES
     (NULL); -- 定义限制了 NOT NULL, 直接报错
+
+-- pg 报错
+-- sqlite 报错

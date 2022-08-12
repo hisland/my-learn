@@ -18,3 +18,6 @@ SELECT
     *
 FROM
     AUTO_INC;
+
+-- pg 报错
+-- sqlite 自增了

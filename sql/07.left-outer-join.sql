@@ -39,3 +39,5 @@ FROM
     STUDENT s
     LEFT JOIN -- 应该基本支持, 有些也叫 LEFT OUTER JOIN 左连接 左外连接
     CLASS c ON s.class_id = c.id;
+
+-- 返回结果是, 左侧全有

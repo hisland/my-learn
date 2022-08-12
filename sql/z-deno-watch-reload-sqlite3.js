@@ -39,7 +39,7 @@ const run = debounce((event) => {
   Deno.run({
     cmd: [
       `sqlite3`, // run sqlite3
-      `halo.db`,
+      `sqlite3.db`,
       `.headers on`,
       `.read ${relative_file}`,
     ],

@@ -22,3 +22,6 @@ FROM
     TMP_JOIN1
 GROUP BY
     two;
+
+-- pg 报错
+-- sqlite 自增了

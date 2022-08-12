@@ -42,4 +42,7 @@ FROM
     -- FULL JOIN -- 某些数据库叫这个
     CLASS c ON s.class_id = c.id;
 
+-- pg 支持
 -- sqlite 都不支持
+
+-- 返回结果是, 2 侧全有

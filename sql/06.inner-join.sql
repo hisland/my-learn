@@ -39,3 +39,5 @@ FROM
     STUDENT s
     INNER JOIN -- 应该所有数据库都支持 内连接
     CLASS c ON s.class_id = c.id;
+
+-- 返回结果是 2 个表都存在的数据

@@ -26,3 +26,6 @@ SELECT
     three
 FROM
     TMP_JOIN1;
+
+-- pg 报错
+-- sqlite 有 sum 函数
