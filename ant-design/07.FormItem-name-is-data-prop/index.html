@@ -1,18 +1,9 @@
 <div id="root"></div>
+<script>
+  if (window.global === undefined) {
+    window.global = window;
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
 
-<script
-  src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.11.6/babel.min.js"></script>
-
-<script
-  src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.development.js"></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.development.js"></script>
-
-<link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/antd@4.7.2/dist/antd.min.css">
-<script src="https://cdn.jsdelivr.net/npm/antd@4.7.2/dist/antd.min.js"></script>
-
-<script src="main.js" type="text/babel" data-type="module"
-  data-presets="react"></script>
+<script src="main.jsx" type="module"></script>

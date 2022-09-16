@@ -1,25 +1,20 @@
-const { Component } = React
-const { useState } = React
-const { DatePicker } = antd
-const { Button } = antd
-const { Input } = antd
-const { Drawer } = antd
-const { Table } = antd
-const { Form } = antd
+import ReactDOM from 'react-dom'
+import React, { Component } from "react";
+import { DatePicker, Button, Input, Drawer, Table, Form } from "antd";
 
-const FormItem = Form.Item
+const FormItem = Form.Item;
 
 class App extends Component {
   constructor(props) {
-    super(props)
-    this.state = {}
+    super(props);
+    this.state = {};
   }
   onFinish = (values) => {
-    console.log('ok', values)
-  }
+    console.log("ok", values);
+  };
   onFinishFailed = (values) => {
-    console.log('fial', values)
-  }
+    console.log("fial", values);
+  };
   render() {
     return (
       <div>
@@ -36,8 +31,8 @@ class App extends Component {
           </FormItem>
         </Form>
       </div>
-    )
+    );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById("root"));
