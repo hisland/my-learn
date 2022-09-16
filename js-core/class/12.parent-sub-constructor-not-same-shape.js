@@ -6,7 +6,7 @@ class Foo {
 
 class Bar extends Foo {
   constructor(aa) {
-    console.log(arguments)
+    console.log('arguments: ', arguments)
     super(aa)
   }
 }

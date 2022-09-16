@@ -9,7 +9,7 @@ let FooClz = class Foo {
   }
 }
 
-let aa = new FooClz
+let aa = new FooClz()
 // let bb = new Foo // error
 
 console.log(aa.__proto__ === FooClz.prototype)

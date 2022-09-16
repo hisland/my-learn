@@ -1,9 +1,21 @@
 class Foo {
   constructor() {
-    console.log('new.target', new.target)
+    console.log('new.target', new.target, new.target === Foo)
   }
 }
 
-let aa = new Foo()
+class Tom extends Foo {
+  constructor() {
+    super()
+  }
+}
 
-console.log(aa)
+{
+  let aa = new Foo()
+  console.log(aa)
+}
+
+{
+  let aa = new Tom()
+  console.log(aa)
+}

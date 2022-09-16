@@ -1,4 +1,4 @@
-let aa = new Foo // 不行, 不存在变量提升
+let aa = new Foo() // 不行, 不存在变量提升
 
 class Foo {
   constructor() {}
