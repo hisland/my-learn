@@ -6,9 +6,15 @@
     "build": "vite build"
   },
   "dependencies": {
+    "file-saver": "^2.0.5",
+    "jsqr": "^1.4.0",
+    "lz-string": "^1.4.4",
+    "qr-scanner": "^1.4.1",
+    "qrcode": "^1.5.1",
     "vue": "^3.0.5"
   },
   "devDependencies": {
+    "@types/qrcode": "^1.5.0",
     "@vitejs/plugin-vue": "^1.2.4",
     "@vue/compiler-sfc": "^3.0.5",
     "sass": "^1.35.1",

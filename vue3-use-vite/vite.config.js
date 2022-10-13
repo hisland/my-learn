@@ -4,7 +4,11 @@ import dirListPlugin from './vite2-plugin-dir-list.js'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  port: 3001,
+  server: {
+    host: '0.0.0.0',
+    https: true,
+    port: 3001,
+  },
   plugins: [vue(), dirListPlugin()],
   optimizeDeps: {
     entries: [],
