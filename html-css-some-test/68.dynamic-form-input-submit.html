@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .aa {
+        color: red;
+      }
+
+      :global .aa {
+        color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div>form</div>
+    </div>
+    <script>
+      window.onload = function () {
+        const form = document.createElement('form')
+        form.action = 'what'
+        form.target = '_blank'
+        form.method = 'post'
+        const input1 = document.createElement('input')
+        input1.name = 'name1'
+        input1.value = 'value1'
+        input1.type = 'hidden'
+        form.appendChild(input1)
+        const input2 = document.createElement('input')
+        input2.type = 'submit'
+        form.appendChild(input2)
+        document.getElementById('app').appendChild(form)
+      }
+    </script>
+  </body>
+</html>
