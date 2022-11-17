@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .aa {
+      color: red;
+    }
+
+    :global .aa {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <form action="http://localhost:8000/" method="post">
+      <div>post</div>
+      <input type="text" name="aa" value="天啦">
+      <input type="text" name="bb" value="%E5%A4%A9%E5%95%A6">
+      <input type="submit">
+    </form>
+    <form action="http://localhost:8000/" method="get">
+      <div>get</div>
+      <input type="text" name="aa" value="天啦">
+      <input type="text" name="bb" value="%E5%A4%A9%E5%95%A6">
+      <input type="submit">
+    </form>
+  </div>
+</body>
+
+</html>
