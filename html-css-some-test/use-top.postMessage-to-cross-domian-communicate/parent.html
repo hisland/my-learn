@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <!-- <iframe
+      id="aa"
+      src="sub.html"
+      frameborder="0"
+      width="100%"
+      onmessage="console.log(33)"
+    ></iframe> -->
+    <iframe
+      id="aa"
+      src="http://siteb/Desktop/learn/html-css-some-test/iframe2/sub.html"
+      frameborder="0"
+      width="100%"
+      onmessage="console.log(33)"
+    ></iframe>
+
+    <script>
+      window.addEventListener(
+        'message',
+        function (evt) {
+          console.log('top-event', evt)
+        },
+        false
+      )
+      document.getElementById('aa').addEventListener(
+        'load',
+        function (evt1) {
+          this.contentWindow.addEventListener(
+            'message',
+            function (evt2) {
+              console.log('sub-event', evt2)
+            },
+            false
+          )
+        },
+        false
+      )
+    </script>
+  </body>
+</html>
