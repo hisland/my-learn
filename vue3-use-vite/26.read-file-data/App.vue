@@ -8,7 +8,7 @@
     <div v-for="(vv0, index0) in files" :key="index0" class="file">
       <button @click="files.splice(index0, 1)">del</button>
       <div class="progress">
-        <div v-for="(vv1, index1) in vv0.pieces" :key="index1" :class="{ red: !vv1 }" class="chunk">{{ index1 }}</div>
+        <div v-for="(vv1, index1) in vv0.pieces" :key="index1" :class="{ red: !vv1, current: vv0.current === index1 }" class="chunk">{{ index1 }}</div>
       </div>
       <div v-if="vv0.done" class="content">{{ vv0.str }}</div>
     </div>
@@ -44,9 +44,54 @@ export default {
       this.running = true
     },
     view(data) {
+      console.log('data: ', data)
       // const text = data.chunks[0].text
-      this.text = data.data
-      this.parse(this.text)
+      // this.text = data.data
+      // this.parse(this.text)
+      this.parse2(data.binaryData)
+    },
+    parse2(binaryData) {
+      const u81 = new Uint8ClampedArray(binaryData)
+      const idx = u81.indexOf(0)
+      if (u81[idx] === 0 && u81[idx + 1] === 0 && u81[idx + 2] === 0) {
+        const part1 = u81.subarray(0, idx)
+        // console.log('part1: ', part1)
+        const part2 = u81.subarray(idx, idx + 10)
+        // console.log('part2: ', part2)
+        const part3 = u81.subarray(idx + 10)
+        // console.log('part3: ', part3)
+
+        const td2 = new TextDecoder()
+        const infoStr = td2.decode(part1)
+        console.log('infoStr: ', infoStr)
+        const infoObj = JSON.parse(infoStr)
+        let old = this.files.find((vv) => vv.uid === infoObj.u)
+        if (!old) {
+          old = {
+            uid: infoObj.u,
+            total: infoObj.t,
+            pieces: new Array(infoObj.t),
+            done: false,
+            current: -1,
+          }
+          this.files.push(old)
+        }
+        if (!old.pieces[infoObj.i]) {
+          old.pieces[infoObj.i] = part3
+          old.current = infoObj.i
+          if (old.pieces.filter((vv) => vv).length === old.total) {
+            old.done = true
+            this.decodeData2(old)
+            console.log('done: ')
+          }
+        }
+      }
+    },
+    decodeData2(file) {
+      const arr = file.pieces
+      window.arr = arr
+      const raw = new File(arr, 'what')
+      window.kkk = raw
     },
     parse(data) {
       try {
@@ -158,6 +203,9 @@ export default {
       margin-left: 1px;
       &.red {
         background: red;
+      }
+      &.current {
+        background: purple;
       }
       display: flex;
       align-items: center;
