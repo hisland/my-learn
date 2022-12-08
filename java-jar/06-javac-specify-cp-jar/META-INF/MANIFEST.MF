@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Created-By: 11.0.17 (Amazon.com Inc.)
 Main-Class: Hello
-Class-Path: foo.jar
+Class-Path: dd.jar

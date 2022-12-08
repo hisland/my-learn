@@ -1,5 +1,5 @@
 public class Foo{
     public static void main(String[]args){    
-        System.out.println("hello foo");
+        System.out.println("Foo in jar");
     }
 }
