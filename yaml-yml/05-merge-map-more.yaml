@@ -1,0 +1,13 @@
+objRef1: &objRef1
+  aa: 1
+  bb: 2
+
+objRef2: &objRef2
+  cc: 3
+  dd: 4
+
+obj11:
+  <<: *objRef1
+  <<: *objRef2
+  aa: 100
+  cc: 300

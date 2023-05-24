@@ -1,0 +1,13 @@
+objRef1: &objRef1
+  aa: 1
+  bb: 2
+
+obj11:
+  <<: *objRef1
+  aa: 100 # 同名覆盖 objRef1
+  cc: 3
+
+obj12:
+  aa: 100 # 同名覆盖 objRef1, 即使在前面, 跟 js 的 ... 语法不一样
+  cc: 3
+  <<: *objRef1

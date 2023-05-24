@@ -1,0 +1,13 @@
+foo1: &ref1
+  bar1: '& 和 name 不能有空格 必须 &ref'
+  bar2: '* 和 name 不能有空格 必须 *ref'
+  bar3: true
+
+foo2: *ref1
+
+list1: &list1Ref
+  - 11
+  - 12
+  - 13
+
+list2: *list1Ref # 不像对象那样复制了还能追加

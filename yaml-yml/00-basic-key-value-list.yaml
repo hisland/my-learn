@@ -1,0 +1,11 @@
+foo1: value1
+foo2: value1 with space
+key with space: value2
+
+list:
+  - 1
+  - a
+
+map:
+  key1: a
+  key2: 'bb'

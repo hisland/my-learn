@@ -1,0 +1,11 @@
+obj1: &objRef1
+  sub1: 1
+  sub2: 2
+
+obj2: &objRef2
+  <<: *objRef1
+  sub3: 3
+
+obj3:
+  <<: *objRef2
+  sub4: 4

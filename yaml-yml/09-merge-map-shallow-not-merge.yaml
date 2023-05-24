@@ -1,0 +1,9 @@
+objRef1: &objRef1
+  aa:
+    sub1: 1
+    sub2: 2
+
+obj11:
+  <<: *objRef1
+  aa: # 这个属性存在就行了, 并不会考虑值的合并
+    sub1: 2-1

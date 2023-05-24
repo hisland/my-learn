@@ -1,0 +1,12 @@
+objRef1: &objRef1
+  aa: 1
+  bb: 2
+
+objRef2: &objRef2
+  aa: 21
+  dd: 4
+
+obj11:
+  <<: *objRef1  # 2. 然后根据顺序确认属性存在
+  <<: *objRef2 # 3. 顺序靠后的属性如果已经存在则不使用
+  cc: 300 # 1. 首先确认属性存在
