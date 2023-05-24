@@ -37,6 +37,7 @@ SELECT
     c.name class_name
 FROM
     STUDENT s
+    -- JOIN -- 也叫 JOIN
     INNER JOIN -- 应该所有数据库都支持 内连接
     CLASS c ON s.class_id = c.id;
 

@@ -8,7 +8,8 @@
     <div v-for="(vv0, index0) in files" :key="index0" class="file">
       <button @click="files.splice(index0, 1)">del</button>
       <div class="progress">
-        <div v-for="(vv1, index1) in vv0.pieces" :key="index1" :class="{ red: !vv1, current: vv0.current === index1 }" class="chunk">{{ index1 }}</div>
+        <div v-for="(vv1, index1) in vv0.pieces" :key="index1" :class="{ red: !vv1, current: vv0.current === index1 }"
+          class="chunk">{{ index1 }}</div>
       </div>
       <div v-if="vv0.done" class="content">{{ vv0.str }}</div>
     </div>
@@ -18,8 +19,9 @@
 <script>
 import jsQR from 'jsqr'
 import { md5 } from '../23.gen-data/md5-2'
-import LZ from 'lz-string'
-console.log('LZ: ', LZ)
+// import LZ from 'lz-string'
+import FileSaver from 'file-saver'
+// console.log('LZ: ', LZ)
 
 export default {
   data() {
@@ -65,23 +67,25 @@ export default {
         const infoStr = td2.decode(part1)
         console.log('infoStr: ', infoStr)
         const infoObj = JSON.parse(infoStr)
-        let old = this.files.find((vv) => vv.uid === infoObj.u)
-        if (!old) {
-          old = {
+        let existFile = this.files.find((vv) => vv.uid === infoObj.u)
+        if (!existFile) {
+          existFile = {
             uid: infoObj.u,
-            total: infoObj.t,
+            totalPieces: infoObj.t,
+            name: infoObj.n,
+            type: infoObj.t1,
             pieces: new Array(infoObj.t),
             done: false,
             current: -1,
           }
-          this.files.push(old)
+          this.files.push(existFile)
         }
-        if (!old.pieces[infoObj.i]) {
-          old.pieces[infoObj.i] = part3
-          old.current = infoObj.i
-          if (old.pieces.filter((vv) => vv).length === old.total) {
-            old.done = true
-            this.decodeData2(old)
+        if (!existFile.pieces[infoObj.i]) {
+          existFile.pieces[infoObj.i] = part3
+          existFile.current = infoObj.i
+          if (existFile.pieces.filter((vv) => vv).length === existFile.totalPieces) {
+            existFile.done = true
+            this.decodeData2(existFile)
             console.log('done: ')
           }
         }
@@ -90,8 +94,16 @@ export default {
     decodeData2(file) {
       const arr = file.pieces
       window.arr = arr
-      const raw = new File(arr, 'what')
-      window.kkk = raw
+      // const raw = new File(arr, 'what')
+      // window.kkk = raw
+      // FileSaver.saveAs(raw, 'name.txt')
+      try {
+        const fileToDownload = new File(arr, file.name, { type: file.type });
+        FileSaver.saveAs(fileToDownload);
+      } catch (error) {
+        alert(error)
+      }
+      // const f1 = new Blob([])
     },
     parse(data) {
       try {
@@ -196,17 +208,21 @@ export default {
   .progress {
     display: flex;
     flex-wrap: wrap;
+
     .chunk {
       flex: 0 0 2.5em;
       height: 1.5em;
       background: green;
       margin-left: 1px;
+
       &.red {
         background: red;
       }
+
       &.current {
         background: purple;
       }
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -214,6 +230,7 @@ export default {
       color: #fff;
     }
   }
+
   .content {
     border: 1px solid #999;
     padding: 5px;

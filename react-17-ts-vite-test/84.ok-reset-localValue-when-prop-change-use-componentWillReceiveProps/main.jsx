@@ -8,7 +8,7 @@ class App extends Component {
     console.log("constructor App");
     super(props);
     this.state = {
-      value: 1,
+      value: 10,
     };
   }
   componentDidMount() {
@@ -53,11 +53,11 @@ class Sub1 extends Component {
   }
   componentWillReceiveProps(nextProps, nextContext) {
     console.log("componentWillReceiveProps: ", nextProps, this.props);
-    if (nextProps.value !== this.state.localValue) {
-      this.setState({
-        localValue: nextProps.value,
-      });
-    }
+    // if (nextProps.value !== this.state.localValue) {
+    //   this.setState({
+    //     localValue: nextProps.value,
+    //   });
+    // }
   }
   render() {
     console.log("render Sub1", this.props, this.state);
@@ -74,8 +74,8 @@ class Sub1 extends Component {
         >
           add1
         </button>
-        <div>value: {value}</div>
-        <div>localValue: {localValue}</div>
+        <div>props.value: {value}</div>
+        <div>state.localValue: {localValue}</div>
       </div>
     );
   }

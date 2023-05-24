@@ -1,41 +1,41 @@
-function getok() {
-  return new Promise(function (resolve, reject) {
-    resolve('val')
+console.log('run 1')
+
+function getValue() {
+  return 'value'
+}
+function getPromiseResolve() {
+  return new Promise((resolve, reject) => {
+    resolve('promise resolve value')
   })
 }
-function geterr() {
-  return new Promise(function (resolve, reject) {
-    reject('val')
+function getPromiseReject() {
+  return new Promise((resolve, reject) => {
+    reject('promise reject value')
   })
 }
+async function getAsync() {
+  return 'async value'
+}
 
-getok()
-  .then((rs) => {
-    console.log('then1', rs)
-  })
-  .catch((err) => {
-    console.log('err1', err)
-  })
-geterr()
-  .then((rs) => {
-    console.log('then2', rs)
-  })
-  .catch((err) => {
-    console.log('err2', err)
-  })
+;(async function () {
+  const rs = await getValue()
+  console.log('rs1: ', rs)
+})()
+;(async function () {
+  const rs = await getPromiseResolve()
+  console.log('rs2: ', rs)
+})()
+;(async function () {
+  try {
+    const rs = await getPromiseReject()
+    console.log('rs3: ', rs)
+  } catch (error) {
+    console.log('reject3:', error)
+  }
+})()
+;(async function () {
+  const rs = await getAsync()
+  console.log('rs4: ', rs)
+})()
 
-getok()
-  .catch((err) => {
-    console.log('err1', err)
-  })
-  .then((rs) => {
-    console.log('then1', rs)
-  })
-geterr()
-  .catch((err) => {
-    console.log('err2', err)
-    return 'thing by catch'
-  })
-  .then((rs) => {
-    console.log('then2', rs)
-  })
+console.log('run 8')

@@ -4,6 +4,12 @@
       <input ref="file" type="file" @change="SelectFile" />
     </div>
     <div>
+      <div>
+        <span style="display: inline-block; width: 150px">singleLength: {{ singleLength }}</span>
+        <label><input type="radio" :value="200" v-model="singleLength" />200</label>
+        <label><input type="radio" :value="400" v-model="singleLength" />400</label>
+        <label><input type="radio" :value="800" v-model="singleLength" />800</label>
+      </div>
       <button @click="running ? pause() : start()">{{ running ? 'pause' : 'start' }}</button>
       <div>
         <span style="display: inline-block; width: 150px">speed: {{ speed }}</span>
@@ -20,28 +26,25 @@
     <div>
       <span style="display: inline-block; width: 150px">frameIndex: {{ frameIndex }}</span>
       <input type="range" min="0" :max="imgs.length - 1" step="1" v-model="frameIndex" />
+      <input :value="frameIndex" @change="setIndex" />
     </div>
     <div>
-      <span style="display: inline-block; width: 150px">singleLength: {{ singleLength }}</span>
-      <label><input type="radio" :value="200" v-model="singleLength" />200</label>
-      <label><input type="radio" :value="400" v-model="singleLength" />400</label>
-      <label><input type="radio" :value="800" v-model="singleLength" />800</label>
+      <div>frameTotal: {{ imgs.length }}</div>
     </div>
     <img ref="img" style="width: 300px" />
-    <div v-if="frameIndex < imgs.length" style="word-break: break-all">nowFrame: {{ frameIndex }}</div>
-    <div>
+    <!-- <div>
       <div style="background: gray">all:</div>
       <div v-for="(vv, index) of imgs" :key="vv.value" style="word-break: break-all">{{ index }}:</div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import QRCode from 'qrcode'
-import jsQR from 'jsqr'
+// import jsQR from 'jsqr'
 import { md5 } from './md5-2'
-import LZ from 'lz-string'
-console.log('LZ: ', LZ)
+// import LZ from 'lz-string'
+// console.log('LZ: ', LZ)
 // import { hex_md5 } from './md5'
 
 export default {
@@ -58,7 +61,8 @@ export default {
   computed: {},
   methods: {
     async SelectFile(evt) {
-      // const file = evt.target.value
+      const files = evt.target.files
+      console.log('files: ', files)
     },
     pause() {
       clearTimeout(this.handle)
@@ -69,6 +73,9 @@ export default {
       await this.GenImgsByte()
       // this.GenImgs()
       this.tick()
+    },
+    setIndex(ee) {
+      this.frameIndex = parseInt(ee.target.value) ?? 0
     },
     tick() {
       if (!this.running) return
@@ -85,8 +92,12 @@ export default {
       }, this.speed)
     },
     async GenImgsByte() {
+      this.frameIndex = 0
+      this.imgs = []
+      this.$refs.img.src = ''
       for (const file of this.$refs.file.files) {
         const { name, size, type } = file
+        console.log('file: ', file)
         const uid = Math.random().toString(36).substr(2)
         const ab = await file.arrayBuffer()
         const u8ca = new Uint8ClampedArray(ab)
@@ -96,15 +107,17 @@ export default {
         // window.img = this.$refs.img
         let ii = 0
         let sum = 0
-        const pieceLength = Math.ceil(u8ca.length / this.singleLength)
-        for (let ii = 0; ii < pieceLength; ii++) {
+        const totalPieces = Math.ceil(u8ca.length / this.singleLength)
+        for (let ii = 0; ii < totalPieces; ii++) {
           const start = ii * this.singleLength
           const end = (ii + 1) * this.singleLength
           const dataU8ca = u8ca.subarray(start, end)
           const infoPart = {
             u: uid,
             i: ii,
-            t: pieceLength,
+            t: totalPieces,
+            n: name,
+            t1: type,
           }
           const infoStr = JSON.stringify(infoPart)
           const infoBlob = new Blob([infoStr])
@@ -171,7 +184,7 @@ export default {
       console.log('file: ', file)
     },
   },
-  mounted() {},
+  mounted() { },
 }
 </script>
 
