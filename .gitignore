@@ -121,3 +121,4 @@ __pycache__/
 
 .sass-cache
 nginx-config/logs/
+css-sass-scss/out-css/
