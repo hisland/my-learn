@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-  </head>
-  <body>
-    <!-- <iframe
-      id="aa"
-      src="sub.html"
-      frameborder="0"
-      width="100%"
-      onmessage="console.log(33)"
-    ></iframe> -->
-    <iframe
-      id="aa"
-      src="http://siteb/Desktop/learn/html-css-some-test/iframe2/sub.html"
-      frameborder="0"
-      width="100%"
-      onmessage="console.log(33)"
-    ></iframe>
 
-    <script>
-      window.addEventListener(
-        'message',
-        function (evt) {
-          console.log('top-event', evt)
-        },
-        false
-      )
-      document.getElementById('aa').addEventListener(
-        'load',
-        function (evt1) {
-          this.contentWindow.addEventListener(
-            'message',
-            function (evt2) {
-              console.log('sub-event', evt2)
-            },
-            false
-          )
-        },
-        false
-      )
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <!-- <iframe id="aa" src="sub.html" frameborder="0" width="100%"></iframe> -->
+  <iframe id="aa"
+    src="http://siteb/Desktop/learn/html-css-some-test/use-top.postMessage-to-cross-domian-communicate/sub.html"
+    frameborder="0" width="100%" onmessage="console.log('onmessage', 33)"></iframe>
+  <button id="btn2">send</button>
+  <script>
+    window.addEventListener(
+      'message',
+      function (evt) {
+        console.log('message in top', evt)
+      },
+      false
+    )
+    document.getElementById('btn2').addEventListener(
+      'click',
+      function (evt1) {
+        console.log('btn2 click 1', evt1)
+        document.getElementById('aa').contentWindow.postMessage(JSON.stringify('btn2 postMessage'), '*')
+        console.log('btn2 click 2', evt1)
+      },
+      false
+    )
+    // document.getElementById('aa').addEventListener(
+    //   'load',
+    //   function (evt1) {
+    //     console.log('iframe load', evt1)
+    //     this.contentWindow.addEventListener(
+    //       'message',
+    //       function (evt2) {
+    //         console.log('sub-event', evt2)
+    //       },
+    //       false
+    //     )
+    //   },
+    //   false
+    // )
+  </script>
+</body>
+
 </html>

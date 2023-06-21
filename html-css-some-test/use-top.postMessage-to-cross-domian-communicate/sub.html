@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-  </head>
-  <body>
-    <script>
-      window.onload = function () {
-        console.log('sub onload 1')
-        window.postMessage(JSON.stringify('window.postMessage'), '*')
-        top.postMessage(JSON.stringify('top.postMessage'), '*')
-        console.log('sub onload 2')
-      }
-    </script>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <script>
+    window.addEventListener(
+      'message',
+      function (evt) {
+        console.log('message in sub', evt)
+      },
+      false
+    )
+    window.onload = function () {
+      console.log('sub onload 1')
+      window.postMessage(JSON.stringify('window.postMessage'), '*')
+      top.postMessage(JSON.stringify('top.postMessage'), '*')
+      console.log('sub onload 2')
+    }
+  </script>
+</body>
+
 </html>
