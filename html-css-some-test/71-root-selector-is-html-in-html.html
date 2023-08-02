@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .aa {
+      color: red;
+    }
+
+    :root {
+      color: yellowgreen;
+    }
+
+    :root .aa {
+      color: green;
+    }
+
+    html .aa {
+      color: pink;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div>
+    out aa
+    <div class="aa">:root 在 html 里面相当于 html标签, 并且优先级比 html 要高</div>
+  </div>
+</body>
+
+</html>

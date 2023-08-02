@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .aa {
+      width: calc(200 / 3840 * 100vw);
+      height: calc(300 / 3840 * 100vw);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotateX(0deg) rotateY(-45deg) rotateZ(45deg) translateX(0px) translateY(0px) translateZ(0px);
+      transform-style: preserve-3d;
+      perspective: calc(800 / 3840 * 100vw);
+    }
+
+    .bb {
+      position: absolute;
+      width: calc(200 / 3840 * 100vw);
+      height: calc(200 / 3840 * 100vw);
+      background: rgba(210, 0, 0, .7);
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px);
+    }
+
+    .cc {
+      position: absolute;
+      width: calc(200 / 3840 * 100vw);
+      height: calc(200 / 3840 * 100vw);
+      background: rgba(0, 210, 0, .7);
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(calc(-200 / 3840 * 100vw));
+    }
+
+    .dd {
+      position: absolute;
+      width: calc(200 / 3840 * 100vw);
+      height: calc(200 / 3840 * 100vw);
+      background: rgba(0, 0, 210, .3);
+      transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(calc(-100 / 3840 * 100vw)) translateZ(calc(100 / 3840 * 100vw));
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="aa">
+    <div class="bb"></div>
+    <div class="cc"></div>
+    <div class="dd"></div>
+  </div>
+</body>
+
+</html>
