@@ -11,6 +11,7 @@ function test(evt) {
 </script>
 <template>
   <div class="compa">
+    <div>某些输入法一边输入一边修改, 会导致问题</div>
     <input
       type="text"
       v-model="item"
