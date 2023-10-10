@@ -15,6 +15,10 @@ function setReactive1() {
 </script>
 <template>
   <div style="border: 1px solid #eee; padding: 10px">
+    <div>
+      store 本身是个 reactive对象, 所以和 reactive 嵌套 ref 一样, store.ref
+      即可, 不需要 store.ref.value
+    </div>
     <button @click="setRef1">setRef1</button>
     <button @click="setReactive1">setReactive1</button>
     <div>alertsStore: {{ alertsStore }}</div>
