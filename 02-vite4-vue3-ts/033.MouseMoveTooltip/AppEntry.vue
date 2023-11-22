@@ -54,6 +54,7 @@ const vMouseMoveTooltip = {
   // },
   mounted(el, binding, vnode, prevVnode) {
     el.addEventListener('mouseenter', (event) => {
+      console.log('event.target === el: ', event.target === el)
       console.log('binding: ', binding)
       showTooltip(el, event, binding)
     })

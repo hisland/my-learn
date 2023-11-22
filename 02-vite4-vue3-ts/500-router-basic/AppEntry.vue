@@ -22,4 +22,3 @@ function setReactive1() {}
   </div>
 </template>
 <style scoped lang="less"></style>
-./store1
