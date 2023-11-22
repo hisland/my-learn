@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@antv/g6": "^4.8.23",
     "@arco-design/web-vue": "^2.51.2",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vueuse/core": "^10.4.1",
     "dayjs": "^1.11.10",
+    "gsap": "^3.12.2",
     "less": "^4.2.0",
     "pinia": "^2.1.6",
     "react-dnd-html5-backend": "^16.0.1",
