@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.png" />
+    <title></title>
+    <script src="test1/test1.js"></script>
+    <script>
+      function loadScript(url) {
+        const headTag = document.getElementsByTagName('head')[0]
+        const script = document.createElement('script')
+        script.type = 'text/javascript'
+        script.src = url
+        script.onload = () => {
+          console.log('loadScript 2')
+          // headTag.removeChild(script)
+        }
+        headTag.appendChild(script)
+      }
+      loadScript(`./test1/test2.js?t=${Date.now()}`)
+    </script>
+    <script src="test1/test3.js"></script>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script src="test1/test4.js"></script>
+    <script src="test1/test5.js"></script>
+    <script src="test1/test6.js"></script>
+  </body>
+</html>
