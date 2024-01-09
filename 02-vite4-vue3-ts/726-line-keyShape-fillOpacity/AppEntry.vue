@@ -11,25 +11,52 @@ import info2 from '../719-img/info2.png'
 import info3 from '../719-img/info3.png'
 import info4 from '../719-img/info4.png'
 
+G6.registerNode('customGroup1', {
+  draw(cfg, group) {
+    console.log('cfg, group: ', cfg, group)
+    // const rs = G6.Util.getSize(cfg)
+    // console.log('rs: ', rs)
+    const ss1 = group.addShape('rect', {
+      attrs: {
+        x: 0,
+        y: 0,
+        width: cfg.size[0],
+        height: cfg.size[1],
+        fill: cfg.bgColor,
+        fillOpacity: 0.5,
+      },
+      name: 'customNode1-rect1',
+    })
+    const ss2 = group.addShape('text', {
+      attrs: {
+        x: 10,
+        y: 10,
+        fill: '#000',
+        text: cfg.label,
+        textAlign: 'left',
+        textBaseline: 'top',
+      },
+      name: 'customNode1-rect3',
+      draggable: true,
+    })
+    // const ss3 = group.addShape('rect', {
+    //   attrs: {
+    //     x: 50,
+    //     y: 50,
+    //     width: 20,
+    //     height: 20,
+    //     fill: 'purple',
+    //   },
+    //   name: 'customNode1-rect3',
+    // })
+    return ss2
+  },
+})
 G6.registerNode(
   'customNode1',
   {
-    // draw(cfg, group) {
-    //   console.log('cfg, group: ', cfg, group)
-    //   const ss1 = group.addShape('rect', {
-    //     attrs: {
-    //       x: 0,
-    //       y: 0,
-    //       width: 100,
-    //       height: 100,
-    //       fill: 'pink',
-    //     },
-    //     name: 'customNode1-rect1',
-    //   })
-    //   return ss1
-    // },
     afterDraw(cfg, group, rst) {
-      console.log('cfg, group, rst: ', cfg, group, rst)
+      // console.log('cfg, group, rst: ', cfg, group, rst)
       if (cfg?.alarmType && group) {
         const img =
           cfg.alarmType === '1'
@@ -67,9 +94,32 @@ onMounted(() => {
     modes: {
       default: [
         // 允许拖拽画布、放缩画布、拖拽节点
-        'drag-canvas',
+        {
+          type: 'drag-canvas',
+          allowDragOnItem: true,
+          shouldBegin(evt: IG6GraphEvent) {
+            const mm = evt.item?.getModel()
+            console.log('drag-canvas: mm', mm)
+            if (!mm || mm?.type === 'customGroup1') {
+              return true
+            } else {
+              return false
+            }
+          },
+        },
         'zoom-canvas',
-        'drag-node',
+        {
+          type: 'drag-node',
+          shouldBegin(evt: IG6GraphEvent) {
+            const mm = evt.item.getModel()
+            console.log('drag-node: mm', mm)
+            if (mm?.type === 'customGroup1') {
+              return false
+            } else {
+              return true
+            }
+          },
+        },
       ],
     },
     // defaultNode: {
@@ -81,30 +131,37 @@ onMounted(() => {
     // },
   })
 
+  const height = (400 - 10 * 2) / 3
+
   const data: GraphData = {
     // 点集
     nodes: [
-      // {
-      //   id: 'node1', // String，该节点存在则必须，节点的唯一标识
-      //   x: 150, // Number，可选，节点位置的 x 值
-      //   y: 100, // Number，可选，节点位置的 y 值
-      //   type: 'customNode1',
-      //   img: icon1Pc,
-      //   label: '170.105.112.16',
-      //   size: [50, 50],
-      //   alarmType: '1',
-      //   // comboId: 'comb1',
-      // },
       {
-        id: 'node2', // String，该节点存在则必须，节点的唯一标识
+        id: 'node1-1', // String，该节点存在则必须，节点的唯一标识
         x: 0, // Number，可选，节点位置的 x 值
         y: 0, // Number，可选，节点位置的 y 值
-        type: 'customNode1',
-        img: icon1Pc,
-        label: '170.105.112.16',
-        size: [50, 50],
-        alarmType: '1',
-        comboId: 'comb1',
+        type: 'customGroup1',
+        label: '管理层',
+        size: [600, height],
+        bgColor: '#f2f4f5',
+      },
+      {
+        id: 'node1-2', // String，该节点存在则必须，节点的唯一标识
+        x: 0, // Number，可选，节点位置的 x 值
+        y: (height + 10) * 1, // Number，可选，节点位置的 y 值
+        type: 'customGroup1',
+        label: '控制层',
+        size: [600, height],
+        bgColor: '#f6f8fa',
+      },
+      {
+        id: 'node1-3', // String，该节点存在则必须，节点的唯一标识
+        x: 0, // Number，可选，节点位置的 x 值
+        y: (height + 10) * 2, // Number，可选，节点位置的 y 值
+        type: 'customGroup1',
+        label: '生产层',
+        size: [600, height],
+        bgColor: '#fafafc',
       },
       {
         id: 'node2-1', // String，该节点存在则必须，节点的唯一标识
@@ -150,40 +207,19 @@ onMounted(() => {
         source: 'node2-2', // String，必须，起始点 id
         target: 'node2-3', // String，必须，目标点 id
       },
-    ],
-    combos: [
       {
-        id: 'comb1',
-        label: '管理层',
-        type: 'rect',
-        fixSize: [600, 400 / 3 - 10],
-        padding: 10,
-        x: 300,
-        y: (400 / 6) * 1,
-      },
-      {
-        id: 'comb2',
-        label: '管理层',
-        type: 'rect',
-        fixSize: [600, 400 / 3 - 10],
-        padding: 10,
-        x: 300,
-        y: (400 / 6) * 3 + 10,
-      },
-      {
-        id: 'comb3',
-        label: '管理层',
-        type: 'rect',
-        fixSize: [600, 400 / 3 - 10],
-        padding: 10,
-        x: 300,
-        y: (400 / 6) * 5 + 20,
+        source: 'node1-1', // String，必须，起始点 id
+        target: 'node1-2', // String，必须，目标点 id
       },
     ],
   }
 
   graph.data(data) // 读取 Step 2 中的数据源到图上
   graph.render() // 渲染图
+
+  graph.on('node:click', (evt: IG6GraphEvent) => {
+    console.log('node:click: ', evt)
+  })
 
   graphRef.value = graph
 
@@ -204,7 +240,7 @@ onMounted(() => {
 .compWrap {
   background-color: #ddd; // 不能有背景, 因为是单独的 div, 并且 z-index: -1
   > :deep(canvas) {
-    background-color: honeydew;
+    background-color: #fff;
     display: block;
   }
 }
