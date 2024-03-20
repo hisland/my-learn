@@ -14,15 +14,16 @@ console.log(`listen: ${pp}`)
 let count = 1
 
 function doRun(isInit = false) {
+  console.log(`listen: ${pp}`)
   if (isInit) {
     Deno.run({
-      cmd: `/usr/local/bin/nginx -p ${pp} -c ${pp}/nginx.conf -e ${pp}/../logs/error.log`.split(
+      cmd: `/usr/local/bin/nginx -p ${pp} -c ${pp}/nginx.conf -e ${__dirname}/logs/error.log`.split(
         ' '
       ),
     })
   } else {
     Deno.run({
-      cmd: `/usr/local/bin/nginx -p ${pp} -c ${pp}/nginx.conf -e ${pp}/../logs/error.log -s reload`.split(
+      cmd: `/usr/local/bin/nginx -p ${pp} -c ${pp}/nginx.conf -e ${__dirname}/logs/error.log -s reload`.split(
         ' '
       ),
     })
