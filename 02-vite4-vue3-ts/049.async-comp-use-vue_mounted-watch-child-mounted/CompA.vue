@@ -1,0 +1,24 @@
+<script setup lang="tsx">
+import { defineAsyncComponent } from 'vue'
+import { onMounted, onUpdated } from 'vue'
+const CompB = defineAsyncComponent(() => import('./CompB.vue'))
+
+console.log('CompA setup 1')
+
+onMounted(() => {
+  console.log('CompA onMounted')
+})
+
+function ShowSubMounted(...args) {
+  console.log('CompA ShowSubMounted args: ', args)
+}
+
+console.log('CompA setup 2')
+</script>
+<template>
+  <div class="CompA" style="border: 1px solid purple; padding: 10px">
+    <div>CompA</div>
+    <CompB a1="a1" @vue:mounted="ShowSubMounted"></CompB>
+  </div>
+</template>
+<style scoped></style>
