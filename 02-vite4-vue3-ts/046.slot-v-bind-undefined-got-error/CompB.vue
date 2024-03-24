@@ -16,7 +16,8 @@ function showProps(arg: any) {
 <template>
   <div style="border: 1px solid red; margin: 10px">
     <div>compb &lt;slot v-bind="undefined">&lt;/slot> 会导致错误</div>
-    <!-- <slot v-bind="undefined"></slot> -->
-    <slot v-bind="{ aa: 1 }"></slot>
+    <!-- <slot></slot> -->
+    <slot v-bind="undefined"></slot>
+    <!-- <slot v-bind="{ aa: 1 }"></slot> -->
   </div>
 </template>

@@ -26,8 +26,8 @@ import CompC from './CompC.vue'
       >
         {{ showProps(slotProps) }}
         <!-- 这里 slotProps 可能为 undefined, 直接传下去会有问题 -->
-        <!-- <slot :name="key0" v-bind="slotProps"></slot> -->
-        <slot :name="key0" v-bind="slotProps ?? {}"></slot>
+        <slot :name="key0" v-bind="slotProps"></slot>
+        <!-- <slot :name="key0" v-bind="slotProps ?? {}"></slot> -->
       </template>
     </CompC>
   </div>
