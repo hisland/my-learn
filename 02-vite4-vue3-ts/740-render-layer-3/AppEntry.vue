@@ -115,7 +115,7 @@ async function getCeList() {
     },
   ] as NodeConfig[]
 
-  for (let ii = 8; ii < 40; ii++) {
+  for (let ii = 8; ii < 300; ii++) {
     ceList.push({
       id: `ce${ii}`,
       ceName: `控制${ii}`,
@@ -174,7 +174,7 @@ async function getPeList() {
       ceId: 'ce7',
     },
   ]
-  for (let ii = 10; ii < 40; ii++) {
+  for (let ii = 10; ii < 500; ii++) {
     peList.push({
       id: `pe${ii}`,
       peName: `设备${ii}`,
@@ -224,17 +224,34 @@ const { width, height } = useElementSize(divRef)
 async function RenderData() {
   if (!graphRef.value) return
 
+  const domWidth = width.value
+  const domHeight = height.value
+
+  const ceList = await getCeList()
+  const ceTypeList = await getCeTypeList()
+  const ceTypeMap = computed(() => {
+    const obj = {}
+    for (const vv of ceTypeList) {
+      obj[vv.ceTypeId] = vv.ceTypeName
+    }
+    return obj
+  })
+  const peList = await getPeList()
+  const commList = await getCommList()
+
   const itemSize = 40
   const itemGapWidth = 10
   const itemGapHeight = 30
   const groupGapHeight = 10
-  const countPerLine = 10
+  const countPerLine1 = 10
 
-  const domWidth = width.value
-  const domHeight = height.value
   const domHeight2 = Math.round((domHeight - 2 * groupGapHeight) / 3)
-
-  const ceList = await getCeList()
+  const countPerLine = Math.floor(
+    (domWidth - itemGapWidth * 2) / (itemSize + itemGapWidth)
+  )
+  const countPerLine3 = Math.floor(
+    (domWidth - itemGapWidth * 2) / (itemSize + itemGapWidth)
+  )
 
   for (const vv of ceList) {
     vv.label = vv.ceName
@@ -247,16 +264,6 @@ async function RenderData() {
     }
   }
 
-  const ceTypeList = await getCeTypeList()
-  const ceTypeMap = computed(() => {
-    const obj = {}
-    for (const vv of ceTypeList) {
-      obj[vv.ceTypeId] = vv.ceTypeName
-    }
-    return obj
-  })
-
-  const peList = await getPeList()
   for (const [index, vv] of Object.entries(peList)) {
     vv.label = vv.peName
     vv.type = 'alarmNode'
@@ -265,9 +272,10 @@ async function RenderData() {
     vv.alarmType = (index % 5) + ''
   }
 
-  const commList = await getCommList()
-
   const layer1List = ceList.filter((vv) => vv.ceTypeId === '1')
+  const layer2List = ceList.filter((vv) => vv.ceTypeId === '2')
+  const layer3List = peList
+
   const layer1Rows = Math.ceil(layer1List.length / countPerLine)
   const layer1Cols = layer1Rows > 1 ? countPerLine : layer1List.length
   const layer1ItemAllWidth =
@@ -283,7 +291,6 @@ async function RenderData() {
     (layer1UsedHeight - 2 * itemGapHeight - (layer1Rows - 1) * itemGapHeight) /
     layer1Rows
 
-  const layer2List = ceList.filter((vv) => vv.ceTypeId === '2')
   const layer2Rows = Math.ceil(layer2List.length / countPerLine)
   const layer2Cols = layer2Rows > 1 ? countPerLine : layer2List.length
   const layer2ItemAllWidth =
@@ -299,7 +306,6 @@ async function RenderData() {
     (layer2UsedHeight - 2 * itemGapHeight - (layer2Rows - 1) * itemGapHeight) /
     layer2Rows
 
-  const layer3List = peList
   const layer3Rows = Math.ceil(layer3List.length / countPerLine)
   const layer3Cols = layer3Rows > 1 ? countPerLine : layer3List.length
   const layer3ItemAllWidth =
