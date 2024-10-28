@@ -4,6 +4,7 @@ import { onMounted, onUpdated } from 'vue'
 import { ref, computed } from 'vue'
 
 const CompA = ref<HTMLDivElement | null>(null)
+const abc = ref<HTMLDivElement | null>(null)
 
 onMounted(() => {
   if (CompA.value) {
@@ -12,15 +13,14 @@ onMounted(() => {
 
     shadowRoot.innerHTML = `
 
-    <slot></slot>
+    <style>
 
-    <div style="background: darkseagreen">child created in shadowRoot</div>
-    <div> slot 只有前面的第一个有用</div>
+  </style>
+    <div >child created in shadowRoot 子节点</div>
+    <div> 文档在子节点</div>
+    <div> 外层的样式不会直接影响 shadowRoot 里面的节点, 此处的字体颜色是继承而来</div>
+    <h1>外层样式</h1>
 
-    <slot></slot>
-
-    <hr />
-    <slot name="slot2"></slot>
     `
   }
 })
@@ -31,14 +31,9 @@ onMounted(() => {
     class="CompA"
     style="border: 1px solid purple; padding: 10px"
   >
-    <div style="background: #eee">
-      some child, will inject by first slot in shadowRoot 1
-    </div>
-    <div slot="slot2">some child in slot2 1</div>
-    <div style="background: #eee">
-      some child, will inject by first slot in shadowRoot 2
-    </div>
-    <div slot="slot2">some child in slot2 2</div>
+    <div>没有 slot 这个就没用</div>
   </div>
+  <div>外层样式</div>
+  <h1>外层样式</h1>
 </template>
 <style scoped></style>
