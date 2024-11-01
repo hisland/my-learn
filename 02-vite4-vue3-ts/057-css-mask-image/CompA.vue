@@ -3,10 +3,13 @@ import { defineAsyncComponent } from 'vue'
 import { onMounted, onUpdated } from 'vue'
 import { ref, computed } from 'vue'
 
+function click1(evt: MouseEvent) {
+  console.log('evt: ', evt.target)
+}
 onMounted(() => {})
 </script>
 <template>
-  <div class="CompA">
+  <div class="CompA" @click="click1">
     <div>这是一串文本这是一串文本这是一串文本</div>
     <div>这是一串文本这是一串文本这是一串文本</div>
     <div>这是一串文本这是一串文本这是一串文本</div>
