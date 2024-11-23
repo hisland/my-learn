@@ -9,7 +9,7 @@ const getWindowSizeInfo = () => {
   const obj = {
     width,
     height,
-    aspect: width / height
+    aspect: width / height,
   }
 
   return obj
@@ -23,7 +23,6 @@ const renderer = new THREE.WebGLRenderer()
 renderer.setSize(windowSizeInfo.width, windowSizeInfo.height)
 document.body.appendChild(renderer.domElement)
 
-
 // grid
 
 const gridHelper = new THREE.GridHelper()
@@ -34,52 +33,52 @@ controls.minZoom = 0.5
 controls.maxZoom = 2
 
 // 创建两个立方体
-const box1 = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ color: 0xff0000 }));
-const box2 = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ color: 0x0000ff }));
+const box1 = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.MeshBasicMaterial({ color: 0xff0000 })
+)
+const box2 = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.MeshBasicMaterial({ color: 0x0000ff })
+)
 
-box1.position.set(-2, 0, 0);
-box2.position.set(2, 0, 0);
-scene.add(box1, box2);
+box1.position.set(-2, 0, 0)
+box2.position.set(2, 0, 0)
+scene.add(box1, box2)
 
 // 创建连线
-const lineMaterial = new THREE.LineBasicMaterial({ color: 0x00ff00 });
-const lineGeometry = new THREE.BufferGeometry().setFromPoints([box1.position, box2.position]);
-const line = new THREE.Line(lineGeometry, lineMaterial);
-scene.add(line);
+const lineMaterial = new THREE.LineBasicMaterial({ color: 0x00ff00 })
+const lineGeometry = new THREE.BufferGeometry().setFromPoints([box1.position, box2.position])
+const line = new THREE.Line(lineGeometry, lineMaterial)
+scene.add(line)
 
 // 拖动控件
-const dragControls = new DragControls([box1, box2], camera, renderer.domElement);
+const dragControls = new DragControls([box1, box2], camera, renderer.domElement)
 dragControls.addEventListener('drag', () => {
   // 更新连线
-  line.geometry.setFromPoints([box1.position, box2.position]);
-});
+  line.geometry.setFromPoints([box1.position, box2.position])
+})
 dragControls.addEventListener('dragstart', () => {
-  controls.enabled = false; // 禁用 OrbitControls
-});
+  controls.enabled = false // 禁用 OrbitControls
+})
 dragControls.addEventListener('dragend', () => {
-  controls.enabled = true; // 启用 OrbitControls
-});
-
+  controls.enabled = true // 启用 OrbitControls
+})
 
 // 添加环境光
 const ambientLight = new THREE.AmbientLight(0xffffff, 1)
 scene.add(ambientLight)
-
 
 // camera.position.x = 5
 camera.position.y = 5
 camera.position.z = 5
 camera.lookAt(scene.position)
 
-
 // 动画函数
 function animate() {
-  requestAnimationFrame(animate)
-
   renderer.render(scene, camera)
 }
 renderer.setAnimationLoop(animate)
-
 
 // 调整窗口大小
 window.addEventListener('resize', () => {

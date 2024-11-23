@@ -151,8 +151,6 @@ camera.lookAt(scene.position)
 
 // 动画函数
 function animate() {
-  requestAnimationFrame(animate)
-
   renderer.render(scene, camera)
 }
 renderer.setAnimationLoop(animate)
