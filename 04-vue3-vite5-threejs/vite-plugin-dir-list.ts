@@ -4,10 +4,17 @@ import { type ViteDevServer } from 'vite/dist/node'
 
 function genDirListHtml(list: string[]) {
   return `
-  <style>
-  a{line-height: 1.8em;}
-  a:hover{color:darkcyan}
-  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      a {
+        line-height: 1.8em;
+      }
+      a:hover {
+        color: darkcyan;
+      }
+    </style>
+  </head>
   <ul>
   ${list.map((vv) => `<li><a href="${vv}">${vv}</a></li>`).join('')}
   </ul>`
