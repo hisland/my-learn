@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      svg {
+        background: #eee;
+      }
+      .red {
+        color: red;
+      }
+      .svgText {
+        color: pink;
+        margin: 10px;
+      }
+    </style>
+    <script>
+      window.onload = () => {
+        document.getElementById('g1').onclick = function click1(evt) {
+          console.log('evt: ', evt)
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div style="position: fixed; top: 10px; right: 10px">
+      <div>svg 默认是 300px * 150px</div>
+    </div>
+    <div>viewBox不同取值示意</div>
+    <svg width="300" height="200" viewBox="0 0 300 200">
+      <g transform="translate(10, 10) scale(2)">
+        <rect x="10" y="10" width="100" height="100" fill="blue" />
+        <circle cx="100" cy="100" r="20" fill="red" />
+      </g>
+    </svg>
+    <svg width="300" height="200" viewBox="0 0 300 200">
+      <g id="g1">
+        <rect x="10" y="10" width="100" height="100" fill="blue" />
+        <circle cx="100" cy="100" r="20" fill="red" />
+      </g>
+    </svg>
+  </body>
+</html>

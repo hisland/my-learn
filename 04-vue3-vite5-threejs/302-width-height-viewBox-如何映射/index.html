@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      svg {
+        background: #eee;
+      }
+      .red {
+        color: red;
+      }
+      .svgText {
+        color: pink;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="position: fixed; top: 10px; right: 10px">
+      <div>svg 默认是 300px * 150px</div>
+      <div>svg style 的 width/height 会覆盖 width/height属性</div>
+      <div>svg viewBox 是内部尺寸 width/height属性 是外部尺寸</div>
+    </div>
+    <hr />
+    <svg>
+      <circle cx="200" cy="100" r="50" fill="red" />
+    </svg>
+    <svg style="width: 400px; height: 200px">
+      <circle cx="200" cy="100" r="50" fill="red" />
+    </svg>
+    <svg width="400" height="100">
+      <circle cx="200" cy="100" r="50" fill="red" />
+    </svg>
+    <svg width="400" height="200" style="width: 300px; height: 100px">
+      <circle cx="200" cy="100" r="50" fill="red" />
+    </svg>
+    <hr />
+    <div>viewBox不同取值示意</div>
+    <svg width="300" height="200">
+      <rect x="0" y="0" width="100" height="100" fill="blue" />
+    </svg>
+    <svg width="300" height="200" viewBox="0 0 600 400">
+      <rect x="0" y="0" width="100" height="100" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="100" height="300" viewBox="0 0 200 200">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="100" height="300" viewBox="0 0 400 400">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <hr />
+    <div>viewBox minX minY 不是0, 感觉相当于摄像机移动了位置</div>
+    <div>chatgpt说是可以用于裁减或局部聚焦效果</div>
+    <div>viewBox 的4个值都是用的内部坐标系</div>
+    <div>viewBox 定义的矩形区域会根据 preserveAspectRatio的设置对应到 width/height 指定的区域</div>
+    <svg width="100" height="300" viewBox="100 100 200 200">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="100" height="300" viewBox="-100 -100 200 200">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <hr />
+    <div>preserveAspectRatio 4个值示意, xMidYMid是默认</div>
+    <svg width="300" height="100" viewBox="0 0 200 200">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="none">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMinYMin">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMaxYMax">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <hr />
+    <div>preserveAspectRatio slice 裁减</div>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="none slice">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMinYMin slice">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMaxYMax slice">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <hr />
+    <div>没有 viewBox, preserveAspectRatio 好像没用</div>
+    <svg width="300" height="100" preserveAspectRatio="xMidYMid slice">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="300" height="100" preserveAspectRatio="none slice">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="300" height="100" preserveAspectRatio="xMinYMin slice">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <svg width="300" height="100" preserveAspectRatio="xMaxYMax slice">
+      <rect x="0" y="0" width="200" height="200" fill="blue" />
+    </svg>
+    <hr />
+    <hr />
+  </body>
+</html>

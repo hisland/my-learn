@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      svg {
+        background: #eee;
+      }
+      .red {
+        color: red;
+      }
+    </style>
+    <script>
+      window.onload = () => {
+        document.getElementById('g1').onclick = function click1(evt) {
+          console.log('evt: ', evt)
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div style="position: fixed; top: 10px; right: 10px">
+      <div>svg 默认是 300px * 150px</div>
+    </div>
+    <div>viewBox不同取值示意</div>
+    <svg width="500" height="400" viewBox="0 0 500 400">
+      <g transform="translate(100, 100)">
+        <g transform="translate(-50, -50)">
+          <image href="../static/dlf1/lv0.png" width="100"></image>
+        </g>
+        <text dominant-baseline="middle" text-anchor="middle" font-size="12">192.168.1.1</text>
+      </g>
+
+      <g transform="translate(200, 200)">
+        <g transform="translate(-30, -30)">
+          <image href="../static/dlf1/lv1-2.png" width="60"></image>
+        </g>
+        <text dominant-baseline="middle" text-anchor="middle" fill="#fff" font-size="12">是的</text>
+      </g>
+    </svg>
+  </body>
+</html>
