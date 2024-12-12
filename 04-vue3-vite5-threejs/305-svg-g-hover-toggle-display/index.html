@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Hover Effect</title>
+    <style>
+      .sector {
+        transition: opacity 0.3s;
+      }
+      .sector:hover {
+        opacity: 0.5;
+        fill: red;
+      }
+      text {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+
+      .test1 use{display: none;}
+      .test1:hover use{display: block;}
+    </style>
+  </head>
+  <body>
+    <svg width="426px" height="221px" viewBox="0 0 426 221">
+      <defs>
+        <radialGradient
+          cx="56.2995587%"
+          cy="50%"
+          fx="56.2995587%"
+          fy="50%"
+          r="59.3768652%"
+          gradientTransform="translate(0.563, 0.5), scale(1, 0.8421), rotate(90), translate(-0.563, -0.5)"
+          id="radialGradient-1"
+        >
+          <stop stop-color="#FFFFFF" offset="0%"></stop>
+          <stop stop-color="#8B3636" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient
+          cx="46.7533109%"
+          cy="44.7854756%"
+          fx="46.7533109%"
+          fy="44.7854756%"
+          r="59.456779%"
+          gradientTransform="translate(0.4675, 0.4479), scale(1, 0.8409), rotate(90), scale(1, 8.7958), translate(-0.4675, -0.4479)"
+          id="radialGradient-2"
+        >
+          <stop stop-color="#197FFF" stop-opacity="0.313592657" offset="0%"></stop>
+          <stop stop-color="#0C2034" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <path
+          d="M41.1884176,86.8005505 L112.506362,144.553165 C99.3026711,163.938956 91.5843892,187.360322 91.5843892,212.584389 C91.5843892,215.272388 91.6720385,217.939916 91.8446351,220.585868 L0.147801692,220.585868 C0.0495561221,217.930861 0,215.263412 0,212.584389 C0,165.51725 15.2960752,122.022702 41.1884176,86.8005505 Z"
+          id="path-2"
+        ></path>
+        <filter
+          x="-12.0%"
+          y="-10.1%"
+          width="124.0%"
+          height="120.2%"
+          filterUnits="objectBoundingBox"
+          id="filter-3"
+        >
+          <feGaussianBlur
+            stdDeviation="13"
+            in="SourceAlpha"
+            result="shadowBlurInner1"
+          ></feGaussianBlur>
+          <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+          <feComposite
+            in="shadowOffsetInner1"
+            in2="SourceAlpha"
+            operator="arithmetic"
+            k2="-1"
+            k3="1"
+            result="shadowInnerInner1"
+          ></feComposite>
+          <feColorMatrix
+            values="0 0 0 0 0   0 0 0 0 0.919853584   0 0 0 0 1  0 0 0 0.883550044 0"
+            type="matrix"
+            in="shadowInnerInner1"
+          ></feColorMatrix>
+        </filter>
+        <path
+          d="M215.584,0.024 L212.584389,0 C281.939633,0 343.537656,33.2126111 382.341338,84.6007142 L311.089634,142.299302 C289.685816,112.355228 254.968181,92.5795289 215.585399,91.620877 L215.584,0.024 Z"
+          id="path-4"
+        ></path>
+        <filter
+          x="-23.3%"
+          y="-27.8%"
+          width="146.5%"
+          height="155.5%"
+          filterUnits="objectBoundingBox"
+          id="filter-5"
+        >
+          <feGaussianBlur
+            stdDeviation="39"
+            in="SourceAlpha"
+            result="shadowBlurInner1"
+          ></feGaussianBlur>
+          <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+          <feComposite
+            in="shadowOffsetInner1"
+            in2="SourceAlpha"
+            operator="arithmetic"
+            k2="-1"
+            k3="1"
+            result="shadowInnerInner1"
+          ></feComposite>
+          <feColorMatrix
+            values="0 0 0 0 0   0 0 0 0 0.919853584   0 0 0 0 1  0 0 0 0.883550044 0"
+            type="matrix"
+            in="shadowInnerInner1"
+          ></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-6">
+          <stop stop-color="#F18D8D" offset="0%"></stop>
+          <stop stop-color="#D8D8D8" stop-opacity="0.256473995" offset="100%"></stop>
+        </linearGradient>
+      </defs>
+      <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-278" transform="translate(0.4156, 0.4156)">
+          <path
+            d="M384.628656,88.5392561 C409.822357,123.420376 424.668778,166.268616 424.668778,212.584389 C424.668778,215.095312 424.625146,217.596044 424.538596,220.085868 L333.85666,220.085868 C334.007744,217.603877 334.084389,215.103084 334.084389,212.584389 C334.084389,187.873876 326.707546,164.886351 314.036212,145.703673 Z"
+            id="路径"
+            stroke="#979797"
+            fill="url(#radialGradient-1)"
+          ></path>
+          <g id="路径" fill="black" fill-opacity="1" class="test1">
+            <path
+              d="M41.3071464,87.7166218 L111.650634,144.680131 C98.5782482,164.073099 90.9471892,187.437558 90.9471892,212.584389 C90.9471892,215.05666 91.0209539,217.511703 91.166399,219.948668 L0.762736441,219.948668 C0.679271504,217.504188 0.6372,215.049202 0.6372,212.584389 C0.6372,165.898169 15.7318051,122.73744 41.3071464,87.7166218 Z"
+              id="路径"
+              stroke="url(#linearGradient-3)"
+              stroke-width="1.2744"
+              fill="url(#radialGradient-2)"
+            ></path>
+            <use filter="url(#filter-3)" xlink:href="#path-2"></use>
+          </g>
+          <g id="路径" fill="black" fill-opacity="1">
+            <use filter="url(#filter-5)" xlink:href="#path-4"></use>
+          </g>
+          <path
+            d="M211.084,0.505201727 L211.084,91.0962861 L210.575327,91.1006654 C171.256532,91.7381598 136.477797,111.052549 114.724641,140.559053 L44.2818426,83.5161864 C82.7674022,33.4070641 143.128147,0.976263334 211.084,0.505201727 Z"
+            id="路径"
+            stroke="#979797"
+            fill="url(#linearGradient-6)"
+          ></path>
+        </g>
+      </g>
+    </svg>
+  </body>
+</html>

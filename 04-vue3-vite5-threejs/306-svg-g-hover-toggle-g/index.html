@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Hover Effect</title>
+    <style>
+      body {
+        background: #333;
+      }
+
+      .test1 .test1sub1 {
+        display: none;
+      }
+      .test1:hover .test1sub1 {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="426px" height="221px" viewBox="0 0 426 221">
+      <defs>
+        <radialGradient
+          cx="56.2995587%"
+          cy="50%"
+          fx="56.2995587%"
+          fy="50%"
+          r="59.3768652%"
+          gradientTransform="translate(0.563, 0.5), scale(1, 0.8421), rotate(90), translate(-0.563, -0.5)"
+          id="radialGradient-1"
+        >
+          <stop stop-color="#FFFFFF" offset="0%"></stop>
+          <stop stop-color="#8B3636" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <path
+          d="M41.1884176,86.8005505 L112.506362,144.553165 C99.3026711,163.938956 91.5843892,187.360322 91.5843892,212.584389 C91.5843892,215.272388 91.6720385,217.939916 91.8446351,220.585868 L0.147801692,220.585868 C0.0495561221,217.930861 0,215.263412 0,212.584389 C0,165.51725 15.2960752,122.022702 41.1884176,86.8005505 Z"
+          id="path-2"
+        ></path>
+        <filter
+          x="-12.0%"
+          y="-10.1%"
+          width="124.0%"
+          height="120.2%"
+          filterUnits="objectBoundingBox"
+          id="filter-3"
+        >
+          <feGaussianBlur
+            stdDeviation="13"
+            in="SourceAlpha"
+            result="shadowBlurInner1"
+          ></feGaussianBlur>
+          <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+          <feComposite
+            in="shadowOffsetInner1"
+            in2="SourceAlpha"
+            operator="arithmetic"
+            k2="-1"
+            k3="1"
+            result="shadowInnerInner1"
+          ></feComposite>
+          <feColorMatrix
+            values="0 0 0 0 0   0 0 0 0 0.919853584   0 0 0 0 1  0 0 0 0.883550044 0"
+            type="matrix"
+            in="shadowInnerInner1"
+          ></feColorMatrix>
+        </filter>
+        <path
+          d="M215.584,0.024 L212.584389,0 C281.939633,0 343.537656,33.2126111 382.341338,84.6007142 L311.089634,142.299302 C289.685816,112.355228 254.968181,92.5795289 215.585399,91.620877 L215.584,0.024 Z"
+          id="path-4"
+        ></path>
+        <filter
+          x="-23.3%"
+          y="-27.8%"
+          width="146.5%"
+          height="155.5%"
+          filterUnits="objectBoundingBox"
+          id="filter-5"
+        >
+          <feGaussianBlur
+            stdDeviation="39"
+            in="SourceAlpha"
+            result="shadowBlurInner1"
+          ></feGaussianBlur>
+          <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+          <feComposite
+            in="shadowOffsetInner1"
+            in2="SourceAlpha"
+            operator="arithmetic"
+            k2="-1"
+            k3="1"
+            result="shadowInnerInner1"
+          ></feComposite>
+          <feColorMatrix
+            values="0 0 0 0 0   0 0 0 0 0.919853584   0 0 0 0 1  0 0 0 0.883550044 0"
+            type="matrix"
+            in="shadowInnerInner1"
+          ></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-6">
+          <stop stop-color="#F18D8D" offset="0%"></stop>
+          <stop stop-color="#D8D8D8" stop-opacity="0.256473995" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient
+          x1="66.8083306%"
+          y1="30.0295183%"
+          x2="25.7210371%"
+          y2="50%"
+          id="linearGradient-7"
+        >
+          <stop stop-color="#FFFFFF" stop-opacity="0.8" offset="0%"></stop>
+          <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient
+          x1="63.7692851%"
+          y1="32.9883441%"
+          x2="26.8182969%"
+          y2="71.2925228%"
+          id="linearGradient-8"
+        >
+          <stop stop-color="#FFFFFF" stop-opacity="0.8" offset="0%"></stop>
+          <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient
+          x1="63.583365%"
+          y1="32.9883441%"
+          x2="37.7027211%"
+          y2="59.9651169%"
+          id="linearGradient-9"
+        >
+          <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+          <stop stop-color="#FFFFFF" stop-opacity="0.8" offset="100%"></stop>
+        </linearGradient>
+      </defs>
+      <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="带图标带字的" transform="translate(0.4156, 0.4156)">
+          <path
+            d="M384.628656,88.5392561 C409.822357,123.420376 424.668778,166.268616 424.668778,212.584389 C424.668778,215.095312 424.625146,217.596044 424.538596,220.085868 L333.85666,220.085868 C334.007744,217.603877 334.084389,215.103084 334.084389,212.584389 C334.084389,187.873876 326.707546,164.886351 314.036212,145.703673 Z"
+            id="路径"
+            stroke="#979797"
+            fill="url(#radialGradient-1)"
+          ></path>
+          <g class="test1">
+            <g id="路径12" fill="black" fill-opacity="1" class="test1sub1">
+              <use filter="url(#filter-3)" xlink:href="#path-2"></use>
+            </g>
+            <text
+              id="啊但是发生的"
+              font-family="MiSans-Bold, MiSans"
+              font-size="14"
+              font-weight="bold"
+              fill="#FFFFFF"
+            >
+              <tspan x="5.12087817" y="192.416913">啊但是发生的</tspan>
+            </text>
+          </g>
+          <g id="路径" fill="black" fill-opacity="1">
+            <use filter="url(#filter-5)" xlink:href="#path-4"></use>
+          </g>
+          <path
+            d="M212.084389,1.52688993 L212.084389,92.1179743 L211.575716,92.1223536 C172.256921,92.759848 137.478187,112.074237 115.72503,141.580741 L45.2822318,84.5378746 C83.7677913,34.4287523 144.128536,1.99795154 212.084389,1.52688993 Z"
+            id="路径"
+            stroke="#979797"
+            fill="url(#linearGradient-6)"
+          ></path>
+          <g id="编组-50" transform="translate(35.5385, 141.2776)">
+            <rect
+              id="矩形备份-36"
+              x="0"
+              y="1.88543109"
+              width="27.1647284"
+              height="27.1647284"
+            ></rect>
+            <polygon
+              id="矩形备份-29"
+              stroke="url(#linearGradient-7)"
+              stroke-width="2.38824543"
+              points="3.04282253 9.07614122 13.5655581 15.1257893 13.5655581 27.2250855 3.04282253 21.1754374"
+            ></polygon>
+            <polygon
+              id="矩形备份-30"
+              stroke="url(#linearGradient-8)"
+              stroke-width="2.38824543"
+              transform="translate(18.8269, 18.1506) scale(-1, 1) translate(-18.8269, -18.1506)"
+              points="13.5655581 9.07614122 24.0882936 15.1257893 24.0882936 27.2250855 13.5655581 21.1754374"
+            ></polygon>
+            <polygon
+              id="矩形备份-31"
+              stroke="url(#linearGradient-9)"
+              stroke-width="2.38824543"
+              transform="translate(13.5879, 9.0878) scale(-1, 1) rotate(-60) translate(-13.5879, -9.0878)"
+              points="8.34776632 -0.011656451 18.3940888 6.06276932 18.8279915 18.1872518 8.36998515 12.1261239"
+            ></polygon>
+            <circle
+              id="椭圆形"
+              fill="#1BFFF5"
+              cx="3.07643474"
+              cy="9.07614122"
+              r="1.82507393"
+            ></circle>
+            <circle
+              id="椭圆形"
+              fill="#1BFFF5"
+              opacity="0.200000003"
+              cx="3.07643474"
+              cy="9.07614122"
+              r="2.77491449"
+            ></circle>
+            <circle
+              id="椭圆形备份-10"
+              fill="#1BFFF5"
+              opacity="0.200000003"
+              cx="3.07643474"
+              cy="21.6126655"
+              r="2.77491449"
+            ></circle>
+            <circle
+              id="椭圆形"
+              fill="#1BFFF5"
+              opacity="0.200000003"
+              cx="13.5878789"
+              cy="3.72745291"
+              r="2.77491449"
+            ></circle>
+            <circle
+              id="椭圆形备份-2"
+              fill="#1BFFF5"
+              opacity="0.200000003"
+              cx="13.5878789"
+              cy="15.0531762"
+              r="2.77491449"
+            ></circle>
+            <circle
+              id="椭圆形备份-12"
+              fill="#1BFFF5"
+              opacity="0.200000003"
+              cx="13.5878789"
+              cy="27.2250855"
+              r="2.77491449"
+            ></circle>
+            <circle
+              id="椭圆形备份-3"
+              fill="#1BFFF5"
+              opacity="0.200000003"
+              cx="24.0882936"
+              cy="9.07614122"
+              r="2.77491449"
+            ></circle>
+            <circle
+              id="椭圆形备份-11"
+              fill="#1BFFF5"
+              opacity="0.200000003"
+              cx="24.0882936"
+              cy="21.6126655"
+              r="2.77491449"
+            ></circle>
+            <circle
+              id="椭圆形备份-4"
+              fill="#1BFFF5"
+              cx="3.07643474"
+              cy="21.6126655"
+              r="1.82507393"
+            ></circle>
+            <circle
+              id="椭圆形备份-5"
+              fill="#1BFFF5"
+              cx="13.5655581"
+              cy="15.0531762"
+              r="1.82507393"
+            ></circle>
+            <circle
+              id="椭圆形备份-9"
+              fill="#1BFFF5"
+              cx="13.5655581"
+              cy="3.72745291"
+              r="1.82507393"
+            ></circle>
+            <circle
+              id="椭圆形备份-6"
+              fill="#1BFFF5"
+              cx="13.5655581"
+              cy="27.2250855"
+              r="1.82507393"
+            ></circle>
+            <circle
+              id="椭圆形备份-7"
+              fill="#1BFFF5"
+              cx="24.0882936"
+              cy="21.6126655"
+              r="1.82507393"
+            ></circle>
+            <circle
+              id="椭圆形备份-8"
+              fill="#1BFFF5"
+              cx="24.0882936"
+              cy="9.07614122"
+              r="1.82507393"
+            ></circle>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </body>
+</html>
