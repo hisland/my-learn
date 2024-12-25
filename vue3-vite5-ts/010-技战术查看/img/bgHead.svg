@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="108px" height="24px" viewBox="0 0 108 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 149</title>
+    <defs>
+        <radialGradient cx="-3.47204904e-13%" cy="2.60208521e-14%" fx="-3.47204904e-13%" fy="2.60208521e-14%" r="310.178228%" gradientTransform="translate(-0, 0), scale(0.2222, 1), rotate(20.5166), translate(0, -0)" id="radialGradient-1">
+            <stop stop-color="#34C2D0" offset="0%"></stop>
+            <stop stop-color="#3A97D3" offset="43.6980988%"></stop>
+            <stop stop-color="#059AFA" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="100%" y1="50%" x2="-8.55833094e-16%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#023644" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#13819E" stop-opacity="0.2" offset="14.2933855%"></stop>
+            <stop stop-color="#13809D" stop-opacity="0.501311189" offset="48.3291188%"></stop>
+            <stop stop-color="#1FA2C5" stop-opacity="0.20036604" offset="85.7477473%"></stop>
+            <stop stop-color="#024252" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-3" x="0" y="0" width="108" height="24"></rect>
+    </defs>
+    <g id="控件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-149">
+            <g id="标题">
+                <use fill="#3865AB" xlink:href="#path-3"></use>
+                <rect stroke="url(#linearGradient-2)" stroke-width="1" stroke-linejoin="square" fill="url(#radialGradient-1)" x="0.5" y="0.5" width="107" height="23"></rect>
+            </g>
+            <polygon id="矩形" fill="#92F7FF" points="0 0 6 0 0 6"></polygon>
+        </g>
+    </g>
+</svg>

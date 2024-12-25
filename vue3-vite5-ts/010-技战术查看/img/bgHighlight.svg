@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="108px" height="38px" viewBox="0 0 108 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>动态-高亮</title>
+    <defs>
+        <linearGradient x1="47.9853109%" y1="43.8100137%" x2="55.0057011%" y2="53.3743409%" id="linearGradient-1">
+            <stop stop-color="#3784DC" offset="0%"></stop>
+            <stop stop-color="#3784DC" stop-opacity="0.00950011424" offset="99.0499886%"></stop>
+            <stop stop-color="#204F86" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="108" height="38"></rect>
+    </defs>
+    <g id="控件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="动态-高亮">
+            <use fill="#0060C4" xlink:href="#path-2"></use>
+            <rect stroke="#00B2FF" stroke-width="1" stroke-linejoin="square" fill="url(#linearGradient-1)" x="0.5" y="0.5" width="107" height="37"></rect>
+        </g>
+    </g>
+</svg>
