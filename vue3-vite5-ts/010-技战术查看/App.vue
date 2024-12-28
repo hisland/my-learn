@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import SvgAttCkMatrix from './SvgAttCkMatrix.vue'
+import SvgAttCkMatrix from './SvgAttCkMatrix/SvgAttCkMatrix.vue'
 onMounted(() => {})
 </script>
 <template>

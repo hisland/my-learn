@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import RsData from './test.json'
+import allAttCkList from './allAttCkList.json'
 import bgHead from './img/bgHead.svg'
 import bgDefault from './img/bgDefault.svg'
 import bgHighlight from './img/bgHighlight.svg'
@@ -9,9 +9,9 @@ import bgBlank from './img/bgBlank.svg'
 const iconPathMap = import.meta.glob('./img/图标/*.svg', { eager: true })
 // console.log('iconPathMap: ', iconPathMap)
 
-const cols = RsData.data.length
+const cols = allAttCkList.length
 console.log('cols: ', cols)
-const rows = Math.max(...RsData.data.map((item) => item.technology.length))
+const rows = Math.max(...allAttCkList.map((item) => item.technology.length))
 console.log('rows: ', rows)
 
 const boxWidth1 = 108
@@ -54,7 +54,7 @@ onMounted(() => {})
   </div>
   <div style="width: 1564px; height: 402px; background: #1f375b">
     <svg width="100%" height="100%" :viewBox="`0 0 ${viewBoxWidth} ${viewBoxHeight}`">
-      <template v-for="(item1, index1) in RsData.data" :key="`col-${index1}`">
+      <template v-for="(item1, index1) in allAttCkList" :key="`col-${index1}`">
         <g :transform="getTranslate1(index1)">
           <image
             :href="bgHead"
