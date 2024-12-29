@@ -16,12 +16,16 @@
   "dependencies": {
     "@antv/g6": "^5.0.35",
     "d3": "^7.9.0",
+    "force-graph": "^1.47.0",
+    "html2canvas": "^1.4.1",
     "three": "^0.168.0",
+    "vite-plugin-vite3-dir-list": "^1.5.2",
     "vue": "^3.4.29"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
     "@tsconfig/node20": "^20.1.4",
+    "@types/d3": "^7.4.3",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20.14.5",
     "@types/three": "^0.168.0",

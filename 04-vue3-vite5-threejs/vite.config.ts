@@ -3,21 +3,21 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import VitePluginDirList from './vite-plugin-dir-list.ts'
+import VitePluginDirList from 'vite-plugin-vite3-dir-list'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     VitePluginDirList(), //
     vue(),
-    vueJsx()
+    vueJsx(),
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
   server: {
-    host: true
-  }
+    host: true,
+  },
 })
