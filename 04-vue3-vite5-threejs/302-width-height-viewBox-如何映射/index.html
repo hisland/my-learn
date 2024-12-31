@@ -84,16 +84,56 @@
     <hr />
     <div>preserveAspectRatio slice 裁减</div>
     <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
-      <rect x="0" y="0" width="200" height="200" fill="blue" />
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
     </svg>
     <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="none slice">
-      <rect x="0" y="0" width="200" height="200" fill="blue" />
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
     </svg>
     <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMinYMin slice">
-      <rect x="0" y="0" width="200" height="200" fill="blue" />
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
     </svg>
     <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMaxYMax slice">
-      <rect x="0" y="0" width="200" height="200" fill="blue" />
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
+    </svg>
+    <hr />
+    <div>preserveAspectRatio meet</div>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="none meet">
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMinYMin meet">
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMaxYMax meet">
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
+    </svg>
+    <hr />
+    <div>preserveAspectRatio 没有配置默认是 meet</div>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid">
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="none">
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMinYMin">
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
+    </svg>
+    <svg width="300" height="100" viewBox="0 0 200 200" preserveAspectRatio="xMaxYMax">
+      <rect x="0" y="0" width="200" height="200" fill="pink" />
+      <rect x="0" y="0" width="50" height="50" fill="blue" />
     </svg>
     <hr />
     <div>没有 viewBox, preserveAspectRatio 好像没用</div>

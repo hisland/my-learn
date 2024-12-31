@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="module">
+      const cssLink = document.createElement('link')
+      cssLink.rel = 'stylesheet'
+      cssLink.type = 'text/css'
+      cssLink.href = 'https://10.1.160.227/static-fonts/font.css'
+      document.head.appendChild(cssLink)
+    </script>
+    <title>SVG Hover Effect</title>
+    <style>
+      .aa:hover {
+        opacity: 0.1;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+      <!-- 定义一个 clipPath -->
+      <clipPath id="circle-clip">
+        <circle cx="100" cy="100" r="40" />
+      </clipPath>
+
+      <rect x="0" y="0" width="200" height="200" fill="cyan" />
+
+      <!-- 应用 clipPath 到 image -->
+      <image
+        xlink:href="../static/d3-img/lv0.png"
+        width="200"
+        height="200"
+        clip-path="url(#circle-clip)"
+        class="aa"
+      />
+    </svg>
+  </body>
+</html>
