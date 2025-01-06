@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="module">
+      const cssLink = document.createElement('link')
+      cssLink.rel = 'stylesheet'
+      cssLink.type = 'text/css'
+      cssLink.href = 'https://10.1.160.227/static-fonts/font.css'
+      document.head.appendChild(cssLink)
+    </script>
+    <title>SVG Hover Effect</title>
+    <style>
+      .aa:hover {
+        opacity: 0.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div>svg的 defs 的id, 可以跨不同的svg文件使用</div>
+    <div>如果defs里面是rect, use覆盖的fill stroke, 需要defs里面没有这写才可以</div>
+    <hr />
+    <svg width="200" height="200">
+      <defs>
+        <rect id="myRect1" width="50" height="50" fill="pink" stroke="red" stroke-width="2" />
+      </defs>
+
+      <use href="#myRect1" x="10" y="10" />
+      <use href="#myRect1" x="70" y="10" fill="red" />
+      <use href="#myRect1" x="130" y="10" fill="green" />
+    </svg>
+    <svg width="500" height="200">
+      <use href="#myRect1" x="10" y="10" />
+      <use href="#myRect1" x="70" y="10" fill="red" />
+      <use href="#myRect1" x="130" y="10" fill="green" />
+    </svg>
+    <hr />
+    <svg width="200" height="200">
+      <defs>
+        <rect id="myRect2" width="50" height="50" stroke-width="2" />
+      </defs>
+
+      <use href="#myRect2" x="10" y="10" />
+      <use href="#myRect2" x="70" y="10" fill="red" />
+      <use href="#myRect2" x="130" y="10" fill="green" />
+    </svg>
+    <svg width="500" height="200">
+      <use href="#myRect2" x="10" y="10" stroke="cyan" />
+      <use href="#myRect2" x="70" y="10" fill="red" stroke="cyan" />
+      <use href="#myRect2" x="130" y="10" fill="green" stroke="cyan" />
+    </svg>
+    <hr />
+  </body>
+</html>
