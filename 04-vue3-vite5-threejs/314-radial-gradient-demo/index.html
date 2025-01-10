@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="module">
+      const cssLink = document.createElement('link')
+      cssLink.rel = 'stylesheet'
+      cssLink.type = 'text/css'
+      cssLink.href = 'https://10.1.160.227/static-fonts/font.css'
+      document.head.appendChild(cssLink)
+    </script>
+    <title></title>
+    <style>
+      .aa {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(10% 100% at 50% 50%, #002043 0%, #0059aa 100%);
+      }
+      .bb {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(100% 10% at 50% 50%, #002043 0%, #0059aa 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div>svg的 defs 的id, 可以跨不同的svg文件使用</div>
+    <div>如果defs里面是rect, use覆盖的fill stroke, 需要defs里面没有这写才可以</div>
+    <hr />
+    <div class="aa"></div>
+    <div class="bb"></div>
+  </body>
+</html>
