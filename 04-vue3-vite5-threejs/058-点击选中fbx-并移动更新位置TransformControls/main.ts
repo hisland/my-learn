@@ -48,6 +48,11 @@ function loadCameraState(camera: THREE.PerspectiveCamera) {
     camera.far = cameraState.far
     // 更新摄像机的投影矩阵
     camera.updateProjectionMatrix()
+  } else {
+    camera.position.x = -182
+    camera.position.y = 524
+    camera.position.z = 1977
+    camera.lookAt(scene.position)
   }
 }
 

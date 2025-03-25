@@ -19,6 +19,7 @@
     "force-graph": "^1.47.0",
     "html2canvas": "^1.4.1",
     "three": "^0.168.0",
+    "tree-walk-util": "^3.0.1",
     "vite-plugin-vite3-dir-list": "^1.5.2",
     "vue": "^3.4.29"
   },
