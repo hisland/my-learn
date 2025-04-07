@@ -50,7 +50,7 @@ const axesHelper = new THREE.AxesHelper(5)
 scene.add(axesHelper)
 
 const transformControls = new TransformControls(camera, renderer.domElement)
-scene.add(transformControls)
+scene.add(transformControls.getHelper())
 window.addEventListener('keydown', (event) => {
   if (event.key === 't') transformControls.setMode('translate') // 移动
   if (event.key === 'r') transformControls.setMode('rotate') // 旋转

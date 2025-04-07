@@ -120,7 +120,7 @@ let gmodel1: THREE.Group
 }
 
 const transformControls = new TransformControls(camera, renderer.domElement)
-scene.add(transformControls)
+scene.add(transformControls.getHelper())
 window.addEventListener('keydown', (event) => {
   if (event.key === 't') transformControls.setMode('translate') // 移动
   if (event.key === 'r') transformControls.setMode('rotate') // 旋转

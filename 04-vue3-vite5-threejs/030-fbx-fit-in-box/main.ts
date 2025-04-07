@@ -100,7 +100,7 @@ scene.add(line)
 
 // 添加 TransformControls
 const transformControls = new TransformControls(camera, renderer.domElement)
-scene.add(transformControls)
+scene.add(transformControls.getHelper())
 // 默认选中第一个立方体
 transformControls.attach(box1)
 // 更新连线
