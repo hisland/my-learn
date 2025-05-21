@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3 Force Layout with TypeScript</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        padding: 50px;
+      }
+      svg{
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+<pre>
+  在 D3.js 中，key 函数的调用次数取决于数据和 DOM 元素之间的绑定关系。每次调用 .data(data, keyFn) 时，key 函数会被调用两组次数，分别用于 DOM 元素和数据：
+
+  第一次：对现有的 DOM 元素调用
+  
+  D3 会遍历当前选择集中所有的 DOM 元素，并对每个元素调用 keyFn，生成对应的键值。
+  第二次：对绑定的数据调用
+  
+  D3 会遍历传入的数据数组，并对每个数据项调用 keyFn，生成对应的键值。
+  然后，D3 会比较两组键值：
+  
+  如果键值匹配，DOM 元素被保留并更新（进入 更新选择集）。
+  如果数据的键值没有匹配的 DOM 元素，数据被放入 进入选择集（enter）。
+  如果 DOM 元素的键值没有匹配的数据，DOM 元素被放入 退出选择集（exit）。
+</pre>
+    <div>
+      <button id="btn1">add 1</button>
+      <button id="btn2">update 1</button>
+      <!-- <button id="btn3">btn3 4</button>
+      <button id="btn4">btn4 0</button> -->
+    </div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

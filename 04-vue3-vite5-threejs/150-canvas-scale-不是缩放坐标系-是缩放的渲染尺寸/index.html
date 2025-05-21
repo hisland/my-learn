@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Canvas scale 示例</title>
+    <style>
+    </style>
+  </head>
+  <body>
+    <h2>缩放了 2 倍的画布</h2>
+    <canvas id="canvas2" width="200" height="200"></canvas>
+
+    <script>
+      // 缩放后的绘图（2 倍放大）
+      const canvas2 = document.getElementById('canvas2')
+      canvas2.width = 400
+      canvas2.height = 400
+      const ctx2 = canvas2.getContext('2d')
+      ctx2.scale(2, 2) // 缩放坐标系
+      ctx2.fillStyle = 'orange'
+      ctx2.fillRect(20, 20, 50, 50) // 同样坐标和大小，实际效果放大了
+      ctx2.strokeStyle = 'black'
+      ctx2.strokeText('Scaled x2', 20, 90)
+    </script>
+  </body>
+</html>

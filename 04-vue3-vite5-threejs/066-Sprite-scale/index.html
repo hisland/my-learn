@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>THREE.Sprite Demo</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js'
+
+      function createTextSprite(message) {
+        const fontSize = 48
+        const canvas = document.createElement('canvas')
+        const ctx = canvas.getContext('2d')
+
+        ctx.font = `bold ${fontSize}px 微软雅黑`
+        const textWidth = ctx.measureText(message).width
+        console.log('textWidth: ', textWidth)
+
+        canvas.width = textWidth
+        canvas.height = fontSize
+
+        ctx.fillStyle = '#ff0000'
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+        // 再次设置 font 因为 canvas 大小变化后会重置
+        ctx.font = `bold ${fontSize}px 微软雅黑`
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'middle'
+        ctx.fillStyle = '#ffffff'
+        ctx.fillText(message, canvas.width / 2, canvas.height / 2)
+
+        const texture = new THREE.CanvasTexture(canvas)
+        texture.minFilter = THREE.LinearFilter
+
+        const material = new THREE.SpriteMaterial({ map: texture, transparent: true })
+        const sprite = new THREE.Sprite(material)
+
+        // 设置缩放，适应 canvas 尺寸
+        const scaleFactor = 0.01
+        sprite.scale.set(canvas.width * scaleFactor, canvas.height * scaleFactor, 1)
+
+        return sprite
+      }
+
+      // 创建场景
+      const scene = new THREE.Scene()
+
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      )
+      camera.position.x = 5
+      camera.position.y = 5
+      camera.position.z = 5
+      camera.lookAt(0, 0, 0)
+
+      const renderer = new THREE.WebGLRenderer()
+      renderer.setSize(window.innerWidth, window.innerHeight)
+      document.body.appendChild(renderer.domElement)
+
+      // 添加 Sprite
+      const sprite = createTextSprite('Hello World')
+      scene.add(sprite)
+
+      function animate() {
+        requestAnimationFrame(animate)
+        renderer.render(scene, camera)
+      }
+
+      animate()
+    </script>
+  </body>
+</html>

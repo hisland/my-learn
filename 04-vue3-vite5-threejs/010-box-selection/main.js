@@ -92,6 +92,7 @@ function animate() {
 
 const selectionBox = new SelectionBox(camera, scene)
 const helper = new SelectionHelper(renderer, 'selectBox')
+helper.enabled = false
 
 document.addEventListener('pointerdown', function (event) {
   for (const item of selectionBox.collection) {
