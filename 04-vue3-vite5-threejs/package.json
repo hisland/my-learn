@@ -18,10 +18,11 @@
     "d3": "^7.9.0",
     "force-graph": "^1.47.0",
     "html2canvas": "^1.4.1",
-    "three": "^0.175.0",
+    "three": "^0.176.0",
     "tree-walk-util": "^3.0.1",
     "vite-plugin-vite3-dir-list": "^1.5.2",
-    "vue": "^3.4.29"
+    "vue": "^3.4.29",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
@@ -29,7 +30,7 @@
     "@types/d3": "^7.4.3",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20.14.5",
-    "@types/three": "^0.175.0",
+    "@types/three": "^0.176.0",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vitejs/plugin-vue-jsx": "^4.0.0",
     "@vue/eslint-config-prettier": "^9.0.0",
