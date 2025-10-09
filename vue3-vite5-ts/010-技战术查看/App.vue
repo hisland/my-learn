@@ -4,7 +4,7 @@ import SvgAttCkMatrix from './SvgAttCkMatrix/SvgAttCkMatrix.vue'
 onMounted(() => {})
 </script>
 <template>
-  <div style="width: 500px; height: 500px; background: #1f375b; padding: 50px">
+  <div style="width: 800px; height: 500px; background: #1f375b; padding: 50px">
     <SvgAttCkMatrix></SvgAttCkMatrix>
   </div>
 </template>
