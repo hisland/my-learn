@@ -18,6 +18,7 @@ onMounted(() => {
     legend: {
       show: false,
     },
+    silent: true,
     xAxis: {
       type: 'category',
       data: [
