@@ -8,7 +8,7 @@ const aa1 = computed(() => {
 })
 const aa2 = readonly(aa1)
 // console.log('aa1: ', aa1.value)
-console.log('aa2: ', aa2.value)
+console.log('aa2: ', aa2.value) // 这里会触发 computed 的调用
 
 // console.log('------2 ')
 // aa1.value.aa = 2
@@ -24,10 +24,7 @@ onMounted(() => {})
 </script>
 <template>
   <div>
-    <h3>
-      computed在读取的时候才调用, readonly 包裹也一样, 有可能是 pinia 默认会全部读取一次所以导致
-      computed 被调用
-    </h3>
+    <h3>computed在读取的时候才调用, readonly 包裹也一样</h3>
     <div ref="elRef" class="elRef"></div>
   </div>
 </template>
