@@ -2,6 +2,9 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import { FBXLoader } from 'three/addons/loaders/FBXLoader.js'
 import Stats from 'three/addons/libs/stats.module.js'
+import { Line2 } from 'three/addons/lines/Line2.js'
+import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry.js'
+import { LineMaterial } from 'three/examples/jsm/Addons.js'
 
 const getWindowSizeInfo = () => {
   const width = Math.floor(window.innerWidth)
@@ -91,12 +94,13 @@ const center2 = new THREE.Vector3()
 
 {
   // 创建连线的几何体
-  const points = [center1, center2]
-  const geometry = new THREE.BufferGeometry().setFromPoints(points)
+  const points = [center1.x, center1.y, center1.z, center2.x, center2.y, center2.z]
+  const geometry = new LineGeometry()
+  geometry.setPositions(points)
   // 创建连线的材质
-  const material = new THREE.LineBasicMaterial({ color: 0xff0000 })
+  const material = new LineMaterial({ color: 0xff0000, linewidth: 5 })
   // 创建连线
-  const line = new THREE.Line(geometry, material)
+  const line = new Line2(geometry, material)
   scene.add(line)
 }
 
