@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Canvas scale 示例</title>
+    <style>
+      canvas {
+        background: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>默认 canvas 以及效果</h2>
+    <img id="img1" />
+    <pre>
+      第一级：drawImage(image, dx, dy)
+      dx, dy：你只告诉了它画在画布的哪个位置。
+      
+      自动取值：
+      
+      sx, sy 默认为 0, 0（从原图左上角开始）。
+      
+      sWidth, sHeight 默认为图片的原始宽高。
+      
+      dWidth, dHeight 默认为图片的原始宽高。
+      
+      结果：按原图 1:1 的比例，把整张图贴上去。
+    </pre>
+    <canvas id="canvas11"></canvas>
+    <canvas id="canvas12"></canvas>
+    <hr />
+    <pre>
+      第二级：drawImage(image, dx, dy, dWidth, dHeight)
+      dWidth, dHeight：你额外告诉了它要在画布上画多大。
+      
+      自动取值：
+      
+      sx, sy 默认为 0, 0。
+      
+      sWidth, sHeight 默认为图片的原始宽高。
+      
+      结果：拉伸/压缩展示。把整张原图强行塞进你指定的 dWidth 和 dHeight 矩形框里。
+    </pre>
+    <canvas id="canvas21"></canvas>
+    <canvas id="canvas22"></canvas>
+    <hr />
+    <pre>
+      1. 拆解这 9 个参数
+      ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+      
+      我们可以把这 9 个参数分成三个部分来记忆：
+      
+      第一部分：源头 (Source - sx, sy, sWidth, sHeight)
+      这 4 个参数完全是针对原始图片的操作。
+      
+      sx, sy：在原图上开始裁剪的坐标（左上角）。
+      
+      sWidth, sHeight：你要裁剪多大的范围。
+      
+      意义：这定义了你的“素材库”。
+      
+      第二部分：目标 (Destination - dx, dy, dWidth, dHeight)
+      这 4 个参数完全是针对Canvas 画布的操作。
+      
+      dx, dy：画在画布的哪个位置。
+      
+      dWidth, dHeight：要在画布上画多大（拉伸或缩小）。
+      
+      意义：这定义了用户最终看到的“视觉表现”。
+      
+      第三部分：载体 (image)
+      你的图片对象（Image, Video, 甚至是另一个 Canvas）。
+      
+      2. 核心功能：局部拉伸
+      这个签名最强大的地方在于：它能实现图片的局部提取并缩放。
+    </pre>
+    <canvas id="canvas31"></canvas>
+    <script type="module">
+      const img1 = document.getElementById('img1')
+      img1.src = './img/normal-60x60.png'
+      img1.onload = () => {
+        {
+          const canvas = document.getElementById('canvas11')
+          const ctx2 = canvas.getContext('2d')
+          ctx2.drawImage(img1, 0, 0)
+        }
+        {
+          const canvas = document.getElementById('canvas12')
+          canvas.width = 200
+          canvas.height = 200
+          const ctx2 = canvas.getContext('2d')
+          ctx2.drawImage(img1, 0, 0)
+        }
+        {
+          const canvas = document.getElementById('canvas21')
+          const ctx2 = canvas.getContext('2d')
+          ctx2.drawImage(img1, 0, 0, 20, 100)
+        }
+        {
+          const canvas = document.getElementById('canvas22')
+          canvas.width = 200
+          canvas.height = 200
+          const ctx2 = canvas.getContext('2d')
+          ctx2.drawImage(img1, 0, 0, 20, 100)
+        }
+        {
+          const canvas = document.getElementById('canvas31')
+          const ctx2 = canvas.getContext('2d')
+          ctx2.drawImage(img1, 0, 0, 12, 12, 0, 0, 24, 24)
+
+          ctx2.drawImage(img1, 0, 0, 12, 12, 50, 50, 12, 12)
+        }
+      }
+    </script>
+  </body>
+</html>
