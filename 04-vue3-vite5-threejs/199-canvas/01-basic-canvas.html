@@ -11,10 +11,20 @@
   </head>
   <body>
     <h2>默认 canvas 以及效果</h2>
+    <div>默认是 width=300 height=150</div>
     <canvas id="canvas1"></canvas>
-    <canvas id="canvas2" width="100" height="100"></canvas>
-    <canvas id="canvas3"></canvas>
-    <canvas id="canvas4"></canvas>
+    <hr />
+    <div>只设置width/height 属性, 另外一个保持默认值不变, 同时设置才是通常想要的效果</div>
+    <canvas id="canvas21" width="100"></canvas>
+    <canvas id="canvas22" height="100"></canvas>
+    <canvas id="canvas23" width="100" height="100"></canvas>
+    <hr />
+    <div>只设置 style.width/style.height 属性, 会将默认的 300x150 结果填充到div中</div>
+    <div>style.width/style.height 只有其1, 另外1个等比计算, 结果看起来等比拉伸</div>
+    <div>同时设置style.width/style.height, 图象会变形拉伸</div>
+    <canvas id="canvas31" style="width: 100px"></canvas>
+    <canvas id="canvas32" style="height: 300px"></canvas>
+    <canvas id="canvas33" style="width: 300px; height: 300px"></canvas>
     <script type="module">
       {
         const canvas = document.getElementById('canvas1')
@@ -23,25 +33,38 @@
         ctx2.fillRect(10, 10, 50, 50)
       }
       {
-        const canvas = document.getElementById('canvas2')
+        const canvas = document.getElementById('canvas21')
         const ctx2 = canvas.getContext('2d')
         ctx2.fillStyle = 'orange'
         ctx2.fillRect(10, 10, 50, 50)
       }
       {
-        const canvas = document.getElementById('canvas3')
-        canvas.width = 200
-        canvas.height = 200
+        const canvas = document.getElementById('canvas22')
         const ctx2 = canvas.getContext('2d')
         ctx2.fillStyle = 'orange'
         ctx2.fillRect(10, 10, 50, 50)
       }
       {
-        const canvas = document.getElementById('canvas4')
-        canvas.width = 200
-        canvas.height = 200
+        const canvas = document.getElementById('canvas23')
         const ctx2 = canvas.getContext('2d')
-        ctx2.scale(2, 2)
+        ctx2.fillStyle = 'orange'
+        ctx2.fillRect(10, 10, 50, 50)
+      }
+      {
+        const canvas = document.getElementById('canvas31')
+        const ctx2 = canvas.getContext('2d')
+        ctx2.fillStyle = 'orange'
+        ctx2.fillRect(10, 10, 50, 50)
+      }
+      {
+        const canvas = document.getElementById('canvas32')
+        const ctx2 = canvas.getContext('2d')
+        ctx2.fillStyle = 'orange'
+        ctx2.fillRect(10, 10, 50, 50)
+      }
+      {
+        const canvas = document.getElementById('canvas33')
+        const ctx2 = canvas.getContext('2d')
         ctx2.fillStyle = 'orange'
         ctx2.fillRect(10, 10, 50, 50)
       }
