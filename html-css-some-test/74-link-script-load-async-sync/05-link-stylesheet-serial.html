@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>05 link stylesheet 串行</title>
+  <script src="js/log-helper.js"></script>
+  <script>
+    logScript('before-link-a', 'parse', '尚未加载任何 stylesheet');
+  </script>
+  <link rel="stylesheet" href="css/a.css" id="link-a" />
+  <script>
+    logScript('after-link-a-tag', 'parse', 'a.css 标签已插入，可能仍在下载');
+  </script>
+  <link rel="stylesheet" href="css/b.css" id="link-b" />
+  <link rel="stylesheet" href="css/c.css" id="link-c" />
+  <script>
+    logScript('after-all-link-tags', 'parse');
+    function hookLink(id, name) {
+      var el = document.getElementById(id);
+      el.addEventListener('load', function () {
+        logScript(name, 'load', 'stylesheet 加载完成');
+        tryRender();
+      });
+      el.addEventListener('error', function () {
+        logScript(name, 'error', '加载失败');
+        tryRender();
+      });
+    }
+    var rendered = false;
+    function tryRender() {
+      if (rendered) return;
+      if (document.readyState === 'complete') {
+        rendered = true;
+        renderLog('05 stylesheet（link load 事件 + 解析阶段日志）');
+      }
+    }
+    hookLink('link-a', 'a.css');
+    hookLink('link-b', 'b.css');
+    hookLink('link-c', 'c.css');
+  </script>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+    .box { width: 120px; height: 48px; margin: 8px 0; }
+    #log { background: #fafafa; border: 1px solid #ddd; padding: 1rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>05 — &lt;link rel="stylesheet"&gt;</h1>
+  <pre>
+• 样式表默认阻塞渲染（render-blocking）
+• 多个 link 按顺序请求；后续 script 仍可能先执行（CSS 不阻塞 JS 执行，但阻塞首次绘制）
+• 下方色块在未加载对应 CSS 前为白底
+  </pre>
+  <div class="box" id="box-a">#box-a</div>
+  <div class="box" id="box-b">#box-b</div>
+  <div class="box" id="box-c">#box-c</div>
+  <div id="log"></div>
+  <script>
+    window.addEventListener('load', function () {
+      logScript('window.load', 'event');
+      renderLog('05 stylesheet');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>01 默认 script — 串行阻塞</title>
+    <script src="js/log-helper.js"></script>
+    <script>
+      logScript("inline-head", "parse", "head 内联，在第一个外链 script 之前");
+    </script>
+    <script src="js/a.js"></script>
+    <script src="js/b.js"></script>
+    <script src="js/c.js"></script>
+    <script src="js/a.js"></script>
+    <script src="js/b.js"></script>
+    <script src="js/c.js"></script>
+    <script src="js/a.js"></script>
+    <script src="js/b.js"></script>
+    <script src="js/c.js"></script>
+    <script>
+      logScript("inline-head-end", "parse", "三个外链 script 都执行完后");
+    </script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 1.5rem;
+      }
+      #log {
+        background: #fafafa;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        margin-top: 1rem;
+      }
+      pre {
+        background: #f0f0f0;
+        padding: 0.75rem;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>01 — 无 async / defer 的 &lt;script src&gt;</h1>
+    <pre>
+行为要点：
+• 遇到 script 会暂停 HTML 解析
+• 多个 script 按文档顺序：下载完一个 → 执行 → 再下一个（串行）
+• 预期执行顺序：inline-head → a → b → c → inline-head-end → body 内联 → DOMContentLoaded
+  </pre
+    >
+    <div id="log">加载中…</div>
+    <script>
+      logScript("inline-body", "parse", "body 末尾内联");
+      document.addEventListener("DOMContentLoaded", function () {
+        logScript("DOMContentLoaded", "event");
+        renderLog("01 默认阻塞 script");
+      });
+    </script>
+  </body>
+</html>

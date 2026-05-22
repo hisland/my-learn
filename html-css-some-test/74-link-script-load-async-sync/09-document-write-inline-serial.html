@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>09 document.write 内联 script</title>
+  <script src="js/log-helper.js"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+    #log { background: #fafafa; border: 1px solid #ddd; padding: 1rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>09 — document.write 内联脚本</h1>
+  <script>
+    logScript('outer-before', 'parse');
+    document.write(
+      '<script>logScript("dw-inline-1", "execute", "write 出的内联 1");<\/script>'
+    );
+    document.write(
+      '<script>logScript("dw-inline-2", "execute", "write 出的内联 2");<\/script>'
+    );
+    logScript('outer-after', 'parse', '两段内联已同步跑完');
+  </script>
+  <pre>
+内联 script（无论手写还是 document.write）都会立即同步执行。
+  </pre>
+  <div id="log"></div>
+  <script>
+    renderLog('09 document.write 内联串行');
+  </script>
+</body>
+</html>

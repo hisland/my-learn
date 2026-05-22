@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>74 — link / script 串行与并行加载测试</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+    h1 { font-size: 1.4rem; }
+    section { margin: 1.5rem 0; }
+    a { display: block; margin: 0.35rem 0; }
+    code { background: #f5f5f5; padding: 0.1em 0.35em; border-radius: 3px; }
+    .tip { color: #555; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <h1>74 — &lt;link&gt; / &lt;script&gt; 串行与并行</h1>
+  <p class="tip">建议用本地服务器打开（如 <code>npx serve .</code>），并在 DevTools → Network 里勾选 <strong>Disable cache</strong>、必要时 <strong>Slow 3G</strong>，便于观察 async 乱序。</p>
+
+  <section>
+    <h2>HTML 标签 — &lt;script&gt;</h2>
+    <a href="01-script-blocking-serial.html">01 默认阻塞：串行下载 + 串行执行（a → b → c）</a>
+    <a href="02-script-async-parallel.html">02 async：并行下载，执行顺序不保证（large-b vs a）</a>
+    <a href="03-script-defer-ordered.html">03 defer：并行下载，DOM 解析完后按顺序执行</a>
+    <a href="04-script-mixed-blocking-async.html">04 混合：阻塞脚本 vs async 脚本</a>
+  </section>
+
+  <section>
+    <h2>HTML 标签 — &lt;link&gt;</h2>
+    <a href="05-link-stylesheet-serial.html">05 stylesheet：阻塞渲染，按书写顺序加载</a>
+    <a href="06-link-preload-script.html">06 rel=preload as=script + 普通 script</a>
+  </section>
+
+  <section>
+    <h2>document.write 注入</h2>
+    <a href="07-document-write-script-serial.html">07 document.write 外链 script：解析期写入，串行</a>
+    <a href="08-document-write-script-async.html">08 document.write 写入带 async 的 script</a>
+    <a href="09-document-write-inline-serial.html">09 document.write 内联 script 代码：同步执行</a>
+    <a href="11-document-write-defer.html">11 document.write 写入带 defer 的 script</a>
+  </section>
+
+  <section>
+    <h2>对比（动态插入，非 document.write）</h2>
+    <a href="10-append-script-async-defer.html">10 createElement 插入 script（async / defer / 默认）</a>
+  </section>
+</body>
+</html>

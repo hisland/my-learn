@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>02 script async — 并行下载</title>
+    <script src="js/log-helper.js"></script>
+    <script>
+      logScript("inline-before-async", "parse", "即将插入两个 async 外链");
+    </script>
+    <!-- 先写大的，后写小的；async 下常先执行 a.js -->
+    <script async src="js/large-b.js"></script>
+    <script async src="js/a.js"></script>
+    <script>
+      logScript(
+        "inline-after-async-tags",
+        "parse",
+        "async 标签已写入 DOM，尚未保证执行完"
+      );
+    </script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 1.5rem;
+      }
+      #log {
+        background: #fafafa;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        margin-top: 1rem;
+      }
+      pre {
+        background: #fff8e1;
+        padding: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>02 — &lt;script async&gt;</h1>
+    <pre>
+行为要点：
+• 下载不阻塞解析（与默认 script 不同）
+• 下完即执行，顺序不保证
+• 本页：先声明 large-b.js（体积大），再 a.js
+• 在 Slow 3G 下多次刷新，常见 a.js 先于 large-b.js 执行
+  </pre
+    >
+    <div id="log"></div>
+    <script>
+      logScript("inline-body", "parse");
+      window.addEventListener("load", function () {
+        logScript("window.load", "event", "所有 async 应已执行完");
+        renderLog("02 async（注意 large-b 与 a 的先后可能变化）");
+      });
+    </script>
+  </body>
+</html>

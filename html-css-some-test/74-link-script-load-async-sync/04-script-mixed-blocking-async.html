@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>04 阻塞 script + async 混合</title>
+  <script src="js/log-helper.js"></script>
+  <script async src="js/large-b.js"></script>
+  <script>
+    logScript('blocking-1', 'parse', '阻塞内联：会等上面 async 吗？不会等执行，只继续解析');
+  </script>
+  <script src="js/a.js"></script>
+  <script async src="js/b.js"></script>
+  <script src="js/c.js"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+    #log { background: #fafafa; border: 1px solid #ddd; padding: 1rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>04 — 阻塞 + async 混用</h1>
+  <pre>
+• 无 async/defer 的 script：仍阻塞解析，按顺序执行
+• async：后台下载，完成就插入执行队列
+• 典型：blocking-1 → a（阻塞链）→ c；large-b、b 可能在中间任意时刻插入
+  </pre>
+  <div id="log"></div>
+  <script>
+    window.addEventListener('load', function () {
+      renderLog('04 混合模式');
+    });
+  </script>
+</body>
+</html>

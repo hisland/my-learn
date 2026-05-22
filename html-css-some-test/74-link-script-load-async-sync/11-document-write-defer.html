@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>11 document.write defer script</title>
+  <script src="js/log-helper.js"></script>
+</head>
+<body>
+  <h1>11 — document.write 写入 defer script</h1>
+  <p>占位内容，延长 body 解析…</p>
+  <script>
+    logScript('dw-defer-before', 'parse');
+    document.write('<script defer src="js/large-b.js"><\/script>');
+    document.write('<script defer src="js/a.js"><\/script>');
+    document.write('<script defer src="js/b.js"><\/script>');
+    logScript('dw-defer-after', 'parse');
+  </script>
+  <p>body 结束</p>
+  <div id="log"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      logScript('DOMContentLoaded', 'event');
+      renderLog('11 document.write + defer（顺序应 large-b → a → b）');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>03 script defer — 有序延迟执行</title>
+  <script src="js/log-helper.js"></script>
+  <script defer src="js/large-b.js"></script>
+  <script defer src="js/a.js"></script>
+  <script defer src="js/b.js"></script>
+  <script>
+    logScript('inline-head', 'parse', 'defer 脚本标签已解析，执行要等 DOM 解析完');
+  </script>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+    #log { background: #fafafa; border: 1px solid #ddd; padding: 1rem; margin-top: 1rem; }
+    pre { background: #e8f5e9; padding: 0.75rem; }
+  </style>
+</head>
+<body>
+  <h1>03 — &lt;script defer&gt;</h1>
+  <p>下面这段 HTML 用于拉长解析过程，defer 脚本会在整文档解析完后按顺序执行。</p>
+  <div id="marker"></div>
+  <script>
+    logScript('inline-body', 'parse', 'DOM 树继续构建');
+    document.getElementById('marker').textContent = 'body 已解析到此处';
+  </script>
+  <pre>
+预期（DOM 解析完成后，defer 按书写顺序）：
+large-b.js → a.js → b.js
+且早于 DOMContentLoaded（defer 脚本之间）
+  </pre>
+  <div id="log"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      logScript('DOMContentLoaded', 'event');
+      renderLog('03 defer — 执行顺序应稳定为 large-b → a → b');
+    });
+  </script>
+</body>
+</html>

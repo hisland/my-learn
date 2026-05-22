@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>07 document.write 外链 script 串行</title>
+    <script src="js/log-helper.js"></script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 1.5rem;
+      }
+      #log {
+        background: #fafafa;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        margin-top: 1rem;
+      }
+      pre {
+        background: #e3f2fd;
+        padding: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>07 — document.write 写入 &lt;script src&gt;</h1>
+    <p id="p-before">解析到此处：before write</p>
+    <script>
+      logScript("dw-inline-before", "parse", "准备 document.write 2个外链");
+      document.write('<script src="js/a.js"><\/script>');
+      logScript("dw-inline-after", "parse", "write 结束；外链已同步执行完");
+    </script>
+    <script src="js/c.js"></script>
+    <script>
+      logScript("dw-inline-before", "parse", "准备 document.write 2个外链");
+      document.write('<script src="js/b.js"><\/script>');
+      logScript("dw-inline-after", "parse", "write 结束；外链已同步执行完");
+    </script>
+    <p id="p-after">after write block</p>
+    <pre>
+解析阶段 document.write 插入的 script 等价于手写标签：
+• 同步下载 + 执行，顺序 a → b → c
+• dw-inline-after 一定在 c.js 之后
+  </pre
+    >
+    <div id="log"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderLog("07 document.write 外链串行");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>10 动态 createElement script</title>
+  <script src="js/log-helper.js"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+    #log { background: #fafafa; border: 1px solid #ddd; padding: 1rem; margin-top: 1rem; }
+    button { margin: 0.25rem; padding: 0.4rem 0.8rem; }
+    pre { background: #f3e5f5; padding: 0.75rem; }
+  </style>
+</head>
+<body>
+  <h1>10 — 动态插入（对比 document.write）</h1>
+  <pre>
+解析完成后用 createElement('script')：
+• 默认：async 等价 false，但插入行为类似 async（不阻塞，下载完即执行）
+• 显式 script.async = true / script.defer = true 可再测
+  </pre>
+  <p>
+    <button type="button" id="btn-default">插入 large-b + a（默认）</button>
+    <button type="button" id="btn-async">插入 large-b + a（async=true）</button>
+    <button type="button" id="btn-defer">插入 large-b + a（defer=true）</button>
+  </p>
+  <div id="log"><p>点击按钮开始测试（每次会追加日志）</p></div>
+  <script>
+    function appendScript(src, opts) {
+      return new Promise(function (resolve) {
+        var s = document.createElement('script');
+        s.src = src;
+        if (opts && opts.async) s.async = true;
+        if (opts && opts.defer) s.defer = true;
+        s.onload = function () {
+          logScript(src, 'load', JSON.stringify(opts || {}));
+          resolve();
+        };
+        document.head.appendChild(s);
+        logScript(src, 'append', '已插入 DOM，' + JSON.stringify(opts || {}));
+      });
+    }
+
+    function runPair(label, opts) {
+      logScript('---', 'mark', label);
+      return appendScript('js/large-b.js', opts).then(function () {
+        return appendScript('js/a.js', opts);
+      }).then(function () {
+        renderLog('10 动态插入 — ' + label);
+      });
+    }
+
+    document.getElementById('btn-default').onclick = function () {
+      runPair('默认（动态 script 不阻塞 HTML）');
+    };
+    document.getElementById('btn-async').onclick = function () {
+      runPair('async=true', { async: true });
+    };
+    document.getElementById('btn-defer').onclick = function () {
+      runPair('defer=true', { defer: true });
+    };
+
+    logScript('page-ready', 'parse', '页面已解析，等待点击');
+  </script>
+</body>
+</html>

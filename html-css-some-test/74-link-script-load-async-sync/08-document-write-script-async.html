@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>08 document.write async script</title>
+  <script src="js/log-helper.js"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 1.5rem; }
+    #log { background: #fafafa; border: 1px solid #ddd; padding: 1rem; margin-top: 1rem; }
+    pre { background: #fff3e0; padding: 0.75rem; }
+  </style>
+</head>
+<body>
+  <h1>08 — document.write 写入 async script</h1>
+  <script>
+    logScript('dw-before', 'parse');
+    document.write('<script async src="js/large-b.js"><\/script>');
+    document.write('<script async src="js/a.js"><\/script>');
+    logScript('dw-after', 'parse', '与 HTML 里写 async 类似：不保证执行顺序');
+  </script>
+  <pre>
+注意：若在 DOMContentLoaded 之后调用 document.write，会清空文档（本页未演示）。
+本页仍在解析阶段写入，async 行为与 02 类似。
+  </pre>
+  <div id="log"></div>
+  <script>
+    window.addEventListener('load', function () {
+      renderLog('08 document.write + async');
+    });
+  </script>
+</body>
+</html>
