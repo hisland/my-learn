@@ -1,0 +1,16 @@
+services:
+  nacos:
+    # 2.4.2 + 内置 Derby 创建/列举命名空间会 SQL 报错（反引号语法），学习环境改用 2.3.2
+    # 见 https://github.com/alibaba/nacos/issues/12625
+    image: nacos/nacos-server:v2.3.2
+    container_name: nacos
+    environment:
+      - MODE=standalone
+      - JVM_XMS=256m
+      - JVM_XMX=256m
+      - JVM_XMN=128m
+      - NACOS_AUTH_ENABLE=false
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    restart: always
